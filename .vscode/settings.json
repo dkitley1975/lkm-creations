@@ -1,9 +1,24 @@
 {
+   "editor.fontSize": 16,
+   "python.terminal.activateEnvironment": true,
+   "python.formatOnSave": true,
+   "python.pythonPath": "venv/bin/python3.9",
+   "python.sortImports.args": ["==profile=black"],
+   "python.formatting.provider": "black",
+   "python.formatting.blackArgs": [
+      "--line-length=75"
+   ],
+   "[python]": {
+      "editor.codeActionsOnSave": {
+         "source.organizeImports": true
+      }
+   },
+
    "python.linting.pylintEnabled": true,
    "python.linting.enabled": true,
-   "python.linting.pep8Enabled": false,
+   "python.linting.lintOnSave": true,
+   "python.linting.pep8Enabled": true,
    "python.linting.flake8Enabled": true,
-   "python.terminal.activateEnvironment": false,
    "python.formatting.autopep8Path": "/home/gitpod/.pyenv/shims/autopep8",
    "python.linting.flake8Path": "/home/gitpod/.pyenv/shims/flake8",
    "cornflakes.linter.executablePath": "/home/gitpod/.pyenv/shims/flake8",
@@ -20,8 +35,37 @@
       "**/core.python*": true,
       "**/CVS": true
    },
-   "files.autoSave": "off",
+
+   "files.autoSave": "onFocusChange",
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
-   "editor.defaultFormatter": "HookyQR.beautify"
+   "editor.defaultFormatter": "HookyQR.beautify",
+   "python.testing.unittestArgs": [
+      "-v",
+      "-s",
+      "./tests",
+      "-p",
+      "test*.py"
+   ],
+   "python.testing.pytestEnabled": false,
+   "python.testing.unittestEnabled": true,
+
+   //DJANGO EXTENSIONS
+   "files.associations": {
+      "**/*.html": "html",
+      "**/*templates/**/*": "django-html",
+      "**/templates/**/*": "django.txt",
+      "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+   },
+   "[django-html]": {
+      "editor.defaultFormatter": "HookyQR.beautify"
+   },
+   "cSpell.words": [
+      "siteadmin"
+   ],
+   "workbench.colorCustomizations": {
+      "tab.activeBackground": "#282c34",
+      "activityBar.background": "#282c34",
+      "sideBar.background": "#282c34",
+   }
 }

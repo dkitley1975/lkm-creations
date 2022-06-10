@@ -1,0 +1,43 @@
+[{
+	"model": "shop.category",
+	"pk": 1,
+	"fields": {
+		"name": "pattern",
+		"slug": "pattern"
+	}
+}, {
+	"model": "shop.category",
+	"pk": 2,
+	"fields": {
+		"name": "accessories",
+		"slug": "accessories"
+	}
+}, {
+	"model": "shop.category",
+	"pk": 3,
+	"fields": {
+		"name": "kit",
+		"slug": "kit"
+	}
+}, {
+	"model": "shop.category",
+	"pk": 4,
+	"fields": {
+		"name": "yarn",
+		"slug": "yarn"
+	}
+}, {
+	"model": "shop.category",
+	"pk": 5,
+	"fields": {
+		"name": "teddy bear",
+		"slug": "teddy-bear"
+	}
+}, {
+	"model": "shop.category",
+	"pk": 6,
+	"fields": {
+		"name": "doll",
+		"slug": "doll"
+	}
+}]

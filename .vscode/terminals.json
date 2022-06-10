@@ -1,0 +1,72 @@
+{
+   "autorun": true,
+   "autokill": true,
+   "terminals": [{
+         "name": "Pre-Commit",
+         "description": "For Pre-Commit commands",
+         "open": true,
+         "focus": true,
+         "icon": "tasklist",
+         "commands": [
+            "source venv/bin/activate",
+            "pre-commit run --all-files"
+         ],
+         "execute": false,
+         "color": "terminal.ansiBlue"
+      },
+      {
+         "name": "Unit-Tests",
+         "description": "For running UnitTests commands",
+         "open": true,
+         "focus": false,
+         "icon": "beaker",
+         "commands": [
+            "source venv/bin/activate",
+            "coverage run manage.py test",
+            "coverage report",
+            "coverage html"
+         ],
+         "execute": false,
+         "color": "terminal.ansiCyan"
+      },
+      {
+         "name": "Django Server",
+         "description": "For running python commands",
+         "open": false,
+         "focus": false,
+         "icon": "device-desktop",
+         "commands": [
+            "source venv/bin/activate",
+            "python3 manage.py runserver"
+         ],
+         "execute": false,
+         "color": "terminal.ansiGreen"
+      },
+      {
+         "name": "Python Shell",
+         "description": "For running commands",
+         "open": true,
+         "focus": false,
+         "commands": [
+            "source venv/bin/activate",
+            "python3 manage.py shell",
+            "from django.contrib.sessions.models import Session",
+            "s = Session.objects.get(pk='COOKIE_REF') s.get_decoded()"
+
+         ],
+         "execute": false,
+         "color": "terminal.ansiRed"
+      },
+      {
+         "name": "BASH",
+         "description": "For running commands",
+         "open": true,
+         "focus": true,
+         "commands": [
+            "source venv/bin/activate"
+         ],
+         "execute": false,
+         "color": "terminal.ansiYellow"
+      }
+   ]
+}

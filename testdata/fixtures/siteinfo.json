@@ -1,0 +1,17 @@
+[{
+	"model": "siteadmin.siteinfo",
+	"pk": 1,
+	"fields": {
+		"alert_message": "We are closed for 1 week, you can still purchase, but we will ship your order on the first day back.",
+		"image": "images/homepage/homepage_image.png",
+		"image_alt_text": "Amigurumi Crochet Doll of Her Royal Highness and a Corgi",
+		"free_delivery_over": "19.99",
+		"delivery_cost_price": "4.00",
+		"delivery_price": "7.00",
+		"phone_number": "07739792514",
+		"email_address": "leanne@kitley-mcnamara.com",
+		"is_active": true,
+		"created_at": "2022-05-24T21:22:02.839Z",
+		"updated_at": "2022-05-24T21:22:02.839Z"
+	}
+}]

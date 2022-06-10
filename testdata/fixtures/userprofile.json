@@ -1,0 +1,40 @@
+[{
+	"model": "profile.userprofile",
+	"pk": 1,
+	"fields": {
+		"user": 1,
+		"default_street_address1": "7 Roslyn Avenue",
+		"default_street_address2": null,
+		"default_town_or_city": "Huddersfield",
+		"default_county": "West Yorkshire",
+		"default_country": "GB",
+		"default_postcode": "HD4 7EW",
+		"default_phone_number": "07703033731"
+	}
+}, {
+	"model": "profile.userprofile",
+	"pk": 2,
+	"fields": {
+		"user": 2,
+		"default_street_address1": "Bag End",
+		"default_street_address2": "1 Bagshot Row",
+		"default_town_or_city": "Hobbington, The Shire",
+		"default_county": "Middle-earth, Arda",
+		"default_country": "GB",
+		"default_postcode": "BE1 2SH",
+		"default_phone_number": "0123456789"
+	}
+}, {
+	"model": "profile.userprofile",
+	"pk": 3,
+	"fields": {
+		"user": 3,
+		"default_street_address1": "C/O Barliman Butterbur",
+		"default_street_address2": "The Prancing Pony",
+		"default_town_or_city": "Bree",
+		"default_county": "Middle-earth, Arda",
+		"default_country": "GB",
+		"default_postcode": "BR3 9SH",
+		"default_phone_number": "0987654321"
+	}
+}]
