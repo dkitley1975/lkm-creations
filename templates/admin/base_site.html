@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+{% block title %}
+{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }}
+{% endblock %}
+{% block extrastyle %}
+<!-- Local CSS-->
+<link rel="stylesheet" href="{% static 'css/admin_color.css' %}">
+{% endblock %}
+{% block extrahead %}
+<meta name="theme-color" content="#74241d">
+{% load static %}
+<link rel="icon" href="{% static 'webmanifest/favicons/favicon.ico' %}">
+<link rel="manifest" href="{% static 'webmanifest/site.webmanifest' %}">
+<link rel="apple-touch-icon" sizes="180x180"
+	href="{% static 'webmanifest/favicons/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="512x512"
+	href="{% static 'webmanifest/favicons/android-chrome-512x512' %}">
+{% endblock %}
+{% block branding %}
+<h1 id="site-name" class=" text-black my-0">
+	{% comment %} <a href="{% url 'home' %}" class="nav-link"> {% endcomment %}
+		{% comment %} #TODO update the link {% endcomment %}
+		<a href="#" class="nav-link">
+			<span class="logo-font-lkm">LKM </span>
+			<span class="logo-font-creations">Creations
+
+				{% trans "- Admin Site" %}
+			</span>
+		</a>
+</h1>
+{% endblock %}
+{% block nav-global %}{% endblock %}

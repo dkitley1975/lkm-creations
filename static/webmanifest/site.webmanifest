@@ -1,0 +1,38 @@
+{
+	"theme_color": "#d48a8a",
+	"background_color": "#d48a8a",
+	"display": "standalone",
+	"description": "Created by David Kitley-McNamara for his 5th Portfolio Project for the Code Institute. This is a site is for LKM Creations. A Site selling hand created amigurumi style crochet gifts, and other handmade items. With a donation goes to our local charity run preschool from each sale.",
+	"name": "LKM Creations",
+	"short_name": "LKM Creations",
+	"icons": [{
+			"src": "favicons/favicon.ico",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "favicons/maskable_icon.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "favicons/apple-touch-icon.png",
+			"sizes": "180x180",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "favicons/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "favicons/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	]
+}

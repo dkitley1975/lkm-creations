@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
+
+:root {
+	/* Default colours */
+	--clr-brand-primary: #F4BFBF;
+	--clr-brand-primary-lightest: #fdcece43;
+	--clr-brand-primary-light: #f4bfbf43;
+	--clr-brand-primary-darker: #d48a8a;
+	--clr-brand-secondary: #FFD9C0;
+	--clr-brand-secondary-darker: #fabd95;
+
+	--clr-brand-tertiary: #FAF0D7;
+
+
+
+	--clr--grey: rgb(126, 132, 138);
+}
+
+
+
+body {
+	margin-top: 56px;
+}
+
+
+
+.active {
+	font-weight: bold !important;
+}
+
+.alert {
+	position: relative;
+	margin-top: 25px;
+	margin-right: auto;
+	margin-bottom: 1rem;
+	margin-left: auto;
+	border: 1px solid transparent;
+	border-radius: .35rem;
+	padding: 1rem 2.5rem;
+	-webkit-border-radius: .35rem;
+	-moz-border-radius: .35rem;
+	-ms-border-radius: .35rem;
+	-o-border-radius: .35rem;
+}
+
+.alert-primary {
+	color: black;
+	background-color: var(--clr-brand-primary-light);
+}
+
+.arrow-danger {
+	border-bottom-color: #dc3545 !important;
+}
+
+.arrow-dark {
+	border-bottom-color: #343a40 !important;
+}
+
+.arrow-info {
+	border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+	border-bottom-color: #f8f9fa !important;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+	border-bottom-color: var(--clr-brand-primary) !important;
+}
+
+.arrow-secondary {
+	border-bottom-color: var(--clr-brand-secondary) !important;
+}
+
+.arrow-success {
+	border-bottom-color: #28a745 !important;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 10px solid black;
+	position: absolute;
+	top: -10px;
+	right: 36px;
+}
+
+.arrow-warning {
+	border-bottom-color: #ffc107 !important;
+}
+
+.autohide {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1010;
+	width: 100%;
+}
+
+.bg-blur {
+	backdrop-filter: blur(1.5rem);
+}
+
+.bg-danger {
+	background-color: #dc3545 !important;
+}
+
+.bg-dark {
+	background-color: #343a40 !important;
+}
+
+.bg-info {
+	background-color: #17a2b8 !important;
+}
+
+.bg-light {
+	background-color: var(--clr-brand-primary) !important;
+}
+
+.bg-light {
+	background-color: #f8f9fa !important;
+}
+
+.bg-primary {
+	background-color: var(--clr-brand-primary) !important;
+}
+
+.bg-primary-darker {
+	background-color: var(--clr-brand-primary-darker) !important;
+}
+
+.bg-primary-light {
+	background-color: var(--clr-brand-primary-light) !important;
+}
+
+.bg-success {
+	background-color: #28a745 !important;
+}
+
+.bg-warning {
+	background-color: #ffc107 !important;
+}
+
+.border-clr-primary {
+	border: solid var(--clr-brand-primary) !important;
+}
+
+.box-shadow {
+	box-shadow: 0px 63px 46px -53px rgba(0, 0, 0, 0.8);
+}
+
+.brand-font {
+	font-family: 'Caveat',
+		sans-serif;
+}
+
+.btn {
+	float: right;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: var(--clr-brand-primary-darker);
+	border-color: var(--clr-brand-primary-darker);
+}
+
+.btn-primary:hover {
+	color: rgb(0, 0, 0);
+	background-color: var(--clr-brand-primary-lightest);
+	border-color: var(--clr-brand-primary-darker);
+}
+
+.btn-secondary {
+	color: rgb(0, 0, 0);
+	background-color: var(--clr-brand-secondary);
+	border-color: var(--clr-brand-primary-darker);
+}
+
+.btn-secondary:hover {
+	color: rgb(0, 0, 0);
+	background-color: var(--clr-brand-secondary-darker);
+	border-color: var(--clr-brand-primary-darker);
+}
+
+
+
+.modal-backdrop {
+	display: none;
+}
+
+
+/* ensures the increment/decrement arrows always display */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	opacity: 1;
+}
+
+.logo-font-creations {
+	font-family: 'Caveat',
+		sans-serif;
+
+	font-weight: 500;
+	color: var(--clr-brand-primary)
+}
+
+.logo-font-lkm {
+	font-family: 'Caveat',
+		sans-serif;
+
+	font-weight: 700;
+	color: var(--clr-brand-primary-darker)
+}
+
+.modal-backdrop {
+	position: unset !important;
+}
+
+.product-image-size {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	max-height: 350px;
+	overflow: hidden;
+	aspect-ratio: 1;
+}
+
+.rounded-10 {
+	border-radius: 10px;
+}
+
+.rtt-button {
+	display: none;
+	position: fixed;
+	right: 10px;
+	bottom: 30px;
+	background-color: rgba(176, 175, 175, 0.165);
+	width: 42px;
+	height: 42px;
+}
+
+.rtt-link {
+	cursor: pointer;
+}
+
+.scrolled-down {
+	transform: translateY(-52px);
+	transition: all 0.3s ease-in-out;
+	-webkit-transform: translateY(-52px);
+	-moz-transform: translateY(-52px);
+	-ms-transform: translateY(-52px);
+	-o-transform: translateY(-52px);
+}
+
+.scrolled-up {
+	transform: translateY(0);
+	transition: all 0.3s ease-in-out;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+}
+
+#shopAnnouncementModal {
+	width: 80vw;
+	max-width: 600px;
+	min-height: 100px;
+	background-color: var(--clr-brand-primary-lightest);
+	box-sizing: border-box;
+	position: fixed;
+	top: 33%;
+	left: 50%;
+	transform: translate(-50%, -66%);
+	display: none;
+	box-shadow: 0px 63px 46px -53px rgb(0, 0, 0);
+	-webkit-transform: translate(-50%, -66%);
+	-moz-transform: translate(-50%, -66%);
+	-ms-transform: translate(-50%, -66%);
+	-o-transform: translate(-50%, -66%);
+	z-index: 1100 !important;
+	backdrop-filter: blur(1.5rem);
+}
+
+#shopAnnouncementModal .modal-top {
+	width: 100%;
+	position: relative;
+}
+
+#shopAnnouncementModal .modal-top #closeBtn {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	border: 0px;
+	padding: 4px 8px;
+	color: #333;
+	cursor: pointer;
+}
+
+#shopAnnouncementModal:hover {
+	background: var(--clr-brand-primary);
+	/* color: #fff; */
+}
+
+#shopAnnouncementModal:hover .modal-top #closeBtn {
+	background: var(--clr-brand-secondary);
+}
+
+.text-black {
+	color: black !important;
+}
+
+.toast-capper {
+	height: 3px;
+}
+
+/* ------------------------------- bootstrap toasts */
+.toast-container {
+	position: fixed;
+	top: 72px;
+	right: 15px !important;
+	left: auto;
+	max-width: 90vw;
+
+	z-index: 99999999999 !important;
+}
+
+.toast-custom-toast {
+	overflow: visible;
+}
+
+@media screen and (min-width: 768px) {
+	body {
+		margin-top: 90px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.modal {
+		top: 50px;
+	}
+}
