@@ -15,44 +15,6 @@ repos:
     #     - --pattern=develop|main
     - id: requirements-txt-fixer
 
--   repo: https://github.com/psf/black
-    rev: 22.3.0
-    hooks:
-    -   id: black
-        args:
-          - --line-length=75
-        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
--   repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
-    hooks:
-    - id: isort
-# -   repo: https://github.com/PyCQA/pydocstyle
-#     rev: 6.1.1
-#     hooks:
-#     - id: pydocstyle
-# -   repo: https://github.com/pre-commit/mirrors-mypy
-#     rev: v0.942
-#     hooks:
-#     - id: mypy
-#       additional_dependencies:
-#         - types-requests
-#       args:
-#         - --ignore-missing-imports
-# -   repo: https://github.com/PyCQA/pylint
-#     rev: v2.13.4
-#     hooks:
-#     - id: pylint
-#       args:
-#         - --disable=unused-argument
--   repo: https://github.com/myint/autoflake
-    rev: v1.4
-    hooks:
-    - id: autoflake
-      args:
-        - --in-place
-        - --remove-unused-variables
-        - --remove-all-unused-imports
-      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
@@ -64,4 +26,26 @@ repos:
         # D106 Missing docstring in public nested class
         # D401 First line should be in imperative mood
         - --extend-ignore=D106,D401
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
+
+-   repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+        args:
+          - --line-length=75
+        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+    - id: isort
+
+-   repo: https://github.com/myint/autoflake
+    rev: v1.4
+    hooks:
+    - id: autoflake
+      args:
+        - --in-place
+        - --remove-unused-variables
+        - --remove-all-unused-imports
       exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
