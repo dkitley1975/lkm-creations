@@ -60,7 +60,10 @@ INSTALLED_APPS = [
     "django_countries",
     "storages",
     # local apps
+    "home",
+    "products",
     "siteadmin",
+    "store",
     "testdata",
 ]
 
@@ -94,6 +97,7 @@ TEMPLATES = [
                 "django.template.context_processors.media",
                 # My Custom Context Processors
                 "siteadmin.custom_context_processors.site_info",
+                "products.custom_context_processors.categories",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",
