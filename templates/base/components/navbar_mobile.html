@@ -1,0 +1,198 @@
+{% load active_link_tags %}
+<!-- navbar_mobile.html -->
+<nav class="autohide navbar navbar-expand-md navbar-light bg-white px-2 mb-5
+	border-bottom">
+	<div class="container-fluid">
+		<a class="navbar-brand d-md-none" href="{% url 'home:home' %}">
+			<h4 class="text-black my-0">
+				<span class="logo-font-lkm">LKM </span><span
+					class="logo-font-creations">Creations</span>
+			</h4>
+		</a>
+		<div>
+		</div>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#main_nav" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-md-center"
+			id="main_nav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link {% if '/products' in request.path %}active{% endif %}"
+						href="{% url 'store:products' %}"
+						aria-current="All Products">All Products</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle {% if '/category/' in request.path %}active{% endif %}"
+						href="#" id="dropdown" data-bs-toggle="dropdown"
+						aria-expanded="false">Shop by Category</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown">
+						{% for category in categories %}
+						<li>
+							<a class="dropdown-item"
+								href="/category/{{ category.slug }}">
+								{{ category.name|title }}'s</a>
+						</li>
+						{% endfor %}
+						<hr class="dropdown-divider" />
+						<li>
+							<a class="dropdown-item" href="#">
+								Something else here</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {% if '/sale' in request.path %}active{% endif %}"
+						href="{% url 'store:sale' %}"
+						aria-current="items on sale">Sale
+						Items</a>
+				</li>
+				{% if request.user.is_superuser %}
+				<li class="nav-item">
+					<a class="nav-link" href="#" tabindex="-1"
+						aria-current="Product Managment">Product
+						Managment</a>
+				</li>
+				{% endif %}
+
+			</ul>
+
+
+			<div class="d-flex justify-content-between">
+				{% if request.user.is_authenticated %}
+				<!-- sign-out-confirmation-modal -->
+				<li class="list-inline-item">
+					<!-- Button trigger modal -->
+					<a class="nav-link text-black" href="#" role="button"
+						data-bs-toggle="modal"
+						data-bs-target="#logoutModalMobile"
+						aria-expanded="false">
+						<div class="text-center">
+							<div><i class="fs-5 bi bi-box-arrow-right"
+									title="Click to Logout"></i>
+							</div>
+							<p class="fs-6 fw-semibold">
+								Logout
+							</p>
+						</div>
+					</a>
+					<!-- Modal -->
+					<div class="modal fade" id="logoutModalMobile"
+						tabindex="-1" aria-labelledby="logoutModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content ">
+								<div class="modal-header">
+									<h3 class="modal-title"
+										id="logoutModalLabel">Logout
+										Confirmation:</h3>
+								</div>
+								<div class="modal-body">
+									<p>Are you sure you want to logout?</p>
+									<form method="post"
+										action="/accounts/logout/">
+										{% csrf_token %}
+
+										<div class="modal-footer">
+											<button type="button"
+												class="btn btn-secondary"
+												data-bs-dismiss="modal">Close</button>
+											<button type="submit"
+												class="btn btn-primary">Logout</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- END of sign-out-confirmation-modal -->
+				<!-- my-account-link -->
+				<li class="list-inline-item">
+					<a class="text-black nav-link" {% comment %}
+						href="{% url "profile:dashboard" %}" id="user-options"
+						{% endcomment %} data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<div class="text-center">
+							<div><i class="fs-5 bi bi-person-fill"></i></div>
+							<p class="my-0 small">My Account</p>
+						</div>
+					</a>
+				</li>
+				<!-- END of my-account-link -->
+				{% else %}
+				<!-- register -->
+				<li class="list-inline-item">
+					<a class="nav-link text-black" href="/accounts/signup"
+						role="button" aria-expanded="false">
+						<div class="text-center">
+							<div><i class="fs-5 bi bi-person-plus"
+									title="Click to Register"></i>
+							</div>
+							<p class="fs-6 fw-semibold">
+								Register
+							</p>
+						</div>
+					</a>
+
+				</li>
+				<!-- login -->
+				<li class="list-inline-item">
+					<a class="nav-link text-black" href="/accounts/login"
+						role="button" aria-expanded="false">
+						<div class="text-center">
+							<div><i class="bi bi-box-arrow-in-right"
+									title="Click to Sign In"></i>
+							</div>
+							<p class="fs-6 fw-semibold">
+								Login
+							</p>
+						</div>
+					</a>
+				</li>
+				{% endif %}
+				<!-- basket-nav-info -->
+				<li class="list-inline-item">
+					<a href="{% comment %} {% url "basket:basket-summary" %} {% endcomment %}"
+						class="{% if total_quantity is 0 %}text-info font-weight-bold
+					{% else %}
+					text-black
+					{% endif %} nav-link" type="button" role="button">
+						<div class="text-center">
+							<div class="d-inline-flex">
+								{% if total_quantity is 0 %}
+								<span id="basket_quantity"
+									class="small text-muted"></span>
+								<i class="fs-5 bi bi-basket3 mx-1"></i>
+								{% else %}
+								<span id="basket_quantity"
+									class="small">{{ total_quantity }}</span>
+								<i class="fs-5 bi bi-cart4 mx-1"></i>
+								{% endif %}
+							</div>
+							<p class="fs-6 fw-semibold">
+								{% if total_quantity is not 0 %}
+								£<span id="basket_subtotal">
+									{{ subtotal | floatformat:2 }}
+								</span>
+								{% else %}
+								<span id="basket_subtotal">Basket</span>
+								{% endif %}
+							</p>
+						</div>
+					</a>
+				</li>
+				<!-- END of basket-nav-info -->
+
+			</div>
+			<div class="d-md-none col-10 offset-1 my-auto py-1 py-lg-0">
+				{% include "base/components/search.html" %}
+			</div>
+
+		</div> <!-- navbar-collapse.// -->
+	</div>
+	<!-- container-fluid.// -->
+</nav>
+<!-- end of navbar_mobile.html -->

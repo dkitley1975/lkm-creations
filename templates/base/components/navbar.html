@@ -1,0 +1,54 @@
+{% load active_link_tags %}
+<!-- navbar.html -->
+<nav class="navbar navbar-expand-md navbar-light bg-primary rounded d-none d-md-block"
+	aria-label="Shop Navigation Bar">
+	<div class="container-fluid justify-content-md-center" id="shopNavbar">
+
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link {% if '/sale' in request.path %}active{% endif %} fw-bolder"
+					href="{% url 'store:sale' %}"
+					aria-current="items on sale">Sale Items</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link {% if '/products' in request.path %}active{% endif %}"
+					href="{% url 'store:products' %}"
+					aria-current="All Products">All
+					Products</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle {% if '/category/' in request.path %}active{% endif %}"
+					href="#" id="dropdown" data-bs-toggle="dropdown"
+					aria-expanded="false">Shop by Category</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdown">
+					{% for category in categories %}
+					<li>
+						<a class="dropdown-item"
+							href="/category/{{ category.slug }}">
+							{{ category.name|title }}'s</a>
+					</li>
+					{% endfor %}
+					<hr class="dropdown-divider" />
+					<li>
+						<a class="dropdown-item" href="#">
+							Something else here</a>
+					</li>
+				</ul>
+			</li>
+			{% if request.user.is_superuser %}
+			<li class="nav-item">
+				<a class="nav-link" href="#" tabindex="-1"
+					aria-current="Product Managment">Product Managment</a>
+			</li>
+			{% endif %}
+		</ul>
+		<div class="d-md-none col-10 offset-1 my-auto py-1 py-lg-0">
+			{% include "base/components/search.html" %}
+		</div>
+	</div>
+
+
+</nav>
+
+
+<!-- end of navbar.html -->
