@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "storages",
     # local apps
     "home",
+    "basket",
     "products",
     "siteadmin",
     "store",
@@ -98,6 +99,7 @@ TEMPLATES = [
                 # My Custom Context Processors
                 "siteadmin.custom_context_processors.site_info",
                 "products.custom_context_processors.categories",
+                "basket.custom_context_processors.basket_contents",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	{% include "base/layout/header.html" %} {% block metadescription %}
+	{% endblock %}
+	<title>{% block title %}LKM Creations{% endblock %}</title>
+	{% include "base/layout/stylesheets.html" %}
+	{% block custom_page_stylesheet %}{% endblock %}
+	{% include "base/layout/base_javascripts.html" %}
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+	<!-- includes NAV -->
+	{% include "base/components/account_and_basket_bar.html" %}
+
+	{% include "base/components/navbar_mobile.html" %}
+
+
+	<div id="shopAnnouncementModal"
+		class="rounded-10 box-shadow shopAnnouncementModal bg-blur">
+		<div class="modal-top">
+			<button id="closeBtn">X</button>
+		</div>
+		<div class="p-5">
+			<h2 class="fs-4 text-center">
+				Site information</h2>
+			<hr>
+			<h2 class="fs-5 text-center">
+				{{ site_info.alert_message }}</h2>
+		</div>
+	</div>
+	<div class="toast-container">
+
+
+		{% if messages %}
+		{% for message in messages %}
+
+		{% with message.level as level %}
+		{% if level == 40 %}
+		{% include 'toasts/toast_error.html' %}
+		{% elif level == 30 %}
+		{% include 'toasts/toast_warning.html' %}
+		{% elif level == 25 %}
+		{% include 'toasts/toast_success.html' %}
+		{% else %}
+		{% include 'toasts/toast_info.html' %}
+		{% endif %}
+		{% endwith %}
+		{% endfor %}
+		{% endif %}
+	</div>
+
+
+	<!-- Main Block Content -->
+	{% block content %} {% endblock content %}
+	<!-- End of Main Block Content -->
+	<!-- Footer -->
+	{% include "base/components/footer.html" %}
+	{% include "store/components/return_to_top_button.html" %}
+
+	<!-- End of Footer -->
+
+
+	<!-- Local JS-->
+	<script src="{% static 'js/show_alert_once.js' %}"></script>
+	<script src="{% static 'js/show_toast.js' %}"></script>
+	<script src="{% static 'js/return_to_top_button.js' %}"></script>
+	<!-- Stripe JS-->
+	<script src="https://js.stripe.com/v3/"></script>
+	{% block postloadjs %}
+	{{ block.super }}
+	{% endblock %}
+
+</body>
+
+</html>

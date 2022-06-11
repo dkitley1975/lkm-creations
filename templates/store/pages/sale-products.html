@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
+<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<!-- SEO win meta tags -->
+<meta name="description" content="DESCRIPTION">
+<!-- Each page should have a unique description. Page, not site. -->
+<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
+<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
+<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
+
+<meta name="keywords" content="KEYWORDS">
+<!-- These are the keywords that your site can be searched with on Google -->
+<!-- Make these single words, relevant to your site, often searched -->
+<meta name="robots" content="index, follow">
+<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
+<!-- noindex, nofollow is the opposite -->
+<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
+Bing to judge your site based on that content -->
+{% endblock %}
+
+{% block title %}LKM Creations{% endblock %}
+<!-- This is what will display in the tab at the top of a user's browser window -->
+<!-- Title should be less than 60 characters -->
+<!-- Unique title on every page, don't repeat yourself -->
+<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
+<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
+
+{% block custom_page_stylesheet %}{% endblock %}
+
+
+{% block content %}
+
+<main class="mb-5">
+	<section class="col-md-12 text-center pt-2">
+		<h1 class="my-3 fs-1">Items Currently Reduced</h1>
+	</section>
+	<section class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
+		row-cols-xl-4 g-5">
+		{% for product in products %}
+		{% include "store/components/product_card.html" %}
+		{% endfor %}
+	</section>
+</main>
+{%endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ block.super }}
+{% load static %}
+<!-- Page specific JS-->
+{% endblock %}

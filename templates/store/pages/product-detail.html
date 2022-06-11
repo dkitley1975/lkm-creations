@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
+<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- SEO win meta tags -->
+<meta name="description" content="Purchase as a gift our {{ product.name|title}} -
+	{{ product.description|title|striptags|safe|truncatechars:100 }}">
+<!-- Each page should have a unique description. Page, not site. -->
+<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
+<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
+<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
+<meta name="keywords" content="{{ product.keywords }}">
+<!-- These are the keywords that your site can be searched with on Google -->
+<!-- Make these single words, relevant to your site, often searched -->
+<meta name="robots" content="index, follow">
+<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
+<!-- noindex, nofollow is the opposite -->
+<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
+Bing to judge your site based on that content -->
+{% endblock %}
+{% block title %}LKM Creations Shop - Product - {{ product.name|title }}
+{% endblock %}
+<!-- This is what will display in the tab at the top of a user's browser window -->
+<!-- Title should be less than 60 characters -->
+<!-- Unique title on every page, don't repeat yourself -->
+<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
+<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
+{% block custom_page_stylesheet %} {% endblock %}
+{% block content %}
+<main class="px-3">
+	<div class="row">
+		<div class="col-10 offset-1 col-md-4 col-lg-4 offset-lg-2">
+			<div class="image-container my-5">
+				{% if product.image.url %}
+				<a>
+					<img class="card-img-top img-fluid radius-with-box-shadow"
+						src="{{ product.image.url }}"
+						alt="{{ product.image_alt_text }}"
+						oncontextmenu="return false;">
+				</a>
+				{% else %}
+				<a href="#">
+					<img class="card-img-top img-fluid"
+						src="{{ MEDIA_URL }}images/default_image.png"
+						alt="{{ product.name }}">
+				</a>
+				{% endif %}
+			</div>
+		</div>
+		<div class="col-10 offset-1 col-md-5 col-lg-4">
+			<div class="mb-5 mt-md-5">
+				<h1 id="product_name" class="mb-0 fs-2 fw-bold mb-4">
+					{{ product.name|title }}
+				</h1>
+
+				<form class="form"
+					action="{% url 'basket:add_to_basket' product.id %}"
+					method="POST">
+					{% csrf_token %}
+					<div id="add_to_basket" class="col-12 my-2">
+						<div class="row">
+							<div class="col-12">
+								<p class="mt-3"><strong>Quantity:</strong></p>
+								<div class="form-group">
+									<input id="id_qty_{{ product.id }}"
+										data-item_id="{{ product.id }}"
+										class="form-control qty_input"
+										type="number" {% comment %} TODO change
+										max to stock value {% endcomment %}
+										name="quantity" value="1" min="1"
+										max="5">
+								</div>
+							</div>
+							<div class="row justify-content-center mt-3 mx-0
+								mb-2">
+								<div class="col-12 col-md-6 text-center mx-0">
+									<a type="button"
+										class="btn btn-outline-secondary btn-md my-2 w-100"
+										href="{% url 'store:products' %}">
+										<i class="fs-5 bi bi-chevron-left">&nbsp;
+										</i>
+										<span class="text-uppercase small">
+											Keep Shopping</span></a>
+								</div>
+								<div class="col-12 col-md-6 text-center mx-0">
+									<button type="submit"
+										id="add_to_basket_btn"
+										value="Add to Basket" class="btn btn-primary btn-md
+									text-uppercase small my-2 w-100">Add to Basket <i class=" fs-5 bi
+										bi-cart-plus"></i></button>
+
+								</div>
+							</div>
+							<input type="hidden" name="redirect_url"
+								value="{{ request.path }}">
+						</div>
+						{% if product.sale_price %}
+						<p
+							class=" lead mb-0 text-left fw-bolder text-danger fst-italic">
+							<s>
+								was £<span
+									class="fs-5">{{ product.retail_price }}</span></s>
+						</p>
+						<p class="lead mb-0 text-left fw-bolder"><span
+								class="fst-italic">now only</span> £<span
+								class="fs-3">{{ product.sale_price }}</span</p>
+									{% else %} <p
+									class="lead mb-0 text-left fw-bolder">
+								£<span class="fs-3">{{ product.retail_price }}
+									</span</p> {% endif %} <h2
+										class="lead mb-0 text-left fw-bolder mt-3">
+									Description</h2>
+									<p>{{ product.description }}</p>
+									{% if product.size %}
+									<p
+										class="lead mb-0 text-left fw-bolder mt-1 fs-5">
+										Size: <span
+											class="fw-normal fs-5">{{ product.size }}</span>
+									</p>
+									{% endif %}
+									{% if product.weight %}
+									<p
+										class="lead mb-0 text-left fw-bolder mt-1 fs-5">
+										Weight:<span class="fw-normal fs-5">
+											{{ product.weight|floatformat }}
+											grams</span>
+									</p>
+									{% endif %}
+									{% if product.is_washable %}
+									<p
+										class="lead mb-0 text-left fw-bolder mt-1 fs-5">
+										Care instructions:<span
+											class="fw-normal fs-5">
+											Machine washable at 30° (hand-wash
+											or
+											delicate mode), dry flat, do
+											not tumble dry.</span></p>
+									{% endif %}
+									{% if product.sku %}
+									<p
+										class=" mb-0 text-left fw-bolder mt-1 fs-6">
+										SKU:<span class="fw-normal fs-6">
+											{{ product.sku }}</span></p>
+									{% endif %}
+									{% if product.category.name %}
+									<p class="small mt-1 mb-0 text-left">
+										<a class="text-muted"
+											href="/store/{{ product.category.slug }}">
+											<i
+												class="fs-5 bi bi-tags-fill"></i>
+											{{ product.category.name }}</a>
+									</p>
+									{% endif %}
+					</div>
+				</form>
+
+			</div>
+		</div>
+</main>
+{%endblock%}
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}
