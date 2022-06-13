@@ -48,14 +48,6 @@ Bing to judge your site based on that content -->
 						alt="{{ product.name }}">
 				</a>
 				{% endif %}
-				{% if product.category.name %}
-				<p class="small mt-1 mb-0 text-end">
-					<a class="text-muted"
-						href="/category/{{ product.category.slug }}">
-						<i class="fs-5 bi bi-tags-fill"></i>
-						{{ product.category.name }}</a>
-				</p>
-				{% endif %}
 			</div>
 		</div>
 		<div class="col-10 offset-1 col-md-5 col-lg-4">
@@ -63,7 +55,6 @@ Bing to judge your site based on that content -->
 				<h1 id="product_name" class="mb-0 fs-2 fw-bold mb-4">
 					{{ product.name|title }}
 				</h1>
-
 				<form class="form"
 					action="{% url 'add_to_basket' product.id %}"
 					method="POST">
@@ -99,7 +90,6 @@ Bing to judge your site based on that content -->
 										value="Add to Basket" class="btn btn-primary btn-md
 									text-uppercase small my-2 w-100">Add to Basket <i class=" fs-5 bi
 										bi-cart-plus"></i></button>
-
 								</div>
 							</div>
 							<input type="hidden" name="redirect_url"
@@ -155,14 +145,23 @@ Bing to judge your site based on that content -->
 									{% endif %}
 									{% if product.sku %}
 									<p
-										class=" mb-0 text-left fw-bolder mt-1 fs-6">
+										class=" mb-0 text-start fw-bolder mt-1 fs-6">
 										SKU:<span class="fw-normal fs-6">
-											{{ product.sku }}</span></p>
+											{{ product.sku }}</span>
+									</p>
 									{% endif %}
-
+									{% if product.category.name %}
+									<p class="small mt-1 mb-0">
+										<a class="text-muted"
+											href="/category/{{ product.category.slug }}">
+											<i
+												class="fs-5 bi bi-tags-fill"></i>
+											{{ product.category.name }}</a>
+									</p>
+									{% endif %}
+						</p>
 					</div>
 				</form>
-
 			</div>
 		</div>
 </main>
