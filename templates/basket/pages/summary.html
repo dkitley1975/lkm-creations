@@ -128,7 +128,7 @@ Bing to judge your site based on that content -->
 						<span id="basket_subtotal"
 							class="fw-bold">£{{ subtotal | floatformat:2 }}</span>
 					</p>
-					{% if grand_total > free_delivery_threshold %}
+					{% if subtotal > free_delivery_threshold %}
 					<p class="fs-5 text-end">Free Delivery
 						<span class="fw-bold">£0.00</span>
 					</p>
