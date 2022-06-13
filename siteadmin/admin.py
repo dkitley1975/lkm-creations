@@ -22,6 +22,18 @@ class SiteInfoAdmin(admin.ModelAdmin):
             },
         ),
         (
+            "Site Social Links Information",
+            {
+                "classes": ("collapse", "extrapretty"),
+                "fields": [
+                    "github_url",
+                    "linkedin_url",
+                    "facebook_url",
+                    "twitter_url",
+                ],
+            },
+        ),
+        (
             "Imagery",
             {
                 "classes": ("collapse", "extrapretty"),

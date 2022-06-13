@@ -102,6 +102,47 @@ class SiteInfo(models.Model):
         verbose_name=("entry last updated"),
         help_text=date_help,
     )
+    facebook_url = models.URLField(
+        max_length=250,
+        unique=False,
+        null=False,
+        blank=True,
+        verbose_name=("Facebook account url"),
+        help_text=(
+            "max_length: 250, sample: https://www.facebook.com/lkm-creations"
+        ),
+    )
+    linkedin_url = models.URLField(
+        max_length=250,
+        unique=False,
+        null=False,
+        blank=True,
+        verbose_name=("Linkedin account url"),
+        help_text=(
+            "max_length: 250, \
+                sample: www.linkedin.com/in/david-kitley-mcnamara"
+        ),
+    )
+    github_url = models.URLField(
+        max_length=250,
+        unique=False,
+        null=False,
+        blank=True,
+        verbose_name=("Github account url"),
+        help_text=(
+            "max_length: 250, sample: https://github.com/dkitley1975"
+        ),
+    )
+    twitter_url = models.URLField(
+        max_length=250,
+        unique=False,
+        null=False,
+        blank=True,
+        verbose_name=("Twitter account url"),
+        help_text=(
+            "max_length: 250, sample: https://twitter.com/McnamaraKitley"
+        ),
+    )
 
     class Meta:
         """
