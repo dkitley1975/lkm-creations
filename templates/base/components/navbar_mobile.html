@@ -155,8 +155,7 @@
 				{% endif %}
 				<!-- basket-nav-info -->
 				<li class="list-inline-item">
-					<a href="{% comment %} {% url "basket:basket-summary" %} {% endcomment %}"
-						class="{% if total_quantity is 0 %}text-info font-weight-bold
+					<a href="{% url "summary" %}" class="{% if total_quantity is 0 %}text-info font-weight-bold
 					{% else %}
 					text-black
 					{% endif %} nav-link" type="button" role="button">

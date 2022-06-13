@@ -10,7 +10,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("", include("home.urls", namespace="home")),
     path("", include("store.urls", namespace="store")),
-    path("", include("basket.urls", namespace="basket")),
+    path("basket/", include("basket.urls")),
     path(
         "favicon.ico",
         RedirectView.as_view(

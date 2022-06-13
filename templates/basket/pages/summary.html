@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% load static %}
+{% load calc_item_subtotal %}
+{% block metadescription %}
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
+<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<!-- SEO win meta tags -->
+<meta name="description" content="DESCRIPTION">
+<!-- Each page should have a unique description. Page, not site. -->
+<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
+<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
+<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
+
+<meta name="keywords" content="KEYWORDS">
+<!-- These are the keywords that your site can be searched with on Google -->
+<!-- Make these single words, relevant to your site, often searched -->
+<meta name="robots" content="index, follow">
+<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
+<!-- noindex, nofollow is the opposite -->
+<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
+Bing to judge your site based on that content -->
+{% endblock %}
+
+{% block title %}LKM Creations - Basket Summary{% endblock %}
+<!-- This is what will display in the tab at the top of a user's browser window -->
+<!-- Title should be less than 60 characters -->
+<!-- Unique title on every page, don't repeat yourself -->
+<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
+<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
+
+{% block custom_page_stylesheet %}{% endblock %}
+
+{% block content %}
+
+<main class="mb-5 mt-5">
+	<div class="container">
+		<div class="col-10 offset-1 p-5 bg-white border rounded-10 box-shadow">
+			<section class="col-12 text-center pt-2">
+				<h1 class="mb-5 fs-1">Basket Summary</h1>
+			</section>
+			{% if total_quantity is 0 %}
+			<div class="row ">
+				<div class="col-12">
+					<hr class="mx-3">
+					<h3 class="text-center">Your basket is empty</h3>
+					<hr class="mx-3">
+				</div>
+			</div>
+			{% endif %}
+			{% for item in basket_items %}
+			<div data-index="{{item.product.id}}" class="row product-item">
+				<!--image, price and category-->
+				<div class="col-12 col-md-2 col-lg-2">
+					{% if item.product.image.url %}
+					<a href="{% url 'store:product-detail' item.product.slug %}"
+						target="_self">
+						<img src="{{ item.product.image.url }}" class="img-fluid mx-auto d-block product-image-size
+							rounded-10 box-shadow" alt="{{ item.product.image_alt_text }}"
+							oncontextmenu="return false;">
+					</a>
+					{% else %}
+					<a href="{% url 'store:product-detail' item.product.slug %}"
+						target="_self">
+						<img class="img-fluid mx-auto d-block product-image-size
+							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.png"
+							alt="{{ item.product.name }}">
+					</a>
+					{% endif %}
+					<p class="fw-semibold text-muted text-center">
+						<span
+							class="fw-bold small">£</span>{{item.unit_price|floatformat:2}}</span><span
+							class="fst-italic small"> each</span>
+					</p>
+				</div>
+				<!--Description-->
+				<div class="col-12 col-md-6 col-lg-7 d-none d-md-block">
+					<a href="{% url 'store:product-detail' item.product.slug %}"
+						class="text-decoration-none text-reset">
+						<p class=" fs-5 fw-bold text-center text-md-start">
+							{{ item.product.name|title }}</p>
+					</a>
+					<p class="text-center text-md-start fst-italic">
+						{{ item.product.description|title|striptags|safe|truncatechars:150 }}
+					</p>
+				</div>
+				<!--Quantity-->
+				<div class="col-12 col-md-4 col-lg-3 mt-2">
+					<p><strong class="d-none d-md-block">Quantity</strong></p>
+					<form class="form update-form" method="POST"
+						action="{% url 'adjust_basket' item.item_id %}">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="input-group">
+								<input
+									class="form-control form-control-sm qty_input"
+									type="number" name="quantity"
+									value="{{ item.quantity }}" min="1" max="5"
+									data-item_id="{{ item.item_id }}"
+									id="id_qty_{{ item.item_id }}">
+							</div>
+						</div>
+					</form>
+					<a class="btn btn-success btn-sm bi bi-arrow-clockwise update-link float-end m-2"
+						type="button" id="update-link_{{ item.item_id }}"></a>
+					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item float-start m-2"
+						type="button" id="remove_{{ item.item_id }}"
+						data-product_size="{{ item.size }}"></a>
+				</div>
+				<!--Product Subtotal-->
+				<div class="col-12 float-end">
+					<p class="text-end">Item Total £
+						<span id="item_subtotal">
+							{{ item.unit_price | calc_item_subtotal:item.quantity }}
+						</span>
+					</p>
+
+				</div>
+				<hr class="my-4">
+			</div>
+			{% endfor %}
+			{% if subtotal > 0 %}
+			<div class="row mt-3">
+				<div class="col-12">
+					<p class="fs-5 text-end">Sub Total
+						<span id="basket_subtotal"
+							class="fw-bold">£{{ subtotal | floatformat:2 }}</span>
+					</p>
+					{% if grand_total > free_delivery_threshold %}
+					<p class="fs-5 text-end">Free Delivery
+						<span class="fw-bold">£0.00</span>
+					</p>
+					{% else %}
+					<p class="fs-5 text-end">Delivery Charge
+						<span
+							class="fw-bold">£{{ delivery_charge | floatformat:2 }}</span>
+					</p>
+					<p class="fs-6 text-end text-danger">Spend an additional
+						<span
+							class="fw-bold">£{{ spend4free_delivery | floatformat:2 }}
+						</span> for free delivery</p>
+					{% endif %}
+				</div>
+				<hr>
+				<div class="col-12">
+					<p class="fs-5 text-end">Grand Total</span>
+						<span
+							class="fw-bold">£{{ grand_total | floatformat:2  }}</span>
+					</p>
+
+				</div>
+				<hr>
+			</div>
+			{% endif %}
+			<div class="row justify-content-center">
+				<a class="btn btn-outline-secondary text-center col-12 col-md-4 col-lg-4 mx-3 my-2"
+					href="{{request.META.HTTP_REFERER|escape}}"><i
+						class="fs-6 bi bi-chevron-left"></i>
+					<span class="text-uppercase small">
+						keep shopping</span></a>
+				{% if subtotal > 0 %}
+				<a href="
+				{% comment %} {% url "payment:checkout" %} {% endcomment %}
+				" class="btn btn-primary text-center col-12 col-md-4 col-lg-4 mx-3 my-2">
+					<span class="text-uppercase small">
+						Checkout</span>
+					<i class="fs-6 bi bi-chevron-right"></i></a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</main>
+{%endblock%}
+
+{% block postloadjs %}
+
+
+
+{{ block.super }}
+<script type="text/javascript">
+	// Update quantity on click
+	$('.update-link').click(function (e) {
+		var form = $(this).prev('.update-form');
+		form.submit();
+	})
+
+	// Remove item and reload on click
+	$('.remove-item').click(function (e) {
+		var csrfToken = "{{ csrf_token }}";
+		var itemId = $(this).attr('id').split('remove_')[1];
+		var url = `/basket/remove/${itemId}/`;
+		var data = {
+			'csrfmiddlewaretoken': csrfToken,
+		};
+
+		$.post(url, data)
+			.done(function () {
+				location.reload();
+			});
+	})
+</script>
+
+{% endblock %}

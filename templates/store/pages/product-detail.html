@@ -36,17 +36,25 @@ Bing to judge your site based on that content -->
 			<div class="image-container my-5">
 				{% if product.image.url %}
 				<a>
-					<img class="card-img-top img-fluid radius-with-box-shadow"
-						src="{{ product.image.url }}"
+					<img class="img-fluid mx-auto d-block product-image-size
+							rounded-10 box-shadow" src="{{ product.image.url }}"
 						alt="{{ product.image_alt_text }}"
 						oncontextmenu="return false;">
 				</a>
 				{% else %}
 				<a href="#">
-					<img class="card-img-top img-fluid"
-						src="{{ MEDIA_URL }}images/default_image.png"
+					<img class="img-fluid mx-auto d-block product-image-size
+							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.png"
 						alt="{{ product.name }}">
 				</a>
+				{% endif %}
+				{% if product.category.name %}
+				<p class="small mt-1 mb-0 text-end">
+					<a class="text-muted"
+						href="/category/{{ product.category.slug }}">
+						<i class="fs-5 bi bi-tags-fill"></i>
+						{{ product.category.name }}</a>
+				</p>
 				{% endif %}
 			</div>
 		</div>
@@ -57,7 +65,7 @@ Bing to judge your site based on that content -->
 				</h1>
 
 				<form class="form"
-					action="{% url 'basket:add_to_basket' product.id %}"
+					action="{% url 'add_to_basket' product.id %}"
 					method="POST">
 					{% csrf_token %}
 					<div id="add_to_basket" class="col-12 my-2">
@@ -116,28 +124,34 @@ Bing to judge your site based on that content -->
 									<p>{{ product.description }}</p>
 									{% if product.size %}
 									<p
-										class="lead mb-0 text-left fw-bolder mt-1 fs-5">
+										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
 										Size: <span
-											class="fw-normal fs-5">{{ product.size }}</span>
+											class="fw-normal fs-6">{{ product.size }}</span>
 									</p>
 									{% endif %}
 									{% if product.weight %}
 									<p
-										class="lead mb-0 text-left fw-bolder mt-1 fs-5">
-										Weight:<span class="fw-normal fs-5">
+										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
+										Weight:<span class="fw-normal fs-6">
 											{{ product.weight|floatformat }}
 											grams</span>
 									</p>
 									{% endif %}
 									{% if product.is_washable %}
 									<p
-										class="lead mb-0 text-left fw-bolder mt-1 fs-5">
+										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
+										Washing instructions:<span
+											class="fw-normal fs-6">
+											{{ product.wash_instructions}}</span>
+									</p>
+									{% endif %}
+									{% if product.care_instructions %}
+									<p
+										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
 										Care instructions:<span
-											class="fw-normal fs-5">
-											Machine washable at 30° (hand-wash
-											or
-											delicate mode), dry flat, do
-											not tumble dry.</span></p>
+											class="fw-normal fs-6">
+											{{ product.care_instructions}}</span>
+									</p>
 									{% endif %}
 									{% if product.sku %}
 									<p
@@ -145,15 +159,7 @@ Bing to judge your site based on that content -->
 										SKU:<span class="fw-normal fs-6">
 											{{ product.sku }}</span></p>
 									{% endif %}
-									{% if product.category.name %}
-									<p class="small mt-1 mb-0 text-left">
-										<a class="text-muted"
-											href="/store/{{ product.category.slug }}">
-											<i
-												class="fs-5 bi bi-tags-fill"></i>
-											{{ product.category.name }}</a>
-									</p>
-									{% endif %}
+
 					</div>
 				</form>
 

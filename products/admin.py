@@ -69,13 +69,24 @@ class ProductAdmin(admin.ModelAdmin):
             },
         ),
         (
+            "Care Instructions",
+            {
+                "classes": ("collapse", "extrapretty"),
+                "fields": (
+                    "is_washable",
+                    "wash_instructions",
+                    "care_instructions",
+                ),
+            },
+        ),
+        (
             None,
             {
                 "fields": (
                     "sku",
                     ("category", "colour"),
                     ("weight", "size"),
-                    ("is_washable", "in_stock", "is_active"),
+                    ("in_stock", "is_active"),
                     "slug",
                 )
             },
@@ -86,10 +97,13 @@ class ProductAdmin(admin.ModelAdmin):
         "name",
         "retail_price",
         "sale_price",
-        "in_stock",
         "is_active",
         "image_thumbnail",
     ]
     list_filter = ["name", "in_stock", "is_active"]
     prepopulated_fields = {"slug": ("name",)}
-    list_editable = ["retail_price", "sale_price", "in_stock", "is_active"]
+    list_editable = [
+        "retail_price",
+        "sale_price",
+        "is_active",
+    ]

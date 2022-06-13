@@ -182,6 +182,26 @@ class Product(models.Model):
         verbose_name=("alternative text to show if image doesn't load"),
         help_text=("format: required, max_length: 150"),
     )
+    wash_instructions = models.TextField(
+        unique=False,
+        null=True,
+        blank=True,
+        default="Machine washable at 30° (hand-wash or delicate mode). \
+            Gently squeeze out the remaining water using a towel, \
+                do not wring out, stretch or twist to avoid misshape. \
+                    Dry flat, do not tumble dry.",
+        verbose_name=("Washing Instructions"),
+        help_text=("Max_length: 1000"),
+    )
+    care_instructions = models.TextField(
+        unique=False,
+        null=True,
+        blank=True,
+        default="This item may include securely fastened safety eyes. \
+            With regular use, these items may require de-pilling.",
+        verbose_name=("Additional Care instructions"),
+        help_text=("Max_length: 1000"),
+    )
     weight = models.FloatField(
         unique=False,
         null=False,
