@@ -5,7 +5,8 @@
 {% endblock %}
 {% block extrastyle %}
 <!-- Local CSS-->
-<link rel="stylesheet" href="{% static 'css/admin_color.css' %}">
+<link rel="stylesheet" href="{% static 'css/brand_colours.css' %}">
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
 {% endblock %}
 {% block extrahead %}
 <meta name="theme-color" content="#74241d">
@@ -19,15 +20,12 @@
 {% endblock %}
 {% block branding %}
 <h1 id="site-name" class=" text-black my-0">
-	{% comment %} <a href="{% url 'home' %}" class="nav-link"> {% endcomment %}
-		{% comment %} #TODO update the link {% endcomment %}
-		<a href="#" class="nav-link">
-			<span class="logo-font-lkm">LKM </span>
-			<span class="logo-font-creations">Creations
-
-				{% trans "- Admin Site" %}
-			</span>
-		</a>
+	<a href="{% url 'home:home' %}" class="nav-link">
+		<span class="logo-font-lkm">LKM </span>
+		<span class="logo-font-creations">Creations
+			{% trans "- Admin Site" %}
+		</span>
+	</a>
 </h1>
 {% endblock %}
 {% block nav-global %}{% endblock %}

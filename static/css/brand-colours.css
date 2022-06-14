@@ -1,0 +1,14 @@
+:root {
+	/* Default colours */
+	--clr-brand-primary: #F4BFBF;
+	--clr-brand-primary-lightest: #fdcece43;
+	--clr-brand-primary-light: #f4bfbf43;
+	--clr-brand-primary-darker: #d48a8a;
+	--clr-brand-primary-darkest: #c35d5d;
+	--clr-brand-secondary: #FFD9C0;
+	--clr-brand-secondary-darker: #fabd95;
+
+	--clr-brand-tertiary: #FAF0D7;
+
+	--clr--grey: rgb(126, 132, 138);
+}

@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
 
-:root {
-    /* Default colours */
-    --clr-brand-primary: #F4BFBF;
-    --clr-brand-primary-darker: #d48a8a;
-    --clr-brand-secondary: #FFD9C0;
-    --clr-brand-tertiary: #FAF0D7;
-    --clr-brand-quad: #8CC0DE;
-    --clr-primary-save-btn: rgb(23, 141, 17);
-    --clr-secondary-save-btn: rgb(39, 124, 34);
-    --clr-breadcrumbs: #d48a8a;
-    --clr-breadcrumbs-current: #67add5;
-
-
-    --clr--grey: rgb(126, 132, 138);
-}
-
-
 .logo-font-lkm {
     font-family: 'Caveat',
         sans-serif;
@@ -60,8 +43,6 @@ input[type=submit].default:hover {
 #nav-sidebar .current-app .section:visited {
     color: var(--clr-brand-quad);
 }
-
-
 
 div.breadcrumbs {
     background: var(--clr-brand-tertiary);
