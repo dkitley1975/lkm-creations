@@ -7,9 +7,10 @@ from django.test import Client, TestCase
 from django.urls import reverse
 
 from home.views import index
+from products.models import Product
 
 
-class TestViewResponses(TestCase):
+class TestHomeViewResponses(TestCase):
     def setUp(self):
         """
         Set up the client for the network. This is necessary for the network to be able to connect to the server.

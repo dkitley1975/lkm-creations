@@ -120,7 +120,6 @@ class TestProductsModel(TestCase):
         response = self.client.post(
             reverse("store:product-detail", args=[data.slug])
         )
-        print(response)
         self.assertEqual(response.status_code, 200)
 
     def test_product_detail_url(self):

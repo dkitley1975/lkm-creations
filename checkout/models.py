@@ -126,7 +126,7 @@ class OrderDetails(models.Model):
         """
         Generate a random order number for the current session.
         """
-        return uuid.uuid4().hex[:6].upper()
+        return uuid.uuid4().hex[:12].upper()
 
     def update_total(self):
         """
@@ -178,6 +178,14 @@ class OrderLineItem(models.Model):
 
     quantity = models.PositiveIntegerField(default=0)
 
+    unit_price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=False,
+        blank=False,
+        editable=False,
+    )
+
     lineitem_total = models.DecimalField(
         max_digits=6,
         decimal_places=2,
@@ -197,7 +205,7 @@ class OrderLineItem(models.Model):
             unit_price = self.product.sale_price
         else:
             unit_price = self.product.retail_price
-
+        self.unit_price = unit_price
         self.lineitem_total = unit_price * self.quantity
         super().save(*args, **kwargs)
 

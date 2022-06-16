@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for Order Number {{ order.order_number }}
+LKM Creations Confirmation for Order Number {{ order.order_number }}
