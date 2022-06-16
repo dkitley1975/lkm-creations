@@ -14,6 +14,8 @@ import sys
 from pathlib import Path
 
 import dj_database_url
+from django.core.mail import send_mail
+from django.conf import settings
 
 if os.path.isfile("env.py"):
     import env
@@ -34,7 +36,11 @@ if "DEBUG" in os.environ:
     DEBUG = True
 
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "https://lkm-creations.herokuapp.com/",
+]
 
 
 # Application definition
@@ -119,7 +125,7 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-
+X_FRAME_OPTIONS = "SAMEORIGIN"
 SITE_ID = 1
 
 # Email Settings
@@ -171,7 +177,7 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+            "NAME": "db.sqlite3",
         }
     }
 
