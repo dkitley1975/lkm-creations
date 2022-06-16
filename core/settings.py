@@ -255,30 +255,28 @@ STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 # SECURITY WARNING: remove the Print to terminal once ready to deploy
 # Print to terminal the enviroment settings
 
 if str(os.environ.get("DEBUG")) == "True":
     os.system("clear")
     print("\033[1;32m You have debug set to True \033[0;0m")
+    if str(os.environ.get("DEBUG")) != "True":
+        os.system("clear")
+        print("\033[1;33m You have debug set to NOT True \033[0;0m")
 
-if str(os.environ.get("DEBUG")) != "True":
-    os.system("clear")
-    print("\033[1;33m You have debug set to NOT True \033[0;0m")
+    if str(os.environ.get("TEST_EMAIL")) == "True":
+        print("\033[1;32m You are using the test email settings \033[0;0m")
+    if str(os.environ.get("TEST_EMAIL")) != "True":
+        print("\033[1;33m You are using the live email settings \033[0;0m")
 
-if str(os.environ.get("TEST_EMAIL")) == "True":
-    print("\033[1;32m You are using the test email settings \033[0;0m")
-if str(os.environ.get("TEST_EMAIL")) != "True":
-    print("\033[1;33m You are using the live email settings \033[0;0m")
+    if str(os.environ.get("LOCAL_DATABASE")) == "True":
+        print("\033[1;32m You are using the local database \033[0;0m")
+    if str(os.environ.get("LOCAL_DATABASE")) != "True":
+        print("\033[1;33m You are using the live database \033[0;0m")
 
-if str(os.environ.get("LOCAL_DATABASE")) == "True":
-    print("\033[1;32m You are using the local database \033[0;0m")
-if str(os.environ.get("LOCAL_DATABASE")) != "True":
-    print("\033[1;33m You are using the live database \033[0;0m")
+    if str(os.environ.get("USE_AWS")) != "True":
+        print("\033[1;32m You are using local storage \033[0;0m")
 
-if str(os.environ.get("USE_AWS")) != "True":
-    print("\033[1;32m You are using local storage \033[0;0m")
-
-if str(os.environ.get("USE_AWS")) == "True":
-    print("\033[1;33m You are using AWS storage \033[0;0m")
+    if str(os.environ.get("USE_AWS")) == "True":
+        print("\033[1;33m You are using AWS storage \033[0;0m")
