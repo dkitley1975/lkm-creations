@@ -42,8 +42,8 @@ def add_to_basket(request, item_id):
         messages.success(
             request,
             (
-                f"You have added the product {product.name} "
-                f"to {basket[item_id]}"
+                f"You have added {basket[item_id]} of the product {product.name} "
+                "to your basket"
             ),
         )
     request.session["basket"] = basket

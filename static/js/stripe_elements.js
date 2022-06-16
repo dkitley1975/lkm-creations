@@ -8,8 +8,6 @@
 var stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
 var clientSecret = $("#id_client_secret").text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
-var elem = document.getElementById("submit-button");
-
 var elements = stripe.elements();
 var style = {
 	base: {
@@ -52,37 +50,10 @@ form.addEventListener("submit", function (ev) {
 	ev.preventDefault();
 	card.update({ disabled: true });
 	$("#submit-button").attr("disabled", true);
-	var receipientName = document.getElementById("id_full_name").value;
-	var receipientEmail = document.getElementById("div_id_email").value;
-	var receipientPhone = document.getElementById("div_id_phone_number").value;
-	var receipientStreetAddress1 = document.getElementById(
-		"div_id_street_address1"
-	).value;
-	var receipientStreetAddress1 = document.getElementById(
-		"div_id_street_address2"
-	).value;
-	var receipientCity = document.getElementById("div_id_town_or_city").value;
-	var receipientCounty = document.getElementById("div_id_county").value;
-	var receipientPostalCode = document.getElementById("div_id_postcode").value;
-	var receipientCountry = document.getElementById("div_id_country").value;
-
 	stripe
 		.confirmCardPayment(clientSecret, {
 			payment_method: {
 				card: card,
-				delivery_details: {
-					address: {
-						line1: receipientStreetAddress1,
-						line2: receipientStreetAddress2,
-						city: receipientCity,
-						state: receipientCounty,
-						postal_code: receipientPostalCode,
-						country: receipientCountry,
-					},
-					email: receipientEmail,
-					name: receipientName,
-					phone: receipientPhone,
-				},
 			},
 		})
 		.then(function (result) {

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
+<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<!-- SEO win meta tags -->
+<meta name="description" content="DESCRIPTION">
+<!-- Each page should have a unique description. Page, not site. -->
+<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
+<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
+<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
+
+<meta name="keywords" content="KEYWORDS">
+<!-- These are the keywords that your site can be searched with on Google -->
+<!-- Make these single words, relevant to your site, often searched -->
+<meta name="robots" content="index, follow">
+<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
+<!-- noindex, nofollow is the opposite -->
+<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
+Bing to judge your site based on that content -->
+{% endblock %}
+
+{% block title %}LKM Creations - Checkout Success{% endblock %}
+<!-- This is what will display in the tab at the top of a user's browser window -->
+<!-- Title should be less than 60 characters -->
+<!-- Unique title on every page, don't repeat yourself -->
+<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
+<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
+
+{% block custom_page_stylesheet %}
+<!-- Local CSS-->
+<link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="mb-5 mt-3 mt-md-5">
+    <div class="container">
+        <div
+            class="col-12 col-md-10 offset-md-1 p-3 p-md-5 bg-white border rounded-10 box-shadow">
+            <section class="col-12 text-center pt-2">
+                <h1 class="mb-5 fs-2">Thank you for your purchase!</h1>
+            </section>
+
+
+            <section class="col-12 text-center pt-2">
+                <h2 class="mb-5 fs-3">"Your order was successfully processed!
+                </h2>
+                <p>Your order number is {{order_number}}. A confirmation
+                    email
+                    has been sent to {{order.email}}.</p>
+                <p>You can view your order details by clicking <a href="#
+                        {% comment %} {{order_url}} {% endcomment %}
+                        ">here</a>.</p>
+            </section>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}

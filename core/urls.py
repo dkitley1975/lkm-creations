@@ -11,6 +11,7 @@ urlpatterns = [
     path("", include("home.urls", namespace="home")),
     path("", include("store.urls", namespace="store")),
     path("basket/", include("basket.urls")),
+    path("", include("checkout.urls", namespace="checkout")),
     path(
         "favicon.ico",
         RedirectView.as_view(

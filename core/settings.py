@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     # local apps
     "home",
     "basket",
+    "checkout",
     "products",
     "siteadmin",
     "store",
@@ -105,7 +106,7 @@ TEMPLATES = [
                 "crispy_forms.templatetags.crispy_forms_tags",
                 "crispy_forms.templatetags.crispy_forms_field",
                 # My Custom TemplateTags
-                # "basket.templatetags.calc_item_subtotal",
+                "basket.templatetags.calc_item_subtotal",
             ],
         },
     },

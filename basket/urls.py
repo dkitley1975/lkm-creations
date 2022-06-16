@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from basket import views
 
 urlpatterns = [
     path("summary", views.summary, name="summary"),

@@ -106,8 +106,7 @@ Bing to judge your site based on that content -->
 					<a class="btn btn-success btn-sm bi bi-arrow-clockwise update-link float-end m-2"
 						type="button" id="update-link_{{ item.item_id }}"></a>
 					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item float-start m-2"
-						type="button" id="remove_{{ item.item_id }}"
-						data-product_size="{{ item.size }}"></a>
+						type="button" id="remove_{{ item.item_id }}"></a>
 				</div>
 				<!--Product Subtotal-->
 				<div class="col-12 float-end">
@@ -124,7 +123,7 @@ Bing to judge your site based on that content -->
 			{% if subtotal > 0 %}
 			<div class="row mt-3">
 				<div class="col-12">
-					<p class="fs-5 text-end">Sub Total
+					<p class="fs-5 text-end">Subtotal
 						<span id="basket_subtotal"
 							class="fw-bold">£{{ subtotal | floatformat:2 }}</span>
 					</p>
@@ -161,8 +160,7 @@ Bing to judge your site based on that content -->
 					<span class="text-uppercase small">
 						keep shopping</span></a>
 				{% if subtotal > 0 %}
-				<a href="
-				{% comment %} {% url "payment:checkout" %} {% endcomment %}
+				<a href="{% url 'checkout:checkout' %}
 				" class="btn btn-primary text-center col-12 col-md-4 col-lg-4 mx-3 my-2">
 					<span class="text-uppercase small">
 						Checkout</span>
