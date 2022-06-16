@@ -34,6 +34,8 @@ Bing to judge your site based on that content -->
 {% block custom_page_stylesheet %}
 <!-- Local CSS-->
 <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+<link rel="stylesheet" href="{% static 'css/spinner.css' %}">
+
 {% endblock %}
 
 {% block content %}
@@ -234,6 +236,13 @@ Bing to judge your site based on that content -->
 	</div>
 	</div>
 </main>
+<div id="loading-overlay">
+	<h1 class="text-light logo-font loading-spinner">
+		<span class="icon">
+			<i class="fas fa-3x fa-sync-alt fa-spin"></i>
+		</span>
+	</h1>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
