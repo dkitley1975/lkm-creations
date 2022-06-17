@@ -36,7 +36,7 @@ if "DEBUG" in os.environ:
     DEBUG = True
 
 
-ALLOWED_HOSTS = ["https://lkm-creations.herokuapp.com"]
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 
 
 # Application definition
