@@ -1,29 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
+	<!-- TODO -->
+<link rel="canonical" href="#">
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
 <!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 <!-- SEO win meta tags -->
-<meta name="description" content="DESCRIPTION">
-<!-- Each page should have a unique description. Page, not site. -->
-<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
-<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
-<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
-
-<meta name="keywords" content="KEYWORDS">
-<!-- These are the keywords that your site can be searched with on Google -->
-<!-- Make these single words, relevant to your site, often searched -->
+<meta name="description" content="LKM Creations Shop">
+<meta name="keywords"
+	content="{{ site_info.store_keywords|title }},{% for category in categories %}{{ category.name|title }}s, {% endfor %}">
 <meta name="robots" content="index, follow">
-<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
-<!-- noindex, nofollow is the opposite -->
-<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
-Bing to judge your site based on that content -->
 {% endblock %}
 
-{% block title %}LKM Creations{% endblock %}
+{% block title %}LKM Creations Store Products{% endblock %}
 <!-- This is what will display in the tab at the top of a user's browser window -->
 <!-- Title should be less than 60 characters -->
 <!-- Unique title on every page, don't repeat yourself -->

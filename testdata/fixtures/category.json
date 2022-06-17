@@ -3,41 +3,47 @@
 	"pk": 1,
 	"fields": {
 		"name": "pattern",
-		"slug": "pattern"
+		"slug": "pattern",
+		"category_keywords": "Patterns, Handmade, Handcrafted, Custom, Beautiful, Gift, Children, Amigurumi Toy, Amigurumi Decorative, Cuddly, Knitted Toy, Knitted gift, Crochet, Crochet Toy, Crochet gift,"
 	}
 }, {
 	"model": "products.category",
 	"pk": 2,
 	"fields": {
 		"name": "accessories",
-		"slug": "accessories"
+		"slug": "accessories",
+		"category_keywords": "Amigurumi Accessories, Crochet Needles, Amigurumi Style Crochet, Safety Eyes, Tools, Stuffing, Security Eyes and Noses, Amigurumi Yarn, Crochet Yarn"
 	}
 }, {
 	"model": "products.category",
 	"pk": 3,
 	"fields": {
 		"name": "kit",
-		"slug": "kit"
+		"slug": "kit",
+		"category_keywords": "Beginners, All you need, Getting started, all included, Handmade, Handcrafted, Custom, Beautiful, Gift, Children, Amigurumi Doll, Amigurumi Toy, Amigurumi Decorative, Dolly, Cuddly, Knitted Doll, Knitted Toy, Knitted gift, Crochet Doll, Crochet Toy, Crochet gift,"
 	}
 }, {
 	"model": "products.category",
 	"pk": 4,
 	"fields": {
 		"name": "yarn",
-		"slug": "yarn"
+		"slug": "yarn",
+		"category_keywords": "Handmade, Handcrafted, Custom, Beautiful, Gift, Children, Amigurumi Animal, Amigurumi Toy, Amigurumi Decorative, Animal, Cuddly, Knitted Animal, Knitted Toy, Knitted gift, Crochet Animal, Crochet Toy, Crochet gift, Knitted Animal, Amigurumi Yarn, Crochet Yarn"
 	}
 }, {
 	"model": "products.category",
 	"pk": 5,
 	"fields": {
 		"name": "teddy bear",
-		"slug": "teddy-bear"
+		"slug": "teddy-bear",
+		"category_keywords": "Handmade, Handcrafted, Custom, Beautiful, Gift, Children, Amigurumi Animal, Amigurumi Toy, Amigurumi Decorative, Animal, Cuddly, Knitted Animal, Knitted Toy, Knitted gift, Crochet Animal, Crochet Toy, Crochet gift, Knitted Animal,"
 	}
 }, {
 	"model": "products.category",
 	"pk": 6,
 	"fields": {
 		"name": "doll",
-		"slug": "doll"
+		"slug": "doll",
+		"category_keywords": "Handmade, Handcrafted, Custom, Beautiful, Gift, Children, Amigurumi Doll, Amigurumi Toy, Amigurumi Decorative, Dolly, Cuddly, Knitted Doll, Knitted Toy, Knitted gift, Crochet Doll, Crochet Toy, Crochet gift"
 	}
 }]

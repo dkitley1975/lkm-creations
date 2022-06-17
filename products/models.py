@@ -51,6 +51,15 @@ class Category(models.Model):
         verbose_name=("category safe URL"),
         help_text=max200_help,
     )
+    category_keywords = models.TextField(
+        unique=False,
+        null=False,
+        blank=False,
+        verbose_name=("Category Keywords, SEO"),
+        help_text=(
+            "These are the keywords that your site can be searched with on Google. Make these single words, relevant to your site, often searched"
+        ),
+    )
 
     class Meta:
         """
@@ -156,8 +165,10 @@ class Product(models.Model):
         blank=False,
         verbose_name=("product keywords"),
         help_text=(
-            "format: required, max_length: 1000, Seperate words with a comma:"
-            "turtle, bespoke, etc"
+            "format: required, These are used by Google to search for the product."
+            "These are words that are relevant to the product and will be added to the Product Name,"
+            "and Category Name. Separate words with a comma:"
+            "turtle, bespoke, etc, max_length: 150"
         ),
     )
     is_washable = models.BooleanField(

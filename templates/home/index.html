@@ -1,40 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
-<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-<!-- SEO win meta tags -->
-<meta name="description" content="DESCRIPTION">
-<!-- Each page should have a unique description. Page, not site. -->
-<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
-<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
-<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
-
-<meta name="keywords" content="KEYWORDS">
-<!-- These are the keywords that your site can be searched with on Google -->
-<!-- Make these single words, relevant to your site, often searched -->
+	<!-- TODO -->
+<link rel="canonical" href="#">
+<meta name="description" content="{{ site_info.store_description }}">
+<meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="index, follow">
-<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
-<!-- noindex, nofollow is the opposite -->
-<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
-Bing to judge your site based on that content -->
 {% endblock %}
-
 {% block title %}LKM Creations{% endblock %}
-<!-- This is what will display in the tab at the top of a user's browser window -->
-<!-- Title should be less than 60 characters -->
-<!-- Unique title on every page, don't repeat yourself -->
-<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
-<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
-
 {% block custom_page_stylesheet %}{% endblock %}
-
-
 {% block content %}
-
 <section class="container-fluid bg-primary-light">
 	<div class="container col-xxl-8 px-4 py-5">
 		<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -47,17 +22,20 @@ Bing to judge your site based on that content -->
 			</div>
 			{% endif %}
 			<div class="col-12 col-md-7 col-lg-6">
-				<h1 class="display-5 fw-bold lh-1 mb-3">LKM Creations</h1>
-				<p class="lead">These are my hand created crochet
-					creations,
-					they are styled in the amigurumi style. </p>
+				<h1 class="display-5 fw-bold lh-1 mb-3"><span
+						class="logo-font-lkm fs-1 text-black">LKM </span><span
+						class="logo-font-creations fs-1 text-black">Creations</span>
+				</h1>
+				<p class="lead logo-font-creations text-black fs-3">These are
+					my
+					hand created amigurumi creations.</br>Please take some time
+					and have a look through my
+					store</p>
 				<p class="text-muted align-bottom">A donation goes to our
-					local
-					charity run
-					preschool from each sale.</p>
+					local charity run preschool from each sale.</p>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-					<a href="{% url 'store:products' %}" aria-current="All Products"
-						type="button"
+					<a href="{% url 'store:products' %}"
+						aria-current="All Products" type="button"
 						class="btn btn-primary btn-lg px-4 me-md-2">Shop
 						Now</a>
 				</div>
@@ -65,16 +43,10 @@ Bing to judge your site based on that content -->
 		</div>
 	</div>
 </section>
-
-
-
-
-
 <main>
 	<section class="col-md-12 text-center pt-2">
 		<h2 class="my-3 fs-1">Sale Items</h2>
 	</section>
-
 	<section
 		class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-3 g-5 mb-4">
 		{% for product in products %}
@@ -84,13 +56,4 @@ Bing to judge your site based on that content -->
 		{% endfor %}
 	</section>
 </main>
-
-
-
-
-
 {%endblock%}
-
-{% block postloadjs %}
-{{ block.super }}
-{% endblock %}

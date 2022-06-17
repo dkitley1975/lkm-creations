@@ -12,13 +12,19 @@ class SiteInfoAdmin(admin.ModelAdmin):
     """
 
     save_on_top = True
-    save_on_top = True
     fieldsets = (
         (
             "Site Contact Information",
             {
                 "classes": ("collapse", "extrapretty"),
                 "fields": ["email_address", "phone_number"],
+            },
+        ),
+        (
+            "Site Keywords/SEO Information",
+            {
+                "classes": ("collapse", "extrapretty"),
+                "fields": ["store_keywords", "store_description"],
             },
         ),
         (

@@ -34,6 +34,25 @@ class SiteInfo(models.Model):
         verbose_name=("alternative text to show if image doesn't load"),
         help_text=("format: required, max_length: 150"),
     )
+    store_description = models.TextField(
+        max_length=160,
+        unique=False,
+        null=False,
+        blank=False,
+        verbose_name=("Store Description"),
+        help_text=(
+            "format: required, max_length: 160,  include keywords, discounts, or offers you're selling"
+        ),
+    )
+    store_keywords = models.TextField(
+        unique=False,
+        null=False,
+        blank=False,
+        verbose_name=("Store Keywords, SEO"),
+        help_text=(
+            "These are the keywords that your site can be searched with on Google. Make these single words, relevant to your site, often searched"
+        ),
+    )
     free_delivery_over = models.DecimalField(
         max_digits=5,
         decimal_places=2,

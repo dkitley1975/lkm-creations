@@ -3,12 +3,17 @@
 <html lang="en-us">
 
 <head>
-	{% include "base/layout/header.html" %} {% block metadescription %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block metadescription %}
 	{% endblock %}
-	<title>{% block title %}LKM Creations{% endblock %}</title>
+	<meta name="theme-color" content="#fdcece43">
+	<meta name="author" content="David Kitley-McNamara">
 	{% include "base/layout/stylesheets.html" %}
 	{% block custom_page_stylesheet %}{% endblock %}
 	{% include "base/layout/base_javascripts.html" %}
+	<title>{% block title %}LKM Creations{% endblock %}</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
