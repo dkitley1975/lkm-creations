@@ -45,7 +45,7 @@ class TestViewResponses(TestCase):
         Test category response status
         """
         response = self.c.get(
-            reverse("store:category-list", args=["test-category"])
+            reverse("category-list", args=["test-category"])
         )
         self.assertEqual(response.status_code, 200)
 
@@ -54,7 +54,7 @@ class TestViewResponses(TestCase):
         Test items response status
         """
         response = self.c.get(
-            reverse("store:product-detail", args=["test-product"])
+            reverse("product-detail", args=["test-product"])
         )
         self.assertEqual(response.status_code, 200)
 
@@ -76,5 +76,5 @@ class TestViewResponses(TestCase):
         Test the sale products url.
         """
 
-        response = self.c.get(reverse("store:sale-products"))
+        response = self.c.get(reverse("sale-products"))
         self.assertEqual(response.status_code, 200)

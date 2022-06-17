@@ -1,8 +1,13 @@
 import stripe
 from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import (HttpResponse, get_object_or_404, redirect,
-                              render, reverse)
+from django.shortcuts import (
+    HttpResponse,
+    get_object_or_404,
+    redirect,
+    render,
+    reverse,
+)
 from django.views.decorators.http import require_POST
 
 from basket.custom_context_processors import basket_contents
@@ -81,13 +86,11 @@ def checkout(request):
                         ),
                     )
                     order.delete()
-                    return redirect(reverse("checkout:checkout"))
+                    return redirect(reverse("checkout"))
 
             request.session["save_info"] = "save-info" in request.POST
             return redirect(
-                reverse(
-                    "checkout:checkout-success", args=[order.order_number]
-                )
+                reverse("checkout-success", args=[order.order_number])
             )
         else:
             messages.error(
@@ -101,7 +104,7 @@ def checkout(request):
             messages.error(
                 request, "There's nothing in your basket at the moment"
             )
-            return redirect(reverse("store:products"))
+            return redirect(reverse("products"))
 
         current_bag = basket_contents(request)
         total = current_bag["grand_total"]

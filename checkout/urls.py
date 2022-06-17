@@ -4,10 +4,9 @@ from checkout import views
 
 from .webhooks import webhook
 
-app_name = "checkout"
 
 urlpatterns = [
-    path("checkout", views.checkout, name="checkout"),
+    path("", views.checkout, name="checkout"),
     path(
         "checkout-success/<order_number>",
         views.checkout_success,

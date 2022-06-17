@@ -2,7 +2,7 @@
 {% load static %}
 {% load calc_item_subtotal %}
 {% block metadescription %}
-	<!-- TODO -->
+<!-- TODO -->
 <link rel="canonical" href="#">
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
@@ -61,7 +61,7 @@ Bing to judge your site based on that content -->
 					<div class="row">
 						<div class="col-3 mb-1 h-100 ">
 							{% if item.product.image.url %}
-							<a href="{% url 'store:product-detail' item.product.slug %}"
+							<a href="{% url 'product-detail' item.product.slug %}"
 								target="_blank">
 								<img src="{{ item.product.image.url }}" class="img-fluid mx-auto d-block
 								product-image-size rounded-10 box-shadow"
@@ -128,7 +128,7 @@ Bing to judge your site based on that content -->
 				<div class="col-12 col-lg-6">
 					<p class="text-muted">Please fill out the form below to
 						complete your order</p>
-					<form action="{% url "checkout:checkout" %}" method="POST"
+					<form action="{% url "checkout" %}" method="POST"
 						id="payment-form">
 						{% csrf_token %}
 						<fieldset class="rounded px-3 mb-5">

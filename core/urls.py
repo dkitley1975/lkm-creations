@@ -9,9 +9,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("", include("home.urls", namespace="home")),
-    path("", include("store.urls", namespace="store")),
+    path("store/", include("store.urls")),
     path("basket/", include("basket.urls")),
-    path("", include("checkout.urls", namespace="checkout")),
+    path("checkout/", include("checkout.urls")),
     path(
         "favicon.ico",
         RedirectView.as_view(

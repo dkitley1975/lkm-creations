@@ -3,8 +3,7 @@
 	<div id="product_card"
 		class="box-shadow rounded-10 card border-1 product_card mx-2">
 		<div class="card border-0 h-100 mx-2 px-1 py-2">
-			<a href=" {% url 'store:product-detail' product.slug %}"
-				role="button">
+			<a href=" {% url 'product-detail' product.slug %}" role="button">
 
 				<img src="{{ product.image.url }}"
 					class="card-img-top product-image-size rounded-10 box-shadow"
@@ -13,7 +12,7 @@
 
 			</a>
 			<div class="card-body">
-				<a href="{% url 'store:product-detail' product.slug %}"
+				<a href="{% url 'product-detail' product.slug %}"
 					class="text-decoration-none text-black">
 					<h5 class="card-title">{{ product.name|title }}</h5>
 					{% if product.sale_price %}
@@ -39,7 +38,7 @@
 				{% if product.category %}
 				<p class="small mt-1 mb-0 text-left">
 					<a class="text-muted"
-						href="/shop/{{ product.category.slug }}">
+						href="/store/category/{{ product.category.slug }}">
 						<i class="fs-5 bi bi-tags-fill"></i>
 						{{ product.category.name }}</a>
 				</p>
@@ -47,7 +46,7 @@
 			</div>
 
 			{% comment %} <div class="card-footer border-0 bg-white">
-				<a href="{% url 'store:product-detail' product.slug %}"
+				<a href="{% url 'product-detail' product.slug %}"
 					class="btn btn-primary">See
 					Details</a>
 			</div> {% endcomment %}

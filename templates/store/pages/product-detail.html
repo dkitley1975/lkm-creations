@@ -61,7 +61,7 @@
 								<div class="col-12 col-md-6 text-center mx-0">
 									<a type="button"
 										class="btn btn-outline-secondary btn-md my-2 w-100"
-										href="{% url 'store:products' %}">
+										href="{% url 'products' %}">
 										<i class="fs-5 bi bi-chevron-left">&nbsp;
 										</i>
 										<span class="text-uppercase small">
@@ -136,7 +136,7 @@
 									{% if product.category.name %}
 									<p class="small mt-1 mb-0">
 										<a class="text-muted"
-											href="/category/{{ product.category.slug }}">
+											href="/store/category/{{ product.category.slug }}">
 											<i
 												class="fs-5 bi bi-tags-fill"></i>
 											{{ product.category.name }}</a>

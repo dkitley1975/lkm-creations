@@ -2,7 +2,7 @@
 {% load static %}
 {% load calc_item_subtotal %}
 {% block metadescription %}
-	<!-- TODO -->
+<!-- TODO -->
 <link rel="canonical" href="#">
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
@@ -57,14 +57,14 @@ Bing to judge your site based on that content -->
 				<!--image, price and category-->
 				<div class="col-12 col-md-2 col-lg-2">
 					{% if item.product.image.url %}
-					<a href="{% url 'store:product-detail' item.product.slug %}"
+					<a href="{% url 'product-detail' item.product.slug %}"
 						target="_self">
 						<img src="{{ item.product.image.url }}" class="img-fluid mx-auto d-block product-image-size
 							rounded-10 box-shadow" alt="{{ item.product.image_alt_text }}"
 							oncontextmenu="return false;">
 					</a>
 					{% else %}
-					<a href="{% url 'store:product-detail' item.product.slug %}"
+					<a href="{% url 'product-detail' item.product.slug %}"
 						target="_self">
 						<img class="img-fluid mx-auto d-block product-image-size
 							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.png"
@@ -79,7 +79,7 @@ Bing to judge your site based on that content -->
 				</div>
 				<!--Description-->
 				<div class="col-12 col-md-6 col-lg-7 d-none d-md-block">
-					<a href="{% url 'store:product-detail' item.product.slug %}"
+					<a href="{% url 'product-detail' item.product.slug %}"
 						class="text-decoration-none text-reset">
 						<p class=" fs-5 fw-bold text-center text-md-start">
 							{{ item.product.name|title }}</p>
@@ -162,7 +162,7 @@ Bing to judge your site based on that content -->
 					<span class="text-uppercase small">
 						keep shopping</span></a>
 				{% if subtotal > 0 %}
-				<a href="{% url 'checkout:checkout' %}
+				<a href="{% url 'checkout' %}
 				" class="btn btn-primary text-center col-12 col-md-4 col-lg-4 mx-3 my-2">
 					<span class="text-uppercase small">
 						Checkout</span>

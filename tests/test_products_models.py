@@ -115,10 +115,10 @@ class TestProductsModel(TestCase):
         Test product model slug and URL reverse
         """
         data = self.testdata1
-        url = reverse("store:product-detail", args=[data.slug])
+        url = reverse("product-detail", args=[data.slug])
         self.assertEqual(url, "/test-product/")
         response = self.client.post(
-            reverse("store:product-detail", args=[data.slug])
+            reverse("product-detail", args=[data.slug])
         )
         self.assertEqual(response.status_code, 200)
 
@@ -128,7 +128,7 @@ class TestProductsModel(TestCase):
         """
         data = self.testdata1
         response = self.client.get(
-            reverse("store:product-detail", args=["test-product"])
+            reverse("product-detail", args=["test-product"])
         )
         self.assertEqual(response.status_code, 200)
 

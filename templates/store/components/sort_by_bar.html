@@ -14,8 +14,8 @@
 						by</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown">
 						<li>
-							<a href={% if search_term %} "{% url 'store:products' %}?q={{ search_term }}&sort=retail_price&sort_direction=asc"
-								{% else %} "{% url 'store:products' %}?sort=retail_price&sort_direction=asc"
+							<a href={% if search_term %} "{% url 'products' %}?q={{ search_term }}&sort=retail_price&sort_direction=asc"
+								{% else %} "{% url 'products' %}?sort=retail_price&sort_direction=asc"
 								{% endif %}
 								class="dropdown-item
 								{% if current_sorting == 'retail_price_asc' %}text-muted{% endif %}">Price
@@ -23,8 +23,8 @@
 
 						</li>
 						<li>
-							<a href={% if search_term %} "{% url 'store:products' %}?q={{ search_term }}&sort=retail_price&sort_direction=desc"
-								{% else %} "{% url 'store:products' %}?sort=retail_price&sort_direction=desc"
+							<a href={% if search_term %} "{% url 'products' %}?q={{ search_term }}&sort=retail_price&sort_direction=desc"
+								{% else %} "{% url 'products' %}?sort=retail_price&sort_direction=desc"
 								{% endif %}
 								class="dropdown-item
 								{% if current_sorting == 'retail_price_desc' %}text-muted{% endif %}">Price
@@ -32,15 +32,15 @@
 								Low</a>
 						</li>
 						<li>
-							<a href={% if search_term %} "{% url 'store:products' %}?q={{ search_term }}&sort=name&sort_direction=asc"
-								{% else %} "{% url 'store:products' %}?sort=name&sort_direction=asc"
+							<a href={% if search_term %} "{% url 'products' %}?q={{ search_term }}&sort=name&sort_direction=asc"
+								{% else %} "{% url 'products' %}?sort=name&sort_direction=asc"
 								{% endif %} class="dropdown-item
 								{% if current_sorting == 'name_desc' %}text-muted{% endif %}">Name
 								- A to Z</a>
 						</li>
 						<li>
-							<a href={% if search_term %} "{% url 'store:products' %}?q={{ search_term }}&sort=name&sort_direction=desc"
-								{% else %} "{% url 'store:products' %}?sort=name&sort_direction=desc"
+							<a href={% if search_term %} "{% url 'products' %}?q={{ search_term }}&sort=name&sort_direction=desc"
+								{% else %} "{% url 'products' %}?sort=name&sort_direction=desc"
 								{% endif %} class="dropdown-item
 								{% if current_sorting == 'name_desc' %}text-muted{% endif %}">Name
 								- Z to A</a>
