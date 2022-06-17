@@ -9,16 +9,20 @@ def basket_contents(request):
     subtotal = 0
     total_quantity = 0
     delivery_charge = 0
+
     free_delivery_threshold = (
-        SiteInfo.objects.filter(is_active=True)
-        .latest("free_delivery_over")
+        SiteInfo.objects.all()
+        .filter(is_active=True)
+        .order_by("-created_at")[0]
         .free_delivery_over
     )
     default_delivery_price = (
-        SiteInfo.objects.filter(is_active=True)
-        .latest("delivery_price")
+        SiteInfo.objects.all()
+        .filter(is_active=True)
+        .order_by("-created_at")[0]
         .delivery_price
     )
+
     basket = request.session.get("basket", {})
 
     for item_id, quantity in basket.items():

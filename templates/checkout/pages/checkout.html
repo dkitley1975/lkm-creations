@@ -55,6 +55,7 @@ Bing to judge your site based on that content -->
 				<div class="col-12 col-lg-6 order-lg-last mb-5">
 					<h2 class="text-muted fw-bolder fs-6 text-center">Order
 						Summary <span class="small">
+
 							({{ total_quantity }}) items</span>
 					</h2>
 					{% for item in basket_items %}
@@ -116,7 +117,7 @@ Bing to judge your site based on that content -->
 							<p class="my-0 text-muted text-end">£0.00</p>
 							{% else %}
 							<p class="my-0 text-end">
-								£{{ site_info.delivery_price|floatformat:2}}
+								£{{ delivery_charge|floatformat:2}}
 							</p>
 							{% endif %}
 							<p class="my-0 text-end bold">

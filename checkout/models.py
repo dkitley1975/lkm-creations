@@ -6,13 +6,21 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from siteadmin.custom_context_processors import site_info
-
+from profiles.models import UserProfile
 
 # Create your models here.
 class OrderDetails(models.Model):
 
     # user contact details
-
+    user_profile = (
+        models.ForeignKey(
+            UserProfile,
+            on_delete=models.SET_NULL,
+            null=True,
+            blank=True,
+            related_name="orders",
+        ),
+    )
     phone_number = models.CharField(
         max_length=20,
         unique=False,
