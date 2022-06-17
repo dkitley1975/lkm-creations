@@ -5,18 +5,9 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 
 from products.models import Product
-from siteadmin.models import SiteInfo
+from siteadmin.custom_context_processors import site_info
 
-free_delivery_threshold = (
-    SiteInfo.objects.filter(is_active=True)
-    .latest("free_delivery_over")
-    .free_delivery_over
-)
-default_delivery_price = (
-    SiteInfo.objects.filter(is_active=True)
-    .latest("delivery_price")
-    .delivery_price
-)
+
 # Create your models here.
 class OrderDetails(models.Model):
 
@@ -115,6 +106,10 @@ class OrderDetails(models.Model):
     )
     order_grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0
+    )
+    original_basket = models.TextField(blank=False, null=False, default="")
+    stripe_pid = models.CharField(
+        max_length=254, blank=False, null=False, default=""
     )
 
     class Meta:

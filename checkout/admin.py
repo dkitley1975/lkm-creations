@@ -20,6 +20,8 @@ class OrderDetailsAdmin(admin.ModelAdmin):
         "delivery_charge",
         "order_subtotal",
         "order_grand_total",
+        "original_basket",
+        "stripe_pid",
     )
     fieldsets = (
         (
@@ -31,6 +33,8 @@ class OrderDetailsAdmin(admin.ModelAdmin):
                     "delivery_charge",
                     "order_subtotal",
                     "order_grand_total",
+                    "original_basket",
+                    "stripe_pid",
                 ),
             },
         ),
