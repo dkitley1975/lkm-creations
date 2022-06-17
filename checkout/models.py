@@ -5,8 +5,21 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 
 from products.models import Product
-from siteadmin.custom_context_processors import site_info
 from profiles.models import UserProfile
+from siteadmin.models import SiteInfo
+
+free_delivery_threshold = (
+    SiteInfo.objects.all()
+    .filter(is_active=True)
+    .order_by("-created_at")[0]
+    .free_delivery_over
+)
+default_delivery_price = (
+    SiteInfo.objects.all()
+    .filter(is_active=True)
+    .order_by("-created_at")[0]
+    .delivery_price
+)
 
 # Create your models here.
 class OrderDetails(models.Model):

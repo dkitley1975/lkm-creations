@@ -4,16 +4,16 @@ repos:
     hooks:
     - id: check-yaml
     # - id: end-of-file-fixer
-    # - id: trailing-whitespace
-    # - id: check-added-large-files
-    # - id: check-merge-conflict
-    # - id: debug-statements
-    # - id: detect-private-key
-    # - id: end-of-file-fixer
-    - id: requirements-txt-fixer
-  # - id: no-commit-to-branch
+    - id: trailing-whitespace
+    - id: check-added-large-files
+    - id: check-merge-conflict
+    - id: debug-statements
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    # - id: no-commit-to-branch
     #   args:
     #     - --pattern=develop|main
+    - id: requirements-txt-fixer
 
 # -   repo: https://github.com/PyCQA/flake8
 #     rev: 4.0.1
@@ -28,25 +28,25 @@ repos:
 #         - --extend-ignore=D106,D401
 #       exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
 
-# -   repo: https://github.com/psf/black
-#     rev: 22.3.0
-#     hooks:
-#     -   id: black
-#         args:
-#           - --line-length=75
-#         exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
-# -   repo: https://github.com/PyCQA/isort
-#     rev: 5.10.1
-#     hooks:
-#     - id: isort
-#       exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
+-   repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+        args:
+          - --line-length=75
+        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+    - id: isort
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
 
-# -   repo: https://github.com/myint/autoflake
-#     rev: v1.4
-#     hooks:
-#     - id: autoflake
-#       args:
-#         - --in-place
-#         # - --remove-unused-variables
-#         # - --remove-all-unused-imports
-#       exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
+-   repo: https://github.com/myint/autoflake
+    rev: v1.4
+    hooks:
+    - id: autoflake
+      args:
+        - --in-place
+        # - --remove-unused-variables
+        # - --remove-all-unused-imports
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|apps.py|local-only/)
