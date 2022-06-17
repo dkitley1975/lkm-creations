@@ -1,1 +1,1 @@
-web: gunicorn lkm-creations.wsgi
+web: gunicorn lkm-creations.wsgi:application
