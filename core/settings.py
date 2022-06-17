@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "basket",
     "checkout",
     "products",
+    "profiles",
     "siteadmin",
     "store",
     "testdata",
