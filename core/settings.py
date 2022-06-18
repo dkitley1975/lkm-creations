@@ -63,11 +63,11 @@ INSTALLED_APPS = [
     "storages",
     # local apps
     "home",
+    "siteadmin",
     "basket",
     "checkout",
     "products",
     "profiles",
-    "siteadmin",
     "store",
     "testdata",
 ]
