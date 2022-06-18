@@ -32,8 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if "DEBUG" in os.environ:
-    DEBUG = True
+DEBUG = os.environ.get("DEBUG")
 
 
 ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
@@ -166,18 +165,17 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 LOCAL_DATABASE = str(os.environ.get("LOCAL_DATABASE")) == "True"
-if LOCAL_DATABASE is not True:
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
-else:
+if LOCAL_DATABASE is True:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": "db.sqlite3",
         }
     }
-
+else:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
