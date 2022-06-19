@@ -1,10 +1,30 @@
 [{
-	"model": "account.emailaddress",
-	"pk": 1,
-	"fields": {
-		"user": 1,
-		"email": "test@test.com",
-		"verified": true,
-		"primary": true
+		"model": "account.emailaddress",
+		"pk": 1,
+		"fields": {
+			"user": 1,
+			"email": "test@test.com",
+			"verified": true,
+			"primary": true
+		}
+	},
+	{
+		"model": "account.emailaddress",
+		"pk": 2,
+		"fields": {
+			"user": 2,
+			"email": "billy@bagend.com",
+			"verified": true,
+			"primary": true
+		}
+	}, {
+		"model": "account.emailaddress",
+		"pk": 3,
+		"fields": {
+			"user": 3,
+			"email": "gandalf@wizard.com",
+			"verified": true,
+			"primary": true
+		}
 	}
-}]
+]

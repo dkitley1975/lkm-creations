@@ -1,5 +1,6 @@
 import uuid
 
+from django.conf import settings
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
@@ -25,15 +26,14 @@ free_delivery_threshold = (
 class OrderDetails(models.Model):
 
     # user contact details
-    user_profile = (
-        models.ForeignKey(
-            UserProfile,
-            on_delete=models.SET_NULL,
-            null=True,
-            blank=True,
-            related_name="orders",
-        ),
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="orders",
     )
+
     phone_number = models.CharField(
         max_length=20,
         unique=False,

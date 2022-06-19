@@ -5,7 +5,8 @@
 <meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="noindex, nofollow">
 {% endblock %}
-{% block title %}LKM Creations - Order {{order.order_number}}{% endblock %}
+{% block title %}LKM Creations - Order Summary -
+{{order.order_number}}{% endblock %}
 {% block custom_page_stylesheet %}
 <!-- Local CSS-->
 <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
@@ -13,18 +14,10 @@
 {% block content %}
 <main class="mb-5 mt-3 mt-md-5">
     <div class="container">
-        <div class="col-12 p-3 p-md-5 ">
-            <section class="col-12 text-center pt-2">
-                <h1 class="mb-5 fs-2">Thank you for your purchase!</h1>
-            </section>
-            <section class="col-12 text-center pt-2">
-                <h2 class="mb-5 fs-3">"Your order was successfully processed!
-                </h2>
-                <p>An email of confirmation has been sent to {{order.email}}.
-                </p>
-                <p>Your order details are below:</p>
-            </section>
-        </div>
+        <section class="col-12 text-center pt-2">
+            <h1 class="mb-5 fs-1">Order
+                {{order.order_number}} Summary</h1>
+        </section>
         <div class="row">
             <div class="col-3 col-md-3 col-lg-2">
                 <p class="fw-bold">Order Number:</p>
@@ -55,7 +48,7 @@
                 <p class="fw-bolder text-sm-end">Price</p>
             </div>
             <div class="col-3 col-md-2">
-                <p class="fw-bolder text-sm-end"> Total</p>
+                <p class="fw-bolder text-sm-end">Total</p>
             </div>
         </div>
         {% for item in order.lineitems.all %}
@@ -143,12 +136,11 @@
                     <p class="text-start">{{order.country}}</p>
                 </div>
             </div>
-
         </div>
-
-
+        {% if from_dashboard %}
+        <div class="col-12"><a href="{% url "dashboard" %}"
+                class="btn btn-primary">Return to profile</a></div>
     </div>
-
-
+    {% endif %}
 </main>
 {% endblock %}

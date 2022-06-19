@@ -16,6 +16,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInLine,)
     readonly_fields = (
         "order_number",
+        "user_profile",
         "order_date",
         "delivery_charge",
         "order_subtotal",
@@ -46,6 +47,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
                     "extrapretty",
                 ),
                 "fields": (
+                    "user_profile",
                     "full_name",
                     "phone_number",
                     "email",

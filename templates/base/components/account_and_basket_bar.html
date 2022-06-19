@@ -21,8 +21,7 @@
 						aria-labelledby="user-options">
 						{% if request.user.is_authenticated %}
 				<li class="list-inline-item">
-					<a class="text-black nav-link"
-						href="{% comment %} {% url "profile:dashboard" %} {% endcomment %}"
+					<a class="text-black nav-link" href="{% url "dashboard" %}"
 						id="user-options" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 						<div class="text-center">

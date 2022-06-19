@@ -1,35 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
-<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-<!-- SEO win meta tags -->
-<meta name="description" content="DESCRIPTION">
-<!-- Each page should have a unique description. Page, not site. -->
-<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
-<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
-<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
-
-<meta name="keywords" content="KEYWORDS">
-<!-- These are the keywords that your site can be searched with on Google -->
-<!-- Make these single words, relevant to your site, often searched -->
-<meta name="robots" content="index, follow">
-<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
-<!-- noindex, nofollow is the opposite -->
-<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
-Bing to judge your site based on that content -->
+<meta name="description" content="{{ site_info.store_description }}">
+<meta name="keywords" content="{{ site_info.store_keywords|title }}">
+<meta name="robots" content="noindex, nofollow">
 {% endblock %}
-
-{% block title %}LKM Creations User Profile{% endblock %}
-<!-- This is what will display in the tab at the top of a user's browser window -->
-<!-- Title should be less than 60 characters -->
-<!-- Unique title on every page, don't repeat yourself -->
-<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
-<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
-
+{% block title %}LKM Creations User Profile Dashboard{% endblock %}
 {% block custom_page_stylesheet %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
@@ -37,7 +13,6 @@ Bing to judge your site based on that content -->
 	<section class="text-center pt-2">
 		<h1 class="my-3 fs-1">User Dashboard</h1>
 	</section>
-
 	<div class="col-12 d-flex justify-content-between">
 		<div>Manage your <b>orders</b> and personal details</div>
 		<!-- Button trigger modal -->
@@ -50,112 +25,59 @@ Bing to judge your site based on that content -->
 	</div>
 	<hr />
 	</div>
-
-
 	<div class="container-fluid">
-
-
-
 		<div class="row">
-			<div class="col-12 col-md-7">
-				<div class="col-md-6">
-					<p class="text-muted mt-3">Your Orders</p>
-					{% for order in order_details %}
-					<div class="row g-3">
-
-						<div
-							class="col-12 bg-light p-3 d-flex justify-content-between">
-							<div class="d-flex d-flex-inline">
-
-								<div class="pe-3">{{ order_details.created }}
-								</div>
-								<div class="dropdown">
-									<a class="text-reset text-decoration-none dropdown-toggle"
-										href="#" role="link" id="dropdownLink"
-										data-bs-toggle="dropdown"
-										aria-expanded="false">
-										Dispacted to
-										<svg xmlns="http://www.w3.org/2000/svg"
-											width="12" height="12"
-											fill="currentColor"
-											class="bi bi-chevron-down"
-											viewBox="0 0 16 16">
-											<path fill-rule="evenodd"
-												d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-										</svg>
-									</a>
-
-									<ul class="dropdown-menu"
-										aria-labelledby="dropdownLink">
-										<li class="item small">
-											{{order_details.full_name}}
-										</li>
-										<li class="item small">
-											{{order_details.address1}}
-										</li>
-										<li class="item small">
-											{{order_details.address2}}
-										</li>
-										<li class="item small">
-											{{order_details.post_code}}
-										</li>
-									</ul>
-								</div>
-
-							</div>
-							<div class="text-end">
-								Total paid: <span
-									class="fw-bold">£{{ order_details.total_paid }}</span>
-							</div>
-						</div>
-						<div
-							class="col-md-5 col-lg-4 order-md-last p-0 order-3 ">
-							<div class="d-grid gap-2 ">
-								<button class="btn btn-warning"
-									type="button">Problem with
-									order</button>
-								<button class="btn btn-light"
-									type="button">Leave a
-									review</button>
-							</div>
-						</div>
-
-						<div class="col-md-7 col-lg-8 p-0">
-
-							{% for item in order_details.items.all %}
-
-							<div class="card mb-3 border-0">
-								<div class="row g-0">
-									<div class="col-md-2 d-none d-md-block">
-										<img class="img-fluid"
-											style="width:90px"
-											src="{{item.product.image.url}}" />
-									</div>
-									<div class="col-md-10">
-										<div class="card-body p-1">
-											<a class="text-decoration-none"
-												href="{{ item.product.get_absolute_url }}">
-												<p class="card-text small">
-													{{item.product|title}}</p>
-											</a>
-										</div>
-									</div>
+			<div class="col-12 col-md-6 col-lg-8">
+				<p class="text-muted mt-3">Your Orders</p>
+				<div class="row">
+					{% for orders in order_history %}
+					<div class="col-12 col-lg-6 p1 mb-2">
+						<div class="card box-shadow rounded-10">
+							<div class="card-body order-history-card">
+								<p class="card-title">
+									<span class="fw-bolder">Order Number:
+									</span>
+									<span
+										class="float-md-end me-1">{{ orders.order_number }}</span>
+								</p>
+								<p class="card-text">
+									<span class="fw-bolder">Order Date:</span>
+									<span class="float-md-end
+												me-1">{{ orders.order_date|date:"D d M Y" }}</span>
+								</p>
+								<div class="d-none d-md-block">
+									<p class="card-text">
+										Order summary:</p>
+									{% for item in orders.lineitems.all %}
+									<p class="small">{{ item.quantity }} x
+										{{ item.product.name|title }}</p>
+									<hr>
+									{% endfor%}
+									<p class="card-text">
+										<span class="fw-bolder">Order
+											Total:
+										</span><span class="float-md-end
+												me-1">
+											£{{ orders.order_grand_total }}</span>
+									</p>
 								</div>
 							</div>
-							{% endfor %}
+							<div class="card-footer">
+								<div class="row content-align-end">
 
-
+									<div class="col-12"><a
+											href="/dashboard/order-summary/{{orders.order_number}}"
+											class="btn btn-primary">View
+											Order</a></div>
+								</div>
+							</div>
 						</div>
-
 					</div>
 					{% endfor %}
 				</div>
-
 			</div>
-			<div class="col-12 col-md-5  border-start ps-3">
-
+			<div class="col-12 col-md-6  col-lg-4  border-start ps-3">
 				<p class="text-muted mt-3">Default Delivery Address</p>
-
 				<form class="mt-3" action="{% url "dashboard" %}" method="POST"
 					id="profile-update-form">
 					{% csrf_token %}
@@ -163,46 +85,35 @@ Bing to judge your site based on that content -->
 					<button class="btn btn-primary mb-3 float-right">
 						Update Details</button>
 				</form>
-
 			</div>
 		</div>
-	</div>
-
-
-
-
-	<!-- Modal -->
-	<div class="modal fade" id="editProfileDetails" tabindex="-1"
-		aria-labelledby="editProfileDetailsLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-scrollable">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="editProfileDetailsLabel">
-						Edit Profile Details
-					</h5>
-					<button type="button" class="btn-close"
-						data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save
-						changes</button>
+		<!-- Modal -->
+		<div class="modal fade" id="editProfileDetails" tabindex="-1"
+			aria-labelledby="editProfileDetailsLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editProfileDetailsLabel">
+							Edit Profile Details
+						</h5>
+						<button type="button" class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save
+							changes</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
 </main>
-
-
-
-
 {%endblock%}
-
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript" src="{% static 'js/countryfield.js' %}">
