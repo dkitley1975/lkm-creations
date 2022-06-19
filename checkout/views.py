@@ -11,6 +11,8 @@ from basket.custom_context_processors import basket_contents
 from checkout.forms import OrderForm
 from checkout.models import OrderDetails, OrderLineItem
 from products.models import Product
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 
 
 @require_POST
@@ -207,6 +209,7 @@ def checkout_success(request, order_number):
     context = {
         "order": order,
     }
+    return render(request, template, context)
 
 
 def adjust_basket(request, item_id):
