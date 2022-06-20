@@ -4,13 +4,13 @@ repos:
     hooks:
     - id: check-yaml
     # - id: end-of-file-fixer
-    - id: trailing-whitespace
-    - id: check-added-large-files
-    - id: check-merge-conflict
-    - id: debug-statements
-    - id: detect-private-key
-    - id: end-of-file-fixer
-    # - id: no-commit-to-branch
-    #   args:
-    #     - --pattern=develop|main
-    - id: requirements-txt-fixer
+    # - id: trailing-whitespace
+    # - id: check-added-large-files
+    # - id: check-merge-conflict
+    # - id: debug-statements
+    # - id: detect-private-key
+    # - id: end-of-file-fixer
+    # # - id: no-commit-to-branch
+    # #   args:
+    # #     - --pattern=develop|main
+    # - id: requirements-txt-fixer

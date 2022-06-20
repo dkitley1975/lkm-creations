@@ -60,6 +60,9 @@
 	<script src="{% static 'js/show_alert_once.js' %}"></script>
 	<script src="{% static 'js/show_toast.js' %}"></script>
 	<script src="{% static 'js/return_to_top_button.js' %}"></script>
+	{% block postloadjs %}
+	{{ block.super }}
+	{% endblock %}
 </body>
 
 </html>
