@@ -3,7 +3,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-primary rounded d-none d-md-block"
 	aria-label="Shop Navigation Bar">
 	<div class="container-fluid justify-content-md-center" id="shopNavbar">
-
 		<ul class="navbar-nav">
 			<li class="nav-item">
 				<a class="nav-link {% if '/sale' in request.path %}active{% endif %} fw-bolder"
@@ -34,20 +33,10 @@
 					href="{% url 'home:contact-us' %}"
 					aria-current="Contact Us">Contact Us</a>
 			</li>
-			{% if request.user.is_superuser %}
-			<li class="nav-item">
-				<a class="nav-link" href="#" tabindex="-1"
-					aria-current="Product Managment">Product Managment</a>
-			</li>
-			{% endif %}
 		</ul>
 		<div class="d-md-none col-10 offset-1 my-auto py-1 py-lg-0">
 			{% include "base/components/search.html" %}
 		</div>
 	</div>
-
-
 </nav>
-
-
 <!-- end of navbar.html -->

@@ -49,17 +49,7 @@
 						href="{% url 'home:contact-us' %}"
 						aria-current="Contact Us">Contact Us</a>
 				</li>
-				{% if request.user.is_superuser %}
-				<li class="nav-item">
-					<a class="nav-link" href="#" tabindex="-1"
-						aria-current="Product Managment">Product
-						Managment</a>
-				</li>
-				{% endif %}
-
 			</ul>
-
-
 			<div class="d-flex justify-content-between">
 				{% if request.user.is_authenticated %}
 				<!-- sign-out-confirmation-modal -->
@@ -94,7 +84,6 @@
 									<form method="post"
 										action="/accounts/logout/">
 										{% csrf_token %}
-
 										<div class="modal-footer">
 											<button type="button"
 												class="btn btn-secondary"
@@ -135,7 +124,6 @@
 							</p>
 						</div>
 					</a>
-
 				</li>
 				<!-- login -->
 				<li class="list-inline-item">
@@ -183,12 +171,10 @@
 					</a>
 				</li>
 				<!-- END of basket-nav-info -->
-
 			</div>
 			<div class="d-md-none col-10 offset-1 my-auto py-1 py-lg-0">
 				{% include "base/components/search.html" %}
 			</div>
-
 		</div> <!-- navbar-collapse.// -->
 	</div>
 	<!-- container-fluid.// -->

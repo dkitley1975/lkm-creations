@@ -1,6 +1,4 @@
 {% load active_link_tags %}
-
-
 <!-- sort_by_bar.html -->
 <div class="row mt-1 mb-2">
 	<div class="row mt-1 mb-2">
@@ -20,7 +18,6 @@
 								class="dropdown-item
 								{% if current_sorting == 'retail_price_asc' %}text-muted{% endif %}">Price
 								- Low to High</a>
-
 						</li>
 						<li>
 							<a href={% if search_term %} "{% url 'products' %}?q={{ search_term }}&sort=retail_price&sort_direction=desc"
@@ -53,8 +50,6 @@
 					</ul>
 				</li>
 			</ul>
-
-
 		</div>
 		<div class="col-12 col-md-6 order-md-first">
 			<p class="text-muted mt-3 text-center text-md-left">
@@ -64,15 +59,4 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <!-- end of sort_by_bar.html -->

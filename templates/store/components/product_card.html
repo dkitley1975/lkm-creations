@@ -4,12 +4,10 @@
 		class="box-shadow rounded-10 card border-1 product_card mx-2">
 		<div class="card border-0 h-100 mx-2 px-1 py-2">
 			<a href=" {% url 'product-detail' product.slug %}" role="button">
-
 				<img src="{{ product.image.url }}"
 					class="card-img-top product-image-size rounded-10 box-shadow"
 					alt="{{ product.image_alt_text }}"
 					oncontextmenu="return false;">
-
 			</a>
 			<div class="card-body">
 				<a href="{% url 'product-detail' product.slug %}"

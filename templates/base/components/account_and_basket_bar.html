@@ -62,7 +62,6 @@
 									<form method="post"
 										action="/accounts/logout/">
 										{% csrf_token %}
-
 										<div class="modal-footer">
 											<button type="button"
 												class="btn btn-secondary"
@@ -91,7 +90,6 @@
 							</p>
 						</div>
 					</a>
-
 				</li>
 				<!-- login -->
 				<li class="list-inline-item">
@@ -114,7 +112,6 @@
 		 font-weight-bold {% endif %} nav-link text-black text-decoration-none"
 						type="button" role="button">
 						<div class="text-center">
-
 							<div class="d-inline-flex">
 								{% if total_quantity is 0 %}
 								<span id="basket_quantity"
@@ -137,9 +134,6 @@
 							</p>
 						</div>
 					</a>
-
-
-
 				</li>
 				<!-- END of basket-info.html -->
 		</div>
@@ -147,8 +141,6 @@
 		</ul>
 		{% include "base/components/navbar.html" %}
 	</div>
-
 	</div>
-
 </header>
 <!-- end of account_and_basket_bar.html -->
