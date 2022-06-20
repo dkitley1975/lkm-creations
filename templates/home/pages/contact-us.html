@@ -1,37 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-<!-- TODO -->
-<link rel="canonical" href="#">
+<link rel="canonical" href="https://lkm-creations.herokuapp.com/">
 <meta name="description" content="{{ site_info.store_description }}">
 <meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="index, follow">
 {% endblock %}
 {% block title %}LKM Creations{% endblock %}
-{% block custom_page_stylesheet %}{% endblock %}
+{% block custom_page_stylesheet %}
+<link rel="stylesheet" href="{% static 'css/allauth.css' %}">
+{% endblock %}
 {% block content %}
-
-
-<div class="col-12">
-	{% load crispy_forms_tags %}
-	<!-- contact us -->
-	<div class="p-3">
-		<div class="p-3 pb-md-4 mx-auto text-center">
-			<h1 class="section-header">Contact Us</h1>
-		</div>
-		<div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 p-4">
-			<h2 class="card-title text-center">Contact Form</h2>
-			<form method="post">
-				{% csrf_token %}
-				{{ form | crispy }}
-				<button class="btn btn-primary me-md-2 mt-2 mb-5"
-					type="submit">Submit
-					form</button>
-			</form>
-		</div>
+{% load crispy_forms_tags %}
+<div class="container col-12 my-5">
+	<div
+		class=" bg-white border rounded-10 box-shadow col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 p-4 my-5">
+		<h1 class="card-title text-center">Contact Form</h1>
+		<form method="post" class="mb-5">
+			{% csrf_token %}
+			{{ form | crispy }}
+			<button class="btn btn-primary mt-2 mb-5" type="submit">Submit
+				form</button>
+		</form>
 	</div>
 </div>
-</div>
-
-
-</pdiv {%endblock%}
+{%endblock%}

@@ -2,41 +2,12 @@
 {% load static %}
 {% load calc_item_subtotal %}
 {% block metadescription %}
-<!-- TODO -->
-<link rel="canonical" href="#">
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
-<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-<!-- SEO win meta tags -->
-<meta name="description" content="DESCRIPTION">
-<!-- Each page should have a unique description. Page, not site. -->
-<!-- Length can be up to 160 characters on desktop, 130 characters on mobile -->
-<!-- You can have up to 158 description tags (although generally you won't need more than one per page) -->
-<!-- Add a clear call to action, don't duplicate descriptions, include keywords, discounts, or offers if you're selling something -->
-
-<meta name="keywords" content="KEYWORDS">
-<!-- These are the keywords that your site can be searched with on Google -->
-<!-- Make these single words, relevant to your site, often searched -->
-<meta name="robots" content="index, follow">
-<!-- This tells search engines to index and follow this webpage. This is good for site crawlers like Google and Bing -->
-<!-- noindex, nofollow is the opposite -->
-<!-- Set it to noindex, nofollow for 'thin' pages (pages that don't have much information), where you don't want Google or
-Bing to judge your site based on that content -->
+<meta name="description" content="{{ site_info.store_description }}">
+<meta name="keywords" content="{{ site_info.store_keywords|title }}">
+<meta name="robots" content="noindex, nofollow">
 {% endblock %}
-
 {% block title %}LKM Creations - Basket Summary{% endblock %}
-<!-- This is what will display in the tab at the top of a user's browser window -->
-<!-- Title should be less than 60 characters -->
-<!-- Unique title on every page, don't repeat yourself -->
-<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
-<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
-
-{% block custom_page_stylesheet %}{% endblock %}
-
 {% block content %}
-
 <main class="mb-5 mt-5">
 	<div class="container">
 		<div class="col-10 offset-1 p-5 bg-white border rounded-10 box-shadow">
@@ -117,7 +88,6 @@ Bing to judge your site based on that content -->
 							{{ item.unit_price | calc_item_subtotal:item.quantity }}
 						</span>
 					</p>
-
 				</div>
 				<hr class="my-4">
 			</div>
@@ -150,7 +120,6 @@ Bing to judge your site based on that content -->
 						<span
 							class="fw-bold">£{{ grand_total | floatformat:2  }}</span>
 					</p>
-
 				</div>
 				<hr>
 			</div>
@@ -173,11 +142,7 @@ Bing to judge your site based on that content -->
 	</div>
 </main>
 {%endblock%}
-
 {% block postloadjs %}
-
-
-
 {{ block.super }}
 <script type="text/javascript">
 	// Update quantity on click
@@ -185,7 +150,6 @@ Bing to judge your site based on that content -->
 		var form = $(this).prev('.update-form');
 		form.submit();
 	})
-
 	// Remove item and reload on click
 	$('.remove-item').click(function (e) {
 		var csrfToken = "{{ csrf_token }}";
@@ -194,12 +158,10 @@ Bing to judge your site based on that content -->
 		var data = {
 			'csrfmiddlewaretoken': csrfToken,
 		};
-
 		$.post(url, data)
 			.done(function () {
 				location.reload();
 			});
 	})
 </script>
-
 {% endblock %}

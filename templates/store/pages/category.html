@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-	<!-- TODO -->
-<link rel="canonical" href="#">
 <meta name="description"
 	content="LKM Creations Shop Category {{ category.name|title }}">
 <meta name="keywords" content="{{category.category_keywords|title }}">
@@ -10,7 +8,6 @@
 {% endblock %}
 {% block title %}LKM Creations Shop Category
 {{ category.name|title }}{% endblock %}
-{% block custom_page_stylesheet %}{% endblock %}
 {% block content %}
 <main class="mb-5">
 	{% include "store/components/sort_by_bar.html" %}
@@ -26,8 +23,3 @@
 	</section>
 </main>
 {%endblock%}
-{% block postloadjs %}
-{{ block.super }}
-{% load static %}
-<!-- Page specific JS-->
-{% endblock %}

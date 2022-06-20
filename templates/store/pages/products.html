@@ -1,48 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-	<!-- TODO -->
-<link rel="canonical" href="#">
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<!-- IMPORTANT NOTE - Anywhere there are capitalised words inside "", you should replace these with your own information -->
-<!-- IMPORTANT NOTE - Anywhere there are # inside "", you should replace these with your own links !!!!!!!!!!!!!!!!!!!!! -->
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-<!-- SEO win meta tags -->
 <meta name="description" content="LKM Creations Shop">
 <meta name="keywords"
 	content="{{ site_info.store_keywords|title }},{% for category in categories %}{{ category.name|title }}s, {% endfor %}">
 <meta name="robots" content="index, follow">
 {% endblock %}
-
 {% block title %}LKM Creations Store Products{% endblock %}
-<!-- This is what will display in the tab at the top of a user's browser window -->
-<!-- Title should be less than 60 characters -->
-<!-- Unique title on every page, don't repeat yourself -->
-<!-- Use words to indicate site function, use keywords with 4+ words, this should be your main keyword -->
-<!-- Title can be changed to get the user's attention! 'Please come back, we miss you!', 'You have a new notification!' -->
-
-{% block custom_page_stylesheet %}{% endblock %}
-
-
 {% block content %}
 <main class="mb-5">
 	{% include "store/components/sort_by_bar.html" %}
-
 	<section class="col-md-12 text-center pt-2">
 		<h1 class="my-3 fs-1">All Products</h1>
 	</section>
-
 	<section class="col-10 offset-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
 		row-cols-xl-4 g-5">
 		{% for product in products %}
 		{% include "store/components/product_card.html" %}
 		{% endfor %}
-
 	</section>
 </main>
-
-
-
-
 {%endblock%}
