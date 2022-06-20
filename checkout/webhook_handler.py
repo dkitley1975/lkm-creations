@@ -26,13 +26,13 @@ class StripeWH_Handler:
         cust_email = order.email
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
-            {"order": order},
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
         body = render_to_string(
             "checkout/confirmation_emails/confirmation_email_body.txt",
             {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
-        send_mail(subject, body, [cust_email, ])
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     def handle_event(self, event):
         """
@@ -106,7 +106,7 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-            except order.DoesNotExist:
+            except OrderDetails.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
