@@ -32,11 +32,27 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG")
+if str(os.environ.get("DEBUG")) == "True":
+    DEBUG = True
+else:
+    DEBUG = False
+if str(os.environ.get("LOCAL_DB")) == "True":
+    LOCAL_DB = True
+else:
+    LOCAL_DB = False
+if str(os.environ.get("TEST_EMAIL")) == "True":
+    TEST_EMAIL = True
+else:
+    TEST_EMAIL = False
+if str(os.environ.get("USE_AWS")) == "True":
+    USE_AWS = True
+else:
+    USE_AWS = False
+
+
 
 
 ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
-
 
 # Application definition
 
@@ -126,16 +142,11 @@ SITE_ID = 1
 
 # Email Settings
 # if TEST_EMAIL string in env matches True than use test settings
-if str(os.environ.get("TEST_EMAIL")) == "True":
+if TEST_EMAIL == True:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     DEFAULT_FROM_EMAIL = "david@lkm-creations.com"
-    EMAIL_HOST = "127.0.0.1"
-    EMAIL_PORT = 1025
-    EMAIL_HOST_USER = ""
-    EMAIL_HOST_PASSWORD = ""
-    EMAIL_USE_TLS = False
-    RECIPIENT_ADDRESS = "testing@example.com"
-    DEFAULT_FROM_EMAIL = "testing@example.com"
+
+
 else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = os.environ.get("EMAIL_HOST")
@@ -145,6 +156,7 @@ else:
     EMAIL_USE_TLS = True
     DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
     DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
+    DEFAULT_ORDERS_ADDRESS = os.environ.get("DEFAULT_ORDERS_ADDRESS")
 
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
@@ -164,8 +176,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-LOCAL_DATABASE = str(os.environ.get("LOCAL_DATABASE")) == "True"
-if LOCAL_DATABASE is True:
+if LOCAL_DB:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -176,6 +187,8 @@ else:
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -221,7 +234,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-if str(os.environ.get("USE_AWS")) == "True":
+if USE_AWS:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
@@ -261,25 +274,21 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # SECURITY WARNING: remove the Print to terminal once ready to deploy
 # Print to terminal the enviroment settings
 
-if str(os.environ.get("DEBUG")) == "True":
-    os.system("clear")
+if DEBUG:
+    # os.system("clear")
     print("\033[1;32m You have debug set to True \033[0;0m")
-    if str(os.environ.get("DEBUG")) != "True":
-        os.system("clear")
-        print("\033[1;33m You have debug set to NOT True \033[0;0m")
-
-    if str(os.environ.get("TEST_EMAIL")) == "True":
+    if TEST_EMAIL:
         print("\033[1;32m You are using the test email settings \033[0;0m")
-    if str(os.environ.get("TEST_EMAIL")) != "True":
+    else:
         print("\033[1;33m You are using the live email settings \033[0;0m")
-
-    if str(os.environ.get("LOCAL_DATABASE")) == "True":
-        print("\033[1;32m You are using the local database \033[0;0m")
-    if str(os.environ.get("LOCAL_DATABASE")) != "True":
+    if LOCAL_DB:
+        print("\033[1;32m You are using the Local database \033[0;0m")
+    else:
         print("\033[1;33m You are using the live database \033[0;0m")
-
-    if str(os.environ.get("USE_AWS")) != "True":
-        print("\033[1;32m You are using local storage \033[0;0m")
-
-    if str(os.environ.get("USE_AWS")) == "True":
+    print(DATABASES)
+    if USE_AWS:
         print("\033[1;33m You are using AWS storage \033[0;0m")
+    else:
+        print("\033[1;32m You are using local storage \033[0;0m")
+else:
+    print("\033[1;33m You have debug set to False \033[0;0m")
