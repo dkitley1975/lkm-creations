@@ -55,7 +55,7 @@ class StripeWH_Handler:
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        order_grand_total = round(intent.charges.data[0].amount / 100, 2)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Clean data in the shipping details
         # removes empty fields adding  None
@@ -100,7 +100,7 @@ class StripeWH_Handler:
                     county__iexact=shipping_details.address.state,
                     country__iexact=shipping_details.address.country,
                     postcode__iexact=shipping_details.address.postal_code,
-                    grand_total=order_grand_total,
+                    grand_total=grand_total,
                     original_basket=basket,
                     stripe_pid=pid,
                 )
