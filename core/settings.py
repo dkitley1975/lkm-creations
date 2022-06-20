@@ -145,6 +145,7 @@ SITE_ID = 1
 if TEST_EMAIL == True:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     DEFAULT_FROM_EMAIL = "david@lkm-creations.com"
+    DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
 
 
 else:

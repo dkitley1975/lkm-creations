@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+{% block custom_page_stylesheet %}
+<!-- Local CSS-->
+<link rel="stylesheet" href="{% static 'css/allauth.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container header-container">
     <div class="overlay"></div>

@@ -27,12 +27,12 @@
 							{{ category.name|title }}'s</a>
 					</li>
 					{% endfor %}
-					<hr class="dropdown-divider" />
-					<li>
-						<a class="dropdown-item" href="#">
-							Something else here</a>
-					</li>
 				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link {% if 'contact-us' in request.path %}active{% endif %}"
+					href="{% url 'home:contact-us' %}"
+					aria-current="Contact Us">Contact Us</a>
 			</li>
 			{% if request.user.is_superuser %}
 			<li class="nav-item">
