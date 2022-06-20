@@ -125,7 +125,7 @@ class OrderDetails(models.Model):
     order_subtotal = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0
     )
-    order_grand_total = models.DecimalField(
+    grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0
     )
     original_basket = models.TextField(blank=False, null=False, default="")
@@ -159,7 +159,7 @@ class OrderDetails(models.Model):
             self.delivery_charge = default_delivery_price
         else:
             self.delivery_charge = 0
-        self.order_grand_total = self.order_subtotal + self.delivery_charge
+        self.grand_total = self.order_subtotal + self.delivery_charge
         self.save()
 
     def save(self, *args, **kwargs):

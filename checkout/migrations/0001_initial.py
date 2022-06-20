@@ -115,7 +115,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
-                    "order_grand_total",
+                    "grand_total",
                     models.DecimalField(
                         decimal_places=2, default=0, max_digits=10
                     ),

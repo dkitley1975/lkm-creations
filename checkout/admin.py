@@ -20,7 +20,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
         "order_date",
         "delivery_charge",
         "order_subtotal",
-        "order_grand_total",
+        "grand_total",
         "original_basket",
         "stripe_pid",
     )
@@ -33,7 +33,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
                     ("order_number", "order_date"),
                     "delivery_charge",
                     "order_subtotal",
-                    "order_grand_total",
+                    "grand_total",
                     "original_basket",
                     "stripe_pid",
                 ),
@@ -73,7 +73,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
         "order_number",
         "order_date",
         "full_name",
-        "order_grand_total",
+        "grand_total",
     )
     ordering = ("-order_date",)
 
