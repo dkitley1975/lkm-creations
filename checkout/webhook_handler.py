@@ -2,17 +2,14 @@
 # Altered to fit my needs
 import json
 import time
-
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-
 from products.models import Product
 
 from .models import OrderDetails, OrderLineItem
-
-# from profiles.models import UserProfile
+from profiles.models import UserProfile
 
 
 class StripeWH_Handler:
@@ -22,19 +19,20 @@ class StripeWH_Handler:
         """
         self.request = request
 
-    # def _send_confirmation_email(self, order):
-    #     """Send the user a confirmation email"""
-    #     cust_email = order.email
-    #     subject = render_to_string(
-    #         "checkout/confirmation_emails/confirmation_email_subject.txt",
-    #         {"order": order},
-    #     )
-    #     body = render_to_string(
-    #         "checkout/confirmation_emails/confirmation_email_body.txt",
-    #         {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
-    #     )
-
-    #     send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
+    def _send_confirmation_email(self, order):
+        """
+        Function to send an email to the customer with the order details.
+        """
+        cust_email = order.email
+        subject = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_subject.txt",
+            {"order": order},
+        )
+        body = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email, ])
 
     def handle_event(self, event):
         """
@@ -50,6 +48,7 @@ class StripeWH_Handler:
         """
         Handle the payment intent succeeded webhook.
         """
+        intent = event.data.object
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -70,21 +69,21 @@ class StripeWH_Handler:
         if username != "AnonymousUser":
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = (
-                    shipping_details.address.postal_code
-                )
-                profile.default_town_or_city = (
-                    shipping_details.address.city
-                )
                 profile.default_street_address1 = (
                     shipping_details.address.line1
                 )
                 profile.default_street_address2 = (
                     shipping_details.address.line2
                 )
+                profile.default_town_or_city = (
+                    shipping_details.address.city
+                )
                 profile.default_county = shipping_details.address.state
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = (
+                    shipping_details.address.postal_code
+                )
+                profile.default_phone_number = shipping_details.phone
                 profile.save()
 
         order_exists = False
@@ -95,23 +94,24 @@ class StripeWH_Handler:
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
-                    country__iexact=shipping_details.address.country,
-                    postcode__iexact=shipping_details.address.postal_code,
-                    town_or_city__iexact=shipping_details.address.city,
                     street_address1__iexact=shipping_details.address.line1,
                     street_address2__iexact=shipping_details.address.line2,
+                    town_or_city__iexact=shipping_details.address.city,
                     county__iexact=shipping_details.address.state,
+                    country__iexact=shipping_details.address.country,
+                    postcode__iexact=shipping_details.address.postal_code,
                     grand_total=order_grand_total,
                     original_basket=basket,
                     stripe_pid=pid,
                 )
                 order_exists = True
                 break
-            except OrderDetails.DoesNotExist:
+            except order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
             self._send_confirmation_email(order)
+
             return HttpResponse(
                 content=(
                     f'Webhook received: {event["type"]} | SUCCESS: '
@@ -119,6 +119,7 @@ class StripeWH_Handler:
                 ),
                 status=200,
             )
+
         else:
             order = None
             try:
@@ -127,12 +128,12 @@ class StripeWH_Handler:
                     user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
-                    country=shipping_details.address.country,
-                    postcode=shipping_details.address.postal_code,
-                    town_or_city=shipping_details.address.city,
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
+                    town_or_city=shipping_details.address.city,
                     county=shipping_details.address.state,
+                    country=shipping_details.address.country,
+                    postcode=shipping_details.address.postal_code,
                     original_basket=basket,
                     stripe_pid=pid,
                 )
@@ -152,7 +153,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500,
                 )
-        self._send_confirmation_email(order)
+            self._send_confirmation_email(order)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} | SUCCESS: '
