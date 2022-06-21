@@ -13,7 +13,7 @@
 		"pk": 2,
 		"fields": {
 			"user": 2,
-			"email": "billy@bagend.com",
+			"email": "plotter.crusted.0a@icloud.com",
 			"verified": true,
 			"primary": true
 		}
@@ -22,7 +22,7 @@
 		"pk": 3,
 		"fields": {
 			"user": 3,
-			"email": "gandalf@wizard.com",
+			"email": "glimpse-rabbles05@icloud.com",
 			"verified": true,
 			"primary": true
 		}
