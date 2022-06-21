@@ -8,7 +8,6 @@
          "focus": true,
          "icon": "tasklist",
          "commands": [
-            "source venv/bin/activate",
             "pre-commit run --all-files"
          ],
          "execute": false,
@@ -21,7 +20,6 @@
          "focus": false,
          "icon": "beaker",
          "commands": [
-            "source venv/bin/activate",
             "coverage run manage.py test",
             "coverage report",
             "coverage html"
@@ -36,7 +34,6 @@
          "focus": false,
          "icon": "device-desktop",
          "commands": [
-            "source venv/bin/activate",
             "python3 manage.py runserver"
          ],
          "execute": false,
@@ -48,7 +45,6 @@
          "open": true,
          "focus": false,
          "commands": [
-            "source venv/bin/activate",
             "python3 manage.py shell",
             "from django.contrib.sessions.models import Session",
             "s = Session.objects.get(pk='COOKIE_REF') s.get_decoded()"
@@ -56,6 +52,18 @@
          ],
          "execute": false,
          "color": "terminal.ansiRed"
+      },
+      {
+         "name": "Heroku CLI",
+         "description": "Heroku CLI",
+         "open": true,
+         "focus": false,
+         "commands": [
+            "heroku login -i",
+            "heroku logs --tail --app **app name here**"
+         ],
+         "execute": false,
+         "color": "terminal.ansiOrange"
       },
       {
          "name": "BASH",

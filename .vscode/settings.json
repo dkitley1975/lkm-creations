@@ -37,7 +37,7 @@
    },
 
    "files.autoSave": "onFocusChange",
-   "workbench.colorTheme": "Visual Studio Dark",
+   "workbench.colorTheme": "Monokai",
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify",
    "python.testing.unittestArgs": [

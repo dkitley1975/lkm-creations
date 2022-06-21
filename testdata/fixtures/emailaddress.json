@@ -3,7 +3,7 @@
 		"pk": 1,
 		"fields": {
 			"user": 1,
-			"email": "test@test.com",
+			"email": "dkitley@mac.com",
 			"verified": true,
 			"primary": true
 		}

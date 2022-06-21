@@ -8,7 +8,8 @@ from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
 from siteadmin.models import SiteInfo
-# TODO REMOVE THE next two blocks when creating the databases.
+# TODO REMOVE THE next two blocks when creating the databases and
+# then add the site info prior to releasing them,
 default_delivery_price = (
     SiteInfo.objects.all()
     .filter(is_active=True)
