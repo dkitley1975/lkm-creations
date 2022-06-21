@@ -144,21 +144,18 @@ SITE_ID = 1
 # if TEST_EMAIL string in env matches True than use test settings
 if TEST_EMAIL == True:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    DEFAULT_FROM_EMAIL = "david@lkm-creations.com"
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
 
 
 else:
-    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_HOST = os.environ.get("EMAIL_HOST")
-    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-    EMAIL_PORT = os.environ.get("EMAIL_PORT")
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
-    DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
-    DEFAULT_ORDERS_ADDRESS = os.environ.get("DEFAULT_ORDERS_ADDRESS")
-
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True

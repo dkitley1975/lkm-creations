@@ -8,8 +8,8 @@ repos:
     - id: check-added-large-files
     - id: check-merge-conflict
     - id: debug-statements
-    # - id: detect-private-key
-    # - id: end-of-file-fixer
+    - id: detect-private-key
+    - id: end-of-file-fixer
     # - id: no-commit-to-branch
     #   args:
     #     - --pattern=develop|main
