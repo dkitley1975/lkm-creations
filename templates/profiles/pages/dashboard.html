@@ -59,7 +59,7 @@
 								<div class="row content-align-end">
 									<div class="col-12"><a
 											href="/dashboard/order-summary/{{orders.order_number}}"
-											class="btn btn-primary">View
+											class="btn btn-primary text-uppercase">View
 											Order</a></div>
 								</div>
 							</div>
@@ -74,7 +74,8 @@
 					id="profile-update-form">
 					{% csrf_token %}
 					{{ form|crispy }}
-					<button class="btn btn-primary mb-3 float-right">
+					<button
+						class="btn btn-primary text-uppercase mb-3 float-right">
 						Update Details</button>
 				</form>
 			</div>

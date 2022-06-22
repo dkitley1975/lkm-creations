@@ -121,28 +121,11 @@
                         <p class="text-start">{{order.country}}</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 border-md-1 border-md-start my-3">
-                    <div class="col-12 col-lg-8 offset-lg-2 px-3">
-                        <p class="fw-bolder fs-5">Billing Address:</p>
-                        <p class="text-start">{{order.full_name}}</p>
-                        <p class="text-start">{{order.street_address1}}</p>
-                        {% if order.street_address2 %}
-                        <p class="text-start">{{order.street_address2}}</p>
-                        {% endif %}
-                        {% if order.town_or_city %}<p class="text-start">
-                            {{order.town_or_city}}</p>{% endif %}
-                        {% if order.county %}<p class="text-start">
-                            {{order.county}}
-                        </p>{% endif %}
-                        {% if order.postcode %}<p class="text-start">
-                            {{order.postcode}}</p>{% endif %}
-                        <p class="text-start">{{order.country}}</p>
-                    </div>
-                </div>
             </div>
             {% if from_dashboard %}
             <div class="col-12 mb-5"><a href="{% url "dashboard" %}"
-                    class="btn btn-primary">Return to profile</a></div>
+                    class="btn btn-primary text-uppercase">Return to
+                    profile</a></div>
         </div>
     </div>
     {% endif %}

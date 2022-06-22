@@ -20,10 +20,11 @@
   <input type="hidden" name="{{ redirect_field_name }}"
     value="{{ redirect_field_value }}" />
   {% endif %}
-  <div class="d-flex justify-content-end gap-3  mt-3">
-    <a class="btn btn-secondary flex-end" href="{% url 'account_login' %}">Back
+  <div class="d-grid gap-2 col-12 mt-3">
+    <a class="btn btn-outline-secondary text-uppercase"
+      href="{% url 'account_login' %}">Back
       to Login</a>
-    <button class="btn btn-primary"
+    <button class="btn btn-primary text-uppercase"
       type="submit">{% trans "Sign Up" %}</button>
   </div>
 </form>
