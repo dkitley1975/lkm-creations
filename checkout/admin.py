@@ -1,6 +1,16 @@
 from django.contrib import admin
 
-from .models import OrderDetails, OrderLineItem
+from .models import OrderDetails, OrderLineItem, OrderStatus
+
+
+@admin.register(OrderStatus)
+class OrderStatusAdmin(admin.ModelAdmin):
+    """
+    The admin interface for the Category model.
+    """
+
+    list_display = ["order_status",]
+    ordering = ["order_status"]
 
 
 class OrderLineItemAdminInLine(admin.TabularInline):
@@ -16,7 +26,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInLine,)
     readonly_fields = (
         "order_number",
-        "user_profile",
+        # "user_profile",
         "order_date",
         "delivery_charge",
         "order_subtotal",
@@ -31,6 +41,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
                 "classes": ("extrapretty"),
                 "fields": (
                     ("order_number", "order_date"),
+                    "order_status",
                     "delivery_charge",
                     "order_subtotal",
                     "grand_total",
@@ -71,6 +82,7 @@ class OrderDetailsAdmin(admin.ModelAdmin):
     )
     list_display = (
         "order_number",
+        "order_status",
         "order_date",
         "full_name",
         "grand_total",

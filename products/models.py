@@ -262,6 +262,13 @@ class Product(models.Model):
             )
         },
     )
+    inventory = models.IntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        verbose_name=("product stock level"),
+        help_text=("format: required, max_length: 3"),
+    )
     in_stock = models.BooleanField(
         default=True,
         unique=False,
@@ -318,6 +325,10 @@ class Product(models.Model):
         Return the url for the product detail page.
         """
         return reverse("product-detail", args=[self.slug])
+
+    def has_inventory(self):
+        return self.inventory > 0
+
 
     def __str__(self):
         """

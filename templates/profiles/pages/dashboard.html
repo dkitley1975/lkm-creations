@@ -26,7 +26,7 @@
 					{% for orders in order_history %}
 					<div class="col-12 col-lg-6 p1 mb-2">
 						<div class="card box-shadow rounded-10">
-							<div class="card-body order-history-card">
+							<div class="card-body order-history card">
 								<p class="card-title">
 									<span class="fw-bolder">Order Number:
 									</span>
@@ -38,9 +38,16 @@
 									<span class="float-md-end
 												me-1">{{ orders.order_date|date:"D d M Y" }}</span>
 								</p>
+								<p class="card-text">
+									<span class="fw-bolder">Order
+										Status:</span>
+									<span class="float-md-end
+												me-1">{{ orders.order_status }}</span>
+								</p>
 								<div class="d-none d-md-block">
 									<p class="card-text">
 										Order summary:</p>
+
 									{% for item in orders.lineitems.all %}
 									<p class="small">{{ item.quantity }} x
 										{{ item.product.name|title }}</p>
@@ -51,7 +58,13 @@
 											Total:
 										</span><span class="float-md-end
 												me-1">
+											{% if orders.order_status.id == 2 %}
+											{{ orders.order_status }}
+
+											{% else %}
 											£{{ orders.grand_total }}</span>
+
+										{% endif %}
 									</p>
 								</div>
 							</div>

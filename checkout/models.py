@@ -24,6 +24,21 @@ free_delivery_threshold = (
 )
 
 # Create your models here.
+
+class OrderStatus(models.Model):
+    order_status = models.CharField(
+        max_length=20,
+        blank=False,
+        null=False,
+        verbose_name=("Order Status"),
+        )
+
+    def __str__(self):
+        return self.order_status
+
+    class Meta:
+        verbose_name_plural = "Order Statuses"
+
 class OrderDetails(models.Model):
 
     # user contact details
@@ -123,6 +138,13 @@ class OrderDetails(models.Model):
         null=False,
         default=0,
     )
+    order_status = models.ForeignKey(
+        OrderStatus,
+        related_name="order_number",
+        default="1",
+        on_delete=models.CASCADE
+    )
+
     order_subtotal = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0
     )
@@ -192,7 +214,9 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE
     )
-
+    # sku = models.ForeignKey(
+    #     Product, null=True, blank=False, on_delete=models.SET_NULL
+    # )
     quantity = models.PositiveIntegerField(default=0)
 
     unit_price = models.DecimalField(

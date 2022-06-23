@@ -40,10 +40,4 @@ def order_summary(request, order_number):
         "order": order,
         "from_dashboard": True,
     }
-    messages.success(
-        request,
-        (
-            f"You are viewing the order summary for order number: {order_number}"
-        ),
-    )
     return render(request, "profiles/pages/order-summary.html", context)

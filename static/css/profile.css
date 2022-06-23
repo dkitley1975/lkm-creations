@@ -1,7 +1,7 @@
 .order-history {
-    max-height: 416px;
+    max-height: 370px;
     /* height of profile form + submit button */
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 #profile-update-form .form-control {
@@ -26,6 +26,5 @@
     .border-start {
         border-left: 0px solid !important
     }
-
 
 }
