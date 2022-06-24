@@ -8,6 +8,7 @@
          "focus": true,
          "icon": "tasklist",
          "commands": [
+            "source venv/bin/activate",
             "pre-commit run --all-files"
          ],
          "execute": false,
@@ -20,6 +21,7 @@
          "focus": false,
          "icon": "beaker",
          "commands": [
+            "source venv/bin/activate",
             "coverage run manage.py test",
             "coverage report",
             "coverage html"
@@ -34,6 +36,7 @@
          "focus": false,
          "icon": "device-desktop",
          "commands": [
+            "source venv/bin/activate",
             "python3 manage.py runserver"
          ],
          "execute": false,

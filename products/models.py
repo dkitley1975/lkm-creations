@@ -330,6 +330,22 @@ class Product(models.Model):
         return self.inventory > 0
 
 
+    def remove_items_from_inventory(self, count, save=True):
+        current_inv = self.inventory
+        current_inv -= count
+        self.inventory = current_inv
+        if save == True:
+            self.save()
+        return self.inventory
+
+    def update_if_in_stock(self, save=True):
+        if self.inventory <= 0:
+            self.in_stock = False
+        if save == True:
+            self.save()
+        return self.in_stock
+
+
     def __str__(self):
         """
         Returns the name of the product.

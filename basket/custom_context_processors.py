@@ -38,7 +38,8 @@ def basket_contents(request):
             unit_price = product.sale_price
         else:
             unit_price = product.retail_price
-
+        session_item_inventory = product.inventory
+        session_item_inventory -= quantity
         subtotal += quantity * unit_price
         total_quantity += quantity
         basket_items.append(
@@ -47,9 +48,10 @@ def basket_contents(request):
                 "quantity": quantity,
                 "product": product,
                 "unit_price": unit_price,
+                "session_item_inventory":session_item_inventory,
             }
         )
-
+        print( basket_items)
     if subtotal < free_delivery_threshold:
         delivery_charge = default_delivery_price
         spend4free_delivery = free_delivery_threshold - subtotal

@@ -1,19 +1,27 @@
 [{
-	"model": "checkout.orderstatus",
-	"pk": 1,
-	"fields": {
-		"order_status": "Created"
+		"model": "checkout.orderstatus",
+		"pk": 1,
+		"fields": {
+			"order_status": "Created"
+		}
+	}, {
+		"model": "checkout.orderstatus",
+		"pk": 2,
+		"fields": {
+			"order_status": "Paid"
+		}
+	},
+	{
+		"model": "checkout.orderstatus",
+		"pk": 3,
+		"fields": {
+			"order_status": "Dispatched"
+		}
+	}, {
+		"model": "checkout.orderstatus",
+		"pk": 4,
+		"fields": {
+			"order_status": "Refunded"
+		}
 	}
-}, {
-	"model": "checkout.orderstatus",
-	"pk": 2,
-	"fields": {
-		"order_status": "Refunded"
-	}
-}, {
-	"model": "checkout.orderstatus",
-	"pk": 3,
-	"fields": {
-		"order_status": "Dispatched"
-	}
-}]
+]

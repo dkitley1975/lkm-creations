@@ -183,6 +183,7 @@ class OrderDetails(models.Model):
         else:
             self.delivery_charge = 0
         self.grand_total = self.order_subtotal + self.delivery_charge
+
         self.save()
 
     def save(self, *args, **kwargs):
@@ -191,7 +192,17 @@ class OrderDetails(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
+            self.order_status = OrderStatus.objects.get(order_status="Paid")
+
         super().save(*args, **kwargs)
+
+    def update_to_paid(self):
+        """
+        Update the order status to paid.
+        """
+        self.order_status = OrderStatus.objects.get(order_status="Paid")
+        self.save()
+
 
     def __str__(self):
         return self.order_number
@@ -237,7 +248,8 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Save the line item to the database.
+        Save the line items to the database
+        and remove the line product quantity from its inventory.
         """
         if (
             self.product.sale_price is not None
@@ -248,6 +260,9 @@ class OrderLineItem(models.Model):
             unit_price = self.product.retail_price
         self.unit_price = unit_price
         self.lineitem_total = unit_price * self.quantity
+        self.product.remove_items_from_inventory(count= self.quantity, save=True)
+        self.product.update_if_in_stock(save=True)
+
         super().save(*args, **kwargs)
 
     def __str__(self):

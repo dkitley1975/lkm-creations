@@ -139,13 +139,15 @@ class StripeWH_Handler:
                 )
                 for item_id, quantity in json.loads(basket).items():
                     product = Product.objects.get(id=item_id)
-
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=quantity,
                     )
                     order_line_item.save()
+                    OrderDetails.update_to_paid()
+
+
 
             except Exception as e:
                 if order:
