@@ -61,7 +61,13 @@
 				</div>
 				<!--Quantity-->
 				<div class="col-12 col-md-4 col-lg-3 mt-2">
-					<p><strong class="d-none d-md-block">Quantity</strong></p>
+					<p><strong class="d-none d-md-block">Quantity</strong>
+						{% if item.product.inventory < 5 %}
+						<span class="text-center text-muted">only
+							{{ item.product.inventory }} left in stock </span>
+						{% endif %}
+					</p>
+
 					<form class="form update-form" method="POST"
 						action="{% url 'adjust_basket' item.item_id %}">
 						{% csrf_token %}
@@ -76,11 +82,19 @@
 									id="id_qty_{{ item.item_id }}">
 							</div>
 						</div>
+
+
+
+
+
 					</form>
-					<a class="btn btn-success btn-sm bi bi-arrow-clockwise update-link float-end m-2"
-						type="button" id="update-link_{{ item.item_id }}"></a>
-					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item float-start m-2"
-						type="button" id="remove_{{ item.item_id }}"></a>
+					{% comment %} <a
+						class="btn btn-success btn-sm bi bi-arrow-clockwise update-link float-end m-2"
+						type="button"
+						id="update-link_{{ item.item_id }}"></a>{% endcomment %}
+					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item my-2 w-100 float-end text-uppercase"
+						type="button" id="remove_{{ item.item_id }}"> Remove
+						Item</a>
 				</div>
 				<!--Product Subtotal-->
 				<div class="col-12 float-end">
@@ -147,7 +161,10 @@
 {{ block.super }}
 <script type="text/javascript">
 	// Update quantity on click
+
+
 	$('.update-link').click(function (e) {
+
 		var form = $(this).prev('.update-form');
 		form.submit();
 	})
