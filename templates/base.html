@@ -58,6 +58,120 @@
 	{% include "base/components/footer.html" %}
 	{% include "store/components/return_to_top_button.html" %}
 	<!-- End of Footer -->
+
+	<!-- Sign Out Modal -->
+	<div class="modal fade" id="logoutModal" tabindex="-1"
+		aria-labelledby="logoutModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<h3 class="modal-title" id="logoutModalLabel">Logout
+						Confirmation:</h3>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to logout?</p>
+					<form method="post"
+						action="/accounts/logout/?next={{ request.path }}">
+						{% csrf_token %}
+						<div class="modal-footer">
+							<button type="button"
+								class="btn btn-outline-secondary text-uppercase"
+								data-bs-dismiss="modal">Close</button>
+							<button type="submit"
+								class="btn btn-primary text-uppercase">Logout</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END of sign-out-confirmation-modal -->
+
+
+
+	<!-- Sign In Modal -->
+	<div class="modal fade" id="logInModal" tabindex="-1"
+		aria-labelledby="logInModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<hr>
+					<h2 class="text-center">Sign In</h2>
+					<hr class="mb-5">
+				</div>
+				<div class="modal-body">
+					<p>If you have not created an account yet, then please
+						<a href="/accounts/signup/?next=%2F">sign up</a> first.
+					</p>
+
+
+					<form class="login" method="POST"
+						action="/accounts/login/?next={{ request.path }}">
+						{% csrf_token %}
+						<div id="div_id_login" class="form-group"> <label
+								for="id_login" class=" requiredField">
+								Login<span class="asteriskField">*</span>
+							</label>
+							<div> <input type="text" name="login"
+									placeholder="Username or e-mail"
+									autocomplete="email"
+									class="textinput textInput form-control"
+									required id="id_login"> </div>
+						</div>
+						<div id="div_id_password" class="form-group"> <label
+								for="id_password" class=" requiredField">
+								Password<span class="asteriskField">*</span>
+							</label>
+							<div> <input type="password" name="password"
+									placeholder="Password"
+									autocomplete="current-password"
+									class="textinput textInput form-control"
+									required id="id_password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div id="div_id_remember" class="form-check">
+								<input type="checkbox" name="remember"
+									class="checkboxinput form-check-input"
+									id="id_remember"> <label for="id_remember"
+									class="form-check-label">
+									Remember Me
+								</label> </div>
+						</div>
+
+
+						<div class="modal-footer">
+							<div class="d-grid gap-2 col-12 mt-3">
+								<a class="btn btn-outline-secondary text-uppercase"
+									href="/">Home</a>
+								<button class="btn btn-primary text-uppercase"
+									type="submit">Sign
+									In</button>
+
+							</div>
+							<p class="mt-2">
+								<a class="button secondaryAction flex-end"
+									href="/accounts/password/reset/">Forgot
+									Password?</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END of sign-in-confirmation-modal -->
+
+
+
+
+
+
+
+
+
+
+
 	<!-- Local JS-->
 	<script src="{% static 'js/show_alert_once.js' %}"></script>
 	<script src="{% static 'js/show_toast.js' %}"></script>

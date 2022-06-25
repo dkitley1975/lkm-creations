@@ -843,7 +843,7 @@
 		"pk": 31,
 		"fields": {
 			"sku": 56405,
-			"name": "dinosaur triceratops",
+			"name": "terrance the triceratops",
 			"category": 5,
 			"colour": 4,
 			"description": "These triceratops Dinosaurs are handmade with love and care. They would make the perfect companion for your little one. Each one is unique, the seams are strong and any plastic safety eyes are approved by EU norms Label : CE (European Safety Standard For All Ages).",
@@ -863,7 +863,7 @@
 			"is_active": true,
 			"created_at": "2022-03-12T12:01:01.101Z",
 			"updated_at": "2022-03-12T12:01:01.101Z",
-			"slug": "dinosaur-triceratops"
+			"slug": "terrance-the-triceratops"
 		}
 	},
 	{
@@ -1071,7 +1071,8 @@
 			"category": 4,
 			"colour": 1,
 			"description": "This yarn is perfect for all types of projects. 160 m approx. Weight: 50 grams",
-			v "is_washable": true,
+			"keywords": "Amigurumi, Crochet, Knitting, Yarn,",
+			"is_washable": true,
 			"wash_instructions": null,
 			"care_instructions": null,
 			"image": "images/products/il_794xN.2831523741_7q9n.jpg",

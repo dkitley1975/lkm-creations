@@ -159,7 +159,7 @@ class Product(models.Model):
         help_text=("format: required, max_length: 1000"),
     )
     keywords = models.CharField(
-        max_length=150,
+        max_length=300,
         unique=False,
         null=False,
         blank=False,

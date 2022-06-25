@@ -56,8 +56,7 @@
 				<li class="list-inline-item">
 					<!-- Button trigger modal -->
 					<a class="nav-link text-black" href="#" role="button"
-						data-bs-toggle="modal"
-						data-bs-target="#logoutModalMobile"
+						data-bs-toggle="modal" data-bs-target="#logoutModal"
 						aria-expanded="false">
 						<div class="text-center">
 							<div><i class="fs-5 bi bi-box-arrow-right"
@@ -68,36 +67,8 @@
 							</p>
 						</div>
 					</a>
-					<!-- Modal -->
-					<div class="modal fade" id="logoutModalMobile"
-						tabindex="-1" aria-labelledby="logoutModalLabel"
-						aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content ">
-								<div class="modal-header">
-									<h3 class="modal-title"
-										id="logoutModalLabel">Logout
-										Confirmation:</h3>
-								</div>
-								<div class="modal-body">
-									<p>Are you sure you want to logout?</p>
-									<form method="post"
-										action="/accounts/logout/">
-										{% csrf_token %}
-										<div class="modal-footer">
-											<button type="button"
-												class="btn btn-outline-secondary text-uppercase"
-												data-bs-dismiss="modal">Close</button>
-											<button type="submit"
-												class="btn btn-primary text-uppercase">Logout</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
 				</li>
-				<!-- END of sign-out-confirmation-modal -->
+				<!-- Sign Out Modal link-->
 				<!-- my-account-link -->
 				<li class="list-inline-item">
 					<a class="text-black nav-link" href="{% url "dashboard" %}"
@@ -125,25 +96,27 @@
 						</div>
 					</a>
 				</li>
-				<!-- login -->
+				<!-- login Link -->
 				<li class="list-inline-item">
-					<a class="nav-link text-black"
-						href="/accounts/login?next={{ request.path }}"
-						role="button" aria-expanded="false">
+					<!-- Button trigger modal -->
+					<a class="nav-link text-black" href="#" role="button"
+						data-bs-toggle="modal" data-bs-target="#logInModal"
+						aria-expanded="false">
 						<div class="text-center">
-							<div><i class="bi bi-box-arrow-in-right"
+							<div><i class="fs-5 bi bi-box-arrow-right"
 									title="Click to Sign In"></i>
 							</div>
 							<p class="fs-6 fw-semibold">
-								Login
+								Sign In
 							</p>
 						</div>
 					</a>
 				</li>
+				<!--End  Sign In link-->
 				{% endif %}
 				<!-- basket-nav-info -->
 				<li class="list-inline-item">
-					<a href="{% url "summary" %}" class="{% if total_quantity is 0 %}text-info font-weight-bold
+					<a href="{% url "summary" %}" class="{% if total_quantity is 0 %}text-info text-black font-weight-bold
 					{% else %}
 					text-black
 					{% endif %} nav-link" type="button" role="button">

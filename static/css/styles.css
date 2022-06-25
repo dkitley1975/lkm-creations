@@ -223,7 +223,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .modal-backdrop {
-	display: none;
+	z-index: 1030;
+	/* display: none; */
 }
 
 /* .modal-backdrop {
@@ -354,12 +355,20 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 768px) {
 	body {
-		margin-top: 90px;
+		margin-top: 160px;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	.modal {
-		top: 50px;
+		top: 160px;
 	}
 }
+
+/* @media (min-width: 576px) {
+
+	.modal-dialog {
+		max-width: 500px;
+		margin: 20.75rem auto;
+	}
+} */
