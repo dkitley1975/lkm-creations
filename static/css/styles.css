@@ -290,10 +290,13 @@ input[type=number]::-webkit-outer-spin-button {
 	width: 80vw;
 	max-width: 600px;
 	min-height: 100px;
-	background-color: var(--clr-brand-primary-lightest);
+	border: 1px solid transparent;
+	border-radius: 5px;
+	border-color: var(--clr-brand-primary-darkest) !important;
+	background-color: var(--clr-brand-primary);
 	box-sizing: border-box;
 	position: fixed;
-	top: 33%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -66%);
 	display: none;
@@ -303,6 +306,10 @@ input[type=number]::-webkit-outer-spin-button {
 	-ms-transform: translate(-50%, -66%);
 	-o-transform: translate(-50%, -66%);
 	z-index: 1100 !important;
+	-webkit-backdrop-filter: blur(1.5rem);
+	-moz-backdrop-filter: blur(1.5rem);
+	-ms-backdrop-filter: blur(1.5rem);
+	-o-backdrop-filter: blur(1.5rem);
 	backdrop-filter: blur(1.5rem);
 }
 

@@ -51,7 +51,8 @@ def basket_contents(request):
                 "session_item_inventory":session_item_inventory,
             }
         )
-        print( basket_items)
+        # TODO remove print statement
+        print(basket_items)
     if subtotal < free_delivery_threshold:
         delivery_charge = default_delivery_price
         spend4free_delivery = free_delivery_threshold - subtotal
