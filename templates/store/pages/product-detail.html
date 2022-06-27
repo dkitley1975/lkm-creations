@@ -7,6 +7,13 @@
 <meta name="keywords" content="{{ product.keywords|title }}, {{ product.category|title }},
 	{{ product.name|title }}">
 <meta name="robots" content="index, follow">
+<!-- linkedIn additional metadata -->
+<meta property='og:title' content='{{ product.name|title }}' />
+<meta property='og:image'
+	content='https://lkm-creations.s3.eu-west-2.amazonaws.com{{ product.image.url }}&url={{ request.build_absolute_uri }}' />
+<meta property='og:description'
+	content='{{ product.name|title }} - {{ product.description }}' />
+<meta property='og:url' content='{{ request.build_absolute_uri }}' />
 {% endblock %}
 {% block title %}LKM Creations Shop - Product - {{ product.name|title }}
 {% endblock %}
@@ -31,6 +38,48 @@
 				</a>
 				{% endif %}
 			</div>
+
+			<div>
+				<p class="logo-font-lkm fs-3 mt-0 mb-0">Share via
+				</p>
+			</div>
+			<div class="d-flex flex-row justify-content-around mt-0">
+				<div class="p-2">
+					<a href="https://www.facebook.com/sharer.php?u={{ request.build_absolute_uri }}"
+						target=" _blank">
+						<i class="fab fa-facebook social-share-btn fs-3"
+							aria-hidden="true"></i>
+					</a>
+				</div>
+				<div class="p-2">
+					<a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text=
+							Check this out this: {{ product.name|title }}" target=" _blank">
+						<i class="fab fa-twitter social-share-btn fs-3"
+							aria-hidden=" true"></i>
+					</a>
+				</div>
+				<div class="p-2">
+					<a href="https://pinterest.com/pin/create/bookmarklet/?media=https://lkm-creations.s3.eu-west-2.amazonaws.com{{ product.image.url }}&url={{ request.build_absolute_uri }}&description=Check this out this: {{ product.name|title }}"
+						target=" _blank">
+						<i class="fab fa-pinterest social-share-btn fs-3"
+							aria-hidden="true"></i>
+					</a>
+				</div>
+				<div class="p-2">
+					<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=Check this out this: {{ product.name|title }}"
+						target=" _blank">
+						<i class="fab fa-linkedin social-share-btn fs-3"
+							aria-hidden="true"></i>
+					</a>
+				</div>
+				<div class="p-2">
+					<a href="mailto:?subject=Check%20out%20this%20{{ product.name|title }}%20I've%20just%20seen&body=I%20absolutely%20love%20this%20{{ product.name|title }},%0D%0Acheck%20it%20out%20here%20{{ request.build_absolute_uri }}"
+						target=" _blank">
+						<i class="fa fa-envelope social-share-btn fs-3"
+							aria-hidden="true"></i></a>
+
+				</div>
+			</div>
 		</div>
 		<div class="col-10 offset-1 col-md-5 col-lg-4">
 			<div class="mb-5 mt-md-5">
@@ -41,9 +90,6 @@
 				<p class="text-muted small mb-3">Only {{ product.inventory }}
 					available</p>
 				{% endwith %}
-				{% comment %}
-				{{ product.inventory | calc_item_available_stock:5}}
-				{% endcomment %}
 
 				<form class="form"
 					action="{% url 'add_to_basket' product.id %}"
