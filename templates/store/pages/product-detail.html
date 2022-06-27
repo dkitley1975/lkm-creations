@@ -10,7 +10,7 @@
 <!-- linkedIn additional metadata -->
 <meta property='og:title' content='{{ product.name|title }}' />
 <meta name="image" property="og:image"
-	content="https://lkm-creations.s3.eu-west-2.amazonaws.com{{ product.image.url }}&url={{ request.build_absolute_uri }}">
+	content="{{ product.image.url }}&url={{ request.build_absolute_uri }}">
 <meta property='og:description'
 	content='{{ product.name|title }} - {{ product.description }}' />
 <meta property='og:url' content='{{ request.build_absolute_uri }}' />
@@ -53,20 +53,20 @@
 				</div>
 				<div class="p-2">
 					<a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text=
-							Check this out this: {{ product.name|title }}" target=" _blank">
+							Check out this: {{ product.name|title }}" target=" _blank">
 						<i class="fab fa-twitter social-share-btn fs-3"
 							aria-hidden=" true"></i>
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="https://pinterest.com/pin/create/bookmarklet/?media=https://lkm-creations.s3.eu-west-2.amazonaws.com{{ product.image.url }}&url={{ request.build_absolute_uri }}&description=Check this out this: {{ product.name|title }}"
+					<a href="https://pinterest.com/pin/create/bookmarklet/?media={{ product.image.url }}&url={{ request.build_absolute_uri }}&description=Check out this: {{ product.name|title }}"
 						target=" _blank">
 						<i class="fab fa-pinterest social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=Check this out this: {{ product.name|title }}"
+					<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=Check out this: {{ product.name|title }}"
 						target=" _blank">
 						<i class="fab fa-linkedin social-share-btn fs-3"
 							aria-hidden="true"></i>
