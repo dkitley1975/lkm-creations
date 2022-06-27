@@ -9,8 +9,7 @@
 <meta name="robots" content="index, follow">
 <!-- linkedIn additional metadata -->
 <meta property='og:title' content='{{ product.name|title }}' />
-<meta name="image" property="og:image"
-	content="{{ product.image.url }}&url={{ request.build_absolute_uri }}">
+<meta name="image" property="og:image" content="{{ product.image.url }}">
 <meta property='og:description'
 	content='{{ product.name|title }} - {{ product.description }}' />
 <meta property='og:url' content='{{ request.build_absolute_uri }}' />
