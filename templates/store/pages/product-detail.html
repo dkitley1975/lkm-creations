@@ -9,8 +9,8 @@
 <meta name="robots" content="index, follow">
 <!-- linkedIn additional metadata -->
 <meta property='og:title' content='{{ product.name|title }}' />
-<meta property='og:image'
-	content='https://lkm-creations.s3.eu-west-2.amazonaws.com{{ product.image.url }}&url={{ request.build_absolute_uri }}' />
+<meta name="image" property="og:image"
+	content="https://lkm-creations.s3.eu-west-2.amazonaws.com{{ product.image.url }}&url={{ request.build_absolute_uri }}">
 <meta property='og:description'
 	content='{{ product.name|title }} - {{ product.description }}' />
 <meta property='og:url' content='{{ request.build_absolute_uri }}' />
