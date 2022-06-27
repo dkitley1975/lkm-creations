@@ -37,8 +37,10 @@
 				<h1 id="product_name" class="mb-0 fs-2 fw-bold mb-1">
 					{{ product.name|title }}
 				</h1>
-				<p class="text-muted small mb-3">Only
-					{{ product.inventory }} available</p>
+				{% with site_name=current_site.name site_domain=current_site.domain %}
+				<p class="text-muted small mb-3">Only {{ product.inventory }}
+					available</p>
+				{% endwith %}
 				{% comment %}
 				{{ product.inventory | calc_item_available_stock:5}}
 				{% endcomment %}

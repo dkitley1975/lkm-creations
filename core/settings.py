@@ -36,10 +36,10 @@ if str(os.environ.get("DEBUG")) == "True":
     DEBUG = True
 else:
     DEBUG = False
-if str(os.environ.get("LOCAL_DB")) == "True":
-    LOCAL_DB = True
+if str(os.environ.get("LIVE_DB")) == "True":
+    LIVE_DB = True
 else:
-    LOCAL_DB = False
+    LIVE_DB = False
 if str(os.environ.get("TEST_EMAIL")) == "True":
     TEST_EMAIL = True
 else:
@@ -76,7 +76,6 @@ INSTALLED_APPS = [
     "active_link",
     "django_countries",
     "storages",
-    'django_simple_cookie_consent',
     # local apps
     "home",
     "siteadmin",
@@ -96,6 +95,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -116,6 +116,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.request",
                 "django.template.context_processors.media",
+                # 'django.core.context_processors.request',
                 # My Custom Context Processors
                 "siteadmin.custom_context_processors.site_info",
                 "products.custom_context_processors.categories",
@@ -141,6 +142,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SITE_ID = 1
+
 
 # Email Settings
 # if TEST_EMAIL string in env matches True than use test settings
@@ -177,16 +179,16 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-if LOCAL_DB:
+if LIVE_DB:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": "db.sqlite3",
         }
-    }
-else:
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 
 
@@ -282,10 +284,10 @@ if DEBUG:
         print("\033[1;32m You are using the test email settings \033[0;0m")
     else:
         print("\033[1;33m You are using the live email settings \033[0;0m")
-    if LOCAL_DB:
-        print("\033[1;32m You are using the Local database \033[0;0m")
+    if LIVE_DB:
+        print("\033[1;32m You are using the live database \033[0;0m")
     else:
-        print("\033[1;33m You are using the live database \033[0;0m")
+        print("\033[1;33m You are using the local database \033[0;0m")
     print(DATABASES)
     if USE_AWS:
         print("\033[1;33m You are using AWS storage \033[0;0m")
