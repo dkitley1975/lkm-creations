@@ -1,0 +1,23 @@
+[{
+	"model": "socialaccount.socialapp",
+	"pk": 1,
+	"fields": {
+		"provider": "google",
+		"name": "Google - LKM Creations",
+		"client_id": "730075694364-99vj13prot742olhqf6sre5p68q4eos8.apps.googleusercontent.com",
+		"secret": "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",
+		"key": "",
+		"sites": [2, 1]
+	}
+}, {
+	"model": "socialaccount.socialapp",
+	"pk": 2,
+	"fields": {
+		"provider": "facebook",
+		"name": "Facebook - LKM Creations",
+		"client_id": "1492671984522697",
+		"secret": "990fba954391f8aafaa39fab70e080e0",
+		"key": "",
+		"sites": [2, 1]
+	}
+}]
