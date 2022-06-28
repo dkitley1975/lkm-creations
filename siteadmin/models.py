@@ -41,7 +41,8 @@ class SiteInfo(models.Model):
         blank=False,
         verbose_name=("Store Description"),
         help_text=(
-            "format: required, max_length: 160,  include keywords, discounts, or offers you're selling"
+            "format: required, max_length: 160,  include keywords, discounts, \
+                or offers you're selling"
         ),
     )
     store_keywords = models.TextField(
@@ -50,7 +51,9 @@ class SiteInfo(models.Model):
         blank=False,
         verbose_name=("Store Keywords, SEO"),
         help_text=(
-            "These are the keywords that your site can be searched with on Google. Make these single words, relevant to your site, often searched"
+            "These are the keywords that your site can be searched with on\
+                Google. Make these single words, relevant to your site, \
+                often searched"
         ),
     )
     free_delivery_over = models.DecimalField(

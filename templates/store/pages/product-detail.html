@@ -85,10 +85,28 @@
 				<h1 id="product_name" class="mb-0 fs-2 fw-bold mb-1">
 					{{ product.name|title }}
 				</h1>
-				{% with site_name=current_site.name site_domain=current_site.domain %}
-				<p class="text-muted small mb-3">Only {{ product.inventory }}
+				<div class="align-self-end">
+					<p class="small mt-1 mb-0 text-muted text-start">
+						{% if product.inventory > 1 %}
+						{% if product.inventory < 4 %}
+						Only {% endif %}
+						{{ product.inventory }} Available</p>
+					{% else %}
+					<span class="text-danger fw-bolder">Last One
+						Available</span>
+					{% endif %}
+				</div>
+
+
+				{% comment %} {% if product.inventory < 4 %}<p
+					class="text-muted small mb-3">
+					Only
+					{{ product.inventory }}
 					available</p>
-				{% endwith %}
+				{% else %}
+				<p class="text-muted small mb-3">
+					{{ product.inventory }} In stock</p>
+				{% endif %} {% endcomment %}
 
 				<form class="form"
 					action="{% url 'add_to_basket' product.id %}"

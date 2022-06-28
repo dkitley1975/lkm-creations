@@ -67,10 +67,8 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             """
-            If the form is valid, save the order and the order line items.
-            @param order_form - the order form
-            @param request - the request
-            @returns the redirect to the success page
+            If the form is valid, save the order and
+            the order line items.
             """
             order = order_form.save(commit=False)
             pid = request.POST.get("client_secret").split("_secret")[0]
@@ -170,7 +168,8 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Save the order details and the user profile details if the user is logged in.
+    Save the order details and
+    the user profile details if the user is logged in.
     """
     save_info = request.session.get("save_info")
     order = get_object_or_404(OrderDetails, order_number=order_number)

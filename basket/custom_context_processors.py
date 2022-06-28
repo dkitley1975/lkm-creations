@@ -48,7 +48,7 @@ def basket_contents(request):
                 "quantity": quantity,
                 "product": product,
                 "unit_price": unit_price,
-                "session_item_inventory":session_item_inventory,
+                "session_item_inventory": session_item_inventory,
             }
         )
         # TODO remove print statement

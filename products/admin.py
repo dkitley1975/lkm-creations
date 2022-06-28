@@ -86,7 +86,7 @@ class ProductAdmin(admin.ModelAdmin):
                     "sku",
                     ("category", "colour"),
                     ("weight", "size"),
-                    ("inventory","in_stock", "is_active"),
+                    ("inventory", "in_stock", "is_active"),
                     "slug",
                 )
             },

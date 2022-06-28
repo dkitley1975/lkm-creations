@@ -14,8 +14,8 @@ import sys
 from pathlib import Path
 
 import dj_database_url
-from django.core.mail import send_mail
 from django.conf import settings
+from django.core.mail import send_mail
 
 if os.path.isfile("env.py"):
     import env
@@ -116,7 +116,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.request",
                 "django.template.context_processors.media",
-                # 'django.core.context_processors.request',
                 # My Custom Context Processors
                 "siteadmin.custom_context_processors.site_info",
                 "products.custom_context_processors.categories",

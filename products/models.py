@@ -57,7 +57,9 @@ class Category(models.Model):
         blank=False,
         verbose_name=("Category Keywords, SEO"),
         help_text=(
-            "These are the keywords that your site can be searched with on Google. Make these single words, relevant to your site, often searched"
+            "These are the keywords that your site can be searched "
+            "with on Google. Make these single words, relevant to "
+            "your site, often searched"
         ),
     )
 
@@ -165,8 +167,10 @@ class Product(models.Model):
         blank=False,
         verbose_name=("product keywords"),
         help_text=(
-            "format: required, These are used by Google to search for the product."
-            "These are words that are relevant to the product and will be added to the Product Name,"
+            "format: required, These are used by Google to "
+            "search for the product."
+            "These are words that are relevant to the product "
+            "and will be added to the Product Name,"
             "and Category Name. Separate words with a comma:"
             "turtle, bespoke, etc, max_length: 150"
         ),
@@ -329,7 +333,6 @@ class Product(models.Model):
     def has_inventory(self):
         return self.inventory > 0
 
-
     def remove_items_from_inventory(self, count, save=True):
         current_inv = self.inventory
         current_inv -= count
@@ -344,7 +347,6 @@ class Product(models.Model):
         if save == True:
             self.save()
         return self.in_stock
-
 
     def __str__(self):
         """

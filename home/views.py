@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, FormView
-from products.models import Product
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.shortcuts import render
+from django.views.generic import FormView
 
+from products.models import Product
 
 from .forms import ContactForm
 
@@ -22,11 +21,10 @@ def index(request):
     return render(request, "home/index.html", {"products": products})
 
 
-
 class ContactUs(FormView):
     template_name = "home/pages/contact-us.html"
     form_class = ContactForm
-    success_url ="contact-us"
+    success_url = "contact-us"
 
     def form_valid(self, form):
         """
@@ -35,7 +33,10 @@ class ContactUs(FormView):
         # Calls the custom send method
         form.send()
         # This will add the flash message after email being valid
-        messages.success(self.request, "Thank you for contacting us..\
+        messages.success(
+            self.request,
+            "Thank you for contacting us..\
                 Your message has been sent, \
-                and you should receive a copy in your inbox soon.")
+                and you should receive a copy in your inbox soon.",
+        )
         return super().form_valid(form)

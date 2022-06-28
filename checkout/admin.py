@@ -9,7 +9,9 @@ class OrderStatusAdmin(admin.ModelAdmin):
     The admin interface for the Category model.
     """
 
-    list_display = ["order_status",]
+    list_display = [
+        "order_status",
+    ]
     ordering = ["order_status"]
 
 

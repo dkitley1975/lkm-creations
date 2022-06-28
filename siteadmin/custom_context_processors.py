@@ -4,7 +4,8 @@ from siteadmin.models import SiteInfo
 def site_info(request):
     """
     Return the site information object from the database.
-    filters the by is_active = True, orders by created_at in descending order.
+    filters the by is_active = True, orders by created_at
+    in descending order.
     and then trims the results to the first one."""
 
     site_info = (

@@ -1,6 +1,5 @@
 import uuid
 
-from django.conf import settings
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
@@ -8,6 +7,7 @@ from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
 from siteadmin.models import SiteInfo
+
 # TODO REMOVE THE next two blocks when creating the databases and
 # then add the site info prior to releasing them,
 default_delivery_price = (
@@ -25,19 +25,21 @@ free_delivery_threshold = (
 
 # Create your models here.
 
+
 class OrderStatus(models.Model):
     order_status = models.CharField(
         max_length=20,
         blank=False,
         null=False,
         verbose_name=("Order Status"),
-        )
+    )
 
     def __str__(self):
         return self.order_status
 
     class Meta:
         verbose_name_plural = "Order Statuses"
+
 
 class OrderDetails(models.Model):
 
@@ -142,7 +144,7 @@ class OrderDetails(models.Model):
         OrderStatus,
         related_name="order_number",
         default="1",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     order_subtotal = models.DecimalField(
@@ -192,7 +194,9 @@ class OrderDetails(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
-            self.order_status = OrderStatus.objects.get(order_status="Paid")
+            self.order_status = OrderStatus.objects.get(
+                order_status="Paid"
+            )
 
         super().save(*args, **kwargs)
 
@@ -202,7 +206,6 @@ class OrderDetails(models.Model):
         """
         self.order_status = OrderStatus.objects.get(order_status="Paid")
         self.save()
-
 
     def __str__(self):
         return self.order_number
@@ -260,7 +263,9 @@ class OrderLineItem(models.Model):
             unit_price = self.product.retail_price
         self.unit_price = unit_price
         self.lineitem_total = unit_price * self.quantity
-        self.product.remove_items_from_inventory(count= self.quantity, save=True)
+        self.product.remove_items_from_inventory(
+            count=self.quantity, save=True
+        )
         self.product.update_if_in_stock(save=True)
 
         super().save(*args, **kwargs)

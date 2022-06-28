@@ -31,9 +31,7 @@ class ContactForm(forms.Form):
     message = forms.CharField(
         label="Your Message",
         widget=forms.Textarea(
-            attrs={
-                "placeholder": "I would like to enquire about..."
-            }
+            attrs={"placeholder": "I would like to enquire about..."}
         ),
     )
 
@@ -60,7 +58,9 @@ class ContactForm(forms.Form):
         msg += "This is their enquiry:\n"
         msg += cl_data.get("message")
 
-        contacts_subject = "LKM_Creations Contact Form - sent confirmation "
+        contacts_subject = (
+            "LKM_Creations Contact Form - sent confirmation "
+        )
         contacts_msg = f"Thank you {first_name} "
         "for contacting LKM-Creations "
         "via the online contact form.\n"
@@ -97,7 +97,8 @@ class ContactForm(forms.Form):
             fail_silently=False,
         )
 
-        # send eamil to the sender of the contact form using the contacts_msg
+        # send email to the sender of the contact form using
+        #    the contacts_msg
         send_mail(
             subject=contacts_subject,
             message=contacts_msg,

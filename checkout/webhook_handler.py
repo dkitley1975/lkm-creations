@@ -2,14 +2,16 @@
 # Altered to fit my needs
 import json
 import time
+
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+
 from products.models import Product
+from profiles.models import UserProfile
 
 from .models import OrderDetails, OrderLineItem
-from profiles.models import UserProfile
 
 
 class StripeWH_Handler:
@@ -21,7 +23,8 @@ class StripeWH_Handler:
 
     def send_order_confirmation_email(self, order):
         """
-        Function to send an email to the customer with the order details.
+        Function to send an email to the customer
+        with the order details.
         """
         cust_email = order.email
         subject = render_to_string(
@@ -147,8 +150,6 @@ class StripeWH_Handler:
                     order_line_item.save()
                     OrderDetails.update_to_paid()
 
-
-
             except Exception as e:
                 if order:
                     order.delete()
@@ -162,7 +163,8 @@ class StripeWH_Handler:
                 f'Webhook received: {event["type"]} | SUCCESS: '
                 "Created order in webhook"
             ),
-            status=200,)
+            status=200,
+        )
 
     def handle_payment_intent_payment_failed(self, event):
         """
