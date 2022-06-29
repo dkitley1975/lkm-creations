@@ -33,7 +33,48 @@
 					href="{% url 'home:contact-us' %}"
 					aria-current="Contact Us">Contact Us</a>
 			</li>
+
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle {% if '-policy' in request.path %}active{% endif %}"
+					href="#" id="dropdown" data-bs-toggle="dropdown"
+					aria-expanded="false">Site documents</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdown">
+					<li>
+						<a class="dropdown-item"
+							href="/documents/cookie-policy"
+							aria-current="Cookie Policy">Cookie Policy</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="/documents/disclaimer"
+							aria-current="Disclaimer Policy">Disclaimer
+							Policy</a>
+					</li>
+					<li>
+						<a class="dropdown-item"
+							href="/documents/privacy-policy"
+							aria-current="Privacy Policy">Privacy Policy</a>
+					</li>
+					<li>
+						<a class="dropdown-item"
+							href="/documents/returns-policy"
+							aria-current="Returns Policy">Returns Policy</a>
+					</li>
+					<li>
+						<a class="dropdown-item"
+							href="/documents/terms-of-service-policy"
+							aria-current="Terms of Service">Terms of
+							Service</a>
+					</li>
+					<li>
+						<a class="dropdown-item"
+							href="/documents/shipping-policy"
+							aria-current="Shipping Policy">Shipping Policy</a>
+					</li>
+				</ul>
+			</li>
 		</ul>
+
 		<div class="d-md-none col-10 offset-1 my-auto py-1 py-lg-0">
 			{% include "base/components/search.html" %}
 		</div>

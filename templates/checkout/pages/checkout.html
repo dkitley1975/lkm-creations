@@ -6,7 +6,7 @@
 <meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="noindex, nofollow">
 {% endblock %}
-{% block title %}LKM Creations - Checkout{% endblock %}
+{% block title %}{{ request.site.name }} - Checkout{% endblock %}
 {% block custom_page_stylesheet %}
 <!-- Local CSS-->
 <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
