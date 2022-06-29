@@ -19,9 +19,11 @@ Django==3.2
 django-active-link==0.1.8
 django-admin-thumbnails==0.2.6
 django-allauth==0.50.0
+django-appconf==1.0.5
 django-autoslug==1.9.8
 django-countries==7.3.2
 django-crispy-forms==1.14.0
+django-simple-cookie-consent==0.1.1
 django-storages==1.12.3
 docopt==0.6.2
 filelock==3.7.1
@@ -42,7 +44,7 @@ Pillow==9.1.1
 pip-upgrader==1.4.15
 platformdirs==2.5.2
 pre-commit==2.19.0
-psycopg2-binary
+psycopg2-binary==2.9.3
 pycodestyle==2.8.0
 pycparser==2.21
 pyflakes==2.4.0
