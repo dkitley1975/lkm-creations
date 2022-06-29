@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}LKM Creations - Order Summary -
+{% block title %}{{ request.site.name }} - Order Summary -
 {{order.order_number}}{% endblock %}
 {% block custom_page_stylesheet %}
 <!-- Local CSS-->

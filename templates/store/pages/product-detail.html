@@ -14,7 +14,7 @@
 	content='{{ product.name|title }} - {{ product.description }}' />
 <meta property='og:url' content='{{ request.build_absolute_uri }}' />
 {% endblock %}
-{% block title %}LKM Creations Shop - Product - {{ product.name|title }}
+{% block title %}{{ request.site.name }} Shop - Product - {{ product.name|title }}
 {% endblock %}
 {% block custom_page_stylesheet %} {% endblock %}
 {% block content %}
@@ -72,7 +72,7 @@
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="mailto:?subject=Check%20out%20this%20{{ product.name|title }}%20I've%20just%20seen&body=I%20absolutely%20love%20this%20{{ product.name|title }},%0D%0Acheck%20it%20out%20here%20{{ request.build_absolute_uri }}"
+					<a href="mailto:??subject=Check%20out%20this%20{{ product.name|title }}%20I've%20just%20seen&body=I%20absolutely%20love%20this%20{{ product.name|title }},%0D%0Acheck%20it%20out%20here%20{{ request.build_absolute_uri }}"
 						target=" _blank">
 						<i class="fa fa-envelope social-share-btn fs-3"
 							aria-hidden="true"></i></a>

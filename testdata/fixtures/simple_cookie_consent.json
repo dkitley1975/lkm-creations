@@ -1,0 +1,14 @@
+[{
+	"model": "django_simple_cookie_consent.cookieconsentsettings",
+	"pk": 1,
+	"fields": {
+		"message": "This website uses cookies to ensure you get the best experience on our website.",
+		"button_text": "Got it!",
+		"cookie_policy_link": "/documents/cookie-policy",
+		"cookie_policy_link_text": "Learn more",
+		"banner_colour": "#252e39",
+		"banner_text_colour": "#ffffff",
+		"button_colour": "#3acdf6",
+		"button_text_colour": "#ffffff"
+	}
+}]

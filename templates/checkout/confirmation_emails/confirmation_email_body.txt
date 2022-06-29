@@ -34,7 +34,7 @@ Your order will be shipped to:
 
 We've got your contact number for this order as as {{ order.phone_number }}.
 
-If you have any questions, feel free to contact us at {{ siteadmin.email_address }}.
+If you have any questions, feel free to contact us at {{ site_info.email_address }}.
 
 Thank you for your order!
 

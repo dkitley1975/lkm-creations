@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "active_link",
     "django_countries",
     "storages",
+    'django_simple_cookie_consent',
     # local apps
     "home",
     "siteadmin",

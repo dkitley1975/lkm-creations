@@ -2,11 +2,11 @@
 {% load static %}
 {% block metadescription %}
 <meta name="description"
-	content="LKM Creations Shop Category {{ category.name|title }}">
+	content="{{ request.site.name }} Shop Category {{ category.name|title }}">
 <meta name="keywords" content="{{category.category_keywords|title }}">
 <meta name="robots" content="index, follow">
 {% endblock %}
-{% block title %}LKM Creations Shop Category
+{% block title %}{{ request.site.name }} Shop Category
 {{ category.name|title }}{% endblock %}
 {% block content %}
 <main class="mb-5">
