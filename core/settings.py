@@ -64,13 +64,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # https://django-allauth.readthedocs.io/en/latest/installation.html
+    "django.contrib.sites",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    # "allauth.socialaccount.providers.apple",
-    # "allauth.socialaccount.providers.facebook",
-    # "allauth.socialaccount.providers.google",
-    "django.contrib.sites",
+    "allauth.socialaccount.providers.facebook",
+    "allauth.socialaccount.providers.google",
+
     # third party apps
     "crispy_forms",
     "active_link",
@@ -141,6 +141,24 @@ AUTHENTICATION_BACKENDS = [
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        "AUTH_PARAMS": {
+            'access_type': 'online',
+        }
+    }
+    ,
+    'facebook': {
+          'SCOPE': ['email', 'public_profile'],
+         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+    }
+
+}
+
+
 
 
 # Email Settings

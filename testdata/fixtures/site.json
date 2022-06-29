@@ -2,6 +2,13 @@
 	"model": "sites.site",
 	"pk": 1,
 	"fields": {
+		"domain": "https://lkm-creations.herokuapp.com/",
+		"name": "LKM Creations"
+	}
+}, {
+	"model": "sites.site",
+	"pk": 2,
+	"fields": {
 		"domain": "http://127.0.0.1:8000/",
 		"name": "LKM Creations"
 	}
