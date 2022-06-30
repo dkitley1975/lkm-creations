@@ -175,6 +175,19 @@ body {
 	border-color: var(--clr-brand-primary-darker);
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+	color: #fff;
+	text-decoration: none;
+	background-color: var(--clr-brand-primary-darker);
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+	color: black;
+	background-color: var(--clr-brand-primary-lightest);
+}
+
 .form-control {
 	display: block;
 	width: 100%;
@@ -339,6 +352,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .text-black {
 	color: black !important;
+}
+
+.text-primary-darker {
+	color: var(--clr-brand-primary-darker) !important;
 }
 
 .toast-capper {

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-<link rel="canonical" href="{{ request.site.domain }}">
 <meta name="description" content="{{ site_info.store_description }}">
 <meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="noindex, nofollow">
@@ -10,74 +9,23 @@
 {% block custom_page_stylesheet %}
 {% endblock %}
 {% block content %}
-<div class="container col-12 my-5">
-	<article class=" bg-white border rounded-10 box-shadow col-12 col-md-10 offset-md-1
-		col-lg-8 offset-lg-2 p-4 my-5">
-		<h1 class="card-title text-center">RETURNS POLICY</h1>
-		<p class="text-muted my-4">Last updated June 27, 2022
-		</p>
-		<p>Thank you for your purchase. We hope you are happy with your
-			purchase. However, if you are not completely satisfied with your
-			purchase for any reason, you may return it to us for a full refund
-			only. Please see below for more information on our return policy.
-		</p>
-		<p class="fw-bold fs-5 mt-3">RETURNS</p>
-		<p>All returns must be postmarked within seven (7) days of the purchase
-			date. All returned items must be in new and unused condition, with
-			all
-			original tags and labels attached.</p>
-		<p class="fw-bold fs-5 mt-3">RETURN PROCESS</p>
-		<p>To return an item, please email customer service at
-			{{ site_info.email_address }} to obtain a Return Merchandise
-			Authorisation (RMA) number. After receiving a RMA number, place the
-			item securely in its original packaging, and mail your return to
-			the
-			following address:</p>
-		<p>
-			{{ request.site.name }}</br>
-			Attn: Returns</br>
-			RMA #</br>
-			7 Roslyn Avenue</br>
-			Huddersfield,</br>West Yorkshire</br>HD4 7EW</br>
-			United Kingdom
-		</p>
-		<p>
-			Please note, you will be responsible for all return shipping
-			charges.
-			We strongly recommend that you use a trackable method to mail your
-			return.</p>
-		<p class="fw-bold fs-5 mt-3">REFUNDS</p>
-		<p>
-			After receiving your return and inspecting the condition of your
-			item,
-			we will process your return. Please allow at least seven (7) days
-			from
-			the receipt of your item to process your return. Refunds may take
-			1-2
-			billing cycles to appear on your credit card statement, depending
-			on
-			your credit card company. We will notify you by email when your
-			return
-			has been processed.
-		</p>
-		<p class="fw-bold fs-5 mt-3">EXCEPTIONS</p>
-		<p>
-			For defective or damaged products, please contact us at the contact
-			details below to arrange a refund or exchange.
-		</p>
-		<p class="fw-bold fs-5 mt-3">QUESTIONS</p>
-		<p>
-			If you have any questions concerning our return policy, please
-			contact us at:</br>
-			{{ request.site.name }}</br>
-			7 Roslyn Avenue</br>
-			Huddersfield, West Yorkshire </br>
-			HD4 7EW</br>
-			England</br>
-			</br>
-			<a href="mailto:
-	{{ site_info.email_address }}">{{ site_info.email_address }}</a>
-		</p>
-	</article>
-</div>
+<main class="container pt-2 px-3 px-md-5 mb-3">
+	<div class="row d-flex">
+		<aside class="col-2 my-5 d-none d-md-block">
+			{% include "home/components/policy-navigation.html" %}
+		</aside>
+		<div class="col-12 col-md-10 my-5">
+			{% include "home/components/policy-navigation-mobile.html" %}
+			<article
+				class=" bg-white border rounded-10 box-shadow col-12 col-md-10 offset-md-1 p-4">
+				{% include "home/components/returns-policy.html" %}
+			</article>
+		</div>
+	</div>
+</main>
 {%endblock%}
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/countryfield.js' %}">
+</script>
+{% endblock %}

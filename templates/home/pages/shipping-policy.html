@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-<link rel="canonical" href="{{ request.site.domain }}">
 <meta name="description" content="{{ site_info.store_description }}">
 <meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="noindex, nofollow">
@@ -10,61 +9,23 @@
 {% block custom_page_stylesheet %}
 {% endblock %}
 {% block content %}
-<div class="container col-12 my-5">
-	<article class=" bg-white border rounded-10 box-shadow col-12 col-md-10 offset-md-1
-		col-lg-8 offset-lg-2 p-4 my-5">
-		<h1 class="card-title text-center">Shipping Policy</h1>
-		<p class="text-muted my-5">Last updated June 27, 2022
-		</p>
-		<p>Please carefully review our Shipping & Delivery Policy when
-			purchasing our products. This policy will apply to any order you
-			place with us.</p>
-		<p class=" fw-bold fs-5 mt-3">WHAT ARE MY SHIPPING & DELIVERY OPTIONS?
-		</p>
-		<p class=" fw-bold fs-5 mt-3">Free Shipping</p>
-		<p>
-			We offer free Standard two day shipping on Orders over £20.
-		</p>
-		<p class=" fw-bold fs-5 mt-3">Expedited Shipping Fees</p>
-		<p>
-			We also offer expedited shipping at the following rates:
-		</p>
-		Items are dispatched with the Royal Mail with a 2-3 day
-		service.
-		Orders £{{site_info.free_delivery_over}} or less will incure a
-		£{{ delivery_charge|floatformat:2}} delivery charge.
-		Orders over {{site_info.free_delivery_over}} are delivered on our
-		standard delivery service for free.</p>
-		<p>
-			All times and dates given for delivery of the products are given in
-			good faith but are estimates only.
-			For EU and UK consumers: This does not affect your statutory
-			rights. Unless specifically noted, estimated delivery times reflect
-			the earliest available delivery, and deliveries will be made within
-			30 days after the day we accept your order. For more information
-			please refer to our Terms.
-		</p>
-		<p class=" fw-bold fs-5 mt-3">DO YOU DELIVER INTERNATIONALLY?</p>
-		<p>
-			We do not offer international shipping.
-		</p>
-		<p class=" fw-bold fs-5 mt-3">WHAT HAPPENS IF MY ORDER IS DELAYED?</p>
-		<p>
-			If delivery is delayed for any reason we will let you know as soon
-			as possible and will advise you of a revised estimated date for
-			delivery.
-		</p>
-		<p>
-			For EU and UK consumers: This does not affect your statutory
-			rights. For more information please refer to our Terms.
-		</p>
-		<p class=" fw-bold fs-5 mt-3">HOW CAN YOU CONTACT US ABOUT THIS POLICY?
-		</p>
-		<p>
-			If you have any questions or comments, please email us: <a
-				href="mailto:{{ site_info.email_address }}?subject=Questions Regarding Delivery and Shipping Policy">
-				{{ site_info.email_address }}</a>
-		</p>
-	</article>
-</div>
+<main class="container pt-2 px-3 px-md-5 mb-3">
+	<div class="row d-flex">
+		<aside class="col-2 my-5 d-none d-md-block">
+			{% include "home/components/policy-navigation.html" %}
+		</aside>
+		<div class="col-12 col-md-10 my-5">
+			{% include "home/components/policy-navigation-mobile.html" %}
+			<article
+				class=" bg-white border rounded-10 box-shadow col-12 col-md-10 offset-md-1 p-4">
+				{% include "home/components/shipping-policy.html" %}
+			</article>
+		</div>
+	</div>
+</main>
 {%endblock%}
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/countryfield.js' %}">
+</script>
+{% endblock %}
