@@ -3,7 +3,7 @@
 </p>
 <p class="fw-bold fs-5 mt-3"></p>
 <p>
-	If you have any questions concerning our return policy,
+	If you have any questions concerning our cookie policy,
 	please
 	contact us at:</br>
 	{{ request.site.name }}</br>
@@ -167,60 +167,62 @@
 		such as access to secure areas.
 	</p>
 	<div class="box-shadow rounded-10 card border-1 mx-2 p-3 my-5">
-		<table>
-			<tbody>
-				<tr>
-					<td class="w-25 p-2">Name:</td>
-					<td class="text-muted">csrftoken</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Purpose:</td>
-					<td class="text-muted">Helps prevent
-						Cross-Site
-						Request Forgery (CSRF)
-						attacks using Javascript. It is a first
-						party
-						cookie with unique value. It expires in
-						1
-						year
-						or until a user submits a form.</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Provider:</td>
-					<td class="text-muted">
-						{{ request.site.domain }}
-					</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">
-						Service:</td>
-					<td class="text-muted">Django <a
-							href="https://www.djangoproject.com/foundation/faq/"
-							target="_blank">View Service
-							Privacy
-							Policy</a>
-					</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">
-						Country:</td>
-					<td class="text-muted">Ireland
-					</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">
-						Type:</td>
-					<td class="text-muted">server_cookie
-					</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">
-						Expires in:</td>
-					<td class="text-muted">11 months 29 days
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="table-responsive-sm">
+			<table>
+				<tbody>
+					<tr>
+						<td class="w-25 p-2">Name:</td>
+						<td class="text-muted">csrftoken</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Purpose:</td>
+						<td class="text-muted">Helps prevent
+							Cross-Site
+							Request Forgery (CSRF)
+							attacks using Javascript. It is a first
+							party
+							cookie with unique value. It expires in
+							1
+							year
+							or until a user submits a form.</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Provider:</td>
+						<td class="text-muted">
+							{{ request.site.domain }}
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">
+							Service:</td>
+						<td class="text-muted">Django <a
+								href="https://www.djangoproject.com/foundation/faq/"
+								target="_blank">View Service
+								Privacy
+								Policy</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">
+							Country:</td>
+						<td class="text-muted">Ireland
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">
+							Type:</td>
+						<td class="text-muted">server_cookie
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">
+							Expires in:</td>
+						<td class="text-muted">11 months 29 days
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<p class="fw-bold fs-5 mt-3">Unclassified cookies:</p>
 	<p>
@@ -233,84 +235,88 @@
 		providers.
 	</p>
 	<div class="box-shadow rounded-10 card border-1 mx-2 p-3 my-5">
-		<table>
-			<tbody>
-				<tr>
-					<td class="w-25 p-2">Name:</td>
-					<td class="text-muted">m</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Purpose:</td>
-					<td class="text-muted">Used for Stripe
-						payments
-					</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Provider:</td>
-					<td class="text-muted">m.stripe.com
-					</td>
-				</tr>
-				<td class="w-25 p-2">Service:</td>
-				<td class="text-muted">__________</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Country:</td>
-					<td class="text-muted">United States</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Type:</td>
-					<td class="text-muted">server_cookie</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Expires in:</td>
-					<td class="text-muted">1 year 11 months 29
-						days
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="box-shadow rounded-10 card border-1 mx-2 p-3 my-5">
-		<table>
-			<tbody>
-				<tr>
-					<td class="w-25 p-2">Name:</td>
-					<td class="text-muted">alreadyShown</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Purpose:</td>
-					<td class="text-muted">Remember if the site
-						popup announcement has been shown to
-						the
-						user
-						during
-						the session</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Provider:</td>
-					<td class="text-muted">
-						{{ request.site.domain }}
-					</td>
-				</tr>
-				<tr>
+		<div class="table-responsive-sm">
+			<table>
+				<tbody>
+					<tr>
+						<td class="w-25 p-2">Name:</td>
+						<td class="text-muted">m</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Purpose:</td>
+						<td class="text-muted">Used for Stripe
+							payments
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Provider:</td>
+						<td class="text-muted">m.stripe.com
+						</td>
+					</tr>
 					<td class="w-25 p-2">Service:</td>
 					<td class="text-muted">__________</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Country:</td>
-					<td class="text-muted">United Kingdom</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Type:</td>
-					<td class="text-muted">html_session_storage
-					</td>
-				</tr>
-				<tr>
-					<td class="w-25 p-2">Expires in:</td>
-					<td class="text-muted">session</td>
-				</tr>
-			</tbody>
-		</table>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Country:</td>
+						<td class="text-muted">United States</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Type:</td>
+						<td class="text-muted">server_cookie</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Expires in:</td>
+						<td class="text-muted">1 year 11 months 29
+							days
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div class="table-responsive-sm">
+	</div>
+	<div class="box-shadow rounded-10 card border-1 mx-2 p-3 my-5">
+		<div class="table-responsive-sm">
+			<table>
+				<tbody>
+					<tr>
+						<td class="w-25 p-2">Name:</td>
+						<td class="text-muted">alreadyShown</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Purpose:</td>
+						<td class="text-muted">Remember if the site
+							popup announcement has been shown to
+							the
+							user
+							during
+							the session</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Provider:</td>
+						<td class="text-muted">
+							{{ request.site.domain }}
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Service:</td>
+						<td class="text-muted">__________</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Country:</td>
+						<td class="text-muted">United Kingdom</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Type:</td>
+						<td class="text-muted">html_session_storage
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 p-2">Expires in:</td>
+						<td class="text-muted">session</td>
+					</tr>
+				</tbody>
+			</table>
+		</div class="table-responsive-sm">
 	</div>
 	<p class="fw-bold fs-5 mt-3">What about other tracking
 		technologies, like web beacons?</p>

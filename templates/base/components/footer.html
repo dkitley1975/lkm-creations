@@ -29,7 +29,8 @@
 	</svg>
 	<footer class="footer footer-fix mt-auto container d-flex flex-wrap justify-content-sm-center justify-content-between align-items-center
 			my-4 pt-4 pb-2 border-top">
-		<div class="col-12 col-md-4 d-flex justify-content-center mt-1">
+		<div
+			class="col-12 col-md-4 d-flex justify-content-center mt-1 order-first">
 			<span class="text-muted">
 				<a class="text-decoration-none text-muted"
 					href='{{ site_info.github_url }}' target="_blank"
@@ -39,7 +40,8 @@
 				2012 - {% now "Y" %}
 			</span>
 		</div>
-		<div class="col-md-4 d-flex justify-content-center mt-1">
+		<div
+			class="col-md-4 d-flex justify-content-center mt-2 order-last order-md-2">
 			<a class="text-decoration-none text-muted"
 				href="/documents/cookie-policy" rel="noopener noreferrer"
 				aria-label"link to the sites Cookie Policy and other legal
@@ -48,32 +50,33 @@
 				Privacy information
 			</a>
 		</div>
-		<ul
-			class="nav list-unstyled col-12 col-md-4 d-flex justify-content-center mt-1">
-			<li class="ms-3"><a class="text-muted"
-					href="{{ site_info.github_url }}" target="_blank"
-					rel="noopener noreferrer" aria-label"link to the site
-					creator/owners Github profile, Opens in a new tab"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#github" /></svg>
-				</a></li>
-			<li class="ms-3"><a class="text-muted"
-					href="{{ site_info.twitter_url }}" target="_blank"
-					rel="noopener noreferrer" aria-label"link to the site
-					creator/owners twitter profile, Opens in a new tab"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#twitter" /></svg></a></li>
-			<li class="ms-3"><a class="text-muted"
-					href="{{ site_info.linkedin_url }}" target="_blank"
-					rel="noopener noreferrer" aria-label"link to the site
-					creator/owners Linkedin profile, Opens in a new tab"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#linkedin" /></svg></a></li>
-			<li class="ms-3"><a class="text-muted"
-					href="{{ site_info.facebook_url }}" target="_blank"
-					rel="noopener noreferrer" aria-label"link to the site
-					creator/owners Facebook profile, Opens in a new tab"><svg
-						class="bi" width="24" height="24">
-						<use xlink:href="#facebook" /></svg></a></li>
-		</ul>
+		<div class=" col-12 col-md-4 mt-1">
+			<ul class="nav list-unstyled d-flex justify-content-center">
+				<li class="ms-3"><a class="text-muted"
+						href="{{ site_info.github_url }}" target="_blank"
+						rel="noopener noreferrer" aria-label"link to the site
+						creator/owners Github profile, Opens in a new tab"><svg
+							class="bi" width="24" height="24">
+							<use xlink:href="#github" /></svg>
+					</a></li>
+				<li class="ms-3"><a class="text-muted"
+						href="{{ site_info.twitter_url }}" target="_blank"
+						rel="noopener noreferrer" aria-label"link to the site
+						creator/owners twitter profile, Opens in a new tab"><svg
+							class="bi" width="24" height="24">
+							<use xlink:href="#twitter" /></svg></a></li>
+				<li class="ms-3"><a class="text-muted"
+						href="{{ site_info.linkedin_url }}" target="_blank"
+						rel="noopener noreferrer" aria-label"link to the site
+						creator/owners Linkedin profile, Opens in a new tab"><svg
+							class="bi" width="24" height="24">
+							<use xlink:href="#linkedin" /></svg></a></li>
+				<li class="ms-3"><a class="text-muted"
+						href="{{ site_info.facebook_url }}" target="_blank"
+						rel="noopener noreferrer" aria-label"link to the site
+						creator/owners Facebook profile, Opens in a new tab"><svg
+							class="bi" width="24" height="24">
+							<use xlink:href="#facebook" /></svg></a></li>
+			</ul>
+		</div>
 	</footer>
