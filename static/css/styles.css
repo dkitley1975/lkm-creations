@@ -213,11 +213,15 @@ body {
 	outline: 0;
 }
 
-/* ensures the increment/decrement arrows always display */
+.link-hover-primary:hover {
+	color: var(--clr-brand-primary-darker) !important;
+}
+
+/* ensures the increment/decrement arrows always display
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 	opacity: 1;
-}
+} */
 
 .logo-font-creations {
 	font-family: 'Caveat',

@@ -15,8 +15,8 @@
 	"fields": {
 		"provider": "facebook",
 		"name": "Facebook - LKM Creations",
-		"client_id": "1492671984522697",
-		"secret": "990fba954391f8aafaa39fab70e080e0",
+		"client_id": "1120051422250395",
+		"secret": "7d97b08aa9346b560baeaac36864dbbb",
 		"key": "",
 		"sites": [2, 1]
 	}

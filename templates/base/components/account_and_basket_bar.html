@@ -62,25 +62,6 @@
 					</a>
 				</li>
 				<!-- login -->
-
-				{% comment %} <li class="list-inline-item">
-					<!-- sign-out-confirmation-modal -->
-					<!-- Button trigger modal -->
-					<a class="nav-link text-black" href="#" role="button"
-						data-bs-toggle="modal" data-bs-target="#logInModal"
-						aria-expanded="false">
-						<div class="text-center">
-							<div><i class="fs-5 bi bi-box-arrow-right"
-									title="Click to Sign In"></i>
-							</div>
-							<p class="fs-6 fw-semibold">
-								Sign In
-							</p>
-						</div>
-					</a>
-				</li>
-
-				{% endcomment %}
 				<li class="list-inline-item">
 					<!-- sign-out-confirmation-modal -->
 					<!-- Button trigger modal -->
@@ -97,30 +78,12 @@
 						</div>
 					</a>
 				</li>
-
-
-
-
-				{% comment %} <li class="list-inline-item">
-					<a class="nav-link text-black"
-						href="/accounts/login?next={{ request.path }}"
-						role="button" aria-expanded="false">
-						<div class="text-center">
-							<div><i class="bi bi-box-arrow-in-right"
-									title="Click to Sign In"></i>
-							</div>
-							<p class="fs-6 fw-semibold">
-								Login
-							</p>
-						</div>
-					</a>
-				</li> {% endcomment %}
 				{% endif %}
 				<!-- basket-info -->
 				<li class="list-inline-item text-black text-decoration-none">
 					<a href="{% url "summary" %}" class="{% if basket_items %}
 		 font-weight-bold {% endif %} nav-link text-black text-decoration-none"
-						type="button" role="button">
+						role="button">
 						<div class="text-center">
 							<div class="d-inline-flex">
 								{% if total_quantity is 0 %}

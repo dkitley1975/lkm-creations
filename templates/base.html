@@ -76,7 +76,7 @@
 						action="/accounts/logout/?next={{ request.path }}">
 						{% csrf_token %}
 						<div class="modal-footer">
-							<button type="button"
+							<button
 								class="btn btn-outline-secondary text-uppercase"
 								data-bs-dismiss="modal">Close</button>
 							<button type="submit"
@@ -105,9 +105,7 @@
 					<p>If you have not created an account yet, then please
 						<a href="/accounts/signup/?next=%2F">sign up</a> first.
 					</p>
-
-
-					<form class="login" method="POST"
+					<form class="login mt-3" method="POST"
 						action="/accounts/login/?next={{ request.path }}">
 						{% csrf_token %}
 						<div id="div_id_login" class="form-group"> <label
