@@ -143,6 +143,26 @@ body {
 	float: right;
 }
 
+.btn-fb {
+	background-color: #3B5998;
+	color: white;
+}
+
+.btn-fb:hover {
+	background-color: #3b5898bf;
+	color: white;
+}
+
+.btn-google {
+	background-color: #dd4b39;
+	color: white;
+}
+
+.btn-google:hover {
+	background-color: #dd4c39c4;
+	color: white;
+}
+
 .btn-primary {
 	color: #fff;
 	background-color: var(--clr-brand-primary-darker);
@@ -360,6 +380,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 .text-primary-darker {
 	color: var(--clr-brand-primary-darker) !important;
+}
+
+.text-info {
+	color: var(--clr-brand-primary-darker) !important;
+}
+
+.text-info:hover {
+	color: var(--clr-brand-primary-darkest) !important;
 }
 
 .toast-capper {

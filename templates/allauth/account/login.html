@@ -12,20 +12,6 @@
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{ signup_url }}">sign
-    up</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
-</div>
 
 {% include "socialaccount/snippets/login_extra.html" %}
 
@@ -53,5 +39,27 @@
       href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   </p>
 </form>
+
+
+<p class="text-center"> Or Login with your Social Media
+  account</p>
+<div class="d-flex flex-row justify-content-evenly mt-1">
+  <div class="mt-2">
+    <a href="{% provider_login_url "facebook" method="oauth2" %}"
+      class="btn btn-fb">
+      <i class="bi bi-facebook"></i>&nbsp;Login
+      with Facebook
+    </a>
+  </div>
+
+  <div class="mt-2">
+    <a href="{% provider_login_url "google" method="oauth2" %}"
+      class="btn btn-google">
+      <i class="bi bi-google"></i>&nbsp;Login
+      with Google+
+    </a>
+  </div>
+</div>
+
 
 {% endblock %}

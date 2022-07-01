@@ -103,27 +103,13 @@
 				</div>
 				<div class="modal-body">
 					{% load socialaccount %}
-					{% providers_media_js %}
-
-					{% load socialaccount %}
-
+					{% comment %} {% providers_media_js %} {% endcomment %}
 					{% if user.is_authenticated %}
 					Hello, {{ user.username }}. <a href='/logout'>Logout</a>
 					{% else %}
-					<p><a
-							href="{% provider_login_url 'facebook' method="js_sdk" %}">Facebook</a>
-					</p> # This with JS SDK
-					<p><a href="{% provider_login_url "facebook" method="oauth2" %}"
-							target="blank">Facebook
-							OAuth2</a></p> # Or this with OAuth2
-					{% endif %}
-
-
-
-
-
 					<p>If you have not created an account yet, then please
-						<a href="/accounts/signup/?next=%2F">sign up</a> first.
+						<a href="/accounts/signup/?next=%2F">sign up</a>
+						first.
 					</p>
 					<form class="login mt-3" method="POST"
 						action="/accounts/login/?next={{ request.path }}">
@@ -138,8 +124,8 @@
 									class="textinput textInput form-control"
 									required id="id_login"> </div>
 						</div>
-						<div id="div_id_password" class="form-group"> <label
-								for="id_password" class=" requiredField">
+						<div id="div_id_password" class="form-group">
+							<label for="id_password" class=" requiredField">
 								Password<span class="asteriskField">*</span>
 							</label>
 							<div> <input type="password" name="password"
@@ -158,8 +144,6 @@
 									Remember Me
 								</label> </div>
 						</div>
-
-
 						<div class="modal-footer">
 							<div class="d-grid gap-2 col-12 mt-3">
 								<a class="btn btn-outline-secondary text-uppercase"
@@ -167,7 +151,6 @@
 								<button class="btn btn-primary text-uppercase"
 									type="submit">Sign
 									In</button>
-
 							</div>
 							<p class="mt-2">
 								<a class="button secondaryAction flex-end"
@@ -175,6 +158,26 @@
 									Password?</a>
 							</p>
 						</div>
+						<p class="text-center"> Or Login with your Social Media
+							account</p>
+						<div
+							class="d-flex flex-row justify-content-evenly mt-1">
+							<div class="mt-2">
+								<a href="{% provider_login_url "facebook" method="oauth2" %}"
+									class="btn btn-fb">
+									<i class="bi bi-facebook"></i>&nbsp;Login
+									with Facebook
+								</a>
+							</div>
+							<div class="mt-2">
+								<a href="{% provider_login_url "google" method="oauth2" %}"
+									class="btn btn-google">
+									<i class="bi bi-google"></i>&nbsp;Login
+									with Google+
+								</a>
+							</div>
+						</div>
+						{% endif %}
 					</form>
 				</div>
 			</div>

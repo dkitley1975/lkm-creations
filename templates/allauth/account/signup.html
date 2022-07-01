@@ -1,6 +1,7 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% load account socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
@@ -27,6 +28,27 @@
     <button class="btn btn-primary text-uppercase"
       type="submit">{% trans "Sign Up" %}</button>
   </div>
-</form>
 
+</form>
+{% get_providers as socialaccount_providers %}
+
+<p class="text-center"> Or Login with your Social Media
+  account</p>
+<div class="d-flex flex-row justify-content-evenly mt-1">
+  <div class="mt-2">
+    <a href="{% provider_login_url "facebook" method="oauth2" %}"
+      class="btn btn-fb">
+      <i class="bi bi-facebook"></i>&nbsp;Sign in
+      with Facebook
+    </a>
+  </div>
+
+  <div class="mt-2">
+    <a href="{% provider_login_url "google" method="oauth2" %}"
+      class="btn btn-google">
+      <i class="bi bi-google"></i>&nbsp;Sign in
+      with Google+
+    </a>
+  </div>
+</div>
 {% endblock %}
