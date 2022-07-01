@@ -102,6 +102,26 @@
 					<hr class="mb-5">
 				</div>
 				<div class="modal-body">
+					{% load socialaccount %}
+					{% providers_media_js %}
+
+					{% load socialaccount %}
+
+					{% if user.is_authenticated %}
+					Hello, {{ user.username }}. <a href='/logout'>Logout</a>
+					{% else %}
+					<p><a
+							href="{% provider_login_url 'facebook' method="js_sdk" %}">Facebook</a>
+					</p> # This with JS SDK
+					<p><a href="{% provider_login_url "facebook" method="oauth2" %}"
+							target="blank">Facebook
+							OAuth2</a></p> # Or this with OAuth2
+					{% endif %}
+
+
+
+
+
 					<p>If you have not created an account yet, then please
 						<a href="/accounts/signup/?next=%2F">sign up</a> first.
 					</p>
