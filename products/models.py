@@ -334,6 +334,10 @@ class Product(models.Model):
         return self.inventory > 0
 
     def remove_items_from_inventory(self, count, save=True):
+        """
+        Take the input count and subtract it from the inventory.
+        If save is true, save the inventory.
+        """
         current_inv = self.inventory
         current_inv -= count
         self.inventory = current_inv
@@ -342,6 +346,10 @@ class Product(models.Model):
         return self.inventory
 
     def update_if_in_stock(self, save=True):
+        """
+        Check if the inventory is less than or equal to zero.
+        If so, set the in_stock flag to false.
+        """
         if self.inventory <= 0:
             self.in_stock = False
         if save == True:
