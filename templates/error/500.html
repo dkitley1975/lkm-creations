@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+<meta name="description" content="{{ site_info.store_description }}">
+<meta name="keywords" content="{{ site_info.store_keywords|title }}">
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+{% block title %}{{ request.site.name }} - Error - 500{% endblock %}
+
+{% block content %}
+<main class="col-12 mb-5 mt-3 mt-md-5">
+	<div class="d-md-flex flex-md-row col-12 align-items-center">
+		<div class="col-12 col-md-6">
+			<div class="col-10 offset-1 rounded-10 border-1 border-clr-primary
+				box-shadow p-3 align-middle">
+				<h1 class="text-center">Error - 500</h1>
+				<h2 class="text-center text-uppercase">Like somethings broken
+					looks. Hrmmm.
+				</h2>
+				<p class="text-center mt-2">Working as it should it is not
+					for this sorry we are.
+					Yes,
+				</p>
+				<p class="text-center">Refresh thge page please try</p>
+				<div class="text-center mt-2">know by email if the error
+					persists please
+					inform us</br> <a class="text-black text-decoration-none
+					link-hover-primary"
+						href="mailto:{{ site_info.email_address }}?subject={{ request.site.name }} - 500 error">
+						({{ site_info.email_address }})</a> </br>Thank you</br>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-6 order-1 order-md-2">
+			<img class="rounded mx-auto d-block img-fluid image-drop-shadow"
+				src="{{ MEDIA_URL }}images/yoda.png" alt="500 error">
+		</div>
+	</div>
+</main>
+{% endblock %}

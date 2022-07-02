@@ -233,6 +233,10 @@ body {
 	outline: 0;
 }
 
+.image-drop-shadow {
+	filter: drop-shadow(2px 4px 8px hsla(0deg, 0%, 0%, 0.5));
+}
+
 .link-hover-primary:hover {
 	color: var(--clr-brand-primary-darker) !important;
 }
