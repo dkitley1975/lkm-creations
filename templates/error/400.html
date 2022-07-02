@@ -8,7 +8,6 @@
 {% block title %}{{ request.site.name }} - Error - 400{% endblock %}
 {% endblock %}
 {% block content %}
-
 <main class="col-12 mb-5 mt-3 mt-md-5">
 	<div class="d-md-flex flex-md-row col-12 align-items-center">
 		<div class="col-12 col-md-6">
@@ -23,10 +22,10 @@
 					for this sorry we are.
 					Yes,
 				</p>
-				<p class="text-center">Refresh thge page please try</p>
-				<div class="text-center mt-2">know by email if the error
-					persists please
-					inform us</br> <a class="text-black text-decoration-none
+				<p class="text-center">Please try refreshing the page</p>
+				<div class="text-center mt-2">If the error persists please
+					inform us by
+					email</br> <a class="text-black text-decoration-none
 					link-hover-primary"
 						href="mailto:{{ site_info.email_address }}?subject={{ request.site.name }} - 400 error">
 						({{ site_info.email_address }})</a> </br>Thank you</br>
@@ -39,5 +38,4 @@
 		</div>
 	</div>
 </main>
-
 {% endblock %}
