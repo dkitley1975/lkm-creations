@@ -1,0 +1,37 @@
+{% load active_link_tags %}
+<nav class="navbar navbar-expand-md navbar-light">
+	<div class="container-fluid">
+		<a class="navbar-brand d-md-none" href="#">Dashboard</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-center"
+			id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link {% if 'order-history' in request.path %}active{% endif %}"
+							href="{% url "order-history" %}"
+							aria-current="order-history">Order History</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link {% if '/connections' in request.path %}active{% endif %}"
+							href="{% url 'connections' %}"
+							aria-current="Social Accounts">Social
+							Accounts</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link
+					{% if '/dashboard/profile-update' in request.path %}active{% endif %}"
+							href="{% url 'profile-update' %}"
+							aria-current="Update Profile">Update Profile
+							Details</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
