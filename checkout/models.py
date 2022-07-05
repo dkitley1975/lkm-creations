@@ -200,15 +200,15 @@ class OrderDetails(models.Model):
 
         super().save(*args, **kwargs)
 
-    def update_to_paid(self):
-        """
-        Update the order status to paid.
-        """
-        self.order_status = OrderStatus.objects.get(order_status="Paid")
-        self.save()
+    # def update_to_paid(self):
+    #     """
+    #     Update the order status to paid.
+    #     """
+    #     self.order_status = OrderStatus.objects.get(order_status="Paid")
+    #     self.save()
 
-    def __str__(self):
-        return self.order_number
+    # def __str__(self):
+    #     return self.order_number
 
 
 class OrderLineItem(models.Model):
