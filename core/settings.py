@@ -180,7 +180,6 @@ else:
 print("email recipient: ", RECIPIENT_ADDRESS)
 print("EMAIL_BACKEND: ",EMAIL_BACKEND)
 print("EMAIL_HOST: ", EMAIL_HOST)
-print("EMAIL_HOST_PASSWORD: ", EMAIL_HOST_PASSWORD)
 
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
