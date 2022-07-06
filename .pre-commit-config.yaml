@@ -14,7 +14,7 @@ repos:
     #   args:
     #     - --pattern=develop|main
     - id: requirements-txt-fixer
-    exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only|*.txt)
+    exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only|*.txt|checkout/app.py)
 
 
 -   repo: https://github.com/psf/black
@@ -23,7 +23,7 @@ repos:
     -   id: black
         args:
           - --line-length=75
-        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
+        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/|checkout/app.py)
 -   repo: https://github.com/PyCQA/isort
     rev: 5.10.1
     hooks:
@@ -54,7 +54,7 @@ repos:
         - --in-place
         - --remove-unused-variables
         - --remove-all-unused-imports
-      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/|checkout/app.py)
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
@@ -66,4 +66,4 @@ repos:
         # D106 Missing docstring in public nested class
         # D401 First line should be in imperative mood
         - --extend-ignore=D106,D401
-      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/)
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/|checkout/app.py)

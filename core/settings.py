@@ -164,27 +164,31 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Email Settings
 # if TEST_EMAIL string in env matches True than use test settings
+FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
+
 if TEST_EMAIL == True:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-    DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
-
-
+    EMAIL_HOST = "localhost"
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-    DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
+print("email recipient: ", RECIPIENT_ADDRESS)
+print("EMAIL_BACKEND: ",EMAIL_BACKEND)
+print("EMAIL_HOST: ", EMAIL_HOST)
+print("EMAIL_HOST_PASSWORD: ", EMAIL_HOST_PASSWORD)
+
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
+
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'optional'
 
