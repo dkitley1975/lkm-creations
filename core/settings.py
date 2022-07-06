@@ -164,11 +164,11 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Email Settings
 # if TEST_EMAIL string in env matches True than use test settings
-FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
+DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
 
 if TEST_EMAIL == True:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -177,7 +177,7 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-print("email recipient: ", RECIPIENT_ADDRESS)
+print("email recipient: ", DEFAULT_RECIPIENT_ADDRESS)
 print("EMAIL_BACKEND: ",EMAIL_BACKEND)
 print("EMAIL_HOST: ", EMAIL_HOST)
 

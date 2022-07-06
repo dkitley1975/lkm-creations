@@ -93,7 +93,7 @@ class ContactForm(forms.Form):
             subject=subject,
             message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.RECIPIENT_ADDRESS],
+            recipient_list=[settings.DEFAULT_RECIPIENT_ADDRESS],
             fail_silently=False,
         )
 
