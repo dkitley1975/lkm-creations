@@ -279,10 +279,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # SECURITY WARNING: remove the Print to terminal once ready to deploy
 # Print to terminal the enviroment settings
 
-if DEBUG:
+if ALLOWED_HOSTS == config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')]):
     os.system("clear")
     print("\033[1;33m""Allowed Hosts: ""\033[1;32m", ALLOWED_HOSTS,"\033[0;0m")
     print("\033[1;33m""Debug is set to: " "\033[1;32m", DEBUG,"\033[0;0m")
     print("\033[1;33m""Test Email settings: " "\033[1;32m", TEST_EMAIL,"\033[0;0m")
     print("\033[1;33m""Using the Local Database: " "\033[1;32m", LOCAL_DB,"\033[0;0m")
+    print(DATABASES)
     print("\033[1;33m""Using the AWS S3 Bucket: " "\033[1;32m", USE_AWS,"\033[0;0m")

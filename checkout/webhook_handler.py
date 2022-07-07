@@ -147,7 +147,7 @@ class StripeWH_Handler:
                         quantity=quantity,
                     )
                     order_line_item.save()
-                    # OrderDetails.update_to_paid(self)
+                    OrderDetails.update_to_paid(self)
 
             except Exception as e:
                 if order:
