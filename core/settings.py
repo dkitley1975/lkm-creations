@@ -11,14 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 import sys
+from email.policy import default
 from pathlib import Path
 
 import dj_database_url
+from decouple import config
 from django.conf import settings
 from django.core.mail import send_mail
-
-if os.path.isfile("env.py"):
-    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,30 +28,17 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if str(os.environ.get("DEBUG")) == "True":
-    DEBUG = True
-else:
-    DEBUG = False
-if str(os.environ.get("LIVE_DB")) == "True":
-    LIVE_DB = True
-else:
-    LIVE_DB = False
-if str(os.environ.get("TEST_EMAIL")) == "True":
-    TEST_EMAIL = True
-else:
-    TEST_EMAIL = False
-if str(os.environ.get("USE_AWS")) == "True":
-    USE_AWS = True
-else:
-    USE_AWS = False
+DEBUG = config('DEBUG', default=False, cast=bool)
+LOCAL_DB = config('LOCAL_DB', default=False, cast=bool)
+TEST_EMAIL = config('TEST_EMAIL', default=True, cast=bool)
+USE_AWS = config('USE_AWS', default=True, cast=bool)
 
 
 
-
-ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
 # Application definition
 
@@ -160,27 +146,19 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-
-
 # Email Settings
-# if TEST_EMAIL string in env matches True than use test settings
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
+EMAIL_HOST_USER  =config("EMAIL_HOST_USER")
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = True
-DEFAULT_RECIPIENT_ADDRESS = os.environ.get("EMAIL_HOST_USER")
+DEFAULT_RECIPIENT_ADDRESS = config('EMAIL_HOST_USER')
+EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 if TEST_EMAIL == True:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    EMAIL_HOST = "localhost"
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-print("email recipient: ", DEFAULT_RECIPIENT_ADDRESS)
-print("EMAIL_BACKEND: ",EMAIL_BACKEND)
-print("EMAIL_HOST: ", EMAIL_HOST)
-
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -188,8 +166,10 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 
+
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'optional'
+
 
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
@@ -201,18 +181,17 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-if LIVE_DB:
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
-else:
+if LOCAL_DB:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": "db.sqlite3",
+                "NAME": "db.sqlite3",
         }
     }
-
+else:
+    DATABASES = {
+        "default": dj_database_url.parse(config('DATABASE_URL')),
+    }
 
 
 # Password validation
@@ -259,18 +238,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
+
 if USE_AWS:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
         "CacheControl": "max-age=94608000",
     }
-
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = "lkm-creations"
     AWS_S3_REGION_NAME = "eu-west-2"
-    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
     AWS_S3_CUSTOM_DOMAIN = (
         f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
     )
@@ -285,11 +264,12 @@ if USE_AWS:
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/"
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
 
+
 # Stripe
 STRIPE_CURRENCY = "gbp"
-STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
-STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
-STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", "")
+STRIPE_PUBLIC_KEY = config("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
+STRIPE_WH_SECRET = config("STRIPE_WH_SECRET")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -299,21 +279,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # SECURITY WARNING: remove the Print to terminal once ready to deploy
 # Print to terminal the enviroment settings
 
-if DEBUG:
-    # os.system("clear")
-    print("\033[1;32m You have debug set to True \033[0;0m")
-    if TEST_EMAIL:
-        print("\033[1;32m You are using the test email settings \033[0;0m")
-    else:
-        print("\033[1;33m You are using the live email settings \033[0;0m")
-    if LIVE_DB:
-        print("\033[1;32m You are using the live database \033[0;0m")
-    else:
-        print("\033[1;33m You are using the local database \033[0;0m")
+if ALLOWED_HOSTS == config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')]):
+    os.system("clear")
+    print("\033[1;33m""Allowed Hosts: ""\033[1;32m", ALLOWED_HOSTS,"\033[0;0m")
+    print("\033[1;33m""Debug is set to: " "\033[1;32m", DEBUG,"\033[0;0m")
+    print("\033[1;33m""Test Email settings: " "\033[1;32m", TEST_EMAIL,"\033[0;0m")
+    print("\033[1;33m""Using the Local Database: " "\033[1;32m", LOCAL_DB,"\033[0;0m")
     print(DATABASES)
-    if USE_AWS:
-        print("\033[1;33m You are using AWS storage \033[0;0m")
-    else:
-        print("\033[1;32m You are using local storage \033[0;0m")
-else:
-    print("\033[1;33m You have debug set to False \033[0;0m")
+    print("\033[1;33m""Using the AWS S3 Bucket: " "\033[1;32m", USE_AWS,"\033[0;0m")

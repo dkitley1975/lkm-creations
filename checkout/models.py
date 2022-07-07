@@ -8,8 +8,8 @@ from products.models import Product
 from profiles.models import UserProfile
 from siteadmin.models import SiteInfo
 
-# TODO REMOVE THE next two blocks when creating the databases and
-# then add the site info prior to releasing them,
+# TODO COMMENT OUT THE next two blocks when creating the databases and
+# adding the test data  prior to releasing them,
 default_delivery_price = (
     SiteInfo.objects.all()
     .filter(is_active=True)
@@ -148,14 +148,27 @@ class OrderDetails(models.Model):
     )
 
     order_subtotal = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
+        max_digits=10,
+        decimal_places=2,
+        null=False,
+        default=0,
     )
     grand_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
+        max_digits=10,
+        decimal_places=2,
+        null=False,
+        default=0,
     )
-    original_basket = models.TextField(blank=False, null=False, default="")
+    original_basket = models.TextField(
+        blank=False,
+        null=False,
+        default="",
+    )
     stripe_pid = models.CharField(
-        max_length=254, blank=False, null=False, default=""
+        max_length=254,
+        blank=False,
+        null=False,
+        default="",
     )
 
     class Meta:

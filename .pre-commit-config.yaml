@@ -3,18 +3,21 @@ repos:
     rev: v4.2.0
     hooks:
     - id: check-yaml
-    - id: end-of-file-fixer
     - id: trailing-whitespace
     - id: check-added-large-files
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|.txt|env.py|.env|local-only|checkout/app.py|.confirmation_emails/)
+
     - id: check-merge-conflict
     - id: debug-statements
     - id: detect-private-key
     - id: end-of-file-fixer
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|.txt|env.py|.env|local-only|checkout/app.py|.confirmation_emails/)
+
     # - id: no-commit-to-branch
     #   args:
     #     - --pattern=develop|main
     - id: requirements-txt-fixer
-    exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only|*.txt|checkout/app.py)
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|.txt|env.py|.env|local-only|checkout/app.py|.confirmation_emails/)
 
 
 -   repo: https://github.com/psf/black
@@ -23,7 +26,7 @@ repos:
     -   id: black
         args:
           - --line-length=75
-        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/|checkout/app.py)
+        exclude: ^(.vscode/|tests/|core/settings.py|manage.py|.txt|env.py|.env|local-only/|checkout/app.py|.confirmation_emails/)
 -   repo: https://github.com/PyCQA/isort
     rev: 5.10.1
     hooks:
@@ -54,7 +57,7 @@ repos:
         - --in-place
         - --remove-unused-variables
         - --remove-all-unused-imports
-      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/|checkout/app.py)
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|.txt|env.py|.env|local-only/|checkout/app.py|.confirmation_emails/)
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
@@ -66,4 +69,4 @@ repos:
         # D106 Missing docstring in public nested class
         # D401 First line should be in imperative mood
         - --extend-ignore=D106,D401
-      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|env.py|local-only/|checkout/app.py)
+      exclude: ^(.vscode/|tests/|core/settings.py|manage.py|.txt|env.py|.env|local-only/|checkout/app.py|.confirmation_emails/)

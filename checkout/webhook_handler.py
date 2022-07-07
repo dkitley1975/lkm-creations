@@ -22,30 +22,25 @@ class StripeWH_Handler:
         self.request = request
 
     def send_order_confirmation_email(self, order):
-        print("running send email confirmation")
         """
-        Function to send an email to the customer
-        with the order details.
+        Function to send an email to the customer with the order details.
         """
         cust_email = order.email
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
-            {"order": order, "contact_email": settings.FROM_EMAIL},
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
-        print("Email Subject: ", subject)
         body = render_to_string(
             "checkout/confirmation_emails/confirmation_email_body.txt",
-            {"order": order, "contact_email": settings.FROM_EMAIL},
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
-        print("Email Body: ", body)
-        send_mail(subject, body, settings.FROM_EMAIL, [cust_email])
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     def handle_event(self, event):
         """
         Handle the event that is sent from the webhook.
         This function is called whenever a new event is received.
         """
-        print("running handle event")
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200,
@@ -55,9 +50,7 @@ class StripeWH_Handler:
         """
         Handle the payment intent succeeded webhook.
         """
-        print("handling the payment intent succeeded webhook")
         intent = event.data.object
-        print("intent: ", intent)
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -65,10 +58,6 @@ class StripeWH_Handler:
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-        print("billing details: ", billing_details)
-        print("shipping details: ",  shipping_details)
-        print("Grand details: ",  grand_total)
-
 
         # Clean data in the shipping details
         # removes empty fields adding  None
@@ -117,14 +106,12 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                print("order: ", order)
                 order_exists = True
                 break
             except OrderDetails.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            print("order already exists, should mail customer")
             self.send_order_confirmation_email(order)
 
             return HttpResponse(
