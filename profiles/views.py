@@ -17,23 +17,8 @@ def DashboardView(request):
 @login_required
 def OrderHistoryView(request):
     profile = get_object_or_404(UserProfile, user=request.user)
-    if request.method == "POST":
-        form = UserProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request, "You profile has been updated successfully"
-            )
-        else:
-            messages.error(
-                request,
-                ("Update failed. Please ensure the form is valid."),
-            )
-    else:
-        form = UserProfileForm(instance=profile)
-
-    order_history = profile.orders.all()
-    context = {"form": form, "order_history": order_history}
+    order_history = profile.orders.all().order_by("-order_date")
+    context = {"order_history": order_history}
     return render(request, "profiles/pages/order-history.html", context)
 
 
