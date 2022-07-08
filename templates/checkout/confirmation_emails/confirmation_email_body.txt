@@ -20,10 +20,9 @@ Subtotal: £{{ order.order_subtotal }}
 Delivery: £{{ order.delivery_charge }}
 Grand Total: £{{ order.grand_total }}
 
-Your order will be shipped to:
+The Delivery address is:
 {{ order.street_address1 }}
-{% if order.street_address2 != None %} {{order.street_address2}} {% endif %}
-{% if order.street_address2 == None %} wellingtons {% endif %}
+{% if order.street_address2 != None %} {{order.street_address2}} </br>{% endif %}
 {{ order.town_or_city }}
 {{ order.county }}
 {{ order.country }}
@@ -31,7 +30,7 @@ Your order will be shipped to:
 
 We've got your contact number for this order as as {{ order.phone_number }}.
 
-If you have any questions, feel free to contact us at {{ siteadmin.email_address }}.
+If you have any questions, feel free to contact us at {{ contact_email }}.
 
 Thank you for your order!
 
@@ -40,6 +39,7 @@ Sincerely,
 LKM Creations
 
 If you have an account you can view your previous orders here:
-{{ request.site.domain }}/dashboard/
-and this orders details are available willies
+{{ request.scheme }}://{{ request.get_host }}/dashboard/
+and this orders details are available
 here:{{ request.site.domain }}/dashboard/order-summary/{{ order.order_number }}
+<a href="{{ request.scheme }}://{{ request.get_host }}/dashboard/order-summary/{{ order.order_number }}">Check Now</a>

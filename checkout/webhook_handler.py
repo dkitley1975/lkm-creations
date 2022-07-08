@@ -7,7 +7,6 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-
 from products.models import Product
 from profiles.models import UserProfile
 
@@ -28,13 +27,13 @@ class StripeWH_Handler:
         cust_email = order.email
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
+            request=request,
             {"order": order},
         )
         body = render_to_string(
             "checkout/confirmation_emails/confirmation_email_body.txt",
             {"order": order, "contact_email": settings.EMAIL_HOST_USER},
         )
-        print(body)
         send_mail(subject, body, settings.EMAIL_HOST_USER, [cust_email])
 
     def handle_event(self, event):
