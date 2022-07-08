@@ -11,9 +11,8 @@ Order Date: {{ order.order_date }}
 {% for item in order.lineitems.all %}
 {{item.product.name|title }} (sku: {{item.product.sku }})
 
-Item total = £{{ item.lineitem_total }} ({{ item.quantity }} x
-£{{ item.unit_price }})
-*************************
+Item total = £{{ item.lineitem_total }} ({{ item.quantity }} x £{{ item.unit_price }})
+******************************************
 {% endfor %}
 
 Subtotal: £{{ order.order_subtotal }}
@@ -21,25 +20,30 @@ Delivery: £{{ order.delivery_charge }}
 Grand Total: £{{ order.grand_total }}
 
 The Delivery address is:
-{{ order.street_address1 }}
-{% if order.street_address2 != None %} {{order.street_address2}} </br>{% endif %}
-{{ order.town_or_city }}
-{{ order.county }}
-{{ order.country }}
-{{ order.postcode }}
+{{ order.street_address1 }},
+{% if order.street_address2 != None %} {{order.street_address2}}, {% endif %}
+{% if order.town_or_city != None %} {{order.town_or_city}}, {% endif %}
+{% if order.county != None %} {{order.county}}, {% endif %}
+{% if order.postcode != None %} {{order.postcode}}, {% endif %}
+{% if order.country != None %} {{order.country}}, {% endif %}
+
 
 We've got your contact number for this order as as {{ order.phone_number }}.
 
-If you have any questions, feel free to contact us at {{ contact_email }}.
+If you have any questions, feel free to contact us at {{ site_info.email_address }}.
 
-Thank you for your order!
+You can view your order details here: https://lkm-creations.herokuapp.com/dashboard/order-summary/{{ order.order_number }}
+
+If you have an account you can view your previous orders, link your social acount to your LKM Creations account and update your profile information here:
+https://lkm-creations.herokuapp.com/dashboard/
+
+Thank you for your valued order!
 
 Sincerely,
 
 LKM Creations
+{{ site_info.email_address }}
+{{ site_info.phone_number }}
 
-If you have an account you can view your previous orders here:
-{{ request.scheme }}://{{ request.get_host }}/dashboard/
-and this orders details are available
-here:{{ request.site.domain }}/dashboard/order-summary/{{ order.order_number }}
-<a href="{{ request.scheme }}://{{ request.get_host }}/dashboard/order-summary/{{ order.order_number }}">Check Now</a>
+Please follow our facebook page: {{ site_info.facebook_url }} for regular updates regarding new products and offers.
+
