@@ -193,12 +193,18 @@
 		aria-labelledby="NewsletterSignupModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content ">
-				<div class="modal-header">
-					<hr>
-					<h2 class="text-center">Subscribe to our Newsletter</h2>
-					<hr class="mb-5">
+				<div class="modal-header d-block">
+					<p class="col-12 text-center">
+						<span class="logo-font-lkm fs-1">LKM </span>
+						<span class="logo-font-creations fs-1">Creations</span>
+					</p>
+					<h2 class="text-center">Newsletter Subscription
+					</h2>
 				</div>
 				<div class="modal-body">
+					<p class="col-10 offset-1">Subscribe to our Newsletter to
+						get the latest news and
+						updates about our products and services.</p>
 					<!-- Begin Mailchimp Signup Form -->
 					<div id="mc_embed_signup">
 						<form
@@ -207,26 +213,32 @@
 							name="mc-embedded-subscribe-form" class="validate"
 							target="_blank" novalidate>
 							<div id="mc_embed_signup_scroll">
+								<div class="mc-field-group">
+									<label for="mce-EMAIL"
+										class="requiredField">Email Address
+										<span class="asterisk">*</span>
+									</label>
+									<input type="email" value="" name="EMAIL"
+										class="required email form-control"
+										id="mce-EMAIL">
+								</div>
+								<div class="mc-field-group">
+									<label for="mce-FNAME"
+										class="requiredField">First Name
+									</label>
+									<input type="text" value="" name="FNAME"
+										class="form-control" id="mce-FNAME">
+								</div>
+								<div class="mc-field-group">
+									<label for="mce-LNAME"
+										class="requiredField">Last Name
+									</label>
+									<input type="text" value="" name="LNAME"
+										class="form-control" id="mce-LNAME">
+								</div>
 								<div class="indicates-required"><span
 										class="asterisk">*</span>
 									indicates required</div>
-								<div class="mc-field-group">
-									<label for="mce-EMAIL">Email Address <span
-											class="asterisk">*</span>
-									</label>
-									<input type="email" value="" name="EMAIL"
-										class="required email" id="mce-EMAIL">
-								</div>
-								<div class="mc-field-group">
-									<label for="mce-FNAME">First Name </label>
-									<input type="text" value="" name="FNAME"
-										class="" id="mce-FNAME">
-								</div>
-								<div class="mc-field-group">
-									<label for="mce-LNAME">Last Name </label>
-									<input type="text" value="" name="LNAME"
-										class="" id="mce-LNAME">
-								</div>
 								<div id="mce-responses" class="clear foot">
 									<div class="response"
 										id="mce-error-response"
@@ -240,11 +252,12 @@
 									aria-hidden="true">
 									<input type="text"
 										name="b_c3d6265f7862389b9663cbb6c_eee9c69d11"
-										tabindex="-1" value=""></div>
+										tabindex="-1" value="">
+								</div>
 							</div>
 							<div class="modal-footer">
 								<div class="optionalParent">
-									<div class="clear foot">
+									<div class=" d-grid gap-2 col-12">
 										<input type="submit" value="Subscribe"
 											name="subscribe"
 											id="mc-embedded-subscribe"
