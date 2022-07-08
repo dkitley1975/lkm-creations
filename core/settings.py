@@ -153,7 +153,7 @@ DEFAULT_RECIPIENT_ADDRESS = config('EMAIL_HOST_USER', default='dkitley@mac.com')
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
-
+EMAIL_FROM_ADDRESS = config('EMAIL_FROM_ADDRESS', default='lkm-creations@kitley-mcnamara.com')
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'

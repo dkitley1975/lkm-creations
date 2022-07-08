@@ -30,7 +30,7 @@ The Delivery address is:
 
 We've got your contact number for this order as as {{ order.phone_number }}.
 
-If you have any questions, feel free to contact us at {{ site_info.email_address }}.
+If you have any questions, feel free to contact us at {{contact_email}}.
 
 You can view your order details here: https://lkm-creations.herokuapp.com/dashboard/order-summary/{{ order.order_number }}
 
@@ -42,8 +42,6 @@ Thank you for your valued order!
 Sincerely,
 
 LKM Creations
-{{ site_info.email_address }}
-{{ site_info.phone_number }}
-
+{{ contact_email }}
 Please follow our facebook page: {{ site_info.facebook_url }} for regular updates regarding new products and offers.
 
