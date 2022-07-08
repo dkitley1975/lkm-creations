@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 from products.models import Product
 from profiles.models import UserProfile
+from siteadmin.custom_context_processors import site_info
 
 from .models import OrderDetails, OrderLineItem
 
@@ -25,6 +26,7 @@ class StripeWH_Handler:
         Function to send an email to the customer with the order details.
         """
         cust_email = order.email
+        shop_email = site_info.email_address
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
             {"order": order},
@@ -33,7 +35,12 @@ class StripeWH_Handler:
             "checkout/confirmation_emails/confirmation_email_body.txt",
             {"order": order, "contact_email": settings.EMAIL_HOST_USER, "site_info": site_info,},
         )
+        body2 = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_body_shop.txt",
+            {"order": order, "contact_email": settings.EMAIL_HOST_USER, "site_info": site_info,},
+        )
         send_mail(subject, body, settings.EMAIL_HOST_USER, [cust_email])
+        send_mail(subject, body2, settings.EMAIL_HOST_USER, [site_info.email_address])
 
     def handle_event(self, event):
         """

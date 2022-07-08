@@ -1,0 +1,27 @@
+This is confirmation of an order placed at LKM Creations on the {{ order.order_date }}
+
+
+Order Number: {{ order.order_number }}
+
+
+{% for item in order.lineitems.all %}
+{{ item.quantity }} x {{item.product.name|title }} (sku: {{item.product.sku }})
+******************************************
+{% endfor %}
+
+Subtotal: £{{ order.order_subtotal }}
+Delivery: £{{ order.delivery_charge }}
+Grand Total: £{{ order.grand_total }}
+
+The Delivery address is:
+{{ order.full_name }}
+{{ order.street_address1 }},
+{% if order.street_address2 != None %} {{order.street_address2}}, {% endif %}
+{% if order.town_or_city != None %} {{order.town_or_city}}, {% endif %}
+{% if order.county != None %} {{order.county}}, {% endif %}
+{% if order.postcode != None %} {{order.postcode}}, {% endif %}
+{% if order.country != None %} {{order.country}}, {% endif %}
+
+Contact number for this order is: {{ order.phone_number }}.
+
+
