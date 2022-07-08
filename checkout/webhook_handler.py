@@ -21,20 +21,21 @@ class StripeWH_Handler:
         """
         self.request = request
 
-    def send_order_confirmation_email(self, order):
+    def _send_order_confirmation_email(self, order):
         """
         Function to send an email to the customer with the order details.
         """
         cust_email = order.email
+        print("Sending email to: ", order.email)
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
-            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+            {"order": order},
         )
         body = render_to_string(
             "checkout/confirmation_emails/confirmation_email_body.txt",
-            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+            {"order": order, "contact_email": settings.EMAIL_HOST_USER},
         )
-        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
+        send_mail(subject, body, settings.EMAIL_HOST_USER, [cust_email])
 
     def handle_event(self, event):
         """
@@ -112,7 +113,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self.send_order_confirmation_email(order)
+            self._send_order_confirmation_email(order)
 
             return HttpResponse(
                 content=(
@@ -156,7 +157,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500,
                 )
-        self.send_order_confirmation_email(order)
+        self._send_order_confirmation_email(order)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} | SUCCESS: '
