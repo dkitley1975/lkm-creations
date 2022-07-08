@@ -154,11 +154,8 @@ EMAIL_USE_TLS = True
 DEFAULT_RECIPIENT_ADDRESS = config('EMAIL_HOST_USER')
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 
-if TEST_EMAIL:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -287,3 +284,4 @@ if DEBUG:
     print("\033[1;33m""Using the Local Database: " "\033[1;32m", LOCAL_DB,"\033[0;0m")
     print(DATABASES)
     print("\033[1;33m""Using the AWS S3 Bucket: " "\033[1;32m", USE_AWS,"\033[0;0m")
+print(EMAIL_BACKEND)
