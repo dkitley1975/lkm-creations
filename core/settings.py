@@ -33,7 +33,6 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 LOCAL_DB = config('LOCAL_DB', default=False, cast=bool)
-TEST_EMAIL = config('TEST_EMAIL', default=True, cast=bool)
 USE_AWS = config('USE_AWS', default=True, cast=bool)
 
 
@@ -147,19 +146,17 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 # Email Settings
-DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
-EMAIL_HOST_USER  =config("EMAIL_HOST_USER")
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = True
-DEFAULT_RECIPIENT_ADDRESS = config('EMAIL_HOST_USER')
+DEFAULT_RECIPIENT_ADDRESS = config('EMAIL_HOST_USER', default='dkitley@mac.com')
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 
-
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 
@@ -175,16 +172,10 @@ LOGOUT_REDIRECT_URL = "/"
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 if LOCAL_DB:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-                "NAME": "db.sqlite3",
-        }
-    }
+    DATABASES = {"default": { "ENGINE": "django.db.backends.sqlite3", "NAME": "db.sqlite3"}}
 else:
     DATABASES = {
         "default": dj_database_url.parse(config('DATABASE_URL')),
@@ -282,3 +273,5 @@ if DEBUG:
     print("\033[1;33m""Debug is set to: " "\033[1;32m", DEBUG,"\033[0;0m")
     print("\033[1;33m""Using the Local Database: " "\033[1;32m", LOCAL_DB,"\033[0;0m")
     print("\033[1;33m""Using the AWS S3 Bucket: " "\033[1;32m", USE_AWS,"\033[0;0m")
+    if EMAIL_BACKEND == 'django.core.mail.backends.smtp.EmailBackend': print("\033[1;33m""Email : ""\033[1;32m" "Using SMTP""\033[0;0m")
+    if EMAIL_BACKEND == 'django.core.mail.backends.console.EmailBackend': print("\033[1;33m""Email : ""\033[1;32m" "Using Console""\033[0;0m")

@@ -46,14 +46,12 @@ class ContactForm(forms.Form):
         last_name = cl_data.get("last_name").strip()
         contact_email = cl_data.get("email").strip()
         contact_number = cl_data.get("phone")
-        postcode = cl_data.get("postcode")
         subject = "Email From - LKM-Creations"
 
         msg = "You have been contacted via the online contact form.\n\n"
         msg += f"{first_name} {last_name} has emailed you.\n"
         msg += "Their contact details are as follows:\n"
         msg += f"Phone: {contact_number}\n"
-        msg += f"Postcode: {postcode}\n"
         msg += f"Email: {contact_email}\n\n\n"
         msg += "This is their enquiry:\n"
         msg += cl_data.get("message")
@@ -66,7 +64,6 @@ class ContactForm(forms.Form):
         "via the online contact form.\n"
         contacts_msg += "The information you sent was as follows:\n"
         contacts_msg += f"Phone: {contact_number}\n"
-        contacts_msg += f"Postcode: {postcode}\n"
         contacts_msg += f"Email: {contact_email}\n\n\n"
         contacts_msg += "This is your enquiry:\n"
         contacts_msg += cl_data.get("message")
@@ -88,7 +85,7 @@ class ContactForm(forms.Form):
             contacts_subject,
         ) = self.email_contact_form_information()
 
-        # send eamil to the sender of the contact form using the msg
+        # send email to the sender of the contact form using the msg
         send_mail(
             subject=subject,
             message=msg,

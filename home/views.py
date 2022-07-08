@@ -35,7 +35,7 @@ class ContactUs(FormView):
         # This will add the flash message after email being valid
         messages.success(
             self.request,
-            "Thank you for contacting us..\
+            "Thank you for contacting us.\
                 Your message has been sent, \
                 and you should receive a copy in your inbox soon.",
         )
