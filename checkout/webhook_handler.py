@@ -39,7 +39,6 @@ class StripeWH_Handler:
             {"order": order, "contact_email": settings.EMAIL_FROM_ADDRESS},
         )
         send_mail(subject, body, settings.EMAIL_HOST_USER, [cust_email])
-        send_mail(subject, body2, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER])
 
     def handle_event(self, event):
         """

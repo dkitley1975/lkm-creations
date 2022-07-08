@@ -43,5 +43,5 @@ Sincerely,
 
 LKM Creations
 {{ contact_email }}
-Please follow our facebook page: {{ site_info.facebook_url }} for regular updates regarding new products and offers.
+Please follow our facebook page for regular updates regarding new products and offers.
 
