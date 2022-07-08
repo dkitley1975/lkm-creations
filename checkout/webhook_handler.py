@@ -26,7 +26,6 @@ class StripeWH_Handler:
         Function to send an email to the customer with the order details.
         """
         cust_email = order.email
-        print("Sending email to: ", order.email)
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
             {"order": order},

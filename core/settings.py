@@ -280,8 +280,5 @@ if DEBUG:
     os.system("clear")
     print("\033[1;33m""Allowed Hosts: ""\033[1;32m", ALLOWED_HOSTS,"\033[0;0m")
     print("\033[1;33m""Debug is set to: " "\033[1;32m", DEBUG,"\033[0;0m")
-    print("\033[1;33m""Test Email settings: " "\033[1;32m", TEST_EMAIL,"\033[0;0m")
     print("\033[1;33m""Using the Local Database: " "\033[1;32m", LOCAL_DB,"\033[0;0m")
-    print(DATABASES)
     print("\033[1;33m""Using the AWS S3 Bucket: " "\033[1;32m", USE_AWS,"\033[0;0m")
-print(EMAIL_BACKEND)
