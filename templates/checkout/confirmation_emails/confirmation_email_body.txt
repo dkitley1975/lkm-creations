@@ -19,8 +19,9 @@ Subtotal: £{{ order.order_subtotal }}
 Delivery: £{{ order.delivery_charge }}
 Grand Total: £{{ order.grand_total }}
 
-The Delivery address is:
-{{ order.street_address1 }},
+Your selected Delivery address is:
+{% if order.full_name != None %} {{order.full_name}} {% endif %}
+{% if order.street_address1 != None %} {{order.street_address1}}, {% endif %}
 {% if order.street_address2 != None %} {{order.street_address2}}, {% endif %}
 {% if order.town_or_city != None %} {{order.town_or_city}}, {% endif %}
 {% if order.county != None %} {{order.county}}, {% endif %}
@@ -34,8 +35,7 @@ If you have any questions, feel free to contact us at {{contact_email}}.
 
 You can view your order details here: https://lkm-creations.herokuapp.com/dashboard/order-summary/{{ order.order_number }}
 
-If you have an account you can view your previous orders, link your social acount to your LKM Creations account and update your profile information here:
-https://lkm-creations.herokuapp.com/dashboard/
+If you have an account you can view your previous orders, link your social acount to your LKM Creations account and update your profile information here: https://lkm-creations.herokuapp.com/dashboard/
 
 Thank you for your valued order!
 

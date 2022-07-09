@@ -5,7 +5,8 @@
 <meta name="keywords" content="{{ site_info.store_keywords|title }}">
 <meta name="robots" content="noindex, nofollow">
 {% endblock %}
-{% block title %}{{ request.site.name }} - Order {{order.order_number}}{% endblock %}
+{% block title %}{{ request.site.name }} - Order
+{{order.order_number}}{% endblock %}
 {% block custom_page_stylesheet %}
 <!-- Local CSS-->
 <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
@@ -13,36 +14,70 @@
 {% block content %}
 <main class="mb-5 mt-3 mt-md-5">
     <div class="container">
-        <div class="col-12 p-3 p-md-5">
+        <div class="col-12 p-3 p-md-5 d-print-none">
             <section class="col-12 text-center pt-2">
-                <h1 class="mb-5 fs-2">Thank you for your purchase!</h1>
+                <h1 class="mb-5 fs-2">Thank you for your purchase!
+                </h1>
             </section>
             <section class="col-12 text-center pt-2">
-                <h2 class="mb-5 fs-3">"Your order was successfully processed!
+                <h2 class="mb-5 fs-3">"Your order was successfully
+                    processed!
                 </h2>
                 <p>An email of confirmation has been sent to {{order.email}}.
                 </p>
                 <p>Your order details are below:</p>
             </section>
         </div>
-        <div class="row">
-            <div class="col-3 col-md-3 col-lg-2">
-                <p class="fw-bold">Order Number:</p>
+        <div class="row px-5 align-items-end">
+
+            <div class="col-12 col-md-9">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+
+                        <p class="fw-bold">Order
+                            Number:</p>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-8">
+                        <p>
+                            {{order.order_number}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <p class="fw-bold">Order
+                            Date:
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-8">
+                        <p>
+                            {{order.order_date}}</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-9 col-md-3 col-lg-4 text-sm-end text-md-start">
-                <p>{{order.order_number}}</p>
+
+
+            <div class="col-12 col-md-3 float-md-end">
+                <div class="row">
+                    <h3 class="text-black my-0 text-end">
+                        <span class="logo-font-lkm">LKM </span><span
+                            class="logo-font-creations">Creations</span>
+                    </h3>
+                    <p class="text-end">Netherton</p>
+                    <p class="text-end">Huddersfield</p>
+                    <p class="text-end">HD4 7EW</p>
+                </div>
             </div>
-            <div class="col-3 col-md-2 col-lg-2">
-                <p class="fw-bold">Order Date:</p>
-            </div>
-            <div class="col-9 col-md-4 col-lg-4 text-sm-end text-md-start">
-                <p>{{order.order_date}}</p>
-            </div>
+
+
+
+
+
         </div>
         <div class="container bg-white border rounded-10 box-shadow p-4 my-3">
             <div class="row d-flex">
                 <div class="col-12">
-                    <p class="fw-bold fs-4 text-md-center">Order Details:</p>
+                    <p class="fw-bold fs-4 text-md-center">Order Details:
+                    </p>
                 </div>
             </div>
             <div class="row  align-items-end">
