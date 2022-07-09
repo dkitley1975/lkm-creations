@@ -1,0 +1,49 @@
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+
+Hello {{ order.full_name }}!
+
+This is a confirmation of your order at {{ site_name }} . Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+
+
+
+{% for item in order.lineitems.all %}
+{{item.product.name|title }} (sku: {{item.product.sku }})
+
+Item total = £{{ item.lineitem_total }} ({{ item.quantity }} x
+£{{ item.unit_price }})
+*************************
+{% endfor %}
+
+Subtotal: £{{ order.order_subtotal }}
+Delivery: £{{ order.delivery_charge }}
+Grand Total: £{{ order.grand_total }}
+
+Your order will be shipped to:
+{{ order.street_address1 }}
+{{ order.street_address2 }}
+{{ order.town_or_city }}
+{{ order.county }}
+{{ order.country }}
+{{ order.postcode }}
+
+We've got your contact number for this order as as {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ site_info.email_address }}.
+
+Thank you for your order!
+
+Sincerely,
+
+{{ site_name }}
+If you have an account you can view your previous orders here:
+{{ site_domain }}/dashboard/
+and this orders details are available
+here:{{ site.domain }}/dashboard/order-summary/{{ order.order_number }}
+{% endblocktrans %}
+{% endautoescape %}

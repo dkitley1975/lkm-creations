@@ -21,7 +21,7 @@ class StripeWH_Handler:
         """
         self.request = request
 
-    def _send_order_confirmation_email(self, order, site_info):
+    def _send_order_confirmation_email(self, order):
         """
         Function to send an email to the customer with the order details.
         """
@@ -32,10 +32,6 @@ class StripeWH_Handler:
         )
         body = render_to_string(
             "checkout/confirmation_emails/confirmation_email_body.txt",
-            {"order": order, "contact_email": settings.EMAIL_FROM_ADDRESS},
-        )
-        body2 = render_to_string(
-            "checkout/confirmation_emails/confirmation_email_body_shop.txt",
             {"order": order, "contact_email": settings.EMAIL_FROM_ADDRESS},
         )
         send_mail(subject, body, settings.EMAIL_HOST_USER, [cust_email])
