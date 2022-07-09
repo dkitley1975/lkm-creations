@@ -438,6 +438,16 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 }
 
+@media print {
+
+	/* All styles for print should goes here */
+	.receipt {
+		width: 65%;
+		height: auto;
+		margin: 2cm auto;
+	}
+}
+
 /* @media (min-width: 576px) {
 
 	.modal-dialog {

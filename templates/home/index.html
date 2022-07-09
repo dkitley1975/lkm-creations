@@ -9,7 +9,7 @@
 {% block content %}
 <section class="container-fluid bg-primary-light">
 	<div class="container col-xxl-8 px-4 py-5">
-		<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+		<div class="row flex-md-row-reverse align-items-center g-5 py-5">
 			{% if site_info.image %}
 			<div class="col-12 col-md-5 col-lg-6">
 				<img src="{{ site_info.image.url }}"
@@ -43,8 +43,9 @@
 	<section class="col-md-12 text-center pt-2">
 		<h2 class="my-3 fs-1">Sale Items</h2>
 	</section>
-	<section
-		class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-3 g-5 mb-4">
+	<section class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
+		row-cols-xl-4 g-5
+		mb-4">
 		{% for product in products %}
 		<div class="col">
 			{% include "store/components/product_card.html" %}

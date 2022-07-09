@@ -16,22 +16,18 @@
     <div class="container">
         <div class="col-12 p-3 p-md-5 d-print-none">
             <section class="col-12 text-center pt-2">
-                <h1 class="mb-5 fs-2">Thank you for your purchase!
+                <h1 class="mb-2 fs-2">Thank you for your purchase!
                 </h1>
-            </section>
-            <section class="col-12 text-center pt-2">
-                <h2 class="mb-5 fs-3">"Your order was successfully
-                    processed!
-                </h2>
-                <p>An email of confirmation has been sent to {{order.email}}.
+                <p class="mb-3">An email of confirmation has been sent to
+                    {{order.email}}.
                 </p>
-                <p>Your order details are below:</p>
             </section>
         </div>
-        <div class="row px-5 align-items-end">
-
+        <div id="receipt-header" class="row px-5 align-items-end">
             <div class="col-12 col-md-9">
                 <div class="row">
+                    <h3 class="mb-3 fs-3 text-start">Receipt
+                    </h3>
                     <div class="col-12 col-md-4 col-lg-4">
 
                         <p class="fw-bold">Order
@@ -54,8 +50,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="col-12 col-md-3 float-md-end">
                 <div class="row">
                     <h3 class="text-black my-0 text-end">
@@ -67,11 +61,6 @@
                     <p class="text-end">HD4 7EW</p>
                 </div>
             </div>
-
-
-
-
-
         </div>
         <div class="container bg-white border rounded-10 box-shadow p-4 my-3">
             <div class="row d-flex">
