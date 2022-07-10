@@ -45,35 +45,36 @@
 			<div class="d-flex flex-row justify-content-around mt-0">
 				<div class="p-2">
 					<a href="https://www.facebook.com/sharer.php?u={{ request.build_absolute_uri }}"
-						target=" _blank">
+						target="_blank">
 						<i class="fab fa-facebook social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text=
-							Check out this: {{ product.name|title }}" target=" _blank">
+					<a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text=Check%20out%20this:%20{{ product.name|title|urlencode }}"
+						target="_blank">
+
 						<i class="fab fa-twitter social-share-btn fs-3"
-							aria-hidden=" true"></i>
+							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="https://pinterest.com/pin/create/bookmarklet/?media={{ product.image.url }}&url={{ request.build_absolute_uri }}&description=Check out this: {{ product.name|title }}"
-						target=" _blank">
+					<a href="https://pinterest.com/pin/create/bookmarklet/?media={{ product.image.url }}&url={{ request.build_absolute_uri }}&description=Check%20out%20this:%20{{ product.name|title|urlencode }}"
+						target="_blank">
 						<i class="fab fa-pinterest social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=Check out this: {{ product.name|title }}"
-						target=" _blank">
+					<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=Check%20out%20this:%20{{ product.name|title|urlencode }}"
+						target="_blank">
 						<i class="fab fa-linkedin social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
-					<a href="mailto:??subject=Check%20out%20this%20{{ product.name|title }}%20I've%20just%20seen&body=I%20absolutely%20love%20this%20{{ product.name|title }},%0D%0Acheck%20it%20out%20here%20{{ request.build_absolute_uri }}"
-						target=" _blank">
+					<a href="mailto:??subject=Check%20out%20this%20{{ product.name|title|urlencode }}%20I've%20just%20seen&body=I%20absolutely%20love%20this%20{{ product.name|title|urlencode }},%0D%0Acheck%20it%20out%20here%20{{ request.build_absolute_uri }}"
+						target="_blank">
 						<i class="fa fa-envelope social-share-btn fs-3"
 							aria-hidden="true"></i></a>
 
@@ -137,64 +138,57 @@
 						<p class="lead mb-0 text-left fw-bolder"><span
 								class="fst-italic">now only</span> £<span
 								class="fs-3">{{ product.sale_price }}
-								</span</p> {% else %} <p
-									class="lead mb-0 text-left fw-bolder">
-								£<span class="fs-3">{{ product.retail_price }}
-									</span</p> {% endif %} <h2
-										class="lead mb-0 text-left fw-bolder mt-3">
-									Description</h2>
-									<p>{{ product.description }}</p>
-									{% if product.size %}
-									<p
-										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
-										Size: <span
-											class="fw-normal fs-6">{{ product.size }}</span>
-									</p>
-									{% endif %}
-									{% if product.weight %}
-									<p
-										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
-										Weight:<span class="fw-normal fs-6">
-											{{ product.weight|floatformat }}
-											grams</span>
-									</p>
-									{% endif %}
-									{% if product.is_washable %}
-									<p
-										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
-										Washing instructions:<span
-											class="fw-normal fs-6">
-											{{ product.wash_instructions}}</span>
-									</p>
-									{% endif %}
-									{% if product.care_instructions %}
-									<p
-										class="lead mb-0 text-left fw-bolder mt-2 fs-5">
-										Care instructions:<span
-											class="fw-normal fs-6">
-											{{ product.care_instructions}}</span>
-									</p>
-									{% endif %}
-									{% if product.sku %}
-									<p
-										class=" mb-0 text-start fw-bolder mt-1 fs-6">
-										SKU:<span class="fw-normal fs-6">
-											{{ product.sku }}</span>
-									</p>
-									{% endif %}
-									{% if product.category.name %}
-									<p class="small mt-1 mb-0">
-										<a class="text-muted"
-											href="/store/category/{{ product.category.slug }}">
-											<i
-												class="fs-5 bi bi-tags-fill"></i>
-											{{ product.category.name }}</a>
-									</p>
-									{% endif %}
+							</span></p> {% else %} <p
+							class="lead mb-0 text-left fw-bolder">
+							£<span class="fs-3">{{ product.retail_price }}
+							</span></p> {% endif %} <h2
+							class="lead mb-0 text-left fw-bolder mt-3">
+							Description</h2>
+						<p>{{ product.description }}</p>
+						{% if product.size %}
+						<p class="lead mb-0 text-left fw-bolder mt-2 fs-5">
+							Size: <span
+								class="fw-normal fs-6">{{ product.size }}</span>
 						</p>
+						{% endif %}
+						{% if product.weight %}
+						<p class="lead mb-0 text-left fw-bolder mt-2 fs-5">
+							Weight:<span class="fw-normal fs-6">
+								{{ product.weight|floatformat }}
+								grams</span>
+						</p>
+						{% endif %}
+						{% if product.is_washable %}
+						<p class="lead mb-0 text-left fw-bolder mt-2 fs-5">
+							Washing instructions:<span class="fw-normal fs-6">
+								{{ product.wash_instructions}}</span>
+						</p>
+						{% endif %}
+						{% if product.care_instructions %}
+						<p class="lead mb-0 text-left fw-bolder mt-2 fs-5">
+							Care instructions:<span class="fw-normal fs-6">
+								{{ product.care_instructions}}</span>
+						</p>
+						{% endif %}
+						{% if product.sku %}
+						<p class=" mb-0 text-start fw-bolder mt-1 fs-6">
+							SKU:<span class="fw-normal fs-6">
+								{{ product.sku }}</span>
+						</p>
+						{% endif %}
+						{% if product.category.name %}
+						<p class="small mt-1 mb-0">
+							<a class="text-muted"
+								href="/store/category/{{ product.category.slug }}">
+								<i class="fs-5 bi bi-tags-fill"></i>
+								{{ product.category.name }}</a>
+						</p>
+						{% endif %}
+
 					</div>
 				</form>
 			</div>
 		</div>
+	</div>
 </main>
 {%endblock%}

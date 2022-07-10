@@ -39,19 +39,19 @@
 					{% for item in basket_items %}
 					<div class="row">
 						<div class="col-3 mb-1 h-100 ">
-							{% if item.product.image.url %}
+
 							<a href="{% url 'product-detail' item.product.slug %}"
 								target="_blank">
+								{% if item.product.image.url %}
 								<img src="{{ item.product.image.url }}" class="img-fluid mx-auto d-block
 								product-image-size rounded-10 box-shadow"
 									alt="{{ item.product.image_alt_text }}"
 									oncontextmenu="return false;">
-							</a>
-							{% else %}
-							<img class="card-img-top img-fluid"
-								src="{{ MEDIA_URL }}images/default_image.png"
-								alt="{{ item.product.name }}">
-							{% endif %}
+								{% else %}
+								<img class="card-img-top img-fluid"
+									src="{{ MEDIA_URL }}images/default_image.png"
+									alt="{{ item.product.name }}">
+								{% endif %}
 							</a>
 						</div>
 						<div class="col-9">
@@ -185,9 +185,7 @@
 								</span>
 							</button>
 							<a href="{% url "summary" %}"
-								class="btn btn-outline-secondary text-uppercase"
-								type="
-								button">
+								class="btn btn-outline-secondary text-uppercase">
 								<span class="icon">
 									<i class="fas fa-chevron-left"></i>
 								</span>
@@ -200,14 +198,13 @@
 			</div>
 		</div>
 	</div>
-	</div>
 </main>
 <div id="loading-overlay">
-	<h1 class="text-light logo-font loading-spinner">
+	<p class="text-light fs-6 logo-font loading-spinner">
 		<span class="icon">
 			<i class="fas fa-3x fa-sync-alt fa-spin"></i>
 		</span>
-	</h1>
+	</p>
 </div>
 {% endblock %}
 {% block postloadjs %}
