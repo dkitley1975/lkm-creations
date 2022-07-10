@@ -13,13 +13,12 @@
 <p class=" fw-bold fs-5 mt-3">Expedited Shipping Fees</p>
 <p>
 	We also offer expedited shipping at the following rates:
-</p>
-Items are dispatched with the Royal Mail with a 2-3 day
-service.
-Orders £{{site_info.free_delivery_over}} or less will incure a
-£{{ delivery_charge|floatformat:2}} delivery charge.
-Orders over {{site_info.free_delivery_over}} are delivered on our
-standard delivery service for free.</p>
+	Items are dispatched with the Royal Mail with a 2-3 day
+	service.
+	Orders £{{site_info.free_delivery_over}} or less will incure a
+	£{{site_info.delivery_price|floatformat:2}} delivery charge.
+	Orders over {{site_info.free_delivery_over}} are delivered on our
+	standard delivery service for free.</p>
 <p>
 	All times and dates given for delivery of the products are given in
 	good faith but are estimates only.
@@ -48,6 +47,6 @@ standard delivery service for free.</p>
 <p>
 	If you have any questions or comments, please email us: <a class="text-black text-decoration-none
 			link-hover-primary"
-		href="mailto:{{ site_info.email_address }}?subject=Questions Regarding Delivery and Shipping Policy">
+		href="mailto:{{ site_info.email_address }}?subject=Questions%20Regarding%20Delivery%20and%20Shipping%20Policy">
 		{{ site_info.email_address }}</a>
 </p>

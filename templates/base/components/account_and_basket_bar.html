@@ -1,8 +1,8 @@
 <!-- account_and_basket_bar.html -->
 <header class="container-fluid d-none d-md-block">
 	<div id="topnav" class="row bg-white pt-lg-2 fixed-top mb-1 d-print-none">
-		<div
-			class="col-12 col-md-4 col-lg-4  my-auto py-1 py-lg-0 text-center text-lg-left">
+		<div id="brand-logo"
+			class="col-12 col-md-4 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
 			<a href="{% url 'home:home' %}" class="nav-link main-logo-link">
 				<h4 class="text-black my-0 d-print-inline">
 					<span class="logo-font-lkm fs-3">LKM </span><span
@@ -10,19 +10,18 @@
 				</h4>
 			</a>
 		</div>
-		<div class="col-md-3 col-lg-4 my-auto py-1 py-lg-0">
+		<div id="search-box" class="col-md-3 col-lg-4 my-auto py-1 py-lg-0">
 			{% include "base/components/search.html" %}
 		</div>
-		<div class="col-12 col-md-5 col-lg-4 my-auto py-1 d-none d-md-block">
-			<ul
+
+		<div id="login-out-register-account"
+			class="col-12 col-md-5 col-lg-4 my-auto py-1 d-none d-md-block">
+			<ul id="login-out-register-account-menu"
 				class="list-inline list-unstyled text-center text-lg-right my-0">
-				<li class="list-inline-item dropdown">
-					<div class="dropdown-menu border-0"
-						aria-labelledby="user-options">
-						{% if request.user.is_authenticated %}
+				{% if request.user.is_authenticated %}
 				<li class="list-inline-item">
 					<a class="text-black nav-link" href="{% url "dashboard" %}"
-						id="user-options" data-toggle="dropdown"
+						id="account-button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 						<div class="text-center">
 							<div><i class="fs-5 bi bi-person-fill"></i></div>
@@ -30,9 +29,8 @@
 						</div>
 					</a>
 				</li>
-				<li class="list-inline-item">
-					<!-- sign-out-confirmation-modal -->
-					<!-- Button trigger modal -->
+
+				<li id="signout-button" class="list-inline-item">
 					<a class="nav-link text-black" href="#" role="button"
 						data-bs-toggle="modal" data-bs-target="#logoutModal"
 						aria-expanded="false">
@@ -47,8 +45,8 @@
 					</a>
 				</li>
 				{% else %}
-				<!-- register -->
-				<li class="list-inline-item">
+
+				<li id="register-button" class="list-inline-item">
 					<a class="nav-link text-black" href="/accounts/signup"
 						role="button" aria-expanded="false">
 						<div class="text-center">
@@ -61,8 +59,8 @@
 						</div>
 					</a>
 				</li>
-				<!-- login -->
-				<li class="list-inline-item">
+
+				<li id="signin-button" class="list-inline-item">
 					<!-- sign-out-confirmation-modal -->
 					<!-- Button trigger modal -->
 					<a class="nav-link text-black" href="#" role="button"
@@ -79,20 +77,22 @@
 					</a>
 				</li>
 				{% endif %}
-				<!-- basket-info -->
-				<li class="list-inline-item text-black text-decoration-none">
+
+				<li id="basket-button"
+					class="list-inline-item text-black text-decoration-none">
 					<a href="{% url "summary" %}" class="{% if basket_items %}
 		 font-weight-bold {% endif %} nav-link text-black text-decoration-none"
 						role="button">
 						<div class="text-center">
 							<div class="d-inline-flex">
 								{% if total_quantity is 0 %}
-								<span id="basket_quantity"
+								<span id="basket_quantity-mobile"
 									class="small text-muted">
 								</span>
 								<i class="fs-5 bi bi-cart4 mx-1"></i>
 								{% else %}
-								<span id="basket_quantity" class="small">
+								<span id="basket_quantity-mobile"
+									class="small">
 									{{ total_quantity }}</span>
 								<i class="fs-5 bi bi-cart4 mx-1"></i>
 								{% endif %}
@@ -100,20 +100,21 @@
 							<p class="fs-6 fw-semibold">
 								{% if total_quantity is not 0 %}
 								£<span
-									id="basket_subtotal">{{ subtotal | floatformat:2 }}</span>
+									id="basket_subtotal-mobile">{{ subtotal | floatformat:2 }}</span>
 								{% else %}
-								<span id="basket_subtotal">Basket</span>
+								<span id="basket_subtotal-mobile">Basket</span>
 								{% endif %}
 							</p>
 						</div>
 					</a>
 				</li>
-				<!-- END of basket-info.html -->
+
+
+			</ul>
 		</div>
-		</li>
-		</ul>
 		{% include "base/components/navbar.html" %}
 	</div>
-	</div>
+
+
 </header>
 <!-- end of account_and_basket_bar.html -->

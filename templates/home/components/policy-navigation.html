@@ -2,42 +2,42 @@
 
 <ul class="list-unstyled">
 	<li class="mt-3">
-		<a class="nav-item text-black text-decoration-none {% if 'cookie-policy' in request.path %}active{% endif %}"
-			class="text-black text-decoration-none
-			link-hover-primary" href="/documents/cookie-policy"
-			aria-current="Cookie Policy">Cookie
+		<a class="nav-item text-black link-hover-primary text-decoration-none
+		{% if 'cookie-policy' in request.path %}active{% endif %}"
+			{% if 'cookie-policy' in request.path %}aria-current="page"
+			{% endif %} href="/documents/cookie-policy">Cookie
 			Policy</a>
 	</li>
 	<li class="mt-3">
-		<a class="nav-item text-black text-decoration-none {% if 'disclaimer-policy' in request.path %}active{% endif %}"
-			class="text-black text-decoration-none
-			link-hover-primary" href="/documents/disclaimer-policy"
-			aria-current="Disclaimer Policy">Disclaimer
+		<a class="nav-item text-black link-hover-primary text-decoration-none
+		{% if 'disclaimer-policy' in request.path %}active{% endif %}"
+			{% if 'disclaimer-policy' in request.path %}aria-current="page"
+			{% endif %} href="/documents/disclaimer-policy">Disclaimer
 			Policy</a>
 	</li>
 	<li class="mt-3">
-		<a class="nav-item text-black text-decoration-none {% if 'privacy-policy' in request.path %}active{% endif %}"
-			class="text-black text-decoration-none
-			link-hover-primary" href="/documents/privacy-policy"
-			aria-current="Privacy Policy">Privacy Policy</a>
+		<a class="nav-item text-black link-hover-primary text-decoration-none
+		{% if 'privacy-policy' in request.path %}active{% endif %}"
+			{% if 'privacy-policy' in request.path %}aria-current="page"
+			{% endif %} href="/documents/privacy-policy">Privacy Policy</a>
 	</li>
 	<li class="mt-3">
-		<a class="nav-item text-black text-decoration-none {% if 'returns-policy' in request.path %}active{% endif %}"
-			class="text-black text-decoration-none
-			link-hover-primary" href="/documents/returns-policy"
-			aria-current="Returns Policy">Returns Policy</a>
+		<a class="nav-item text-black link-hover-primary text-decoration-none
+		{% if 'returns-policy' in request.path %}active{% endif %}"
+			{% if 'returns-policy' in request.path %}aria-current="page"
+			{% endif %} href="/documents/returns-policy">Returns Policy</a>
 	</li>
 	<li class="mt-3">
-		<a class="nav-item text-black text-decoration-none {% if 'terms-of-service-policy' in request.path %}active{% endif %}"
-			class="text-black text-decoration-none
-			link-hover-primary" href="/documents/terms-of-service-policy"
-			aria-current="Terms of Service">Terms of
+		<a class="nav-item text-black link-hover-primary text-decoration-none
+		{% if 'terms-of-service-policy' in request.path %}active{% endif %}"
+			{% if 'terms-of-service-policy' in request.path %}aria-current="page"
+			{% endif %} href="/documents/terms-of-service-policy">Terms of
 			Service</a>
 	</li>
 	<li class="mt-3">
-		<a class="nav-item text-black text-decoration-none {% if 'shipping-policy' in request.path %}active{% endif %}"
-			class="text-black text-decoration-none
-			link-hover-primary" href="/documents/shipping-policy"
-			aria-current="Shipping Policy">Shipping Policy</a>
+		<a class="nav-item text-black link-hover-primary text-decoration-none
+		{% if 'shipping-policy' in request.path %}active{% endif %}"
+			{% if 'shipping-policy' in request.path %}aria-current="page"
+			{% endif %} href="/documents/shipping-policy">Shipping Policy</a>
 	</li>
 </ul>

@@ -60,10 +60,9 @@
 	{% include "base/components/footer.html" %}
 	{% include "store/components/return_to_top_button.html" %}
 	<!-- End of Footer -->
-
 	<!-- Sign Out Modal -->
 	<div class="modal fade" id="logoutModal" tabindex="-1"
-		aria-labelledby="logoutModalLabel" aria-hidden="true">
+		aria-labelledby="logoutModal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content ">
 				<div class="modal-header">
@@ -90,12 +89,9 @@
 		</div>
 	</div>
 	<!-- END of sign-out-confirmation-modal -->
-
-
-
 	<!-- Sign In Modal -->
 	<div class="modal fade" id="logInModal" tabindex="-1"
-		aria-labelledby="logInModalLabel" aria-hidden="true">
+		aria-labelledby="logInModal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content ">
 				<div class="modal-header">
@@ -179,18 +175,16 @@
 								</a>
 							</div>
 						</div>
-						{% endif %}
 					</form>
+					{% endif %}
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- END of sign-in-confirmation-modal -->
-
-
 	<!-- Newsletter Signup In Modal -->
 	<div class="modal fade" id="NewsletterSignupModal" tabindex="-1"
-		aria-labelledby="NewsletterSignupModalLabel" aria-hidden="true">
+		aria-labelledby="NewsletterSignupModal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content ">
 				<div class="modal-header d-block">
@@ -278,15 +272,6 @@
 		</div>
 	</div>
 	<!-- END of sign-in-confirmation-modal -->
-
-
-
-
-
-
-
-
-
 	<!-- Local JS-->
 	<script src="{% static 'js/show_alert_once.js' %}"></script>
 	<script src="{% static 'js/show_toast.js' %}"></script>
