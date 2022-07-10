@@ -56,13 +56,12 @@
 							{{ item.product.name|title }}</p>
 					</a>
 					<p class="text-center text-md-start fst-italic">
-						{{ item.product.description|title|striptags|safe|truncatechars:150 }}
+						{{ item.product.description|title|striptags|safe|truncatechars:180 }}
 					</p>
 				</div>
 				<!--Quantity-->
 				<div class="col-12 col-md-4 col-lg-3 mt-2">
-					<p><strong class="d-none d-md-block">Quantity
-							{{ item.quantity }}</strong>
+					<p><strong class="d-none d-md-block">Quantity</strong>
 
 						{% if item.product.inventory < 5 %}
 						<span class="text-center text-muted">only
@@ -84,6 +83,10 @@
 							</div>
 						</div>
 					</form>
+					<p class="text-danger small">Press <span
+							class="fst-italic">
+							ENTER </span> to
+						confirm new qty</p>
 					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item my-2 w-100 float-end text-uppercase"
 						id="remove_{{ item.item_id }}"> Remove
 						Item</a>
@@ -131,7 +134,7 @@
 			{% endif %}
 			<div class="row justify-content-center">
 				<a class="btn btn-outline-secondary text-center col-12 col-md-4 col-lg-4 mx-3 my-2"
-					href="{{request.META.HTTP_REFERER|escape}}"><i
+					href="{% url 'products' %}"><i
 						class="fs-6 bi bi-chevron-left"></i>
 					<span class="text-uppercase small">
 						keep shopping</span></a>
@@ -150,12 +153,6 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
-	// Update quantity on click
-	$('.update-link').click(function (e) {
-		var form = $(this).prev('.update-form');
-		form.submit();
-
-	})
 	// Remove item and reload on click
 	$('.remove-item').click(function (e) {
 		var csrfToken = "{{ csrf_token }}";
