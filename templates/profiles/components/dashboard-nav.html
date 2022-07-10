@@ -14,20 +14,22 @@
 				<ul class="nav">
 					<li class="nav-item">
 						<a class="nav-link {% if 'order-history' in request.path %}active{% endif %}"
-							href="{% url "order-history" %}"
-							aria-current="order-history">Order History</a>
+							{% if 'order-history' in request.path %}aria-current="page"
+							{% endif %} href="{% url "order-history" %}">Order
+							History</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link {% if '/connections' in request.path %}active{% endif %}"
-							href="{% url 'connections' %}"
-							aria-current="Social Accounts">Social
+							{% if '/connections' in request.path %}aria-current="page"
+							{% endif %} href="{% url 'connections' %}">Social
 							Accounts</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link
 					{% if '/dashboard/profile-update' in request.path %}active{% endif %}"
-							href="{% url 'profile-update' %}"
-							aria-current="Update Profile">Update Profile
+							{% if '/dashboard/profile-update' in request.path %}aria-current="page"
+							{% endif %}
+							href="{% url 'profile-update' %}">Update Profile
 							Details</a>
 					</li>
 				</ul>

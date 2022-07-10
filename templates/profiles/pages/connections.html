@@ -16,13 +16,12 @@ Connections{% endblock %}
 <main class="container pt-2 px-5 mb-3">
 	<section class="text-center pt-2">
 		<h1 class="mt-1 mb-3">Profile Dashboard</h1>
-		<h2 class="mt-3 mb-3 fs-3">Your Linked Social Accounts</h1>
+		<h2 class="mt-3 mb-3 fs-3">Your Linked Social Accounts</h2>
 	</section>
-	<hr />
-	</div>
+	<hr>
 	<div class="col-10 offset-1 col-md-6 offset-md-3 mt-5 rounded-10
             border-1 border-clr-primary box-shadow p-3">
-		<h1 class="text-center">Account Connections</h1>
+		<h3 class="text-center fs-1">Account Connections</h3>
 		{% if form.accounts %}
 		<p class="text-center">{% blocktrans %}You can sign in to your account
 			using
@@ -64,5 +63,6 @@ Connections{% endblock %}
 		</div>
 		{% include "socialaccount/snippets/login_extra.html" %}
 	</div>
+
 </main>
 {% endblock %}

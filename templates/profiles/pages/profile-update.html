@@ -16,10 +16,9 @@ Details{% endblock %}
 	<section class="text-center pt-2">
 		<h1 class="mt-1 mb-3">Profile Dashboard</h1>
 
-		<h2 class="mt-3 mb-3 fs-3">Update Profile Details</h1>
+		<h2 class="mt-3 mb-3 fs-3">Update Profile Details</h2>
 	</section>
-	<hr />
-	</div>
+	<hr>
 	<div class="container-fluid">
 		<div
 			class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gap-3 justify-content-around my-5">
@@ -128,13 +127,14 @@ Details{% endblock %}
 							class="btn btn-outline-secondary text-uppercase my-2">Reset
 							Form</button>
 					</div>
+				</form>
 			</div>
 		</div>
-
+	</div>
 </main>
 {%endblock%}
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'js/countryfield.js' %}">
+<script src="{% static 'js/countryfield.js' %}">
 </script>
 {% endblock %}
