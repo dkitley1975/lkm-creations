@@ -83,10 +83,6 @@
 							</div>
 						</div>
 					</form>
-					<p class="text-danger small">Press <span
-							class="fst-italic">
-							ENTER </span> to
-						confirm new qty</p>
 					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item my-2 w-100 float-end text-uppercase"
 						id="remove_{{ item.item_id }}"> Remove
 						Item</a>
@@ -160,6 +156,22 @@
 		var url = `/basket/remove/${itemId}/`;
 		var data = {
 			'csrfmiddlewaretoken': csrfToken,
+		};
+		$.post(url, data)
+			.done(function () {
+				location.reload();
+			});
+	})
+
+
+	// Update quantity on click
+	$('.qty_input').click(function (e) {
+		var csrfToken = "{{ csrf_token }}";
+		var itemId = $(this).attr('data-item_id');
+		var url = `/basket/adjust_basket/${itemId}/`;
+		var data = {
+			'csrfmiddlewaretoken': csrfToken,
+			'quantity': $(this).val(),
 		};
 		$.post(url, data)
 			.done(function () {
