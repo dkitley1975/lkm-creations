@@ -62,7 +62,6 @@
 				<!--Quantity-->
 				<div class="col-12 col-md-4 col-lg-3 mt-2">
 					<p><strong class="d-none d-md-block">Quantity</strong>
-
 						{% if item.product.inventory < 5 %}
 						<span class="text-center text-muted">only
 							{{ item.product.inventory }} left in stock </span>
@@ -162,8 +161,6 @@
 				location.reload();
 			});
 	})
-
-
 	// Update quantity on click
 	$('.qty_input').click(function (e) {
 		var csrfToken = "{{ csrf_token }}";
