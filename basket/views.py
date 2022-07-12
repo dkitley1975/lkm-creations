@@ -29,26 +29,43 @@ def add_to_basket(request, item_id):
     redirect_url = request.POST.get("redirect_url")
     basket = request.session.get("basket", {})
     if item_id in list(basket.keys()):
-        # TODO this next line will increase the amount
-        # in the basket by the new quantity
-        # basket[item_id] += quantity
+        #  This will amend the amount in the basket +=
+        #  will add to the quantity in the basket
         basket[item_id] = quantity
-        messages.success(
-            request,
-            (
-                f"You have updated the product {product.name} "
-                f"quantity to {basket[item_id]}"
-            ),
-        )
+        if basket[item_id] > 1:
+            messages.success(
+                request,
+                (
+                    f"You now have {basket[item_id]} {product.name}'s \
+                        in your basket"
+                ),
+            )
+        else:
+            messages.success(
+                request,
+                (
+                    f"You now have {basket[item_id]} {product.name} \
+                        in your basket"
+                ),
+            )
     else:
         basket[item_id] = quantity
-        messages.success(
-            request,
-            (
-                f"You have added {basket[item_id]} \
-                    of the product {product.name} to your basket"
-            ),
-        )
+        if basket[item_id] > 1:
+            messages.success(
+                request,
+                (
+                    f"You now have {basket[item_id]} {product.name}'s \
+                        in your basket"
+                ),
+            )
+        else:
+            messages.success(
+                request,
+                (
+                    f"You now have {basket[item_id]} {product.name} \
+                        in your basket"
+                ),
+            )
     request.session["basket"] = basket
     return redirect(redirect_url)
 
@@ -68,8 +85,8 @@ def adjust_basket(request, item_id):
         messages.success(
             request,
             (
-                f"You have updated the product {product.name} "
-                f"quantity to {basket[item_id]}"
+                f"You now have {basket[item_id]} {product.name} \
+                    in your basket"
             ),
         )
     else:
@@ -77,7 +94,7 @@ def adjust_basket(request, item_id):
         messages.success(
             request,
             (
-                f"You have removed the product {product.name}\
+                f"You have removed the product {product.name} \
                     from your basket."
             ),
         )

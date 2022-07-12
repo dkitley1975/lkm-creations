@@ -4,18 +4,6 @@ body {
 	margin-top: 56px;
 }
 
-#mc_embed_signup {
-	background: #fff;
-	clear: left;
-}
-
-#mc-embedded-subscribe {
-	clear: both;
-	width: auto;
-	display: block;
-	margin: 0;
-}
-
 .active {
 	font-weight: bold !important;
 }
@@ -36,10 +24,11 @@ body {
 }
 
 .alert-primary {
-	color: black;
 	background-color: var(--clr-brand-primary-light);
+	color: black;
 }
 
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-danger {
 	border-bottom-color: #dc3545 !important;
 }
@@ -56,7 +45,6 @@ body {
 	border-bottom-color: #f8f9fa !important;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
 	border-bottom-color: var(--clr-brand-primary) !important;
 }
@@ -69,16 +57,15 @@ body {
 	border-bottom-color: #28a745 !important;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-	width: 0;
-	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-bottom: 10px solid black;
 	position: absolute;
 	top: -10px;
 	right: 36px;
+	border-right: 4px solid transparent;
+	border-bottom: 10px solid black;
+	border-left: 4px solid transparent;
+	height: 0;
+	width: 0;
 }
 
 .arrow-warning {
@@ -108,10 +95,6 @@ body {
 
 .bg-info {
 	background-color: #17a2b8 !important;
-}
-
-.bg-light {
-	background-color: var(--clr-brand-primary) !important;
 }
 
 .bg-light {
@@ -176,73 +159,70 @@ body {
 }
 
 .btn-primary {
-	color: #fff;
-	background-color: var(--clr-brand-primary-darker);
 	border-color: var(--clr-brand-primary-darker);
+	background-color: var(--clr-brand-primary-darker);
+	color: #fff;
+}
+
+.btn-primary:focus {
+	border-color: var(--clr-brand-primary-darker);
+	box-shadow: 0 0 0 0.25rem var(--clr-brand-primary-light);
+	background-color: var(--clr-brand-primary-darker) !important;
+	color: #fff;
 }
 
 .btn-primary:hover {
-	color: rgb(0, 0, 0);
+	border-color: var(--clr-brand-primary-darker);
 	background-color: var(--clr-brand-primary-lightest);
-	border-color: var(--clr-brand-primary-darker);
-}
-
-.btn-check:focus+.btn-primary,
-.btn-primary:focus {
-	color: #fff;
-	background-color: var(--clr-brand-primary-darker) !important;
-	border-color: var(--clr-brand-primary-darker);
-	box-shadow: 0 0 0 0.25rem var(--clr-brand-primary-light);
+	color: rgb(0, 0, 0);
 }
 
 .btn-secondary {
-	color: rgb(0, 0, 0);
-	background-color: var(--clr-brand-secondary);
 	border-color: var(--clr-brand-primary-darker);
+	background-color: var(--clr-brand-secondary);
+	color: rgb(0, 0, 0);
 }
 
 .btn-secondary:hover {
-	color: rgb(0, 0, 0);
-	background-color: var(--clr-brand-secondary-darker);
 	border-color: var(--clr-brand-primary-darker);
+	background-color: var(--clr-brand-secondary-darker);
+	color: rgb(0, 0, 0);
 }
 
-.dropdown-item.active,
 .dropdown-item:active {
-	color: #fff;
-	text-decoration: none;
 	background-color: var(--clr-brand-primary-darker);
+	text-decoration: none;
+	color: #fff;
 }
 
-.dropdown-item:focus,
 .dropdown-item:hover {
-	color: black;
 	background-color: var(--clr-brand-primary-lightest);
+	color: black;
 }
 
 .form-control {
 	display: block;
-	width: 100%;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	border: 1px solid var(--clr-brand-primary-darkest) !important;
+	border-radius: .25rem;
+	background-clip: padding-box;
+	background-color: #fff;
 	padding: .375rem .75rem;
-	font-size: 1rem;
-	font-weight: 400;
+	width: 100%;
 	line-height: 1.5;
 	color: #212529;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid var(--clr-brand-primary-darkest) !important;
+	font-size: 1rem;
+	font-weight: 400;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .form-control:focus {
-	color: #212529;
-	background-color: #fff;
-	box-shadow: 0 0 0 .2rem var(--clr-brand-primary);
 	outline: 0;
+	box-shadow: 0 0 0 .2rem var(--clr-brand-primary);
+	background-color: #fff;
+	color: #212529;
 }
 
 .image-drop-shadow {
@@ -253,38 +233,38 @@ body {
 	color: var(--clr-brand-primary-darker) !important;
 }
 
-/* ensures the increment/decrement arrows always display
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-	opacity: 1;
-} */
-
 .logo-font-creations {
 	font-family: 'Caveat',
 		sans-serif;
-
 	font-weight: 500;
-	color: var(--clr-brand-primary)
+	color: var(--clr-brand-primary) !important;
+
 }
 
 .logo-font-lkm {
 	font-family: 'Caveat',
 		sans-serif;
-
 	font-weight: 700;
-	color: var(--clr-brand-primary-darker)
+	color: var(--clr-brand-primary-darker) !important;
+
+}
+
+#mc-embedded-subscribe {
+	display: block;
+	clear: both;
+	margin: 0;
+	width: auto;
+}
+
+#mc_embed_signup {
+	clear: left;
+	background: #fff;
 }
 
 .modal-backdrop {
 	z-index: 1030;
-	/* display: none; */
 }
 
-/* .modal-backdrop {
-	position: unset !important;
-} */
-
-.nav-link:focus,
 .nav-link:hover {
 	color: var(--clr-brand-primary-darkest) !important;
 }
@@ -312,10 +292,10 @@ input[type=number]::-webkit-outer-spin-button {
 	position: fixed;
 	right: 10px;
 	bottom: 30px;
+	border-color: var(--clr-brand-primary-darkest);
 	background-color: var(--clr-brand-primary-light);
 	width: 45px;
 	height: 45px;
-	border-color: var(--clr-brand-primary-darkest);
 }
 
 .rtt-link {
@@ -341,25 +321,25 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #shopAnnouncementModal {
-	width: 80vw;
-	max-width: 600px;
-	min-height: 100px;
-	border: 1px solid transparent;
-	border-radius: 5px;
-	border-color: var(--clr-brand-primary-darkest) !important;
-	background-color: var(--clr-brand-primary);
 	box-sizing: border-box;
+	display: none;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -66%);
-	display: none;
+	z-index: 1100 !important;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	border-color: var(--clr-brand-primary-darkest) !important;
 	box-shadow: 0px 63px 46px -53px rgb(0, 0, 0);
+	background-color: var(--clr-brand-primary);
+	width: 80vw;
+	max-width: 600px;
+	min-height: 100px;
 	-webkit-transform: translate(-50%, -66%);
 	-moz-transform: translate(-50%, -66%);
 	-ms-transform: translate(-50%, -66%);
 	-o-transform: translate(-50%, -66%);
-	z-index: 1100 !important;
 	-webkit-backdrop-filter: blur(1.5rem);
 	-moz-backdrop-filter: blur(1.5rem);
 	-ms-backdrop-filter: blur(1.5rem);
@@ -368,8 +348,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #shopAnnouncementModal .modal-top {
-	width: 100%;
 	position: relative;
+	width: 100%;
 }
 
 #shopAnnouncementModal .modal-top #closeBtn {
@@ -377,14 +357,13 @@ input[type=number]::-webkit-outer-spin-button {
 	top: 8px;
 	right: 8px;
 	border: 0px;
+	cursor: pointer;
 	padding: 4px 8px;
 	color: #333;
-	cursor: pointer;
 }
 
 #shopAnnouncementModal:hover {
 	background: var(--clr-brand-primary);
-	/* color: #fff; */
 }
 
 #shopAnnouncementModal:hover .modal-top #closeBtn {
@@ -395,10 +374,6 @@ input[type=number]::-webkit-outer-spin-button {
 	color: black !important;
 }
 
-.text-primary-darker {
-	color: var(--clr-brand-primary-darker) !important;
-}
-
 .text-info {
 	color: var(--clr-brand-primary-darker) !important;
 }
@@ -407,19 +382,22 @@ input[type=number]::-webkit-outer-spin-button {
 	color: var(--clr-brand-primary-darkest) !important;
 }
 
+.text-primary-darker {
+	color: var(--clr-brand-primary-darker) !important;
+}
+
+/* ------------------------------- bootstrap toasts */
 .toast-capper {
 	height: 3px;
 }
 
-/* ------------------------------- bootstrap toasts */
 .toast-container {
-	position: fixed;
 	top: 72px;
 	right: 15px !important;
 	left: auto;
-	max-width: 90vw;
-
 	z-index: 99999999999 !important;
+	max-width: 90vw;
+	position: fixed;
 }
 
 .toast-custom-toast {
@@ -437,21 +415,3 @@ input[type=number]::-webkit-outer-spin-button {
 		top: 160px;
 	}
 }
-
-@media print {
-
-	/* All styles for print should goes here */
-	.receipt {
-		width: 65%;
-		height: auto;
-		margin: 2cm auto;
-	}
-}
-
-/* @media (min-width: 576px) {
-
-	.modal-dialog {
-		max-width: 500px;
-		margin: 20.75rem auto;
-	}
-} */

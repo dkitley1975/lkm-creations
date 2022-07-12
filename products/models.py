@@ -341,7 +341,7 @@ class Product(models.Model):
         current_inv = self.inventory
         current_inv -= count
         self.inventory = current_inv
-        if save == True:
+        if save:
             self.save()
         return self.inventory
 
@@ -352,7 +352,7 @@ class Product(models.Model):
         """
         if self.inventory <= 0:
             self.in_stock = False
-        if save == True:
+        if save:
             self.save()
         return self.in_stock
 

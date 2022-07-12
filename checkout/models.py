@@ -190,8 +190,7 @@ class OrderDetails(models.Model):
         self.order_subtotal = (
             self.lineitems.aggregate(Sum("lineitem_total"))[
                 "lineitem_total__sum"
-            ]
-            or 0
+            ] or 0
         )
         if self.order_subtotal < free_delivery_threshold:
             self.delivery_charge = default_delivery_price
@@ -268,8 +267,8 @@ class OrderLineItem(models.Model):
         and remove the line product quantity from its inventory.
         """
         if (
-            self.product.sale_price is not None
-            and self.product.sale_price > 0
+            self.product.sale_price is not None and
+            self.product.sale_price > 0
         ):
             unit_price = self.product.sale_price
         else:

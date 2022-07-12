@@ -1,22 +1,9 @@
-.social-share-btn {
-	margin: 12px;
-	transition: 500ms;
-}
-
-.social-share-btn:hover {
-	transform: scale(1.3);
-	-webkit-transform: scale(1.3);
-	-moz-transform: scale(1.3);
-	-ms-transform: scale(1.3);
-	-o-transform: scale(1.3);
+.fa-envelope {
+	color: var(--clr-brand-primary-darker);
 }
 
 .fa-facebook {
 	color: #3b5998;
-}
-
-.fa-twitter {
-	color: #1da1f2;
 }
 
 .fa-linkedin {
@@ -27,10 +14,23 @@
 	color: #bd081c;
 }
 
+.fa-twitter {
+	color: #1da1f2;
+}
+
 .fa-whatsapp {
 	color: #25d366;
 }
 
-.fa-envelope {
-	color: var(--clr-brand-primary-darker);
+.social-share-btn {
+	transition: 500ms;
+	margin: 12px;
+}
+
+.social-share-btn:hover {
+	transform: scale(1.3);
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	-o-transform: scale(1.3);
 }

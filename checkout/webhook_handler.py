@@ -7,9 +7,9 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+
 from products.models import Product
 from profiles.models import UserProfile
-from siteadmin.custom_context_processors import site_info
 
 from .models import OrderDetails, OrderLineItem
 

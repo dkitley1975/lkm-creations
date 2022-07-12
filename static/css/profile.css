@@ -1,6 +1,15 @@
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
 .order-history {
-    max-height: 370px;
     /* height of profile form + submit button */
+    max-height: 370px;
+
     overflow-y: scroll;
 }
 
@@ -10,21 +19,4 @@
 
 #profile-update-form input::placeholder {
     color: #aab7c4;
-}
-
-#id_default_country,
-#id_default_country option:not(:first-child) {
-    color: #000;
-}
-
-#id_default_country option:first-child {
-    color: #aab7c4;
-}
-
-@media screen and (max-width: 768px) {
-
-    .border-start {
-        border-left: 0px solid !important
-    }
-
 }

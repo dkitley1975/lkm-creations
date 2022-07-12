@@ -1,227 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
-
-:root {
-    /* Default colours */
-    --clr-primary-save-btn: #79aec8;
-
+a.active.selector-clearall:hover {
+    color: #999;
 }
 
-.logo-font-lkm {
-    font-family: 'Caveat',
-        sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-.logo-font-creations {
-    font-family: 'Caveat',
-        sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-}
-
-#branding h1,
-#branding h1 a:link,
-#branding h1 a:visited {
+a.button {
+    background: -- var(--clr-brand-primary);
     color: #fff;
 }
 
-.button.default:hover,
-input[type=submit].default:hover {
-    background: var(--clr-brand-primary-darker) !important;
+a.section:hover {
+    color: var(--clr-brand-secondary);
 }
 
-#header {
-    background: var(--clr-brand-primary);
-    color: rgb(0, 0, 0);
-}
-
-#header a:link,
-#header a:visited {
-    color: var(--clr-grey) !important;
-}
-
-#header a:hover {
-    color: #fff;
-}
-
-#nav-sidebar .current-app .section:link,
-#nav-sidebar .current-app .section:visited {
-    color: var(--clr-brand-quad);
-}
-
-div.breadcrumbs {
-    background: var(--clr-brand-tertiary);
-    color: var(--clr-breadcrumbs-current);
+a.section:visited {
+    color: var(--clr-brand-primary-darker);
+    text-decoration: none;
     font-weight: bolder;
 }
 
-div.breadcrumbs a {
-    color: var(--clr-breadcrumbs);
+a:hover {
+    color: #999;
 }
 
-div.breadcrumbs a.active {
-    color: var(--clr-breadcrumbs) !important;
-    font-weight: 300;
+a:visited {
+    color: #777;
 }
 
-div.breadcrumbs a:focus,
-div.breadcrumbs a:hover {
-    color: var(--clr-breadcrumbs) !important;
-    font-weight: 300;
+table thead th.sorted .sortoptions a.sortremove:hover:after {
+    color: #444;
 }
 
-div.breadcrumbs a .select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {
-    background-color: #292D32;
-}
-
-.paginator a:link,
-.paginator a:visited {
-    background: #292D32;
-}
-
-.button,
-input[type=submit],
-input[type=button],
-.submit-row input,
-a.button {
-    background: --clr-primary-save-btn;
+#branding h1 a:visited {
     color: #fff;
-}
-
-.button:hover,
-input[type=submit]:hover,
-input[type=button]:hover {
-    background: var(--clr-brand-primary-darker);
-}
-
-.module h2,
-.module caption,
-.inline-group h2 {
-    background: var(--clr-brand-tertiary);
-    color: rgb(0, 0, 0);
-}
-
-#user-tools a:focus,
-#user-tools a:hover {
-    border: 0;
-    color: #ddd;
-}
-
-.selector-chosen h2 {
-    background: var(--clr-brand-tertiary) !important;
-    color: black !important;
 }
 
 .calendar td.selected a {
     background: var(--clr-brand-tertiary) !important;
 }
 
-.calendar td a:focus,
-.timelist a:focus,
-.calendar td a:hover,
-.timelist a:hover {
-    background: var(--clr-brand-tertiary) !important;
-}
-
-#changelist-filter li.selected a {
-    color: #444;
-}
-
-fieldset.collapsed .collapse-toggle {
-    color: #444;
-}
-
-a:link,
-a:visited {
-    color: #777;
-}
-
-a:focus,
-a:hover {
-    color: #999;
-}
-
-table thead th.sorted .sortoptions a.sortremove:focus:after,
-table thead th.sorted .sortoptions a.sortremove:hover:after {
-    color: #444;
-}
-
-a.active.selector-chooseall:focus,
-a.active.selector-clearall:focus,
-a.active.selector-chooseall:hover,
-a.active.selector-clearall:hover {
-    color: #999;
-}
-
-.calendar td a:active,
-.timelist a:active {
-    background: #444;
-}
-
-.change-list ul.toplinks .date-back a:focus,
-.change-list ul.toplinks .date-back a:hover {
-    color: #222;
-}
-
-.paginator a.showall:focus,
-.paginator a.showall:hover {
-    color: #222;
-}
-
-.paginator a:focus,
-.paginator a:hover {
-    background: #222;
-}
-
-#changelist-filter a:focus,
-#changelist-filter a:hover,
-#changelist-filter li.selected a:focus,
-#changelist-filter li.selected a:hover {
-    color: #222;
-}
-
-.calendar td a:active,
-.timelist a:active {
-    background: #292D32;
-    color: white;
-}
-
-.calendar caption,
 .calendarbox h2 {
     background: #999;
 }
 
-.button.default,
-input[type=submit].default,
-.submit-row input.default {
-    background: var(--clr-primary-save-btn);
-    color: white;
-}
-
-.button.default:hover,
-input[type=submit].default:hover {
-    background: #191D22;
-}
-
-.select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {
-    background-color: #292D32;
-}
-
-.button.default,
-input[type=submit].default,
-.submit-row input.default {
-    background: var(--clr-primary-save-btn);
-}
-
-.object-tools a:focus,
-.object-tools a:hover {
-    background-color: #292D32;
-}
-
-input[type=file]::-webkit-file-upload-button:hover {
-    border: 0;
-    background: #292D32;
+.change-list ul.toplinks .date-back a:hover {
+    color: #222;
 }
 
 #changelist-filter {
@@ -234,19 +55,76 @@ input[type=file]::-webkit-file-upload-button:hover {
     padding-bottom: 0px
 }
 
-a.section:link,
-a.section:visited {
-    color: var(--clr-brand-primary-darker);
-    text-decoration: none;
+#changelist-filter li.selected a {
+    color: #444;
+}
+
+#changelist-filter li.selected a:hover {
+    color: #222;
+}
+
+.collapse-toggle {
+    color: var(--clr-brand-primary-darker) !important;
+}
+
+#header {
+    background: var(--clr-brand-primary);
+    color: rgb(0, 0, 0);
+}
+
+#header a:hover {
+    color: #fff;
+}
+
+#header a:visited {
+    color: var(--clr-grey) !important;
+}
+
+fieldset.collapsed .collapse-toggle {
+    color: #444;
+}
+
+.inline-group h2 {
+    background: var(--clr-brand-tertiary);
+    color: rgb(0, 0, 0);
+}
+
+div.breadcrumbs {
+    background: var(--clr-brand-tertiary);
+    color: var(--clr-breadcrumbs-current);
     font-weight: bolder;
 }
 
-a.section:hover {
-    color: var(--clr-brand-secondary);
+div.breadcrumbs a {
+    color: var(--clr-breadcrumbs);
 }
 
-.text-black {
-    color: #000 !important;
+div.breadcrumbs a .select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {
+    background-color: #292D32;
+}
+
+div.breadcrumbs a.active {
+    color: var(--clr-breadcrumbs) !important;
+    font-weight: 300;
+}
+
+div.breadcrumbs a:hover {
+    color: var(--clr-breadcrumbs) !important;
+    font-weight: 300;
+}
+
+.logo-font-creations {
+    font-family: 'Caveat',
+        sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.logo-font-lkm {
+    font-family: 'Caveat',
+        sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 #nav-sidebar .current-app .section:link {
@@ -254,10 +132,82 @@ a.section:hover {
 }
 
 #nav-sidebar .current-app .section:visited {
+    color: var(--clr-brand-quad);
+}
+
+#nav-sidebar .current-app .section:visited {
     color: var(--clr-breadcrumbs-current) !important;
 }
 
-.collapsed,
-.collapse-toggle {
-    color: var(--clr-brand-primary-darker) !important;
+input[type=button]:hover {
+    background: var(--clr-brand-primary-darker);
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+    border: 0;
+    background: #292D32;
+}
+
+input[type=submit].default:hover {
+    background: var(--clr-brand-primary-darker) !important;
+}
+
+input[type=submit].default:hover {
+    background: #191D22;
+}
+
+.object-tools a:hover {
+    background-color: #292D32;
+}
+
+.paginator a.showall:hover {
+    color: #222;
+}
+
+.paginator a:hover {
+    background: #222;
+}
+
+.paginator a:visited {
+    background: #292D32;
+}
+
+.select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {
+    background-color: #292D32;
+}
+
+.selector-chosen h2 {
+    background: var(--clr-brand-tertiary) !important;
+    color: black !important;
+}
+
+.submit-row input.default {
+    background: var(-- var(--clr-brand-primary));
+    color: white;
+}
+
+.submit-row input.default {
+    background: var(-- var(--clr-brand-primary));
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.timelist a:active {
+    background: #444;
+}
+
+.timelist a:active {
+    background: #292D32;
+    color: white;
+}
+
+.timelist a:hover {
+    background: var(--clr-brand-tertiary) !important;
+}
+
+#user-tools a:hover {
+    border: 0;
+    color: #ddd;
 }
