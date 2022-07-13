@@ -10,18 +10,18 @@ from siteadmin.models import SiteInfo
 
 # TODO COMMENT OUT THE next two blocks when creating the databases and
 # adding the test data  prior to releasing them,
-default_delivery_price = (
-    SiteInfo.objects.all()
-    .filter(is_active=True)
-    .order_by("-created_at")[0]
-    .delivery_price
-)
-free_delivery_threshold = (
-    SiteInfo.objects.all()
-    .filter(is_active=True)
-    .order_by("-created_at")[0]
-    .free_delivery_over
-)
+# default_delivery_price = (
+#     SiteInfo.objects.all()
+#     .filter(is_active=True)
+#     .order_by("-created_at")[0]
+#     .delivery_price
+# )
+# free_delivery_threshold = (
+#     SiteInfo.objects.all()
+#     .filter(is_active=True)
+#     .order_by("-created_at")[0]
+#     .free_delivery_over
+# )
 
 # Create your models here.
 
