@@ -23,18 +23,11 @@
 		<div class="col-10 offset-1 col-md-4 col-lg-4 offset-lg-2">
 			<div class="image-container my-5">
 				{% if product.image.url %}
-				<a>
-					<img class="img-fluid mx-auto d-block product-image-size
+				<img class="img-fluid mx-auto d-block product-image-size
 							rounded-10 box-shadow" src="{{ product.image.url }}"
+						onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
 						alt="{{ product.image_alt_text }}"
 						oncontextmenu="return false;">
-				</a>
-				{% else %}
-				<a href="#">
-					<img class="img-fluid mx-auto d-block product-image-size
-							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.png"
-						alt="{{ product.name|title }}">
-				</a>
 				{% endif %}
 			</div>
 
@@ -45,14 +38,14 @@
 			<div class="d-flex flex-row justify-content-around mt-0">
 				<div class="p-2">
 					<a href="https://www.facebook.com/sharer.php?u={{ request.build_absolute_uri }}"
-						target="_blank">
+						target="_blank" aria-label="Share on Facebook">
 						<i class="fab fa-facebook social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
 					<a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text=Check%20out%20this:%20{{ product.name|title|urlencode }}"
-						target="_blank">
+						target="_blank" aria-label="Share on Twitter">
 
 						<i class="fab fa-twitter social-share-btn fs-3"
 							aria-hidden="true"></i>
@@ -60,21 +53,21 @@
 				</div>
 				<div class="p-2">
 					<a href="https://pinterest.com/pin/create/bookmarklet/?media={{ product.image.url }}&url={{ request.build_absolute_uri }}&description=Check%20out%20this:%20{{ product.name|title|urlencode }}"
-						target="_blank">
+						target="_blank" aria-label="Share on Pinterest">
 						<i class="fab fa-pinterest social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
 					<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=Check%20out%20this:%20{{ product.name|title|urlencode }}"
-						target="_blank">
+						target="_blank" aria-label="Share linkedin">
 						<i class="fab fa-linkedin social-share-btn fs-3"
 							aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="p-2">
 					<a href="mailto:??subject=Check%20out%20this%20{{ product.name|title|urlencode }}%20I've%20just%20seen&body=I%20absolutely%20love%20this%20{{ product.name|title|urlencode }},%0D%0Acheck%20it%20out%20here%20{{ request.build_absolute_uri }}"
-						target="_blank">
+						target="_blank" aria-label="Share via email">
 						<i class="fa fa-envelope social-share-btn fs-3"
 							aria-hidden="true"></i></a>
 
@@ -104,9 +97,9 @@
 					<div id="add_to_basket" class="col-12 my-2">
 						<div class="row">
 							<div class="col-12">
-								<p class="mt-3"><strong>Quantity:</strong>
-								</p>
 								<div class="form-group">
+									<label for="id_qty_{{ product.id }}"
+										class="mt-3 mb-1"><strong>Quantity:</strong></label>
 									<input id="id_qty_{{ product.id }}"
 										data-item_id="{{ product.id }}"
 										class="form-control qty_input"
@@ -115,15 +108,20 @@
 								</div>
 							</div>
 							<div class="d-grid gap-3 col-12 my-3">
-								<a class="btn btn-outline-secondary text-uppercase"
-									href="{% url 'products' %}">
-									<i class="fs-5 bi bi-chevron-left">&nbsp;
-									</i> Keep Shopping</a>
+								<a href="{% url 'products' %}" class="btn btn-outline-secondary text-uppercase">
+
+									<svg xmlns="http://www.w3.org/2000/svg"
+										width="24" height="24"
+										fill="currentColor"
+										viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0
+											1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+									</svg> Keep Shopping</a>
 								<button type="submit" id="add_to_basket_btn"
 									value="Add to Basket"
-									class="btn btn-primary text-uppercase">Add to
-									Basket <i
-										class="fs-5 bi bi-cart-plus"></i></button>
+									class="btn btn-primary text-uppercase">Add
+									to
+									Basket</button>
 							</div>
 							<input type="hidden" name="redirect_url"
 								value="{{ request.path }}">
@@ -178,10 +176,15 @@
 						{% endif %}
 						{% if product.category.name %}
 						<p class="small mt-1 mb-0">
-							<a class="text-muted"
-								href="/store/category/{{ product.category.slug }}">
-								<i class="fs-5 bi bi-tags-fill"></i>
-								{{ product.category.name }}</a>
+							<a href="/store/category/{{ product.category.slug }}" class="text-muted">
+								<svg class="me-2"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24" height="24" fill="currentColor"
+									viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+									</path>
+								</svg>{{ product.category.name }}</a>
 						</p>
 						{% endif %}
 

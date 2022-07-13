@@ -22,7 +22,7 @@ class SiteInfo(models.Model):
         unique=False,
         null=False,
         blank=False,
-        default="images/default/default_image.png",
+        default="images/default/default_image.webp",
         verbose_name=("Home Page Image"),
         help_text=("format: required, 440px by 320px"),
     )

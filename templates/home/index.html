@@ -7,29 +7,30 @@
 {% endblock %}
 {% block title %}{{ request.site.name }}{% endblock %}
 {% block content %}
-<section class="container-fluid bg-primary-light">
-	<div class="container col-xxl-8 px-4 py-5">
+<section class="container-fluid bg-primary-lightest">
+	<div class="container col-xxl-8 px-4 py-2">
 		<div class="row flex-md-row-reverse align-items-center g-5 py-5">
 			{% if site_info.image %}
 			<div class="col-12 col-md-5 col-lg-6">
 				<img src="{{ site_info.image.url }}"
 					class="d-block mx-lg-auto img-fluid"
 					alt="{{ site_info.image_alt_text }}" width="900"
-					height="600" loading="lazy">
+					height="600">
 			</div>
 			{% endif %}
 			<div class="col-12 col-md-7 col-lg-6">
 				<h1 class="display-5 fw-bold lh-1 mb-3"><span
-						class="logo-font-lkm fs-1 text-black">LKM </span><span
-						class="logo-font-creations fs-1 text-black">Creations</span>
+						class="logo-font-lkm fs-1">LKM </span><span
+						class="logo-font-creations fs-1">Creations</span>
 				</h1>
 				<p class="lead logo-font-creations text-black fs-3">These are
 					my
 					hand created amigurumi creations.<br>Please take some time
 					and have a look through my
 					store</p>
-				<p class="text-muted align-bottom">A donation goes to our
-					local charity run preschool from each sale.</p>
+				<p class="text-muted align-bottom">With each sale a donation
+					goes to our
+					local charity run preschool.</p>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
 					<a href="{% url 'products' %}" aria-current="page"
 						class="btn-lg btn btn-primary text-uppercase  px-4 me-md-2">Shop

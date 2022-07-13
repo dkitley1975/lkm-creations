@@ -1,10 +1,10 @@
 :root {
 	/* Default colours */
-	--clr-brand-primary: #F4BFBF;
-	--clr-brand-primary-lightest: #fdcece43;
-	--clr-brand-primary-light: #f4bfbf43;
-	--clr-brand-primary-darker: #d48a8a;
-	--clr-brand-primary-darkest: #c35d5d;
+	--clr-brand-primary: #f4b0b0;
+	--clr-brand-primary-lightest: #fcf4f47a;
+	--clr-brand-primary-light: #ffe0e0;
+	--clr-brand-primary-darker: #ce7b7b;
+	--clr-brand-primary-darkest: #751818;
 	--clr-brand-primary-spinner: rgba(244, 191, 191, 0.55);
 	--clr-brand-secondary: #FFD9C0;
 	--clr-brand-secondary-darker: #fabd95;

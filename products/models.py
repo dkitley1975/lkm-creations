@@ -187,7 +187,7 @@ class Product(models.Model):
         upload_to="images/products/",
         null=True,
         blank=True,
-        default="images/default/default_image.png",
+        default="images/default/default_image.webp",
     )
     image_alt_text = models.CharField(
         max_length=50,
@@ -274,7 +274,7 @@ class Product(models.Model):
         help_text=("format: required, max_length: 3"),
     )
     in_stock = models.BooleanField(
-        default=True,
+        default=False,
         unique=False,
         null=False,
         blank=False,

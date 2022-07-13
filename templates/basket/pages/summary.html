@@ -38,7 +38,7 @@
 					<a href="{% url 'product-detail' item.product.slug %}"
 						target="_self">
 						<img class="img-fluid mx-auto d-block product-image-size
-							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.png"
+							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.webp"
 							alt="{{ item.product.name }}">
 					</a>
 					{% endif %}
@@ -82,8 +82,9 @@
 							</div>
 						</div>
 					</form>
-					<a class="btn btn-danger btn-sm bi bi-trash3 remove-item my-2 w-100 float-end text-uppercase"
-						id="remove_{{ item.item_id }}"> Remove
+					<a class="btn btn-danger btn-sm remove-item my-2 w-100 float-end text-uppercase"
+						id="remove_{{ item.item_id }}">
+						Remove
 						Item</a>
 				</div>
 				<!--Product Subtotal-->
@@ -129,16 +130,23 @@
 			{% endif %}
 			<div class="row justify-content-center">
 				<a class="btn btn-outline-secondary text-center col-12 col-md-4 col-lg-4 mx-3 my-2"
-					href="{% url 'products' %}"><i
-						class="fs-6 bi bi-chevron-left"></i>
-					<span class="text-uppercase small">
-						keep shopping</span></a>
+					href="{% url 'products' %}">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24"
+						height="24" fill="currentColor" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0
+							1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+						<span class="text-uppercase small">
+							keep shopping</span></a>
 				{% if subtotal > 0 %}
-				<a href="{% url 'checkout' %}
-				" class="btn btn-primary text-center col-12 col-md-4 col-lg-4 mx-3 my-2">
+				<a href="{% url 'checkout' %}"
+					class="btn btn-primary text-center col-12 col-md-4 col-lg-4 mx-3 my-2">
 					<span class="text-uppercase small">
 						Checkout</span>
-					<i class="fs-6 bi bi-chevron-right"></i></a>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24"
+						height="24" fill="currentColor" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0
+							1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+				</a>
 				{% endif %}
 			</div>
 		</div>

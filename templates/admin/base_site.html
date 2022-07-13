@@ -19,12 +19,12 @@
 	href="{% static 'webmanifest/favicons/android-chrome-512x512' %}">
 {% endblock %}
 {% block branding %}
-<h1 id="site-name" class=" text-black my-0">
+<h1 id="site-name" class="logo-font-creations my-0">
 	<a href="{% url 'home:home' %}" class="nav-link">
 		<span class="logo-font-lkm">LKM </span>
-		<span class="logo-font-creations">Creations
-			{% trans "- Admin Site" %}
-		</span>
+		Creations
+		<span class="text-black">{% trans "- Admin Site" %}</span>
+
 	</a>
 </h1>
 {% endblock %}

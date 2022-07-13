@@ -113,6 +113,10 @@ body {
 	background-color: var(--clr-brand-primary-light) !important;
 }
 
+.bg-primary-lightest {
+	background-color: var(--clr-brand-primary-lightest) !important;
+}
+
 .bg-success {
 	background-color: #28a745 !important;
 }
@@ -332,7 +336,7 @@ body {
 	border-radius: 5px;
 	border-color: var(--clr-brand-primary-darkest) !important;
 	box-shadow: 0px 63px 46px -53px rgb(0, 0, 0);
-	background-color: var(--clr-brand-primary);
+	background-color: var(--clr-brand-primary-lightest);
 	width: 80vw;
 	max-width: 600px;
 	min-height: 100px;
@@ -340,11 +344,6 @@ body {
 	-moz-transform: translate(-50%, -66%);
 	-ms-transform: translate(-50%, -66%);
 	-o-transform: translate(-50%, -66%);
-	-webkit-backdrop-filter: blur(1.5rem);
-	-moz-backdrop-filter: blur(1.5rem);
-	-ms-backdrop-filter: blur(1.5rem);
-	-o-backdrop-filter: blur(1.5rem);
-	backdrop-filter: blur(1.5rem);
 }
 
 #shopAnnouncementModal .modal-top {
@@ -384,6 +383,10 @@ body {
 
 .text-primary-darker {
 	color: var(--clr-brand-primary-darker) !important;
+}
+
+.text-primary-darkest {
+	color: var(--clr-brand-primary-darkest) !important;
 }
 
 /* ------------------------------- bootstrap toasts */
