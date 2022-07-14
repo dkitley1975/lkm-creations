@@ -7,8 +7,12 @@
 				<img class="card-img-top product-image-size rounded-10 box-shadow"
 					alt="{{ product.image_alt_text }}"
 					oncontextmenu="return false;" loading="lazy"
+					{% if product.image.url != NULL or "" %}
 					src="{{ product.image.url }}"
-					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'">
+					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
+					{% else %}
+					src="{{ MEDIA_URL }}images/default/default_image.webp"
+					{% endif %}>
 			</a>
 			<div class="card-body">
 				<a href="{% url 'product-detail' product.slug %}"

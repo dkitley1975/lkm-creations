@@ -24,10 +24,13 @@
 			<div class="image-container my-5">
 				{% if product.image.url %}
 				<img class="img-fluid mx-auto d-block product-image-size
-							rounded-10 box-shadow" src="{{ product.image.url }}"
-						onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
-						alt="{{ product.image_alt_text }}"
-						oncontextmenu="return false;">
+							rounded-10 box-shadow" {% if product.image.url != NULL or "" %}
+					src="{{ product.image.url }}"
+					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
+					{% else %}
+					src="{{ MEDIA_URL }}images/default/default_image.webp"
+					{% endif %} alt="{{ product.image_alt_text }}"
+					oncontextmenu="return false;">
 				{% endif %}
 			</div>
 
@@ -108,7 +111,8 @@
 								</div>
 							</div>
 							<div class="d-grid gap-3 col-12 my-3">
-								<a href="{% url 'products' %}" class="btn btn-outline-secondary text-uppercase">
+								<a href="{% url 'products' %}"
+									class="btn btn-outline-secondary text-uppercase">
 
 									<svg xmlns="http://www.w3.org/2000/svg"
 										width="24" height="24"
@@ -176,7 +180,8 @@
 						{% endif %}
 						{% if product.category.name %}
 						<p class="small mt-1 mb-0">
-							<a href="/store/category/{{ product.category.slug }}" class="text-muted">
+							<a href="/store/category/{{ product.category.slug }}"
+								class="text-muted">
 								<svg class="me-2"
 									xmlns="http://www.w3.org/2000/svg"
 									width="24" height="24" fill="currentColor"
