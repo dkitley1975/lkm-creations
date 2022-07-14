@@ -7,12 +7,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% include "base/layout/webmanifest.html" %}
+
 	{% block metadescription %}
 	{% endblock %}
 	<meta name="theme-color" content="#fdcece43">
 	<meta name="author" content="David Kitley-McNamara">
 	{% include "base/layout/stylesheets.html" %}
 	{% include "base/layout/base_javascripts.html" %}
+
 	{% block custom_page_stylesheet %}
 	{% endblock %}
 	<title>{% block title %}{{ request.site.name }}{% endblock %}</title>

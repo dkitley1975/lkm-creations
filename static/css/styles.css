@@ -381,6 +381,10 @@ body {
 	color: var(--clr-brand-primary-darkest) !important;
 }
 
+.text-primary {
+	color: var(--clr-brand-primary) !important;
+}
+
 .text-primary-darker {
 	color: var(--clr-brand-primary-darker) !important;
 }
