@@ -13,7 +13,7 @@
 			<div class="card-body">
 				<a href="{% url 'product-detail' product.slug %}"
 					class="text-decoration-none text-black">
-					<h3 class="card-title fs-5">{{ product.name|title }}</h3>
+					<p class="card-title fs-5">{{ product.name|title }}</p>
 					{% if product.sale_price %}
 					<p class="lead mb-0 text-left fw-bolder"><s
 							class="text-danger small">
