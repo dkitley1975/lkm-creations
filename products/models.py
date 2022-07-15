@@ -185,7 +185,7 @@ class Product(models.Model):
     )
     image = models.ImageField(
         upload_to="images/products/",
-        null=True,
+        null=False,
         blank=True,
         default="images/default/default_image.webp",
     )

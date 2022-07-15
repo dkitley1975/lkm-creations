@@ -2,9 +2,16 @@ from django.conf import settings
 from django.conf.urls import handler400, handler403, handler404, handler500
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
 from django.views.generic.base import RedirectView
+
+from .sitemaps import ProductSitemap, StaticSitemap
+from core.views import robots_txt
+
+sitemaps = {"products": ProductSitemap, "static": StaticSitemap}
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -14,6 +21,13 @@ urlpatterns = [
     path("store/", include("store.urls")),
     path("basket/", include("basket.urls")),
     path("checkout/", include("checkout.urls")),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
+    path("robots.txt", robots_txt),
     path(
         "favicon.ico",
         RedirectView.as_view(

@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /private/
+Disallow: /junk/
+
+Sitemap: https://lkm-creations.herokuapp.com/sitemap.xml

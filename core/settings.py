@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # https://django-allauth.readthedocs.io/en/latest/installation.html
     "django.contrib.sites",
+    'django.contrib.sitemaps',
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
