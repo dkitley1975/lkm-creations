@@ -1,0 +1,41 @@
+Hello LKM Creations
+
+This is a confirmation of an order at LKM Creations .
+The order information is as below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.order_date }}
+Cleint Name: {{ order.client_name }}
+
+
+
+{% for item in order.lineitems.all %}
+{{item.product.name|title }} (sku: {{item.product.sku }})
+
+Item total = £{{ item.lineitem_total }} ({{ item.quantity }} x £{{ item.unit_price }})
+******************************************
+{% endfor %}
+
+Subtotal: £{{ order.order_subtotal }}
+Delivery: £{{ order.delivery_charge }}
+Grand Total: £{{ order.grand_total }}
+
+Your selected Delivery address is:
+{% if order.full_name != None %} {{order.full_name}} {% endif %}
+{% if order.street_address1 != None %} {{order.street_address1}}, {% endif %}
+{% if order.street_address2 != None %} {{order.street_address2}}, {% endif %}
+{% if order.town_or_city != None %} {{order.town_or_city}}, {% endif %}
+{% if order.county != None %} {{order.county}}, {% endif %}
+{% if order.postcode != None %} {{order.postcode}}, {% endif %}
+{% if order.country != None %} {{order.country}}, {% endif %}
+
+
+We received this contact number for the order: {{ order.phone_number }}.
+
+
+You can view the order details here: https://lkm-creations.herokuapp.com/admin/checkout/orderdetails/{{ order.id }}/change/
+
+Sincerely,
+
+LKM Creations
+{{ contact_email }}
