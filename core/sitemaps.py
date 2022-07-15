@@ -1,7 +1,9 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
-from products.models import Product
+from datetime import datetime
+
+from products.models import Category, Product
 
 
 class ProductSitemap(Sitemap):
@@ -22,6 +24,23 @@ class ProductSitemap(Sitemap):
     def location(self,obj):
         return '/store/%s' % (obj.slug)
 
+class CategorySitemap(Sitemap):
+    """
+    Add to the sitemap for the website.
+    This adds a list of all the categories.
+    """
+    changefreq = "daily"
+    priority = 0.8
+    protocol = 'https'
+
+    def items(self):
+        return Category.objects.all()
+
+    def lastmod(self, obj):
+        return datetime.now()
+
+    def location(self,obj):
+        return '/store/category/%s' % (obj.slug)
 
 class StaticSitemap(Sitemap):
     """
