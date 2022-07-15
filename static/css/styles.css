@@ -269,8 +269,16 @@ body {
 	z-index: 1030;
 }
 
-.nav-link:hover {
+.nav-link {
 	color: var(--clr-brand-primary-darkest) !important;
+}
+
+.nav-link:hover {
+	color: var(--clr-brand-primary-darker) !important;
+}
+
+.nav-svg:hover {
+	color: var(--clr-brand-primary) !important;
 }
 
 .order-history-card {

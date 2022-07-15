@@ -1,5 +1,5 @@
 {% load active_link_tags %}
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light bg-primary-lightest  px-2">
 	<div class="container-fluid">
 		<a class="navbar-brand d-md-none" href="#">Dashboard</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -10,30 +10,32 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-center"
 			id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<ul class="nav">
-					<li class="nav-item">
-						<a class="nav-link {% if 'order-history' in request.path %}active{% endif %}"
-							{% if 'order-history' in request.path %}aria-current="page"
-							{% endif %} href="{% url "order-history" %}">Order
-							History</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link {% if '/connections' in request.path %}active{% endif %}"
-							{% if '/connections' in request.path %}aria-current="page"
-							{% endif %} href="{% url 'connections' %}">Social
-							Accounts</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link
+
+			<ul class="navbar-nav mt-3">
+				<li class="nav-item">
+					<a class="nav-link {% if 'order-history' in request.path %}active{% endif %}"
+						{% if 'order-history' in request.path %}aria-current="page"
+						{% endif %} href="{% url "order-history" %}">Order
+						History</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link {% if '/connections' in request.path %}active{% endif %}"
+						{% if '/connections' in request.path %}aria-current="page"
+						{% endif %} href="{% url 'connections' %}">Social
+						Accounts</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link
 					{% if '/dashboard/profile-update' in request.path %}active{% endif %}"
-							{% if '/dashboard/profile-update' in request.path %}aria-current="page"
-							{% endif %}
-							href="{% url 'profile-update' %}">Update Profile
-							Details</a>
-					</li>
-				</ul>
-			</div>
+						{% if '/dashboard/profile-update' in request.path %}aria-current="page"
+						{% endif %} href="{% url 'profile-update' %}">Update
+						Profile
+						Details</a>
+				</li>
+			</ul>
+			<hr class"d-md-none mb-5 mb-md-0">
 		</div>
 	</div>
 </nav>
