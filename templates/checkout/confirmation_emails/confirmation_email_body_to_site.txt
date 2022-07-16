@@ -5,7 +5,7 @@ The order information is as below:
 
 Order Number: {{ order.order_number }}
 Order Date: {{ order.order_date }}
-Cleint Name: {{ order.client_name }}
+Cleint Name: {{order.full_name}}
 
 
 
@@ -20,7 +20,7 @@ Subtotal: £{{ order.order_subtotal }}
 Delivery: £{{ order.delivery_charge }}
 Grand Total: £{{ order.grand_total }}
 
-Your selected Delivery address is:
+The Delivery address is:
 {% if order.full_name != None %} {{order.full_name}} {% endif %}
 {% if order.street_address1 != None %} {{order.street_address1}}, {% endif %}
 {% if order.street_address2 != None %} {{order.street_address2}}, {% endif %}
