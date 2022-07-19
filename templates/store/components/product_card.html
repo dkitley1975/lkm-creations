@@ -33,34 +33,69 @@
 					{% endif %}
 				</a>
 			</div>
-			<div
-				class="d-flex card-footer border-0 bg-white justify-content-between">
-				<div class="align-self-end">
-					{% if product.category %}<p
-						class="small mt-1 mb-0 text-start">
-						<a class="text-muted"
-							href="/store/category/{{ product.category.slug }}">
-							<svg class="me-2"
-								xmlns="http://www.w3.org/2000/svg" width="24"
-								height="24" fill="currentColor"
-								viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
-								</path>
-							</svg>{{ product.category.name }}</a>
+			<div class="card-footer border-0 bg-white">
+				<div class="row">
+					{% if product.get_review_average_rating > 0 %}
+					<p>Product Rating:
+						{% if product.get_review_average_rating >= 1 %}
+						<i class="text-warning fa fa-star"></i>
+						{% else %}
+						<i class="text-muted fa fa-star"></i>
+						{% endif %}
+						{% if product.get_review_average_rating >= 2 %}
+						<i class="text-warning fa fa-star"></i>
+						{% else %}
+						<i class="text-muted fa fa-star"></i>
+						{% endif %}
+						{% if product.get_review_average_rating >= 3 %}
+						<i class="text-warning fa fa-star"></i>
+						{% else %}
+						<i class="text-muted fa fa-star"></i>
+						{% endif %}
+						{% if product.get_review_average_rating >= 4 %}
+						<i class="text-warning fa fa-star"></i>
+						{% else %}
+						<i class="text-muted fa fa-star"></i>
+						{% endif %}
+						{% if product.get_review_average_rating >= 5 %}
+						<i class="text-warning fa fa-star"></i>
+						{% else %}
+						<i class="text-muted fa fa-star"></i>
+						{% endif %}
 					</p>
+					{% else %}
+					<p class="text-muted small">This product is yet to be
+						reviewed.</p>
 					{% endif %}
 				</div>
-				<div class="align-self-end">
-					<p class="small mt-1 mb-0 text-muted text-end">
-						{% if product.inventory > 1 %}
-						{% if product.inventory < 4 %}
-						Only {% endif %}
-						{{ product.inventory }} Available</p>
-					{% else %}
-					<span class="text-danger fw-bolder">Last One
-						Available</span>
-					{% endif %}
+				<div class="d-flex justify-content-between">
+					<div class="align-self-end">
+						{% if product.category %}<p
+							class="small mt-1 mb-0 text-start">
+							<a class="text-muted"
+								href="/store/category/{{ product.category.slug }}">
+								<svg class="me-2"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24" height="24" fill="currentColor"
+									viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+									</path>
+								</svg>{{ product.category.name }}</a>
+						</p>
+						{% endif %}
+					</div>
+					<div class="align-self-end">
+						<p class="small mt-1 mb-0 text-muted text-end">
+							{% if product.inventory > 1 %}
+							{% if product.inventory < 4 %}
+							Only {% endif %}
+							{{ product.inventory }} Available</p>
+						{% else %}
+						<span class="text-danger fw-bolder">Last One
+							Available</span>
+						{% endif %}
+					</div>
 				</div>
 			</div>
 		</div>

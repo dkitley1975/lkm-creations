@@ -4,7 +4,7 @@ from django.db.models.functions import Lower
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from products.models import Category, Product
+from products.models import Category, Product, Review
 
 # Create your views here.
 
@@ -79,6 +79,37 @@ def product_detail(request, slug):
     Render the product detail page.
     """
     product = get_object_or_404(Product, slug=slug, in_stock=True)
+
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            messages.error(request, "You must be logged to leave a review.")
+            return redirect(reverse("login"))
+
+        rating = request.POST.get('rating', 5)
+        content = request.POST.get('content','')
+        if content:
+            reviews = Review.objects.filter(created_by=request.user, product=product)
+            if reviews.exists():
+                messages.error(request, "You have already left a review for this product.")
+                return redirect("product-detail", slug=slug)
+            else:
+                Review.objects.create(
+                    created_by=request.user,
+                    product=product,
+                    rating=rating,
+                    content=content,
+                )
+                messages.success(request, "Your review has been submitted.")
+                return redirect("product-detail", slug=slug)
+            # reviews = Review.objects.create(
+            #     product=product,
+            #     rating=rating,
+            #     content=content,
+            #     created_by=request.user,
+            # )
+
+        messages.success(request, "You have successfully submitted your review.")
+        return redirect("product-detail", slug=slug)
 
     return render(
         request, "store/pages/product-detail.html", {"product": product}

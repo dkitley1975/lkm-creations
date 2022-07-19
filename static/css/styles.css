@@ -295,6 +295,14 @@ body {
 	aspect-ratio: 1/1;
 }
 
+.review-enter-content {
+	height: 300px !important;
+}
+
+.form-floating>label {
+	color: var(--clr-brand-primary) !important;
+}
+
 .rounded-10 {
 	border-radius: 10px;
 }
