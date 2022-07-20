@@ -8,8 +8,9 @@ from products.models import Product
 from profiles.models import UserProfile
 from siteadmin.models import SiteInfo
 
-# TODO COMMENT OUT THE next two blocks when creating the databases and
-# adding the test data  prior to releasing them,
+# TODO COMMENT OUT THE next two blocks when initially migrating
+# to the databases and once the site info is set up
+# they should then be uncommented
 default_delivery_price = (
     SiteInfo.objects.all()
     .filter(is_active=True)

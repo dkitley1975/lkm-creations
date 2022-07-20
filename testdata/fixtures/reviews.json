@@ -1,0 +1,75 @@
+[{
+		"model": "products.review",
+		"pk": 1,
+		"fields": {
+			"product": 29,
+			"rating": 5,
+			"content": "Super fast delivery and beautifully made. Thank you 😊",
+			"created_by": 2,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	},
+	{
+		"model": "products.review",
+		"pk": 16,
+		"fields": {
+			"product": 26,
+			"rating": 5,
+			"content": "Just delightful! So cute, well made and arrived carefully packaged and very soon after ordering. I hope to shop with you again!",
+			"created_by": 2,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	},
+	{
+		"model": "products.review",
+		"pk": 3,
+		"fields": {
+			"product": 13,
+			"rating": 5,
+			"content": "My daughter’s favourite animal. Absolutely beautifully made. Bought for her birthday. Love, love, love. Thank you so much 😊",
+			"created_by": 2,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	}, {
+		"model": "products.review",
+		"pk": 4,
+		"fields": {
+			"product": 15,
+			"rating": 5,
+			"content": "So wonderful, so cute and well made, and my daughter absolutely loves her new stuffy! Highly recommend!",
+			"created_by": 3,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	},
+	{
+		"model": "products.review",
+		"pk": 5,
+		"fields": {
+			"product": 18,
+			"rating": 5,
+			"content": "Another amazing crocheted bunny to add to the collection :) so pleased with how she looks",
+			"created_by": 2,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	}, {
+		"model": "products.review",
+		"pk": 6,
+		"fields": {
+			"product": 29,
+			"rating": 5,
+			"content": "This is the second lovely T-Rex I have bought. It's really well made and full of character. looks just like the picture.",
+			"created_by": 3,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	}, {
+		"model": "products.review",
+		"pk": 7,
+		"fields": {
+			"product": 16,
+			"rating": 5,
+			"content": "Beautiful product. These have made me my Neice's favourite Uncle. Thank you 😊. I will be ordering again soon.",
+			"created_by": 3,
+			"created_at": "2022-07-20T10:27:24.631Z"
+		}
+	}
+]

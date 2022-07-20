@@ -375,6 +375,12 @@ class Product(models.Model):
             return reviews_total / self.reviews.count()
         return 0
 
+    def get_review_count(self):
+        """
+        Returns the review count of the product.
+        """
+        return self.reviews.count()
+
 
 
 class Review(models.Model):
