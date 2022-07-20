@@ -7,10 +7,15 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
 from django.views.generic.base import RedirectView
 
-from .sitemaps import ProductSitemap, StaticSitemap, CategorySitemap
 from core.views import robots_txt
 
-sitemaps = {"products": ProductSitemap, "static": StaticSitemap, "categories": CategorySitemap}
+from .sitemaps import CategorySitemap, ProductSitemap, StaticSitemap
+
+sitemaps = {
+    "products": ProductSitemap,
+    "static": StaticSitemap,
+    "categories": CategorySitemap,
+}
 
 
 urlpatterns = [

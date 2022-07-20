@@ -1,7 +1,7 @@
 import admin_thumbnails
 from django.contrib import admin
 
-from .models import Category, Colour, Product
+from .models import Category, Colour, Product, Review
 
 
 # Register your models here.
@@ -107,3 +107,19 @@ class ProductAdmin(admin.ModelAdmin):
         "sale_price",
         "is_active",
     ]
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    """
+    The admin interface for the Category model.
+    """
+
+    list_display = [
+        "product",
+        "rating",
+        "content",
+        "created_at",
+        "created_by",
+    ]
+    ordering = ["created_at"]

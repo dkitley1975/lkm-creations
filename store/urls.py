@@ -11,4 +11,9 @@ urlpatterns = [
         views.category_list,
         name="category-list",
     ),
+    path(
+        "review-delete/<int:id>/",
+        views.review_delete,
+        name="review-delete",
+    ),
 ]
