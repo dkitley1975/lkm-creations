@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block metadescription %}
+<meta name="description" content="{{ site_info.store_description }}">
+<meta name="keywords" content="{{ site_info.store_keywords|title }}">
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+{% block title %}{{ request.site.name }}User Dashboard - Delete Account
+{% endblock %}
+{% block custom_page_stylesheet %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block content %}
+{% include "profiles/components/dashboard-nav.html" %}
+<main class="container pt-2 px-5 mb-3">
+	<section class="text-center pt-2">
+		<h1 class="mt-1 mb-3">Profile Dashboard</h1>
+	</section>
+	<hr>
+	<div class="col-10 offset-1 col-md-6 offset-md-3 mt-5 rounded-10
+            border-1 border-clr-primary box-shadow p-3">
+		<h2 class="mb-3 fs-3 text-center">Delete Your Account</h2>
+		<hr>
+		<p class="fw-bolder">{{ user.first_name }} Are you sure you would like
+			to delete your
+			account?</p>
+		<p>This action cannot be undone.</p>
+		<p>This will remove your account and order history from the system and
+			you will no longer
+			be able to log in.</p>
+		<p>If you are sure you want to delete your account, we are sorry to see
+			you leave.</p>
+		<form method="post" action="{% url 'remove_account' %}">
+			{% csrf_token %}
+			<div
+				class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+				<button type="submit" class="btn btn-danger text-uppercase
+                text-uppercase">Delete
+					Account</button>
+				<a href="{% url 'dashboard' %}" class="btn btn-success
+				text-uppercase">Cancel Deletion</a>
+			</div>
+	</div>
+	</form>
+	<br>
+	</div>
+</main>
+{% endblock %}

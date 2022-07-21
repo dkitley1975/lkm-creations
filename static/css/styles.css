@@ -243,6 +243,14 @@ body {
 	color: var(--clr-brand-primary-darker) !important;
 }
 
+.link-hover-primary-light:hover {
+	color: var(--clr-brand-primary) !important;
+}
+
+.link-hover-danger:hover {
+	color: #dc3545 !important;
+}
+
 .logo-font-creations {
 	font-family: 'Caveat',
 		sans-serif;

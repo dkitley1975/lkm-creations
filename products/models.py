@@ -1,6 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
 date_help = _("enter date in format: Y-m-d H:M:S, null-true, blank-true")
@@ -371,7 +371,7 @@ class Product(models.Model):
         reviews_total = 0
         for review in self.reviews.all():
             reviews_total += review.rating
-        if reviews_total >0:
+        if reviews_total > 0:
             return reviews_total / self.reviews.count()
         return 0
 
@@ -382,10 +382,13 @@ class Product(models.Model):
         return self.reviews.count()
 
 
-
 class Review(models.Model):
-        product = models.ForeignKey(Product, related_name="reviews", on_delete=models.CASCADE)
-        rating = models.IntegerField(default=5)
-        content = models.TextField(max_length=500)
-        created_by = models.ForeignKey(User, related_name="reviews", on_delete=models.CASCADE)
-        created_at = models.DateTimeField(auto_now_add=True)
+    product = models.ForeignKey(
+        Product, related_name="reviews", on_delete=models.CASCADE
+    )
+    rating = models.IntegerField(default=5)
+    content = models.TextField(max_length=500)
+    created_by = models.ForeignKey(
+        User, related_name="reviews", on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
