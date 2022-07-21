@@ -13,10 +13,57 @@
 	content='{{ product.name|title }} - {{ product.description }}' />
 <meta property='og:url' content='{{ request.build_absolute_uri }}' />
 {% endblock %}
-{% block title %}{{ request.site.name }} Shop - Product -
+{% block title %}{{ request.site.name }} Product -
 {{ product.name|title }}
 {% endblock %}
-{% block custom_page_stylesheet %} {% endblock %}
+
+
+{% block custom_page_stylesheet %}
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org/",
+		"@type": "Product",
+		"name": "{{ product.name|title }}",
+		"image": [
+			"https://{{ request.site.domain }}{{ product.image.url }}"
+		],
+		"description": "{{ product.description }}",
+		"sku": "{{ product.sku }}",
+		"brand": {
+			"@type": "Brand",
+			"name": "LKM-Creations"
+		},
+		"review": {
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "{{ lastreview.rating }}",
+				"bestRating": "{{ product.get_review_highest_rating }}"
+			},
+			"author": {
+				"@type": "Person",
+				"name": "{{ lastreview.created_by }}"
+			}
+		},
+
+
+		"aggregateRating": {
+			"@type": "AggregateRating",
+			"ratingValue": "{{ product.get_review_average_rating }}",
+			"reviewCount": "{{ product.get_review_count }}"
+		},
+		"offers": {
+			"@type": "Offer",
+			"url": "https://{{ request.site.domain }}/store/{{ product.slug }}",
+			"priceCurrency": "GBP",
+			"price": "{{ product.retail_price}}",
+			"itemCondition": "https://schema.org/NewCondition",
+			"availability": "https://schema.org/InStock"
+		}
+
+	}
+</script>
+{% endblock %}
 {% block content %}
 <main class="px-3">
 	<div class="row">
@@ -34,7 +81,8 @@
 				{% endif %}
 			</div>
 			<div>
-				<p class="logo-font-lkm fs-3 mt-0 mb-0">Share via
+				<p class="logo-font-lkm fs-3 mt-0 mb-0">
+					Share via
 				</p>
 			</div>
 			<div class="d-flex flex-row justify-content-around mt-0">
@@ -113,10 +161,10 @@
 							<textarea
 								class="form-control review-enter-content pt-5"
 								placeholder="Leave a Review here"
-								id="ProductReviewTextarea" name="content"
+								id="lastreviewTextarea" name="content"
 								aria-label="Enter a Product Review here"></textarea>
 							<label
-								for="ProductReviewTextarea">{% if not request.user.is_authenticated %}Please
+								for="lastreviewTextarea">{% if not request.user.is_authenticated %}Please
 								sign in to leave a review.
 								{% else %}Submit a review of your purchase
 								here.{% endif %} </label>
@@ -337,10 +385,10 @@
 				<div class="form-floating mt-3 mb-2">
 					<textarea class="form-control review-enter-content"
 						placeholder="Leave a Review here"
-						id="ProductReviewTextarea" name="content"
+						id="lastreviewTextarea" name="content"
 						aria-label="Enter a Product Review here"></textarea>
 					<label
-						for="ProductReviewTextarea">{% if not request.user.is_authenticated %}Sign
+						for="lastreviewTextarea">{% if not request.user.is_authenticated %}Sign
 						In
 						to submit a review.
 						{% else %}Submit a review of your purchase

@@ -100,19 +100,20 @@ def product_detail(request, slug):
                     request, "Your review has been submitted."
                 )
                 return redirect("product-detail", slug=slug)
-            # reviews = Review.objects.create(
-            #     product=product,
-            #     rating=rating,
-            #     content=content,
-            #     created_by=request.user,
-            # )
+
         messages.success(
             request, "You have successfully submitted your review."
         )
         return redirect("product-detail", slug=slug)
+    lastreview = Review.objects.filter(product=product).last()
+    context = {
+        "product": product,
+        "lastreview": lastreview,
+
+    }
+
     return render(
-        request, "store/pages/product-detail.html", {"product": product}
-    )
+        request, "store/pages/product-detail.html", context)
 
 
 @login_required(login_url="/login/")

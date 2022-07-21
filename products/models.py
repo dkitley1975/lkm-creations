@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Max
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -380,6 +381,11 @@ class Product(models.Model):
         Returns the review count of the product.
         """
         return self.reviews.count()
+    def get_review_highest_rating(self):
+        """
+        Returns the review highest rating of the product.
+        """
+        return self.reviews.aggregate(max_rating=Max('rating'))['max_rating']
 
 
 class Review(models.Model):
