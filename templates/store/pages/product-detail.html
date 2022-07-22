@@ -165,9 +165,8 @@
 								here.{% endif %} </label>
 						</div>
 						<div>
-							<label for="image" class="form-label">Small
-								file input
-								example</label>
+							<label for="image" class="form-label">Upload an
+								image</label>
 							<input class="form-control form-control-sm"
 								id="image" type="file" name="image"
 								accept="image/*">
@@ -372,10 +371,11 @@
 				a
 				review for
 				this product</p>
-			<form method="post" action="." class="mb-5">
+			<form method="POST" enctype="multipart/form-data" action="."
+				class="mb-5">
 				{% csrf_token %}
 				<div class="form-floating mt-3">
-					<select class="form-select" id="ProductRating"
+					<select class="form-select" id="ProductRatingSmScreen"
 						aria-label="Product Rating label" name="rating">
 						<option value="1">
 							&#10029;&#10025;&#10025;&#10025;&#10025;
@@ -393,32 +393,37 @@
 							&#10029;&#10029;&#10029;&#10029;&#10029;
 						</option>
 					</select>
-					<label for="ProductRating">Product Rating</label>
+					<label for="ProductRatingSmScreen">Product Rating</label>
 				</div>
 				<div class="form-floating mt-3 mb-2">
-					<textarea class="form-control review-enter-content"
+					<textarea class="form-control review-enter-content pt-5"
 						placeholder="Leave a Review here"
-						id="lastreviewTextarea" name="content"
+						id="lastreviewTextareaSmScreen" name="content"
 						aria-label="Enter a Product Review here"></textarea>
 					<label
-						for="lastreviewTextarea">{% if not request.user.is_authenticated %}Sign
-						In
-						to submit a review.
+						for="lastreviewTextareaSmScreen">{% if not request.user.is_authenticated %}Please
+						sign in to leave a review.
 						{% else %}Submit a review of your purchase
 						here.{% endif %} </label>
+				</div>
+				<div>
+					<label for="image" class="form-label">Upload an
+						image</label>
+					<input class="form-control form-control-sm" id="image"
+						type="file" name="image" accept="image/*">
 				</div>
 				<div class="mt-3 mb-5">
 					<span class="d-inline-block float-end" tabindex="0"
 						data-toggle="tooltip"
 						title="Please Sign In to submit a review">
-						<button type="submit" class="btn btn-primary mb-5"
+						<input type="submit" class="btn btn-primary mb-5"
 							{% if request.user.is_authenticated %} {% else %}
-							disabled {% endif %}>Submit</button>
+							disabled {% endif %}></input>
 					</span>
 				</div>
 			</form>
 		</div>
-		{% for review in product.reviews.all %}
+		{% for review in product.reviews.all reversed %}
 		{% include "store/components/reviews.html" %}
 		{% endfor %}
 		{% if product.get_review_count < 1 %}
