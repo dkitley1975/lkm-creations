@@ -49,6 +49,14 @@
 						{% endif %} href="{% url 'home:contact-us' %}">Contact
 						Us</a>
 				</li>
+				{% if user.is_staff %}
+				<li class="nav-item">
+					<a class="nav-link {% if '/product-creation' in request.path %}active{% endif %}"
+						{% if '/product-creation' in request.path %}aria-current="page"
+						{% endif %} href="{% url 'product-creation' %}">Create
+						Product</a>
+				</li>
+				{% endif %}
 				<li id="newsletter-signup-button-mobile" class="nav-item">
 					<a class="nav-link ms-0 ms-md-3" href="#" role="button"
 						data-bs-toggle="modal"
@@ -212,9 +220,6 @@
 					</a>
 				</li>
 				{% endif %}
-
-
-
 				<li id="basket-button-mobile" class="list-inline-item">
 					<a href="{% url "summary" %}" class="nav-link text-primary-darkest nav-svg px-0
 					{% if total_quantity is 0 %}text-info font-weight-bold

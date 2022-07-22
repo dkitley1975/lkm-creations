@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+<meta name="description" content="Purchase as a gift our {{ product.name|title}} -
+	{{ product.description|title|striptags|safe|truncatechars:100 }}">
+<meta name="keywords" content="{{ product.keywords|title }}, {{ product.category|title }},
+	{{ product.name|title }}">
+<meta name="robots" content="index, follow">
+<!-- linkedIn additional metadata -->
+<meta property='og:title' content='{{ product.name|title }}' />
+<meta name="image" property="og:image" content="{{ product.image.url }}">
+<meta property='og:description'
+	content='{{ product.name|title }} - {{ product.description }}' />
+<meta property='og:url' content='{{ request.build_absolute_uri }}' />
+{% endblock %}
+{% block title %}{{ request.site.name }} Product -
+{{ product.name|title }}
+{% endblock %}
+{% block content %}
+<main class="px-3">
+	<div class="p-3">
+		<div class="row col-10 offset-1">
+			<h1 class="card-title text-center mt-5">Create a new Product</h1>
+			<p class="mt-5 text-center">We recommend you use the admin panel to
+				add,
+				amend or
+				delete products.
+				<a href="
+					https://{{ request.site.domain }}/admin/products/product" target="_blank"
+					rel="noopener noreferrer"
+					aria-label="open product in admin site">Click
+					here
+				</a>to go directly to the {{ request.site.name }} products
+				admin
+				panel
+			</p>
+		</div>
+		<div class="form-group">
+			<form method="POST" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-12 col-md-4 col-lg-4 offset-lg-1">
+						<div class="image-container mb-3">
+							<img class="img-fluid mx-auto d-block product-image-size
+							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default/default_image.webp"
+								alt="{{ product.image_alt_text }}"
+								oncontextmenu="return false;">
+						</div>
+					</div>
+					<div class="col-10 offset-1 col-md-5 col-lg-5">
+						{% csrf_token %}
+						{{ form|crispy }}
+						<div
+							class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+							<a href="{% url 'products' %}" class="btn btn-danger
+				text-uppercase">Cancel</a>
+							<button type="submit" class="btn btn-success text-uppercase
+                text-uppercase">submit</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</main>
+{%endblock%}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+	window.addEventListener('load', function () {
+		document.querySelector('input[type="file"]').addEventListener(
+			'change',
+			function () {
+				if (this.files && this.files[0]) {
+					var img = document.querySelector('img');
+					img.onload = () => {
+						URL.revokeObjectURL(img
+							.src
+						); // no longer needed, free memory
+					}
+					img.src = URL.createObjectURL(this.files[
+						0]); // set src to blob url
+				}
+			});
+	});
+</script>
+{%endblock%}

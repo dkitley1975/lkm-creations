@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Max
 from django.urls import reverse
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 date_help = _("enter date in format: Y-m-d H:M:S, null-true, blank-true")
@@ -303,7 +304,7 @@ class Product(models.Model):
         verbose_name=_("product last updated"),
         help_text=date_help,
     )
-    slug = models.CharField(
+    slug = models.SlugField(
         max_length=200,
         null=False,
         unique=True,
@@ -313,6 +314,10 @@ class Product(models.Model):
     )
     objects = models.Manager()
     available_items = AvailableItemsManager()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs)
 
     class Meta:
         """
@@ -381,11 +386,14 @@ class Product(models.Model):
         Returns the review count of the product.
         """
         return self.reviews.count()
+
     def get_review_highest_rating(self):
         """
         Returns the review highest rating of the product.
         """
-        return self.reviews.aggregate(max_rating=Max('rating'))['max_rating']
+        return self.reviews.aggregate(max_rating=Max("rating"))[
+            "max_rating"
+        ]
 
 
 class Review(models.Model):

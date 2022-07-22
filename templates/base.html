@@ -8,14 +8,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% include "base/layout/webmanifest.html" %}
-
 	{% block metadescription %}
 	{% endblock %}
 	<meta name="theme-color" content="#fdcece43">
 	<meta name="author" content="David Kitley-McNamara">
 	{% include "base/layout/stylesheets.html" %}
 	{% include "base/layout/base_javascripts.html" %}
-
+	{% block google_rich_json %}
+	{% endblock %}
 	{% block custom_page_stylesheet %}
 	{% endblock %}
 	<title>{% block title %}{{ request.site.name }}{% endblock %}</title>
@@ -226,7 +226,6 @@
 					<link
 						href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css"
 						rel="stylesheet" type="text/css">
-
 					<div id="mc_embed_signup" class="p-0">
 						<form
 							action="https://herokuapp.us17.list-manage.com/subscribe/post?u=c3d6265f7862389b9663cbb6c&amp;id=eee9c69d11"
@@ -285,8 +284,6 @@
 		</div>
 	</div>
 	<!-- END of sign-in-confirmation-modal -->
-
-
 	{% block postloadjs %}
 	{{ block.super }}
 	<script src="{% static 'js/show_alert_once.js' %}"></script>

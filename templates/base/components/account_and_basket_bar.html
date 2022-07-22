@@ -13,7 +13,6 @@
 		<div id="search-box" class="col-md-3 col-lg-4 my-auto py-1 py-lg-0">
 			{% include "base/components/search.html" %}
 		</div>
-
 		<div id="login-out-register-account"
 			class="col-12 col-md-5 col-lg-4 my-auto py-1 d-none d-md-block">
 			<ul id="login-out-register-account-menu"
@@ -37,7 +36,6 @@
 						</div>
 					</a>
 				</li>
-
 				<li id="signout-button" class="list-inline-item">
 					<a class="nav-link text-primary-darkest nav-svg" href="#"
 						role="button" data-bs-toggle="modal"
@@ -66,7 +64,6 @@
 					</a>
 				</li>
 				{% else %}
-
 				<li id="register-button" class="list-inline-item">
 					<a class="nav-link text-primary-darkest nav-svg"
 						href="/accounts/signup" role="button"
@@ -87,7 +84,6 @@
 						</div>
 					</a>
 				</li>
-
 				<li id="signin-button" class="list-inline-item">
 					<!-- sign-out-confirmation-modal -->
 					<!-- Button trigger modal -->
@@ -115,7 +111,6 @@
 					</a>
 				</li>
 				{% endif %}
-
 				<li id="basket-button"
 					class="list-inline-item text-black text-decoration-none">
 					<a href="{% url "summary" %}" class="{% if basket_items %}
@@ -158,13 +153,9 @@
 						</div>
 					</a>
 				</li>
-
-
 			</ul>
 		</div>
 		{% include "base/components/navbar.html" %}
 	</div>
-
-
 </header>
 <!-- end of account_and_basket_bar.html -->

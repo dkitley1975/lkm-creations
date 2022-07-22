@@ -109,11 +109,9 @@ def product_detail(request, slug):
     context = {
         "product": product,
         "lastreview": lastreview,
-
     }
 
-    return render(
-        request, "store/pages/product-detail.html", context)
+    return render(request, "store/pages/product-detail.html", context)
 
 
 @login_required(login_url="/login/")

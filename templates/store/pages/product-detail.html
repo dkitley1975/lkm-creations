@@ -16,9 +16,7 @@
 {% block title %}{{ request.site.name }} Product -
 {{ product.name|title }}
 {% endblock %}
-
-
-{% block custom_page_stylesheet %}
+{% block google_rich_json %}
 <script type="application/ld+json">
 	{
 		"@context": "https://schema.org/",
@@ -67,7 +65,7 @@
 {% block content %}
 <main class="px-3">
 	<div class="row">
-		<div class="col-10 offset-1 col-md-4 col-lg-4 offset-lg-2">
+		<div class="col-10 offset-1 col-md-4 col-lg-4 offset-lg-1">
 			<div class="image-container mt-5 mb-3">
 				{% if product.image.url %}
 				<img class="img-fluid mx-auto d-block product-image-size
@@ -192,10 +190,19 @@
 				{% endif %}
 			</div>
 		</div>
-		<div class="col-10 offset-1 col-md-5 col-lg-4">
+		<div class="col-10 offset-1 col-md-5 col-lg-5">
 			<div class="mb-5 mt-md-5">
 				<h1 id="product_name" class="mb-0 fs-2 fw-bold mb-1">
-					{{ product.name|title }}
+					{{ product.name|title }}{% if user.is_staff %}
+
+					<span class="fs-5">
+						<a href="{% url 'product-update' product.slug %}">
+							<i class="far fa-edit text-danger"
+								title="Click to edit product"></i></a>
+					</span>
+
+
+					{% endif %}
 				</h1>
 				{% if product.get_review_average_rating > 0 %}
 				<p>Product Rating:
@@ -231,7 +238,7 @@
 					</span>
 				</p>
 				{% else %}
-				<p class="text-muted small">This product is yet to be
+				<p class=" text-muted small">This product is yet to be
 					reviewed.</p>
 				{% endif %}
 				<div class="align-self-end">
@@ -245,6 +252,7 @@
 						Available</span>
 					{% endif %}
 				</div>
+
 				<form class="form"
 					action="{% url 'add_to_basket' product.id %}"
 					method="POST">
@@ -288,8 +296,9 @@
 								was £<span
 									class="fs-5">{{ product.retail_price }}</span></s>
 						</p>
-						<p class="lead mb-0 text-left fw-bolder"><span
-								class="fst-italic">now only</span>
+						<p class="lead mb-0 text-left fw-bolder">
+							<span class="fst-italic">now
+								only</span>
 							£<span class="fs-3">{{ product.sale_price }}
 							</span></p> {% else %} <p
 							class="lead mb-0 text-left fw-bolder">
