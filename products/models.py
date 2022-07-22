@@ -405,4 +405,9 @@ class Review(models.Model):
     created_by = models.ForeignKey(
         User, related_name="reviews", on_delete=models.CASCADE
     )
+    image = models.ImageField(
+        upload_to="images/reviews/",
+        null=False,
+        blank=True,
+    )
     created_at = models.DateTimeField(auto_now_add=True)

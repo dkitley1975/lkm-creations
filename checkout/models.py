@@ -11,6 +11,8 @@ from siteadmin.models import SiteInfo
 # TODO COMMENT OUT THE next two blocks when initially migrating
 # to the databases and once the site info is set up
 # they should then be uncommented
+# the orders sample data will not install without this
+# being uncommented
 default_delivery_price = (
     SiteInfo.objects.all()
     .filter(is_active=True)

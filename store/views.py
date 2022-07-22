@@ -71,6 +71,7 @@ def product_detail(request, slug):
     Render the product detail page.
     """
     product = get_object_or_404(Product, slug=slug, in_stock=True)
+
     if request.method == "POST":
         if not request.user.is_authenticated:
             messages.error(
@@ -79,6 +80,7 @@ def product_detail(request, slug):
             return redirect(reverse("login"))
         rating = request.POST.get("rating", 5)
         content = request.POST.get("content", "")
+        image = request.FILES.get("image")
         if content:
             reviews = Review.objects.filter(
                 created_by=request.user, product=product
@@ -94,6 +96,7 @@ def product_detail(request, slug):
                     created_by=request.user,
                     product=product,
                     rating=rating,
+                    image=image,
                     content=content,
                 )
                 messages.success(

@@ -30,10 +30,25 @@
 			</span>
 		</p>
 	</div>
-	<div class="row">
-		<p>
-			{{ review.content }}
-		</p>
+	<div class="row mb-3">
+		<div class="{% if review.image %}col-9{% else %}col-12{% endif %}">
+			<p>
+				{{ review.content }}
+			</p>
+		</div>
+
+		{% if review.image %}
+		<div class="col-3">
+			<img class="img-fluid mx-auto d-block
+								rounded-10 box-shadow" {% if review.image != NULL or "" %}
+				src="{{ MEDIA_URL }}/{{ review.image }}"
+				onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
+				{% endif %}
+				alt="image regarding {{product.name}} from the purchaser {{ review.created_by }}"
+				oncontextmenu="return false;">
+		</div>
+		{% endif %}
+
 	</div>
 	<div class"row">
 		<p class="small">Reviewed by: <span
