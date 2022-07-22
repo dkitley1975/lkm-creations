@@ -40,6 +40,14 @@
 						Profile
 						Details</a>
 				</li>
+				{% if user.is_staff %}
+				<li class="nav-item">
+					<a class="nav-link {% if '/product-creation' in request.path %}active{% endif %}"
+						{% if '/product-creation' in request.path %}aria-current="page"
+						{% endif %} href="{% url 'product-creation' %}">Create
+						New Product</a>
+				</li>
+				{% endif %}
 			</ul>
 			<hr class"d-md-none mb-5 mb-md-0">
 		</div>

@@ -49,14 +49,6 @@
 						{% endif %} href="{% url 'home:contact-us' %}">Contact
 						Us</a>
 				</li>
-				{% if user.is_staff %}
-				<li class="nav-item">
-					<a class="nav-link {% if '/product-creation' in request.path %}active{% endif %}"
-						{% if '/product-creation' in request.path %}aria-current="page"
-						{% endif %} href="{% url 'product-creation' %}">Create
-						Product</a>
-				</li>
-				{% endif %}
 				<li id="newsletter-signup-button-mobile" class="nav-item">
 					<a class="nav-link ms-0 ms-md-3" href="#" role="button"
 						data-bs-toggle="modal"

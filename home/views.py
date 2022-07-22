@@ -18,7 +18,7 @@ def index(request):
 
     products = Product.available_items.all().order_by("-created_at")[0:6]
 
-    return render(request, "home/index.html", {"products": products})
+    return render(request, "home/pages/index.html", {"products": products})
 
 
 class ContactUs(FormView):

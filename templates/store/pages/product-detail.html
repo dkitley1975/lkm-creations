@@ -43,8 +43,6 @@
 				"name": "{{ lastreview.created_by }}"
 			}
 		},
-
-
 		"aggregateRating": {
 			"@type": "AggregateRating",
 			"ratingValue": "{{ product.get_review_average_rating }}",
@@ -58,7 +56,6 @@
 			"itemCondition": "https://schema.org/NewCondition",
 			"availability": "https://schema.org/InStock"
 		}
-
 	}
 </script>
 {% endblock %}
@@ -124,7 +121,6 @@
 					<p class="logo-font-lkm fs-3 mt-3 mb-0">Reviews
 					</p>
 				</div>
-
 				<div
 					class="border rounded-10 box-shadow p-2 pb-3 mb-5 col order-5">
 					<p class="mt-3 bold text-primary-darkest strong fs-5">Post
@@ -180,7 +176,6 @@
 						</div>
 					</form>
 				</div>
-
 				{% for review in product.reviews.all %}
 				{% include "store/components/reviews.html" %}
 				{% endfor %}
@@ -194,14 +189,17 @@
 			<div class="mb-5 mt-md-5">
 				<h1 id="product_name" class="mb-0 fs-2 fw-bold mb-1">
 					{{ product.name|title }}{% if user.is_staff %}
-
-					<span class="fs-5">
+					<span class="fs-6">
 						<a href="{% url 'product-update' product.slug %}">
-							<i class="far fa-edit text-danger"
+							<i class="far fa-edit text-danger ms-2"
 								title="Click to edit product"></i></a>
+						<a href="#" role="button" data-bs-toggle="modal"
+							data-bs-target="#deleteProductModal"
+							aria-expanded="false">
+							<i class="fas fa-trash-alt text-danger ms-2"
+								title="Click to delete product"></i>
+						</a>
 					</span>
-
-
 					{% endif %}
 				</h1>
 				{% if product.get_review_average_rating > 0 %}
@@ -252,7 +250,6 @@
 						Available</span>
 					{% endif %}
 				</div>
-
 				<form class="form"
 					action="{% url 'add_to_basket' product.id %}"
 					method="POST">
@@ -362,7 +359,6 @@
 			<p class="logo-font-lkm fs-3 mt-3 mb-0">Reviews
 			</p>
 		</div>
-
 		<div class="border rounded-10 box-shadow p-2 pb-3 mb-5 col order-5">
 			<p class="mt-3 bold text-primary-darkest strong fs-5">Post
 				a
@@ -414,7 +410,6 @@
 				</div>
 			</form>
 		</div>
-
 		{% for review in product.reviews.all %}
 		{% include "store/components/reviews.html" %}
 		{% endfor %}
@@ -423,5 +418,45 @@
 			reviewed.</p>
 		{% endif %}
 	</div>
+	<!-- Delete Product Modal -->
+	<div class="modal fade" id="deleteProductModal" tabindex="-1"
+		aria-labelledby="deleteProductModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<h4 class="modal-title text-danger fw-bold fs-2 text-center"
+						id="deleteProductModalLabel">WARNING</h4>
+					<button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want delete the product:
+						{{ product.name|title}}?<br>and all associated data.
+					</p>
+					<p>This action cannot be undone.</p>
+					<p>You should consider setting the product as inactive
+						instead
+						of deleting it. here <span class="fs-5">
+							<a href="{% url 'product-update' product.slug %}">
+								<i class="far fa-edit text-danger"
+									title="Click to edit product"></i></a></p>
+					<form method="post"
+						action="{% url 'product-delete' product.slug %}?next={{ request.path }}">
+						{% csrf_token %}
+						<div class="modal-footer">
+							<div
+								class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+								<a href="" class="btn btn-success
+				text-uppercase">Cancel</a>
+								<button type="submit" class="btn btn-danger text-uppercase
+                text-uppercase">submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END of sDelete Product Modal -->
 </main>
 {%endblock%}

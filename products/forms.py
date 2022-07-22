@@ -1,5 +1,8 @@
-from .models import Product
 from django import forms
+
+from .models import Product
+
+
 class CreateNewProductForm(forms.ModelForm):
     class Meta:
         model = Product
@@ -33,15 +36,29 @@ class CreateNewProductForm(forms.ModelForm):
             "keywords": forms.TextInput(attrs={"class": "form-control"}),
             "is_washable": forms.CheckboxInput(),
             "image": forms.FileInput(attrs={"class": "form-control"}),
-            "image_alt_text": forms.TextInput(attrs={"class": "form-control"}),
-            "wash_instructions": forms.Textarea(attrs={"class": "form-control"}),
-            "care_instructions": forms.Textarea(attrs={"class": "form-control"}),
+            "image_alt_text": forms.TextInput(
+                attrs={"class": "form-control"}
+            ),
+            "wash_instructions": forms.Textarea(
+                attrs={"class": "form-control"}
+            ),
+            "care_instructions": forms.Textarea(
+                attrs={"class": "form-control"}
+            ),
             "weight": forms.NumberInput(attrs={"class": "form-control"}),
             "size": forms.TextInput(attrs={"class": "form-control"}),
-            "unit_cost_price": forms.NumberInput(attrs={"class": "form-control"}),
-            "retail_price": forms.NumberInput(attrs={"class": "form-control"}),
-            "sale_price": forms.NumberInput(attrs={"class": "form-control"}),
-            "inventory": forms.NumberInput(attrs={"class": "form-control"}),
+            "unit_cost_price": forms.NumberInput(
+                attrs={"class": "form-control"}
+            ),
+            "retail_price": forms.NumberInput(
+                attrs={"class": "form-control"}
+            ),
+            "sale_price": forms.NumberInput(
+                attrs={"class": "form-control"}
+            ),
+            "inventory": forms.NumberInput(
+                attrs={"class": "form-control"}
+            ),
             "in_stock": forms.CheckboxInput(),
-            "is_active": forms.CheckboxInput()
+            "is_active": forms.CheckboxInput(),
         }
