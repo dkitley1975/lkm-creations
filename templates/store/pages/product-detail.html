@@ -118,70 +118,17 @@
 			</div>
 			<div class="d-none d-md-block">
 				<div>
-					<p class="logo-font-lkm fs-3 mt-3 mb-0">Reviews
+					<p class="fs-3 mt-3 mb-0">
+						<span class="logo-font-lkm">Reviews</span>
+						<button role="button" data-bs-toggle="modal"
+							data-bs-target="#leaveAReviewModal"
+							aria-expanded="false" class="btn btn-primary"
+							{% if not request.user.is_authenticated %} disabled
+							{%endif%}>
+							{% if not request.user.is_authenticated %}Sign In
+							to leave a review{%else%}leave a review {%endif%}
+						</button>
 					</p>
-				</div>
-				<div
-					class="border rounded-10 box-shadow p-2 pb-3 mb-5 col order-5">
-					<p class="mt-3 bold text-primary-darkest strong fs-5">Post
-						a
-						review for
-						this product</p>
-					<form method="POST" enctype="multipart/form-data"
-						action="." class="mb-5">
-						{% csrf_token %}
-						<div class="form-floating mt-3">
-							<select class="form-select" id="ProductRating"
-								aria-label="Product Rating label"
-								name="rating">
-								<option value="1">
-									&#10029;&#10025;&#10025;&#10025;&#10025;
-								</option>
-								<option value="2">
-									&#10029;&#10029;&#10025;&#10025;&#10025;
-								</option>
-								<option value="3">
-									&#10029;&#10029;&#10029;&#10025;&#10025;
-								</option>
-								<option value="4">
-									&#10029;&#10029;&#10029;&#10029;&#10025;
-								</option>
-								<option value="5" selected>
-									&#10029;&#10029;&#10029;&#10029;&#10029;
-								</option>
-							</select>
-							<label for="ProductRating">Product Rating</label>
-						</div>
-						<div class="form-floating mt-3 mb-2">
-							<textarea
-								class="form-control review-enter-content pt-5"
-								placeholder="Leave a Review here"
-								id="lastreviewTextarea" name="content"
-								aria-label="Enter a Product Review here"></textarea>
-							<label
-								for="lastreviewTextarea">{% if not request.user.is_authenticated %}Please
-								sign in to leave a review.
-								{% else %}Submit a review of your purchase
-								here.{% endif %} </label>
-						</div>
-						<div>
-							<label for="image" class="form-label">Upload an
-								image</label>
-							<input class="form-control form-control-sm"
-								id="image" type="file" name="image"
-								accept="image/*">
-						</div>
-						<div class="mt-3 mb-5">
-							<span class="d-inline-block float-end" tabindex="0"
-								data-toggle="tooltip"
-								title="Please Sign In to submit a review">
-								<input type="submit"
-									class="btn btn-primary mb-5"
-									{% if request.user.is_authenticated %}
-									{% else %} disabled {% endif %}></input>
-							</span>
-						</div>
-					</form>
 				</div>
 				{% for review in product.reviews.all reversed %}
 				{% include "store/components/reviews.html" %}
@@ -363,66 +310,17 @@
 	</div>
 	<div class="d-xs-block d-md-none">
 		<div>
-			<p class="logo-font-lkm fs-3 mt-3 mb-0">Reviews
+			<p class="fs-3 mt-3 mb-0">
+				<span class="logo-font-lkm">Reviews</span>
+				<button role="button" data-bs-toggle="modal"
+					data-bs-target="#leaveAReviewModal" aria-expanded="false"
+					class="btn btn-primary"
+					{% if not request.user.is_authenticated %} disabled
+					{%endif%}>
+					{% if not request.user.is_authenticated %}Sign In
+					to leave a review{%else%}leave a review {%endif%}
+				</button>
 			</p>
-		</div>
-		<div class="border rounded-10 box-shadow p-2 pb-3 mb-5 col order-5">
-			<p class="mt-3 bold text-primary-darkest strong fs-5">Post
-				a
-				review for
-				this product</p>
-			<form method="POST" enctype="multipart/form-data" action="."
-				class="mb-5">
-				{% csrf_token %}
-				<div class="form-floating mt-3">
-					<select class="form-select" id="ProductRatingSmScreen"
-						aria-label="Product Rating label" name="rating">
-						<option value="1">
-							&#10029;&#10025;&#10025;&#10025;&#10025;
-						</option>
-						<option value="2">
-							&#10029;&#10029;&#10025;&#10025;&#10025;
-						</option>
-						<option value="3">
-							&#10029;&#10029;&#10029;&#10025;&#10025;
-						</option>
-						<option value="4">
-							&#10029;&#10029;&#10029;&#10029;&#10025;
-						</option>
-						<option value="5" selected>
-							&#10029;&#10029;&#10029;&#10029;&#10029;
-						</option>
-					</select>
-					<label for="ProductRatingSmScreen">Product Rating</label>
-				</div>
-				<div class="form-floating mt-3 mb-2">
-					<textarea class="form-control review-enter-content pt-5"
-						placeholder="Leave a Review here"
-						id="lastreviewTextareaSmScreen" name="content"
-						aria-label="Enter a Product Review here"></textarea>
-					<label
-						for="lastreviewTextareaSmScreen">{% if not request.user.is_authenticated %}Please
-						sign in to leave a review.
-						{% else %}Submit a review of your purchase
-						here.{% endif %} </label>
-				</div>
-				<div>
-					<label for="imageSmScreen" class="form-label">Upload an
-						image</label>
-					<input class="form-control form-control-sm"
-						id="imageSmScreen" type="file" name="image"
-						accept="image/*">
-				</div>
-				<div class="mt-3 mb-5">
-					<span class="d-inline-block float-end" tabindex="0"
-						data-toggle="tooltip"
-						title="Please Sign In to submit a review">
-						<input type="submit" class="btn btn-primary mb-5"
-							{% if request.user.is_authenticated %} {% else %}
-							disabled {% endif %}></input>
-					</span>
-				</div>
-			</form>
 		</div>
 		{% for review in product.reviews.all reversed %}
 		{% include "store/components/reviews.html" %}
@@ -471,6 +369,89 @@
 			</div>
 		</div>
 	</div>
-	<!-- END of sDelete Product Modal -->
+	<!-- END of Delete Product Modal -->
+	<!-- Leave a Review Modal -->
+	<div class="modal fade" id="leaveAReviewModal" tabindex="-1"
+		aria-labelledby="leaveAReviewModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<h4 class="modal-title fw-bold fs-2 text-center"
+						id="leaveAReviewModalLabel">Leave a review</h4>
+					<button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div>
+						<p class="mt-3 bold text-primary-darkest strong fs-5">
+							Post
+							a
+							review for
+							the {{product.name}}</p>
+						<form method="POST" enctype="multipart/form-data"
+							action="." class="mb-5">
+							{% csrf_token %}
+							<div class="form-floating mt-3">
+								<select class="form-select" id="ProductRating"
+									aria-label="Product Rating label"
+									name="rating">
+									<option value="1">
+										&#10029;&#10025;&#10025;&#10025;&#10025;
+									</option>
+									<option value="2">
+										&#10029;&#10029;&#10025;&#10025;&#10025;
+									</option>
+									<option value="3">
+										&#10029;&#10029;&#10029;&#10025;&#10025;
+									</option>
+									<option value="4">
+										&#10029;&#10029;&#10029;&#10029;&#10025;
+									</option>
+									<option value="5" selected>
+										&#10029;&#10029;&#10029;&#10029;&#10029;
+									</option>
+								</select>
+								<label for="ProductRating"
+									class="review-enter-content">Select a
+									Product
+									Star Rating</label>
+							</div>
+							<div class="form-floating mt-3 mb-2">
+								<textarea
+									class="form-control review-enter-content pt-5"
+									placeholder="Leave a Review here"
+									id="lastreviewTextarea" name="content"
+									aria-label="Enter a Product Review here"></textarea>
+								<label
+									for="lastreviewTextarea">{% if not request.user.is_authenticated %}Please
+									sign in to leave a review.
+									{% else %}Submit a review of your purchase
+									here.{% endif %} </label>
+							</div>
+							<div>
+								<label for="image" class="form-label">Upload an
+									image</label>
+								<input class="form-control form-control-sm"
+									id="image" type="file" name="image"
+									accept="image/*">
+							</div>
+							<div class="mt-3 mb-5">
+								<span class="d-inline-block float-end"
+									tabindex="0" data-toggle="tooltip"
+									title="Please Sign In to submit a review">
+									<input type="submit"
+										class="btn btn-primary mb-5"
+										{% if request.user.is_authenticated %}
+										{% else %} disabled
+										{% endif %}></input>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END of leave a review Modal -->
 </main>
 {%endblock%}
