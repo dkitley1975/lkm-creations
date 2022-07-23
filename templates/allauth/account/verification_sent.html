@@ -5,10 +5,19 @@
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block inner_content %}
-    <hr>
-    <h2 class="mb-4">{% trans "Verify Your E-mail Address" %}</h2>
-    <hr>
+<hr>
+<h2 class="mb-4">{% trans "Verify Your E-mail Address" %}</h2>
+<hr>
 
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+<p>{% blocktrans %}We have sent an e-mail to you for verification. Follow
+    the link provided to finalize the signup process.{% endblocktrans %}
+</p>
+<p>{% blocktrans %}If you do not receive it within a
+    few minutes, please check your
+    spam/junk folders and then please contact us.{% endblocktrans %}</p>
+<p>{% blocktrans %}You can contact us directly {% endblocktrans %}<a class="text-black text-decoration-none
+					link-hover-primary"
+        href="mailto:{{ site_info.email_address }}?subject=LKM%20Creations%20%20-%20email%20confirmation%20not%20received">
+        {{ site_info.email_address }}</a> </p>
 
 {% endblock %}
