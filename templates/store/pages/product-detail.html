@@ -121,12 +121,13 @@
 					<p class="fs-3 mt-3 mb-0">
 						<span class="logo-font-lkm">Reviews</span>
 						<button role="button" data-bs-toggle="modal"
-							data-bs-target="#leaveAReviewModal"
-							aria-expanded="false" class="btn btn-primary"
-							{% if not request.user.is_authenticated %} disabled
-							{%endif%}>
+							{% if request.user.is_authenticated %}
+							data-bs-target="#leaveAReviewModal" {% else %}
+							data-bs-target="#logInModal" {% endif %}
+							aria-expanded="false" class="btn btn-primary">
 							{% if not request.user.is_authenticated %}Sign In
-							to leave a review{%else%}leave a review {%endif%}
+							to leave
+							a review{%else%}leave a review {%endif%}
 						</button>
 					</p>
 				</div>
@@ -313,20 +314,19 @@
 			<p class="fs-3 mt-3 mb-0">
 				<span class="logo-font-lkm">Reviews</span>
 				<button role="button" data-bs-toggle="modal"
-					data-bs-target="#leaveAReviewModal" aria-expanded="false"
-					class="btn btn-primary"
-					{% if not request.user.is_authenticated %} disabled
-					{%endif%}>
-					{% if not request.user.is_authenticated %}Sign In
-					to leave a review{%else%}leave a review {%endif%}
+					{% if request.user.is_authenticated %}
+					data-bs-target="#leaveAReviewModal" {% else %}
+					data-bs-target="#logInModal" {% endif %}
+					aria-expanded="false" class="btn btn-primary">
+					{% if not request.user.is_authenticated %}Sign In to leave
+					a review{%else%}leave a review {%endif%}
 				</button>
 			</p>
 		</div>
 		{% for review in product.reviews.all reversed %}
-		{% include "store/components/reviews.html" %}
-		{% endfor %}
-		{% if product.get_review_count < 1 %}
-		<p class="text-muted small">This product is yet to be
+		{% include "store/components/reviews.html" %} {% endfor %}
+		{% if product.get_review_count < 1 %} <p class="text-muted small">This
+			product is yet to be
 			reviewed.</p>
 		{% endif %}
 	</div>
@@ -343,7 +343,8 @@
 				</div>
 				<div class="modal-body">
 					<p>Are you sure you want delete the product:
-						{{ product.name|title}}?<br>and all associated data.
+						{{ product.name|title}}?<br>and all associated
+						data.
 					</p>
 					<p>This action cannot be undone.</p>
 					<p>You should consider setting the product as inactive
@@ -351,7 +352,8 @@
 						of deleting it. here <span class="fs-5">
 							<a href="{% url 'product-update' product.slug %}">
 								<i class="far fa-edit text-danger"
-									title="Click to edit product"></i></a></p>
+									title="Click to edit product"></i></a>
+					</p>
 					<form method="post"
 						action="{% url 'product-delete' product.slug %}?next={{ request.path }}">
 						{% csrf_token %}
@@ -425,7 +427,8 @@
 								<label
 									for="lastreviewTextarea">{% if not request.user.is_authenticated %}Please
 									sign in to leave a review.
-									{% else %}Submit a review of your purchase
+									{% else %}Submit a review of your
+									purchase
 									here.{% endif %} </label>
 							</div>
 							<div>
