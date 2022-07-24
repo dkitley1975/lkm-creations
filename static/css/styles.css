@@ -392,7 +392,8 @@ body {
 }
 
 #shopAnnouncementModal:hover {
-	background: var(--clr-brand-primary-light);
+	background: #ffeded;
+	;
 }
 
 #shopAnnouncementModal:hover .modal-top #closeBtn {

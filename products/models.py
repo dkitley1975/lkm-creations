@@ -190,7 +190,7 @@ class Product(models.Model):
         upload_to="images/products/",
         null=False,
         blank=True,
-        default="images/default/default_image.webp",
+        default="images/default/default_image.png",
     )
     image_alt_text = models.CharField(
         max_length=50,

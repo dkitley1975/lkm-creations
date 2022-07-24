@@ -42,7 +42,7 @@
 			<img class="img-fluid mx-auto d-block
 								rounded-10 box-shadow" {% if review.image != NULL or "" %}
 				src="{{ MEDIA_URL }}{{ review.image }}"
-				onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
+				onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
 				{% endif %}
 				alt="image regarding {{product.name}} from the purchaser {{ review.created_by }}"
 				oncontextmenu="return false;">

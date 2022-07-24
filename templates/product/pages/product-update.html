@@ -45,9 +45,9 @@
 							<img class="img-fluid mx-auto d-block product-image-size
 							rounded-10 box-shadow" {% if product.image.url != NULL or "" %}
 								src="{{ product.image.url }}"
-								onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
+								onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
 								{% else %}
-								src="{{ MEDIA_URL }}images/default/default_image.webp"
+								src="{{ MEDIA_URL }}images/default/default_image.png"
 								{% endif %} alt="{{ product.image_alt_text }}"
 								oncontextmenu="return false;">
 							{% endif %}

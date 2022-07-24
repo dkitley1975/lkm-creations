@@ -7,7 +7,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
 from django.views.generic.base import RedirectView
 
-from core.views import robots_txt
+from core.views import robots_txt, bad_request_error_400, forbidden_error_403, page_not_found_view_404, internal_error_500
 
 from .sitemaps import CategorySitemap, ProductSitemap, StaticSitemap
 

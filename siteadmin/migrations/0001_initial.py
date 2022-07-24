@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('alert_message', models.TextField(blank=True, help_text='format: required, max_length: 200', null=True, verbose_name='Site Alert Message')),
-                ('image', models.ImageField(default='images/default/default_image.webp', help_text='format: required, 440px by 320px', upload_to='images/homepage/', verbose_name='Home Page Image')),
+                ('image', models.ImageField(default='images/default/default_image.png', help_text='format: required, 440px by 320px', upload_to='images/homepage/', verbose_name='Home Page Image')),
                 ('image_alt_text', models.CharField(help_text='format: required, max_length: 150', max_length=150, verbose_name="alternative text to show if image doesn't load")),
                 ('store_description', models.TextField(help_text="format: required, max_length: 160,  include keywords, discounts,                 or offers you're selling", max_length=160, verbose_name='Store Description')),
                 ('store_keywords', models.TextField(help_text='These are the keywords that your site can be searched with on                Google. Make these single words, relevant to your site,                 often searched', verbose_name='Store Keywords, SEO')),

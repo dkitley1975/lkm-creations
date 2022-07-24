@@ -30,6 +30,8 @@
 					{% if item.product.image.url %}
 					<a href="{% url 'product-detail' item.product.slug %}"
 						target="_self">
+
+
 						<img src="{{ item.product.image.url }}" class="img-fluid mx-auto d-block product-image-size
 							rounded-10 box-shadow" alt="{{ item.product.image_alt_text }}"
 							oncontextmenu="return false;">
@@ -37,9 +39,21 @@
 					{% else %}
 					<a href="{% url 'product-detail' item.product.slug %}"
 						target="_self">
-						<img class="img-fluid mx-auto d-block product-image-size
-							rounded-10 box-shadow" src="{{ MEDIA_URL }}images/default_image.webp"
-							alt="{{ item.product.name }}">
+						<picture>
+							<source
+								srcset="{{ MEDIA_URL }}images/default_image.png"
+								type="image/webp" alt="{{ item.product.name }}"
+								class="rounded
+					mx-auto d-block img-fluid image-drop-shadow">
+							<source
+								srcset="{{ MEDIA_URL }}images/default_image.png"
+								type="image/png" alt="{{ item.product.name }}"
+								class="rounded mx-auto
+					d-block img-fluid image-drop-shadow">
+							<img src="{{ MEDIA_URL }}images/default_image.png"
+								alt="{{ item.product.name }}" class="rounded mx-auto d-block
+					img-fluid image-drop-shadow">
+						</picture>
 					</a>
 					{% endif %}
 					<p class="fw-semibold text-muted text-center">

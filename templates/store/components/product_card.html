@@ -9,9 +9,9 @@
 					oncontextmenu="return false;" loading="lazy"
 					{% if product.image.url != NULL or "" %}
 					src="{{ product.image.url }}"
-					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.webp'"
+					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
 					{% else %}
-					src="{{ MEDIA_URL }}images/default/default_image.webp"
+					src="{{ MEDIA_URL }}images/default/default_image.png"
 					{% endif %}>
 			</a>
 			<div class="card-body">

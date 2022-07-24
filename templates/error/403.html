@@ -25,13 +25,27 @@
 					the correct permissions to access this area,
 					please contact us by email, letting us know what you were
 					trying to access and your username and email address<br>
-					<a class="text-black text-decoration-none
-					link-hover-primary" hre,m </div> </div> </div> <div
-						class="col-12 col-md-6 order-1 order-md-2">
-						<img class="rounded mx-auto d-block img-fluid image-drop-shadow"
-							src="{{ MEDIA_URL }}images/yoda.webp"
-							alt="An image of a Amigurumi Yoda">
+					<a
+						href="mailto:{{ site_info.email_address }}?subject=LKM%20Creations%20%20-%20403%20error">
+						({{ site_info.email_address }})
+					</a>
 				</div>
 			</div>
+			<div class="col-12 col-md-6 order-1 order-md-2">
+				<picture>
+					<source srcset="{{ MEDIA_URL }}images/yoda.webp"
+						type="image/webp" alt="An image of a Amigurumi Yoda"
+						class="rounded
+					mx-auto d-block img-fluid image-drop-shadow">
+					<source srcset="{{ MEDIA_URL }}images/yoda.png"
+						type="image/png" alt="An image of a Amigurumi Yoda"
+						class="rounded mx-auto
+					d-block img-fluid image-drop-shadow">
+					<img src="{{ MEDIA_URL }}images/yoda.png"
+						alt="An image of a Amigurumi Yoda" class="rounded mx-auto d-block
+					img-fluid image-drop-shadow">
+				</picture>
+			</div>
+		</div>
 </main>
 {% endblock %}
