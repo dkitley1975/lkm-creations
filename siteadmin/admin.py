@@ -45,7 +45,7 @@ class SiteInfoAdmin(admin.ModelAdmin):
             {
                 "classes": ("collapse", "extrapretty"),
                 "fields": (
-                    ("image_thumbnail", "image"),
+                    ("image", "image_thumbnail"),
                     ("image_preferred", "image_preferred_thumbnail"),
                     "image_alt_text",
                 ),

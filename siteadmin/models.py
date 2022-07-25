@@ -1,9 +1,6 @@
-import datetime
-from io import BytesIO
-
-from django.core.files.base import ContentFile
 from django.db import models
-from PIL import Image
+
+from products.convert_image import Convert2png, Convert2webp
 
 dec_help = "format: max_digits=5, decimal_places=2"
 date_help = "enter date in format: Y-m-d H:M:S, null-true, blank-true"
@@ -201,49 +198,12 @@ class SiteInfo(models.Model):
             """
             Take the uploaded image and convert it to png and webp.
             """
-            self.Convert2webp()
-            self.Convert2png()
+            # lkm-creation_SaveName_date
+            # (lkm-creation, date and extension are
+            # handled by the function)
+            saveName = "home_page_image"
+
+            Convert2webp(self, saveName)
+            Convert2png(self, saveName)
 
         super(SiteInfo, self).save(*args, **kwargs)
-
-    def Convert2png(self):
-        """
-        Convert the image to a png file.
-        """
-        Current_Date = datetime.datetime.today().strftime("%d-%b-%Y")
-        convert2png_filename = (
-            "%s.png"
-            % f'"lkm-creations_home_page_image_"{str(Current_Date)}'
-        )  # create a filename
-        convert2png_image = Image.open(self.image)
-        convert2png_image.thumbnail((900, 600))
-        convert2png_image_io = BytesIO()
-        convert2png_image.save(
-            convert2png_image_io, format="PNG", quality=100
-        )
-        self.image.save(
-            convert2png_filename,
-            ContentFile(convert2png_image_io.getvalue()),
-            save=False,
-        )
-
-    def Convert2webp(self):
-        """
-        Convert the image to webp format and save it to the database.
-        """
-        Current_Date = datetime.datetime.today().strftime("%d-%b-%Y")
-        convert2webp_filename = (
-            "%s.webp"
-            % f'"lkm-creations_home_page_image_"{str(Current_Date)}'
-        )
-        convert2webp_image = Image.open(self.image)
-        convert2webp_image.thumbnail((900, 600))
-        convert2webp_image_io = BytesIO()
-        convert2webp_image.save(
-            convert2webp_image_io, format="WEBP", quality=90
-        )
-        self.image_preferred.save(
-            convert2webp_filename,
-            ContentFile(convert2webp_image_io.getvalue()),
-            save=False,
-        )

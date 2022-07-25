@@ -35,8 +35,6 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 LOCAL_DB = config('LOCAL_DB', default=False, cast=bool)
 USE_AWS = config('USE_AWS', default=True, cast=bool)
 
-TEMPLATE_DEBUG = DEBUG
-
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 

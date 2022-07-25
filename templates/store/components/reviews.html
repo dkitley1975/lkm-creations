@@ -39,13 +39,17 @@
 
 		{% if review.image %}
 		<div class="col-3">
-			<img class="img-fluid mx-auto d-block
-								rounded-10 box-shadow" {% if review.image != NULL or "" %}
-				src="{{ MEDIA_URL }}{{ review.image }}"
-				onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
-				{% endif %}
-				alt="image regarding {{product.name}} from the purchaser {{ review.created_by }}"
-				oncontextmenu="return false;">
+			<picture>
+				<source srcset="{{ MEDIA_URL }}{{ review.image_preferred }}"
+					type="image/webp">
+				<source srcset="{{ MEDIA_URL }}{{ review.image }}"
+					type="image/jpeg">
+				<img src="{{ MEDIA_URL }}{{ review.image }}"
+					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
+					alt="image regarding {{product.name}} from the purchaser
+					{{ review.created_by }}" class="img-fluid mx-auto d-block
+					rounded-10 box-shadow" oncontextmenu="return false;">
+			</picture>
 		</div>
 		{% endif %}
 

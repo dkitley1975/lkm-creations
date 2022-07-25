@@ -112,9 +112,11 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 @admin.register(Review)
+@admin_thumbnails.thumbnail("image", "Thumbnail")
+@admin_thumbnails.thumbnail("image_preferred", "Thumbnail")
 class ReviewAdmin(admin.ModelAdmin):
     """
-    The admin interface for the Category model.
+    The admin interface for the Review model.
     """
 
     list_display = [
@@ -123,5 +125,34 @@ class ReviewAdmin(admin.ModelAdmin):
         "content",
         "created_at",
         "created_by",
+        "image_thumbnail",
     ]
     ordering = ["created_at"]
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "product",
+                    "rating",
+                    "content",
+                    "created_at",
+                    "created_by",
+                )
+            },
+        ),
+        (
+            "Imagery",
+            {
+                "classes": ("show", "extrapretty"),
+                "fields": (
+                    ("image", "image_thumbnail"),
+                    ("image_preferred", "image_preferred_thumbnail"),
+                ),
+            },
+        ),
+    )
+    readonly_fields = (
+        "created_at",
+        "image_preferred",
+    )
