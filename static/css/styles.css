@@ -447,9 +447,3 @@ body {
 		margin-top: 160px;
 	}
 }
-
-@media screen and (max-width: 768px) {
-	.modal {
-		top: 160px;
-	}
-}
