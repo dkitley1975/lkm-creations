@@ -1,9 +1,14 @@
+import datetime
+from io import BytesIO
+
 from django.contrib.auth.models import User
+from django.core.files.base import ContentFile
 from django.db import models
 from django.db.models import Max
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from PIL import Image
 
 date_help = _("enter date in format: Y-m-d H:M:S, null-true, blank-true")
 dec_help = _("format: max_digits=5, decimal_places=2")
@@ -192,6 +197,12 @@ class Product(models.Model):
         blank=True,
         default="images/default/default_image.png",
     )
+    image_preferred = models.ImageField(
+        upload_to="images/products/",
+        null=False,
+        blank=False,
+        default="images/default/default_image.png",
+    )
     image_alt_text = models.CharField(
         max_length=50,
         unique=False,
@@ -316,8 +327,60 @@ class Product(models.Model):
     available_items = AvailableItemsManager()
 
     def save(self, *args, **kwargs):
+        if self.image:
+            """
+            Take the uploaded image and convert it to png and webp.
+            """
+            self.Convert2webp()
+            self.Convert2jpg()
+
+        # uses the name field to create a slug and saves to the slug field
         self.slug = slugify(self.name)
         super(Product, self).save(*args, **kwargs)
+
+    def Convert2jpg(self):
+        """
+        Convert the image to a jpg file.
+        """
+        Current_Date = datetime.datetime.today().strftime("%d-%b-%Y")
+        convert2jpg_filename = (
+            "%s.jpg"
+            % f'{self.name}_{self.sku}"_lkm-creations_"{str(Current_Date)}'
+        )  # create a filename
+        convert2jpg_image = Image.open(self.image)
+        convert2jpg_image.thumbnail((800, 800))
+        convert2jpg_image_io = BytesIO()
+        convert2jpg_image.save(
+            convert2jpg_image_io, format="JPEG", quality=100
+        )
+        self.image.save(
+            convert2jpg_filename,
+            ContentFile(convert2jpg_image_io.getvalue()),
+            save=False,
+        )
+        print(self.image.size)
+
+    def Convert2webp(self):
+        """
+        Convert the image to webp format and save it to the database.
+        """
+        Current_Date = datetime.datetime.today().strftime("%d-%b-%Y")
+        convert2webp_filename = (
+            "%s.webp"
+            % f'{self.name}_{self.sku}"_lkm-creations_"{str(Current_Date)}'
+        )
+        convert2webp_image = Image.open(self.image)
+        convert2webp_image.thumbnail((800, 800))
+        convert2webp_image_io = BytesIO()
+        convert2webp_image.save(
+            convert2webp_image_io, format="WEBP", quality=90
+        )
+        self.image_preferred.save(
+            convert2webp_filename,
+            ContentFile(convert2webp_image_io.getvalue()),
+            save=False,
+        )
+        print(self.image_preferred.size)
 
     class Meta:
         """

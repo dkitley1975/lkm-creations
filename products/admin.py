@@ -29,6 +29,7 @@ class ColourAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 @admin_thumbnails.thumbnail("image", "Thumbnail")
+@admin_thumbnails.thumbnail("image_preferred", "Thumbnail")
 class ProductAdmin(admin.ModelAdmin):
     """
     The admin interface for the Product model.
@@ -51,8 +52,8 @@ class ProductAdmin(admin.ModelAdmin):
             {
                 "classes": ("collapse", "extrapretty"),
                 "fields": (
-                    "image_thumbnail",
-                    "image",
+                    ("image", "image_thumbnail"),
+                    ("image_preferred", "image_preferred_thumbnail"),
                     "image_alt_text",
                 ),
             },
@@ -107,6 +108,7 @@ class ProductAdmin(admin.ModelAdmin):
         "sale_price",
         "is_active",
     ]
+    readonly_fields = ("image_preferred",)
 
 
 @admin.register(Review)
