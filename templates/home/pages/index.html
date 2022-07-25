@@ -14,10 +14,17 @@
 		<div class="row flex-md-row-reverse align-items-center g-5 py-5">
 			{% if site_info.image %}
 			<div class="col-12 col-md-5 col-lg-6">
-				<img src="{{ site_info.image.url }}"
-					class="d-block mx-lg-auto img-fluid"
-					alt="{{ site_info.image_alt_text }}" width="900"
-					height="600">
+				<picture>
+					<source srcset="{{ site_info.image_preferred.url }}"
+						type="image/webp">
+					<source srcset="{{ site_info.image.url }}"
+						type="image/jpeg">
+					<img src="{{ site_info.image.url }}"
+						onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
+						alt="{{ site_info.image_alt_text }}"
+						class="d-block mx-lg-auto img-fluid" width="900"
+						height="600">
+				</picture>
 			</div>
 			{% endif %}
 			<div class="col-12 col-md-7 col-lg-5 offset-lg-1">

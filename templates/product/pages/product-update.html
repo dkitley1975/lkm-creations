@@ -41,16 +41,17 @@
 				<div class="row">
 					<div class="col-12 col-md-4 col-lg-4 offset-lg-1">
 						<div class="image-container mt-5 mb-3">
-							{% if product.image.url %}
-							<img class="img-fluid mx-auto d-block product-image-size
-							rounded-10 box-shadow" {% if product.image.url != NULL or "" %}
-								src="{{ product.image.url }}"
-								onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
-								{% else %}
-								src="{{ MEDIA_URL }}images/default/default_image.png"
-								{% endif %} alt="{{ product.image_alt_text }}"
-								oncontextmenu="return false;">
-							{% endif %}
+							<picture>
+								<source
+									srcset="{{ product.image_preferred.url }}"
+									type="image/webp">
+								<source srcset="{{ product.image.url }}"
+									type="image/jpeg">
+								<img src="{{ product.image.url }}"
+									onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
+									alt="{{ product.image_alt_text }}" class="img-fluid mx-auto d-block
+									product-image-size rounded-10 box-shadow">
+							</picture>
 						</div>
 					</div>
 					<div class="col-10 offset-1 col-md-5 col-lg-5">

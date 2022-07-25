@@ -202,6 +202,10 @@ class Product(models.Model):
         null=False,
         blank=False,
         default="images/default/default_image.png",
+        verbose_name=(
+            "WEBP Product Image - may not show on older devices,  \
+            so jpg is fallback image"
+        ),
     )
     image_alt_text = models.CharField(
         max_length=50,
@@ -334,7 +338,8 @@ class Product(models.Model):
             self.Convert2webp()
             self.Convert2jpg()
 
-        # uses the name field to create a slug and saves to the slug field
+        # uses the name field to create a slug
+        # and saves to the slug field
         self.slug = slugify(self.name)
         super(Product, self).save(*args, **kwargs)
 
@@ -358,7 +363,6 @@ class Product(models.Model):
             ContentFile(convert2jpg_image_io.getvalue()),
             save=False,
         )
-        print(self.image.size)
 
     def Convert2webp(self):
         """
@@ -380,7 +384,6 @@ class Product(models.Model):
             ContentFile(convert2webp_image_io.getvalue()),
             save=False,
         )
-        print(self.image_preferred.size)
 
     class Meta:
         """

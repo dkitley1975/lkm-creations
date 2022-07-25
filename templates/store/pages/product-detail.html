@@ -64,18 +64,16 @@
 	<div class="row">
 		<div class="col-10 offset-1 col-md-4 col-lg-4 offset-lg-1">
 			<div class="image-container mt-5 mb-3">
-				{% if product.image.url %}
+				<picture>
+					<source srcset="{{ product.image_preferred.url }}"
+						type="image/webp">
+					<source srcset="{{ product.image.url }}" type="image/jpeg">
+					<img src="{{ product.image.url }}"
+						onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
+						alt="{{ product.image_alt_text }}" class="img-fluid mx-auto d-block
+						product-image-size rounded-10 box-shadow">
+				</picture>
 
-				<img class="img-fluid mx-auto d-block product-image-size
-							rounded-10 box-shadow" {% if product.image.url != NULL or "" %}
-					src="{{ product.image.url }}"
-					onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
-					{% else %}
-					src="{{ MEDIA_URL }}images/default/default_image.png"
-					{% endif %} alt="{{ product.image_alt_text }}"
-					oncontextmenu="return false;">
-
-				{% endif %}
 			</div>
 			<div>
 				<p class="logo-font-lkm fs-3 mt-0 mb-0">
@@ -122,7 +120,7 @@
 				<div>
 					<p class="fs-3 mt-3 mb-0">
 						<span class="logo-font-lkm">Reviews</span>
-						<button role="button" data-bs-toggle="modal"
+						<button data-bs-toggle="modal"
 							{% if request.user.is_authenticated %}
 							data-bs-target="#leaveAReviewModal" {% else %}
 							data-bs-target="#logInModal" {% endif %}
@@ -315,7 +313,7 @@
 		<div>
 			<p class="fs-3 mt-3 mb-0">
 				<span class="logo-font-lkm">Reviews</span>
-				<button role="button" data-bs-toggle="modal"
+				<button data-bs-toggle="modal"
 					{% if request.user.is_authenticated %}
 					data-bs-target="#leaveAReviewModal" {% else %}
 					data-bs-target="#logInModal" {% endif %}
@@ -354,7 +352,7 @@
 						of deleting it. here <span class="fs-5">
 							<a href="{% url 'product-update' product.slug %}">
 								<i class="far fa-edit text-danger"
-									title="Click to edit product"></i></a>
+									title="Click to edit product"></i></a></span>
 					</p>
 					<form method="post"
 						action="{% url 'product-delete' product.slug %}?next={{ request.path }}">
@@ -447,8 +445,7 @@
 									<input type="submit"
 										class="btn btn-primary mb-5"
 										{% if request.user.is_authenticated %}
-										{% else %} disabled
-										{% endif %}></input>
+										{% else %} disabled {% endif %}>
 								</span>
 							</div>
 						</form>

@@ -1,4 +1,9 @@
+import datetime
+from io import BytesIO
+
+from django.core.files.base import ContentFile
 from django.db import models
+from PIL import Image
 
 dec_help = "format: max_digits=5, decimal_places=2"
 date_help = "enter date in format: Y-m-d H:M:S, null-true, blank-true"
@@ -23,8 +28,21 @@ class SiteInfo(models.Model):
         null=False,
         blank=False,
         default="images/default/default_image.png",
-        verbose_name=("Home Page Image"),
-        help_text=("format: required, 440px by 320px"),
+        verbose_name=("Home Page Image "),
+        help_text=(
+            "format: required, 900px by 600px PNG file  \
+                   with a transparent background"
+        ),
+    )
+    image_preferred = models.ImageField(
+        upload_to="images/homepage/",
+        null=False,
+        blank=False,
+        default="images/default/default_image.png",
+        verbose_name=(
+            "WEBP Product Image - may not show on older devices,  \
+            so jpg is fallback image"
+        ),
     )
     image_alt_text = models.CharField(
         max_length=150,
@@ -177,3 +195,55 @@ class SiteInfo(models.Model):
         verbose_name = "Site Default Information"
         verbose_name_plural = "Site Default Information"
         ordering = ["id"]
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            """
+            Take the uploaded image and convert it to png and webp.
+            """
+            self.Convert2webp()
+            self.Convert2png()
+
+        super(SiteInfo, self).save(*args, **kwargs)
+
+    def Convert2png(self):
+        """
+        Convert the image to a png file.
+        """
+        Current_Date = datetime.datetime.today().strftime("%d-%b-%Y")
+        convert2png_filename = (
+            "%s.png"
+            % f'"lkm-creations_home_page_image_"{str(Current_Date)}'
+        )  # create a filename
+        convert2png_image = Image.open(self.image)
+        convert2png_image.thumbnail((900, 600))
+        convert2png_image_io = BytesIO()
+        convert2png_image.save(
+            convert2png_image_io, format="PNG", quality=100
+        )
+        self.image.save(
+            convert2png_filename,
+            ContentFile(convert2png_image_io.getvalue()),
+            save=False,
+        )
+
+    def Convert2webp(self):
+        """
+        Convert the image to webp format and save it to the database.
+        """
+        Current_Date = datetime.datetime.today().strftime("%d-%b-%Y")
+        convert2webp_filename = (
+            "%s.webp"
+            % f'"lkm-creations_home_page_image_"{str(Current_Date)}'
+        )
+        convert2webp_image = Image.open(self.image)
+        convert2webp_image.thumbnail((900, 600))
+        convert2webp_image_io = BytesIO()
+        convert2webp_image.save(
+            convert2webp_image_io, format="WEBP", quality=90
+        )
+        self.image_preferred.save(
+            convert2webp_filename,
+            ContentFile(convert2webp_image_io.getvalue()),
+            save=False,
+        )

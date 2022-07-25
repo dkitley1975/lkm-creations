@@ -6,6 +6,7 @@ from .models import SiteInfo
 
 @admin.register(SiteInfo)
 @admin_thumbnails.thumbnail("image", "Thumbnail")
+@admin_thumbnails.thumbnail("image_preferred", "Thumbnail")
 class SiteInfoAdmin(admin.ModelAdmin):
     """
     This is a custom admin class for the model.
@@ -44,8 +45,8 @@ class SiteInfoAdmin(admin.ModelAdmin):
             {
                 "classes": ("collapse", "extrapretty"),
                 "fields": (
-                    "image_thumbnail",
-                    "image",
+                    ("image_thumbnail", "image"),
+                    ("image_preferred", "image_preferred_thumbnail"),
                     "image_alt_text",
                 ),
             },
@@ -80,3 +81,5 @@ class SiteInfoAdmin(admin.ModelAdmin):
         "delivery_price",
         "is_active",
     ]
+
+    readonly_fields = ("image_preferred",)

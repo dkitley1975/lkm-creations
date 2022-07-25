@@ -42,16 +42,22 @@
 
 							<a href="{% url 'product-detail' item.product.slug %}"
 								target="_blank">
-								{% if item.product.image.url %}
-								<img src="{{ item.product.image.url }}" class="img-fluid mx-auto d-block
-								product-image-size rounded-10 box-shadow"
-									alt="{{ item.product.image_alt_text }}"
-									oncontextmenu="return false;">
-								{% else %}
-								<img class="card-img-top img-fluid"
-									src="{{ MEDIA_URL }}images/default_image.png"
-									alt="{{ item.product.name }}">
-								{% endif %}
+								<picture>
+									<source
+										srcset="{{ item.product.image_preferred.url }}"
+										type="image/webp">
+									<source
+										srcset="{{ item.product.image.url }}"
+										type="image/jpeg">
+									<img src="{{ item.product.image.url }}"
+										onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
+										alt="{{ item.product.image_alt_text }}"
+										class="img-fluid mx-auto d-block
+		product-image-size rounded-10 box-shadow">
+								</picture>
+
+
+
 							</a>
 						</div>
 						<div class="col-9">
