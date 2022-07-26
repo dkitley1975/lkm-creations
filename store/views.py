@@ -5,7 +5,7 @@ from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django .core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator, EmptyPage
 
 from products.models import Category, Product, Review
 
@@ -29,7 +29,6 @@ def category_list(request, category_slug=None):
     }
 
     return render(request, "store/pages/category.html", context)
-
 
 
 def store_front(request):

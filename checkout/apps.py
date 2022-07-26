@@ -5,6 +5,7 @@ class CheckoutConfig(AppConfig):
     """
     Create a new config object.
     """
+
     name = "checkout"
 
     def ready(self):
