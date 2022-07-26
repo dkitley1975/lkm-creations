@@ -15,11 +15,13 @@
 		<h2 class="my-3 fs-3">These are all our
 			{{ category.name|title }} products</h2>
 	</section>
-	<section class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
-		row-cols-xl-4 g-5">
-		{% for product in products %}
+	<section class="mt-3 col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
+		g-5">
+		{% for product in products_page_obj %}
 		{% include "store/components/product_card.html" %}
 		{% endfor %}
 	</section>
+	{% include "store/components/product_pagination_nav.html" %}
+
 </main>
 {%endblock%}

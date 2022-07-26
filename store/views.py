@@ -5,6 +5,7 @@ from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django .core.paginator import Paginator, EmptyPage
 
 from products.models import Category, Product, Review
 
@@ -16,11 +17,19 @@ def category_list(request, category_slug=None):
     """
     category = get_object_or_404(Category, slug=category_slug)
     products = Product.available_items.filter(category=category)
-    return render(
-        request,
-        "store/pages/category.html",
-        {"category": category, "products": products},
-    )
+
+    paginated_products = Paginator(products, 6)
+    page_number = request.GET.get("page")
+    products_page_obj = paginated_products.get_page(page_number)
+    context = {
+        "products": products,
+        "category": category,
+        "products_page_obj": products_page_obj,
+        "page_number": page_number,
+    }
+
+    return render(request, "store/pages/category.html", context)
+
 
 
 def store_front(request):
@@ -58,10 +67,17 @@ def store_front(request):
             )
             products = products.filter(queries)
     current_sorting = f"{sort}_{sort_direction}"
+
+    paginated_products = Paginator(products, 6)
+    page_number = request.GET.get("page")
+    products_page_obj = paginated_products.get_page(page_number)
+
     context = {
         "products": products,
         "search_term": query,
         "current_sorting": current_sorting,
+        "products_page_obj": products_page_obj,
+        "page_number": page_number,
     }
     return render(request, "store/pages/products.html", context)
 
@@ -141,6 +157,13 @@ def products_on_sale(request):
         .exclude(sale_price__exact="0.00")
         .order_by("-sale_price")
     )
-    return render(
-        request, "store/pages/sale-products.html", {"products": products}
-    )
+    paginated_products = Paginator(products, 6)
+    page_number = request.GET.get("page")
+    products_page_obj = paginated_products.get_page(page_number)
+    context = {
+        "products": products,
+        "products_page_obj": products_page_obj,
+        "page_number": page_number,
+    }
+
+    return render(request, "store/pages/sale-products.html", context)

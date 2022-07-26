@@ -112,6 +112,7 @@ TEMPLATES = [
                 # My Custom TemplateTags
                 "basket.templatetags.calc_item_subtotal",
                 "basket.templatetags.calc_item_available_stock",
+                "store.templatetags.product_filter_tag",
             ],
         },
     },

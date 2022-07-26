@@ -1,6 +1,5 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, UpdateView
-
 from .forms import CreateNewProductForm
 from .models import Product
 
