@@ -82,16 +82,4 @@
 		"image_preferred": "",
 		"created_at": "2022-07-20T10:27:24.631Z"
 	}
-}, {
-	"model": "products.review",
-	"pk": 17,
-	"fields": {
-		"product": 12,
-		"rating": 1,
-		"content": "ssffsfsfsfs",
-		"created_by": 1,
-		"image": "images/reviews/lkm-creations_admin_alpaca_review_25-Jul-2022.jpg",
-		"image_preferred": "images/reviews/lkm-creations_admin_alpaca_review_25-Jul-2022.webp",
-		"created_at": "2022-07-25T12:52:19.137Z"
-	}
 }]
