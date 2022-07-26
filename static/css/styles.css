@@ -235,6 +235,10 @@ body {
 	color: #212529;
 }
 
+img:not([src]):not([srcset]) {
+	visibility: hidden;
+}
+
 .image-drop-shadow {
 	filter: drop-shadow(2px 4px 8px hsla(0deg, 0%, 0%, 0.5));
 }

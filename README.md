@@ -2,134 +2,125 @@
 
 # LKM-Creations <!-- omit in toc -->
 
-[![Leannes Learners](/documents/assets/screenshots/responsive-showcase-mockup.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
+[![LKM Creations](/documents/readme-documents/site-screenshots/lkm-creations-mockup.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
 This is the documentation regarding the creation of an e-commerce website for LKM-Creations.
 This is my 5th and final Portfolio Project for the Code Institute's Diploma in Full Stack Development.
 The projects purpose:
-To build a Full-Stack site based on business logic used to control a centrally-owned dataset. Including an authentication mechanism and providing role-based access to the site's data or other activities based on the dataset.
+To build a Full-Stack site based on business logic used to control a centrally-owned dataset. Set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service..
 
 # Table Of Contents
 
 - [Table Of Contents](#table-of-contents)
   - [UX (User Experience)](#ux-user-experience)
-    - [User Stories](#user-stories)
-    - [Site Owner Goals](#site-owner-goals)
-  - [User Persona Summary !User Persona Summary](#user-persona-summary-)
+    - [User Stories/Epics](#user-storiesepics)
+      - [Epic 1 - Core Functionality:](#epic-1---core-functionality)
+      - [Epic 2 - Products:](#epic-2---products)
+      - [Epic 3 - Orders/Basket:](#epic-3---ordersbasket)
+      - [Epic 4 - User Account:](#epic-4---user-account)
+      - [Epic 5 - Contact:](#epic-5---contact)
+      - [Epic 6 - Reviews:](#epic-6---reviews)
+      - [Epic 7 - Admin Functionality:](#epic-7---admin-functionality)
+      - [Epic 8 - Marketing:](#epic-8---marketing)
+      - [Epic 9: Terms and Policy](#epic-9-terms-and-policy)
 - [Project Boards](#project-boards)
+  - [*Project Board*](#project-board)
+    - [Github Project Board - Issues listed by bug and epics](#github-project-board---issues-listed-by-bug-and-epics)
+    - [Github Project Board](#github-project-board)
 - [Design](#design)
   - [Database](#database)
   - [Mobile Wireframes](#mobile-wireframes)
   - [Fonts](#fonts)
   - [Colors](#colors)
-- [Technologies](#technologies)
-  - [Languages](#languages)
-  - [Frameworks and Tools](#frameworks-and-tools)
-- [CRUD](#crud)
+    - [*Main Colour Pallet*](#main-colour-pallet)
+    - [**Shades of the Brand Colours**](#shades-of-the-brand-colours)
+- [Languages](#languages)
+- [Frameworks and Tools](#frameworks-and-tools)
+- [CRUD Functionality](#crud-functionality)
   - [General User](#general-user)
   - [General - Registered User](#general---registered-user)
-  - [Pupil - Registered User (Pupil)](#pupil---registered-user-pupil)
-  - [Staff - Registered User (Pupil)](#staff---registered-user-pupil)
-    - [I able to Create, Update and Delete](#i-able-to-create-update-and-delete)
-- [Features](#features)
-  - [Navigation bar](#navigation-bar)
-  - [Small Screen Screenshots](#small-screen-screenshots)
-  - [Large Screen Screenshots](#large-screen-screenshots)
-    - [Home](#home)
-    - [About Us](#about-us)
-    - [Pass Plus](#pass-plus)
-    - [Prices](#prices)
-    - [Contact Us](#contact-us)
-      - [Contact Form](#contact-form)
-    - [Local Traffic Report](#local-traffic-report)
-    - [Terms and Conditions](#terms-and-conditions)
-    - [Login](#login)
-    - [Registration](#registration)
-    - [Blog/Posts Section](#blogposts-section)
-      - [Blog](#blog)
-      - [Post](#post)
-      - [Post Logged in as Staff](#post-logged-in-as-staff)
-        - [Post Delete](#post-delete)
-        - [Post Edit](#post-edit)
-      - [Commenting](#commenting)
-  - [Password reset](#password-reset)
-- [Admin](#admin)
-- [Error Pages](#error-pages)
-  - [Error 400](#error-400)
-  - [Error 403](#error-403)
-  - [Error 404](#error-404)
-  - [Error 500](#error-500)
-- [Deployment](#deployment)
-- [Cloning](#cloning)
-- [Credits](#credits)
+  - [Staff - Registered User](#staff---registered-user)
+- [Site Features](#site-features)
+  - [Home Page](#home-page)
+    - [Navigation bar](#navigation-bar)
+    - [Browse Products](#browse-products)
+    - [Product Details](#product-details)
 
 [Testing Documentation](/README_TESTING.md)
 
 ## UX (User Experience)
 
-### User Stories
+A visitor to LKM Creations! would be someone who is most likely an adult who is either intrested in Armigurumi, or interested in buying custom hand crafted gifts for their loved ones.
 
-**As a User**
+### User Stories/Epics
 
-- [x] I want to know where Leanne's Learners operate
-- [x] I want to see the service's Leanne's Learners offer.
-- [x] I want to be able to see the prices.
-- [x] I want to know about the company.
-- [x] I want to be able to contact the company.
-- [x] I want to be able engage with the site and with others.
-- [x] I want the ability to comment on a post.
-- [x] I want the ability to remove my comment, if I later decide.
-- [x] I want to be able to like both a blog posts content and comments
-- [ ] I want to book my lesson
-- [ ] I want to see my booked lessons
-- [ ] I want to cancel my lesson
+After logging the original user stories these were split in to groups releated to the functionality and features for the site.
+I have listed these below.
 
-### Site Owner Goals
+#### [Epic 1 - Core Functionality:](https://github.com/dkitley1975/lkm-creations/issues/7)
 
-*As a Site User*
+- [x] [#16](https://github.com/dkitley1975/lkm-creations/issues/16) As a user I can intuitively navigate through the site so that I can find the desired content.
+- [x] [#17](https://github.com/dkitley1975/lkm-creations/issues/17) As a user  I can find a navigation bar, so I can  easily find important links, such as home, products, the basket, sign in/out, register and my profile.
+- [x] [#18](https://github.com/dkitley1975/lkm-creations/issues/18) As a user I can find a footer so that I can find any contact information and any social media links
+- [x] [#19](https://github.com/dkitley1975/lkm-creations/issues/19) As a user I can ascertain the purpose of the site from the landing page.
+- [x] [#20](https://github.com/dkitley1975/lkm-creations/issues/20) As a user I want to be notified about any changes made, whilst using the site, so I have a clear understanding of what has been completed/updated/failed, such as items added to the basket, updates to my profile, payment confirmation.
+- [x] [#21](https://github.com/dkitley1975/lkm-creations/issues/21) As a user I can access the website on both mobile and desktop so that I can view the information regardless of my location.
 
-- [x] I want to show where Leanne's Learners operates.
-- [x] I want to show our prices.
-- [x] I want to let people see the services we offer
-- [x] I want to let people easily contact us either by email or phone.
+#### [Epic 2 - Products:](https://github.com/dkitley1975/lkm-creations/issues/8)
 
-#### I want to be able to engage with site users. <!-- omit in toc -->
+- [x] [#22](https://github.com/dkitley1975/lkm-creations/issues/22) As a user I can view all products that are in stock and available to purchase.
+- [x] [#23](https://github.com/dkitley1975/lkm-creations/issues/23) As a user I can easily find all of the relevant information about the products so that I can make informed decisions before purchasing.
+- [x] [#24](https://github.com/dkitley1975/lkm-creations/issues/24) As a user I can filter the products by categories, alphabetically or by rating, so that i can have more control over what I'm viewing.
+- [ ] [#25](https://github.com/dkitley1975/lkm-creations/issues/25) As a user I can choose where relevant the colour as well as the quantity of the products to add to the basket.
 
-- [x] I want to be able to have a blog section.
-  - [x] I want to be able to allow selected people to login to the site and easily add, delete and amend Posts.
-  - [x] I want to be able to allow registered users to be able to post comments on the posts.
-  - [x] I want to be able to allow users to reply to comments.
-  - [x] I want to be able to allow Leanne's Learners Staff to delete any comments posted.
-  - [x] I want to be able to allow Leanne's Learners Staff to create/delete/edit Posts.
-  - [x] I want the originator of a comment to be able to delete their comments and it's child comments.
+#### [Epic 3 - Orders/Basket:](https://github.com/dkitley1975/lkm-creations/issues/9)
 
-#### I want to be able to update information, without the need to ask the site developer.<!-- omit in toc -->
+- [x] [#26](https://github.com/dkitley1975/lkm-creations/issues/26) As a user I can easily add items to my shopping basket.
+- [x] [#27](https://github.com/dkitley1975/lkm-creations/issues/27) As a user I can view a breakdown of my basket so that I can make changes if required.
+- [x] [#28](https://github.com/dkitley1975/lkm-creations/issues/28) As a user I can only add items to the cart that are currently in stock.
+- [x] [#29](https://github.com/dkitley1975/lkm-creations/issues/29)As a user I am able to process orders by making a card payment.
+- [x] [#30](https://github.com/dkitley1975/lkm-creations/issues/30)As a user I want to receive order confirmations to be sure my order has been processed.
 
-- [x] Our Services and Prices
+#### [Epic 4 - User Account:](https://github.com/dkitley1975/lkm-creations/issues/10)
 
-- Our Contact Details
-  - [x] Contact Number
-  - [x] Email Address
-  - [x] Social Media Accounts
-    - [x] Facebook
-    - [x] Twitter
-    - [x] Whatsapp
-- [x] Add New Instructors and update information for current Instructors
-- [x] Update our operating hours
+- [x] [#31](https://github.com/dkitley1975/lkm-creations/issues/31) As a user I can register & log in so that I can view my orders.
+- [x] [#32](https://github.com/dkitley1975/lkm-creations/issues/32) As a user I can clearly see if I am signed in, with links to log in or log out.
+- [x] [#33](https://github.com/dkitley1975/lkm-creations/issues/33) As a user I am able to reset my account password if required.
+- [x] [#34](https://github.com/dkitley1975/lkm-creations/issues/34) As a user I am prompted to register for an account so that I can create an account and receive the benefits of having a profile.
+- [x] [#35](https://github.com/dkitley1975/lkm-creations/issues/35) As a user I can log in so that forms can auto-populate with my profile information on the site.
+- [x] [#36](https://github.com/dkitley1975/lkm-creations/issues/36) As a user I can save/edit my default billing/shipping details so that I can save time making my next purchase.
+- [x] [#37](https://github.com/dkitley1975/lkm-creations/issues/37) As a user I am able to view my previous orders.
+- [x] [#38](https://github.com/dkitley1975/lkm-creations/issues/38) As a user I am able to delete my account if required.
 
-#### Items discussed and wanted for the next interation of the site. <!-- omit in toc -->
+#### [Epic 5 - Contact:](https://github.com/dkitley1975/lkm-creations/issues/11)
 
-- [ ] I want to make it easy for pupils to book lessons.
-- [ ] I want to get an email when a pupil requests to make or cancel a lesson.
-- [ ] I want to be able to confirm a pupils requests to make or cancel a lesson.
-- [ ] I want to be able to cancel pupils lessons.
-- [x] I want to be able to place registered users in to a Pupil Group.
-- [x] I want to be able to get email from site users through a contact form
+- [x] [#39](https://github.com/dkitley1975/lkm-creations/issues/39) As a user I can find ways of contacting the site owners, either by email or social media.
 
-## User Persona Summary ![User Persona Summary](/documents/assets/UserPersonaSummary.jpg)
+#### [Epic 6 - Reviews:](https://github.com/dkitley1975/lkm-creations/issues/12)
 
-*The item's  left in this section of the document and marked as incomplete are left intentionally, as these are items discussed previously with the client. Although I could of removed these from the documentation and make it appear the site is completed, I believe it is important to leave these items showing as incomplete. Because the site isn't fully completed and is only through its first iteration, with plans for further development.*
+- [x] [#41](https://github.com/dkitley1975/lkm-creations/issues/41) As a user I can view reviews of a product, so that the information can help guide me into a purchasing decision.
+- [x] [#42](https://github.com/dkitley1975/lkm-creations/issues/42) As a user I can write a review of a product, so that the information can help guide others into a purchasing decision.
+- [x] [#43](https://github.com/dkitley1975/lkm-creations/issues/43) As a user I can edit/delete my review of a product, so it is removed if I no longer wish my review to be there.
 
-[Table of Contents](#table-of-contents)
+#### [Epic 7 - Admin Functionality:](https://github.com/dkitley1975/lkm-creations/issues/13)
+
+- [x] [#43](https://github.com/dkitley1975/lkm-creations/issues/43) As an admin user I can log in with administration privileges so that I can access the site's backend.
+- [x] [#44](https://github.com/dkitley1975/lkm-creations/issues/44) As an admin user I can access a product management area so that I can make changes in the front end.
+- [x] [#45](https://github.com/dkitley1975/lkm-creations/issues/46) As an admin user I can add/edit/remove items from the product list so that I can make sure the website is up to date and accurately reflects what is being sold.
+- [x] [#46](https://github.com/dkitley1975/lkm-creations/issues/46) As an admin user I can update the stock levels for the products so that customers are only able to purchase items in stock.
+- [x] [#47](https://github.com/dkitley1975/lkm-creations/issues/47) As an admin user I can receive an email from a user that fills in a contact form, so that I can answer any questions they may have
+
+#### [Epic 8 - Marketing:](https://github.com/dkitley1975/lkm-creations/issues/14)
+
+- [x] [#48](https://github.com/dkitley1975/lkm-creations/issues/48) As a user I can sign up to a newsletter so I can  be kept up to date with information regarding new items for sale.
+- [x] [#49](https://github.com/dkitley1975/lkm-creations/issues/49) As an admin user  I can implemented SEO keywords to increase traction to my website.
+- [x] [#50](https://github.com/dkitley1975/lkm-creations/issues/50) As an admin user I can link the created Facebook shop page to my site so the I can increase traction to my website.
+
+#### [Epic 9: Terms and Policy](https://github.com/dkitley1975/lkm-creations/issues/15)
+
+- [x] [#51](https://github.com/dkitley1975/lkm-creations/issues/51) As a user, I can view the Terms and Conditions document via a link in the footer of the site.
+- [x] [#52](https://github.com/dkitley1975/lkm-creations/issues/52) As a user, view a privacy policy document via a link in the footer of the site
+
+[Table of Contents  ⇧](#table-of-contents)
 
 ***
 
@@ -137,82 +128,83 @@ To build a Full-Stack site based on business logic used to control a centrally-o
 
 I Used Github's Project board to plan the project and Github Issue's for User Stories and Tasks
 
-*Project Board listed by Status*
-![Project Board listed by Status](/documents/assets/screenshots/GitHub_Project_Board_Screen_Shots/Leannes_Learners_Project_Board_List_By_Status.png)
+## *Project Board*
 
-*Project Board listed by Milestone*
-![Project Board listed by Milestone](/documents/assets/screenshots/GitHub_Project_Board_Screen_Shots/Leannes_Learners_Project_Board_List_By_Milestones.png)
+### [Github Project Board - Issues listed by bug and epics](https://github.com/users/dkitley1975/projects/12/views/1)
 
-*First Milestone with Tasks added*
-![Milestone with tasks added](/documents/assets/screenshots/GitHub_Project_Board_Screen_Shots/Leannes_Learners_Project_Board_Milestone_Description_And_Adding_Tasks.png)
+![Project Board - Issues listed by bug and epics](/documents/readme-documents/projectboard/LKM-CREATIONS-project-boards-issues-list.jpg)
 
-*User Story with Tasks added*
-![User Story with tasks added](/documents/assets/screenshots/GitHub_Project_Board_Screen_Shots/Leannes_Learners_Project_Board_User_Story_and_Added_Tasks.png)
+### [Github Project Board](https://github.com/users/dkitley1975/projects/12/views/3?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=Labels)
 
-*Project Board Kanban, with Automation*
-![Project Board Kanban, with Automation](/documents/assets/screenshots/GitHub_Project_Board_Screen_Shots/Leannes_Learners_Project_Board.png)
+![Project Board](/documents/readme-documents/projectboard/LKM-CREATIONS-Project-board.jpg)
 
-*Project Board in progress*
-![Project Board Kanban, with Automation](/documents/assets/screenshots/GitHub_Project_Board_Screen_Shots/Leannes_Learners_Project_Board_finish.png)
+[Table of Contents  ⇧](#table-of-contents)
 
-[Table of Contents](#table-of-contents)
 ***
 
 # Design
 
 ## Database
 
-Image showing the database for Leanne's Learners - main site area
-![Leannes Learners](/documents/assets/database/leannes_learners_data.png)
-
-Image showing the database for Leanne's Learners - Blog Post and User site area
-![Blog and Users](/documents/assets/database/blog_and_users.png)
+Image showing the database Scheme for LKM-CREATIONS
+![LKM-Creations Database Scheme](/documents/readme-documents/schema/LKM-CREATIONS-database-schema.jpg)
 
 ## Mobile Wireframes
 
-![MOBILE](/documents/assets/Wireframes/wireframe-mobile.png)
+![MOBILE](/)
+
+***
 
 ## Fonts
 
 The default Sans-Serif is used as the main font. I was unnecessary to change the default font type as this is an easy font to read and displays well throughout the site.
 
-For the headings I have used Pushster from Google
-![image](/documents/assets/screenshots/font/our_latest_blog_post.png)
-![image](/documents/assets/screenshots/font/our_latest_testimonials.png)
+The Logo is pre-designed and uses Caveat from Google
+![image](/documents/readme-documents/logo/LKM-CREATIONS-logo.png)
+***
 
 ## Colors
 
-These are the main images used throughout the site.
-![Main Colour Pallet](/documents/assets/colour-pallets/main-colour-palette.png)
+I have used these prexisting existing brand colours throughout the site.
 
-- clr-brand-primary: rgb(116, 36, 29) - used for the navigation bar and footer.
-- clr-brand-secondary: rgba(255, 239, 148, 0.742)  - used in the navigation bar.
-- clr-brand-tertiary: rgb(156, 207, 153)  - used as the hover state - to indicate GO.
-- clr-brand-tertiary-darker: rgb(68, 126, 65)  Used for the Like button.
-- clr-brand-quaternary: rgb(208, 0, 0)  - used as the hover state on some buttons - to indicate STOP/DANGER and the Dislike button.
+### *Main Colour Pallet*
 
-These light greys are used through out the site to highlite areas and as shadow areas.
+  ![Brand Primary Colour #e27c7c](https://via.placeholder.com/30/e27c7c/e27c7c.png) `Brand Primary Colour #e27c7c`
 
-- clr-background-light: rgb(238, 238, 238)
-- clr-background-grey: rgb(153, 158, 164)
-- clr-border-grey: rgb(222, 226, 230)
-- clr-box-shadow: rgb(153, 153, 153)
-- clr-link-dark: rgb(68, 82, 97)
-- clr-quotation-mark: rgb(51, 51, 51)
+![Brand Secondary Colour #FFD9C0](https://via.placeholder.com/30/FFD9C0/FFD9C0.png) `Brand Secondary Colour #FFD9C0`
 
-[Table of Contents](#table-of-contents)
+  ![Brand Tertiary Colour #FAF0D7](https://via.placeholder.com/30/FAF0D7/FAF0D7.png) `Brand Tertiary Colour #FAF0D7`
+
+### **Shades of the Brand Colours**
+
+*These are the shades of the brand colours used throughout the site.
+These were needed as there isn't enough contrast between the brand colours.*
+
+![Brand Primary Lightest Colour #fcf4f47a](https://via.placeholder.com/30/fcf4f47a/fcf4f47a.png) `Brand Primary Lightest Colour #fcf4f47a`
+
+![Brand Primary light Colour #ffe0e0](https://via.placeholder.com/30/ffe0e0/ffe0e0.png) `Brand Primary light Colour #ffe0e0`
+
+![Brand Primary Darker Colour #ce7b7b](https://via.placeholder.com/30/ce7b7b/ce7b7b.png) `Brand Primary Darker Colour #ce7b7b`
+
+![Brand Primary Darkest Colour #751818](https://via.placeholder.com/30/751818/751818.png) `Brand Primary Darkest Colour #751818`
+
+![Brand Secondary Darker Colour #fabd95](https://via.placeholder.com/30/fabd95/fabd95.png) `Brand Secondary Darker Colour #fabd95`
+
+[Table of Contents  ⇧](#table-of-contents)
 ***
 
-# Technologies
-
-## Languages
+# Languages
 
 - HTML
 - CSS
+- JavaScript
 - Python
 - Django
 
-## Frameworks and Tools
+[Table of Contents  ⇧](#table-of-contents)
+***
+
+# Frameworks and Tools
 
 - [GitHub](https://github.com/)
 - [Gitpod](https://www.gitpod.io/)
@@ -228,10 +220,10 @@ These light greys are used through out the site to highlite areas and as shadow 
 - [Pixabay](https://pixabay.com/)
 - [TinyPNG](https://tinypng.com/)
 
-[Table of Contents](#table-of-contents)
+[Table of Contents  ⇧](#table-of-contents)
 ***
 
-# CRUD
+# CRUD Functionality
 
 ## General User
 
@@ -239,267 +231,113 @@ As a **General User** of the site, I am able to browse and read the website, the
 
 ## General - Registered User
 
-As a **General Registered User** browser of the site, I am able do the same as the **General User**. In addition I am able to create *Comments* on Blog Posts, I can also *Like* and *Dislike* Posts and *Comments*. I can also *Delete* a *Comment* I made previously.
-I also have access to a new menu item which allows me to *Update* my *Registered Details* and *Update* my *User Profile*.
+As a **General Registered User** browser of the site, I am able do the same as the **General User**. In addition I am able to create *Reviews* for products, uploading a supporting image.
+I can also *Delete* a *Review* I made previously.
+I also have access to *My Account* menu item which allows me access to a User DASHBOARD area. Here I  *Update* my *Password*,  *Update* my *User Profile Details*, *Update* my *My default delivery Address* and *Delete* my *Account*.
 
-## Pupil - Registered User (Pupil)
+## Staff - Registered User
 
-As a **Registered User** who is marked a being a **Pupil**, I can do all that the **General Registered User** can do, I have access to a *Member's Area* menu item which allows me to view the Terms and Conditions I have entered into.
+As a Staff Registered User, I can do all that the **General - Registered User** can do, I have access to a *Create Product* menu within the User DASHBOARD.
+This links to a *Create Product* page, where I can *Create* a new *Product*.
+There is a message recommending that I use the Admin panel for this though and supplies a link to the Admin panel Add Product section.
 
-## Staff - Registered User (Pupil)
+When viewing a Product I also see a link to *Update* the Product, and *Delete* the Product.
+Clicking the link to edit a Product, I am able to *Update* the Product, updating information and replacing the image, which displays a preview immediately.
+There is a message recommending that I use the Admin panel for this though and supplies a direct link for this products edit section in the Admin Panel.
 
-As a Staff Registered User, I can do all that the **Pupil Registered Users** can do, I have access to a *Staff Area* menu which gives me access to the Admin Area and to a link to *create* a new Blog Post.
-When viewing a Post I also a link to *Update* the post, and *Delete* a Post.
-I can also *Delete* all Comments.
-I have to the Admin panel where I can Create, Read, Update and Delete all the information.
+Clicking on the Delete link I am able to *Delete* the Product.
+Again there is a message recommending that I use the Admin panel for this though and instead set the product to inactive instead and supplies a direct link for this products edit section in the Admin Panel.
 
-### I able to Create, Update and Delete
+I can also *Delete* any *Review*.
 
-- About Us, I can Create, Read, Update and Delete page information.
-- Carousel on the Home Page, I can Create, Read, Update and Delete Slides.
-- Company Contact and Social Medial Information, I can Create, Read, Update and Delete.
-- Driving Instructors, I can Create, Read, Update and Delete instructors information.
-- Pass Plus Page, I can Create, Read, Update and Delete page information.
-- Service Description,  I can Create, Read, Update and Delete the Services Provided and the prices by leannes Learners.
-- Teaching Hours, I can Create, Read, Update and Delete the teaching hours information.
-- Terms and Contitions, I can Create, Read, Update and Delete Terms and Conditions information
-- Testimonials, I can Create, Read, Update and Delete Testimonials
-- Categories, I can Create, Read, Update and Delete Categories.
-- Comments, I can Create, Read, Update and Delete Comments.
-- Posts, I can Create, Read, Update and Delete Posts.
-- User Profiles, I can Create, Read, Update and Delete Users and their profiles.
+I have access to the Admin panel where I can Create, Read, Update and Delete all the information.
+Creating, Editing, Updating and Deleting the *Products*, *Categories*, *Reviews*, *Users*, *Addresses*, *Orders*, *Payments*
 
-# Features
+[Table of Contents  ⇧](#table-of-contents)
+***
+
+# Site Features
 
 The website has the following features:
 
-## Navigation bar
+## Home Page
 
-These are the navigation bars for site users currently not logged in, just displaying the register and login options:
-Desktop
-![image](/documents/assets/screenshots/navbar/navbar_desktop.png)
-Small Screen
-![image](/documents/assets/screenshots/navbar/navbar_small_screen.png)
+### Navigation bar
 
-These are the navigation bars for site members logged in, displaying the menu bar selection for members with profile and detail edit optons. and now with logout replacing login and register options:
+- The navigation bar is present at the top of every page and houses all links to the various other pages.
+- The active page will be shown to have a bolder font helping users understand what page they're on.
+- Hovering over the links will lighten the font slightly.
+- The options to Register or Log in change to the option to log out once a user has logged in.
+- Once a user has signed in, The 'My Account' become available.
+- A search bar is nested in the navbar to search for items on the site.
+- There is a Newsletter sign up form on the navbar. This opens a modal, using Mailchimp as its provider.
+- The navbar is fully responsive, collapsing into a hamburger menu when the screen size becomes small.
 
-Desktop
-![image](/documents/assets/screenshots/navbar/navbar_member_desktop.png)
+Desktop Navbar Signed Out
+![Navbar](/documents/readme-documents/site-screenshots/desktop/navigation-bar.png)
 
-Small Screen
-![image](/documents/assets/screenshots/navbar/navbar_member_small_screen.png)
+Desktop Navbar Signed In
+![Navbar Signed In](/documents/readme-documents/site-screenshots/desktop/navigation-bar-signed-in.png)
 
-These are the navigation bars for site members who are pupils and logged in, displaying the menu bar selection for members with profile edit, details edit and the Terms and Conditions optons. This is to be expanded on when the lesson booking functionality is added on the next iteration:
+Mobile Navbar Signed Out
 
-Desktop
-![image](/documents/assets/screenshots/navbar/navbar_pupil_desktop.png)
-Small Screen
-![image](/documents/assets/screenshots/navbar/navbar_pupil_small_screen.png)
+![Navbar](/documents/readme-documents/site-screenshots/mobile/navigation-bar.png)
 
-These are the navigation bars for site Staff logged in, displaying the menu bar selection for staff with Login into admin and create a blog post optons.:
+Mobile Navbar Signed In
 
-Desktop
-![image](/documents/assets/screenshots/navbar/navbar_staff_desktop.png)
+![Navbar Signed In](/documents/readme-documents/site-screenshots/mobile/navigation-bar-signed-in.png)
 
-Small Screen
-![image](/documents/assets/screenshots/navbar/navbar_staff_small_screen.png)
+Mobile Navbar Collapsed
 
-## Small Screen Screenshots
+![Navbar Signed In](/documents/readme-documents/site-screenshots/mobile/navigation-bar-collapsed.png)
 
-Small Screen page designs
-![image](/documents/assets/screenshots/main_pages/leannes_learners_small_screen.png)
+### Browse Products
 
-## Large Screen Screenshots
+- Browsing the products, You can view the products by, Sale Items, All Products and Category.
+- The active page will be shown to have a bolder font helping users understand what page they're on.
+- The total amount of products in the view is shown on screen.
+- There is the ability to sort the products by name or price. Either assending or descending order.
+- A search bar is nested in the navbar to search for items on the site.
+- Each product cards displays the product name, image, price, sale price, rating if any, category and inventory.
+- The page is fully responsive, reducing the amount of product cards on each row dependant on the screen size.
+- The product cards are clickable and will take you to the product page.
+- The product card images are in WEBP format, this is to reduce the amount of data being sent to the browser. But there are fallback jpg images for when the browser does not support webp.
 
-The rest of the screenshots used for the pages will use the Desktop View for clarity
+[Table of Contents  ⇧](#table-of-contents)
 
-### Home
+Desktop Products list
+![Navbar](/documents/readme-documents/site-screenshots/desktop/products-view.png)
 
-![image](/documents/assets/screenshots/main_pages/home_desktop.png)
+Mobile Products list
 
-### About Us
+![Navbar](/documents/readme-documents/site-screenshots/mobile/products-view.png)
 
-![image](/documents/assets/screenshots/main_pages/about_us_desktop.png)
+### Product Details
 
-### Pass Plus
+- There is a large image of the product.
+- There is a description of the product.
+- There is a rating of the product.
+- There is a price of the product.
+- The Sale price is shown if applicable with the original price Striked out.
+- The Inventory is shown.
+- There is a button to add the product to the basket.
+- If a product is added to the basket, the basket icon in the Navbar  updates the total price.
+- If the quantity is amended and added to the basket after previously being added, it replaces the product quantity instead of adding it to the products basket total. I have done it this way because the inventory is used to determine the quantity of the product available in the quantity input, and it is not possible to add more than the inventory amount of products to the basket.
+- The product images are in WEBP format, this is to reduce the amount of data being sent to the browser. But there are fallback jpg images for when the browser does not support webp.
+- The reviews are displayed in a list, with the most recent review at the top. if there is a image associated with the review it is displayed, otherwise the area is made available to display the review.
+- There is a signin to review product button. If a user is not signed in, they will be prompted to sign in before they can review the product. This is to ensure that only registered users can review products. The review is entered in a modal.
 
-![image](/documents/assets/screenshots/main_pages/pass_plus_desktop.png)
 
-### Prices
 
-![image](/documents/assets/screenshots/main_pages/prices_desktop.png)
+Desktop Product Details
+![Navbar](/documents/readme-documents/site-screenshots/desktop/product-details.png)
 
-### Contact Us
+Mobile Product Details - Signed In
 
-![image](/documents/assets/screenshots/main_pages/contact_us_desktop.png)
+![Navbar](/documents/readme-documents/site-screenshots/mobile/product-details.png)
 
-#### Contact Form
+Product Review
 
-This is the contact form filled in
-![image](/documents/assets/screenshots/contactform/contact-form.png)
-After submission:
-the user is redirected to this page
-![image](/documents/assets/screenshots/contactform/contact-success.png)
-and receives an email
-![image](/documents/assets/screenshots/contactform/contact-result-email-for-originator.png)
-the owner reveives this email
-![image](/documents/assets/screenshots/contactform/contact-result-email-for-staff.png)
-During debug:
-the contact test results are shown in the console:
-![image](/documents/assets/screenshots/contactform/contact-test-result-email-for-staff.png)
-![image](/documents/assets/screenshots/contactform/contact-test-result-email-for-originator.png)
+![Navbar](/documents/readme-documents/site-screenshots/desktop/product-review.png)
 
-### Local Traffic Report
-
-![image](/documents/assets/screenshots/main_pages/local_traffic_desktop.png)
-
-### Terms and Conditions
-
-Available to Users within the Pupil Group only
-![image](/documents/assets/screenshots/main_pages/terms_and_conditions_desktop.png)
-
-### Login
-
-![image](/documents/assets/screenshots/main_pages/login_desktop.png)
-
-### Registration
-
-![image](/documents/assets/screenshots/main_pages/registration_desktop.png)
-
-### Blog/Posts Section
-
-#### Blog
-
-![image](/documents/assets/screenshots/main_pages/blog_posts_desktop.png)
-
-#### Post
-
-![image](/documents/assets/screenshots/main_pages/post_desktop.png)
-
-#### Post Logged in as Staff
-
-![image](/documents/assets/screenshots/main_pages/post_desktop_staff.png)
-Logged in as a Staff Member adds an edit post and delete post icons next to Author and Date.
-
-##### Post Delete
-
-![image](/documents/assets/screenshots/main_pages/post_delete_desktop.png)
-Delete a Blog Post shows a preview of the post that is about to be deleted and shows warning that this will also delete the comments etc.
-
-##### Post Edit
-
-![image](/documents/assets/screenshots/main_pages/post_edit_desktop.png)
-
-#### Commenting
-
-Comment Modal
-![image](/documents/assets/screenshots/main_pages/comment_to_the_post.png)
-Comment Modal for replying to a comment - As indicated against oliphant_watcher's previous comment there is a delete icon to remove her comment, this only appears to the originator of the comment (in this case oliphant_watcher) or if the user is a authenticated staff member.
-![image](/documents/assets/screenshots/main_pages/comment_to_the_comment.png)
-Showing the Comments, with likes and dislikes added.
-This also shows a delete comment icon which only shows when the user is the originator of the comment (in this case oliphant_watcher) or if the user is a authenticated staff member.
-![image](/documents/assets/screenshots/main_pages/comments.png)
-
-## Password reset
-
-When a user forgets their password, they are able to reset their password, on the login screen there is a 'forgotton your password link.
-![image](documents/assets/screenshots/password_reset/0-login-screen-forgotten)
-This opens the Forgot Password page which asks for the users email address.
-![image](documents/assets/screenshots/password_reset/1-forgot-password.png)
-
-A confirmation page informs the user that an email has been sent to the given email address.
-![image](documents/assets/screenshots/password_reset/2-forgot-password-email-sent-confirmation.png)
-
-An email is sent to the users email address with a link to reset their password.
-![image](documents/assets/screenshots/password_reset/3-forgot-password-email.png)
-
-The link goes  opens up the Change password page, allowing the user to change their password.
-![image](documents/assets/screenshots/password_reset/4-forgot-password-revise-password.png)
-
-If the password do not match an error is displayed.
-![image](documents/assets/screenshots/password_reset/password-not-match.png)
-
-If the password do match a confirmation page is displayed with a login link.
-![image](documents/assets/screenshots/password_reset/5-forgot-password-completed.png)
-
-[Table of Contents](#table-of-contents)
-***
-
-# Admin
-
-I have used brand colors for the Admin Section.
-
-![image](/documents/assets/screenshots/main_pages/admin_not_authorised_desktop.png)
-![image](/documents/assets/screenshots/main_pages/admin_desktop.png)
-
-[Table of Contents](#table-of-contents)
-***
-
-# Error Pages
-
-I have created the following custom error pages for the site.
-
-## Error 400
-
-![image](/documents/assets/screenshots/error_pages/400_error.png)
-
-## Error 403
-
-![image](/documents/assets/screenshots/error_pages/403_error.png)
-
-## Error 404
-
-![image](/documents/assets/screenshots/error_pages/404_error.png)
-
-## Error 500
-
-![image](/documents/assets/screenshots/error_pages/500_error.png)
-
-  [Table of Contents](#table-of-contents)
-  ***
-
-# Deployment
-
-1. On the home screen click on create new app button
-2. Enter a name for the project and select your region to the correct region
-3. On the next screen select settings
-4. Go to config vars and click reveal config vars
-5. Switch to the program file and where you are keeping your credentials copy these and then on Heroku enter a name for the key and paste the code into the config vars value box and click add
-6. Now scroll down to buildPacks and click add build packs
-7. First select python and click save changes
-8. Click back into build packs and choose node.js and click save again
-9. Ensure that the Python build pack is at the top of the list you are able to drag and drop if you need to rearrange
-10. Now select deploy
-11. From the deployment method select GitHub
-12. Then click on connect to Github button that appears
-13. Click into the search box and search for the project name
-14. Once located select connect
-15. Then click deploy branch, this will then be shown in the box below
-16. You can the click view to show the app in a browser
-
-The program is set to be deployed automatically after each push from gitpod.
-
-I also set up a Postgres database with Heroku.
-
-1. Click on Resources in your Heroku app.
-2. In the add-ons field search for Heroku Postgres and press submit.
-
-# Cloning
-
-How to clone this repository.
-
-- On GitHub go to the main page of the Repository.
-- Above the list of files click the code button with the drop-down arrow.
-- To clone the repository using HTTPS, under "Clone with HTTPS", click on the clipboard.
-- Open the Git Bash terminal.
-- Change the current working directory to the location where you want the cloned directory.
-- Type git clone, and then paste the URL you copied earlier from step 3.
-- Press Enter to create your local clone.
-
-# Credits
-
-[Email sending: Using Forms and Class based views instead of Function based views](https://www.sitepoint.com/django-send-email/)
-
-Social Sharing Links [Crunchify](https://crunchify.com/list-of-all-social-sharing-urls-for-handy-reference-social-media-sharing-buttons-without-javascript/)
-
-[Social Sharing Tutorial](https://www.youtube.com/watch?v=OfLvQ8KtW2g)
+[Table of Contents  ⇧](#table-of-contents)
