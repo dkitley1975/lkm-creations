@@ -34,8 +34,8 @@
 	"model": "products.category",
 	"pk": 5,
 	"fields": {
-		"name": "teddy bear",
-		"slug": "teddy-bear",
+		"name": "stuffed animal",
+		"slug": "stuffed-animal",
 		"category_keywords": "Handmade, Handcrafted, Custom, Beautiful, Gift, Children, Amigurumi Animal, Amigurumi Toy, Amigurumi Decorative, Animal, Cuddly, Knitted Animal, Knitted Toy, Knitted gift, Crochet Animal, Crochet Toy, Crochet gift, Knitted Animal,"
 	}
 }, {
