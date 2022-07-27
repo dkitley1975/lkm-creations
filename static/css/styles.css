@@ -328,7 +328,7 @@ img:not([src]):not([srcset]) {
 .rtt-button {
 	display: none;
 	position: fixed;
-	right: 10px;
+	right: 20px;
 	bottom: 30px;
 	border-color: var(--clr-brand-primary-darkest);
 	background-color: var(--clr-brand-primary-light);
