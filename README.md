@@ -42,8 +42,10 @@ To build a Full-Stack site based on business logic used to control a centrally-o
 - [Site Features](#site-features)
   - [Home Page](#home-page)
     - [Navigation bar](#navigation-bar)
-    - [Browse Products](#browse-products)
+    - [Footer](#footer)
+    - [Browsing Products](#browsing-products)
     - [Product Details](#product-details)
+    - [Basket Summary](#basket-summary)
 
 [Testing Documentation](/README_TESTING.md)
 
@@ -262,6 +264,21 @@ The website has the following features:
 
 ## Home Page
 
+One of the most important features of the website is the *Home Page*.
+This is the first page that is displayed when the user visits the website.
+This page contains a *Navbar* which contains a *Logo*, a *Search Bar* and a *Basket* icon.
+The *Navbar* is also used to display the *Categories* and *Products* that are available for sale.
+The *Search Bar* allows the user to search for a *Product* by name or category.
+The *Basket* icon displays the number of items in the basket and the current total price.
+
+On opening the site for the first time, a cookies disclaimer is displayed to the user. This is to ensure that the user is aware of the cookies that are being used on the site.
+The cookies disclaimer can be dismissed by clicking the *Got it!* button.
+Also displayed is a Site information message. This is to inform the user of any information the site owner wishes. Such as store holidays. This message can be dismissed by clicking the *close* button.
+Additionally, the *Home Page* also contains a *Product Sales* section.
+*Home Page*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-home-page.png)
+[Table of Contents  ⇧](#table-of-contents)
+
 ### Navigation bar
 
 - The navigation bar is present at the top of every page and houses all links to the various other pages.
@@ -273,25 +290,20 @@ The website has the following features:
 - There is a Newsletter sign up form on the navbar. This opens a modal, using Mailchimp as its provider.
 - The navbar is fully responsive, collapsing into a hamburger menu when the screen size becomes small.
 
-Desktop Navbar Signed Out
-![Navbar](/documents/readme-documents/site-screenshots/desktop/navigation-bar.png)
+*Navbar Signed Out*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-nav-bar-signed-out.png)
 
-Desktop Navbar Signed In
-![Navbar Signed In](/documents/readme-documents/site-screenshots/desktop/navigation-bar-signed-in.png)
+*Navbar Signed In*
+![Navbar Signed In](/documents/readme-documents/site-screenshots/screenshot-nav-bar-signed-in.png)
+[Table of Contents  ⇧](#table-of-contents)
 
-Mobile Navbar Signed Out
+### Footer
+The footer is present at the bottom of every page and houses links to the sites social media, on the desktop site a link to the site cookies, privacy information and other  documentation. As well as the site copyright information
 
-![Navbar](/documents/readme-documents/site-screenshots/mobile/navigation-bar.png)
-
-Mobile Navbar Signed In
-
-![Navbar Signed In](/documents/readme-documents/site-screenshots/mobile/navigation-bar-signed-in.png)
-
-Mobile Navbar Collapsed
-
-![Navbar Signed In](/documents/readme-documents/site-screenshots/mobile/navigation-bar-collapsed.png)
-
-### Browse Products
+*Footer*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-footer.png)
+[Table of Contents  ⇧](#table-of-contents)
+### Browsing Products
 
 - Browsing the products, You can view the products by, Sale Items, All Products and Category.
 - The active page will be shown to have a bolder font helping users understand what page they're on.
@@ -302,15 +314,13 @@ Mobile Navbar Collapsed
 - The page is fully responsive, reducing the amount of product cards on each row dependant on the screen size.
 - The product cards are clickable and will take you to the product page.
 - The product card images are in WEBP format, this is to reduce the amount of data being sent to the browser. But there are fallback jpg images for when the browser does not support webp.
+- 6 products are shown to a page by default and a navigation panel is shown beneath the products with an indicator for the current page. Additional products can be viewed by clicking the next or previous buttons.
 
+*Products list (top of the page)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-products-page-top.png)
+*Products list (bottom of the page)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-products-page-bottom.png)
 [Table of Contents  ⇧](#table-of-contents)
-
-Desktop Products list
-![Navbar](/documents/readme-documents/site-screenshots/desktop/products-view.png)
-
-Mobile Products list
-
-![Navbar](/documents/readme-documents/site-screenshots/mobile/products-view.png)
 
 ### Product Details
 
@@ -329,15 +339,29 @@ Mobile Products list
 
 
 
-Desktop Product Details
-![Navbar](/documents/readme-documents/site-screenshots/desktop/product-details.png)
+*Product Details (top of page)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-product-details.png)
 
-Mobile Product Details - Signed In
+*Product Details (bottom of page)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-product-details-bottom.png)
 
-![Navbar](/documents/readme-documents/site-screenshots/mobile/product-details.png)
+*Product Leave A Review*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-leave-a-review.png)
 
-Product Review
+*Product Item added to basket (showing basket quantity and total price)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-nav-bar-item-in-basket.png)
+[Table of Contents  ⇧](#table-of-contents)
 
-![Navbar](/documents/readme-documents/site-screenshots/desktop/product-review.png)
 
+### Basket Summary
+By clicking on the *Basket icon* in the Navbar, the user is taken to the Basket Summary page.
+The Basket Summary page displays an image of the product, the product name, a trunculated description of each product.
+It allows the user to update the required quantity, displaying the current inventory available, and remove the product from the basket.
+It also display the Subtotal, Delivery Price and the total price.
+
+
+*Basket Summary (subtotal under the price given in the Modal Site Information)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-basket-summary-delivery-charge.png)
+*Basket Summary (subtotal over the price given in the Modal Site Information)*
+![Navbar](/documents/readme-documents/site-screenshots/screenshot-basket-summary.png)
 [Table of Contents  ⇧](#table-of-contents)
