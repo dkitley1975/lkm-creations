@@ -299,6 +299,27 @@ img:not([src]):not([srcset]) {
 	color: var(--clr-brand-primary) !important;
 }
 
+.fa-stack[data-count]:after {
+	position: absolute;
+	right: -10%;
+	top: 30%;
+	content: attr(data-count);
+	font-size: 60%;
+	padding: 0.3rem .2rem;
+	border-radius: 50%;
+	line-height: 0.5rem;
+	text-align: center;
+	min-width: 1.2rem;
+	font-weight: bold;
+	background: white;
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+}
+
 .order-history-card {
 	max-height: 470px;
 	overflow-y: hidden;
@@ -449,5 +470,11 @@ img:not([src]):not([srcset]) {
 @media screen and (min-width: 768px) {
 	body {
 		margin-top: 160px;
+	}
+}
+
+@media (max-width: 374px) {
+	.d-below-375-none {
+		display: none;
 	}
 }

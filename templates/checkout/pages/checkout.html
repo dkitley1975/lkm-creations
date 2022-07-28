@@ -50,7 +50,7 @@
 										srcset="{{ item.product.image.url }}"
 										type="image/jpeg">
 									<img src="{{ item.product.image.url }}"
-											alt="{{ item.product.image_alt_text }}"
+										alt="{{ item.product.image_alt_text }}"
 										class="img-fluid mx-auto d-block
 		product-image-size rounded-10 box-shadow">
 								</picture>
@@ -110,12 +110,34 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-6">
-					<p class="text-muted">Please fill out the form below to
-						complete your order</p>
+
 					<form action="{% url "checkout" %}" method="POST"
 						id="payment-form">
 						{% csrf_token %}
 						<fieldset class="rounded px-3 mb-5">
+							{% if request.user.is_authenticated %}
+							<p class="text-muted">{% if user.first_name %}
+								{{ user.first_name }},
+								p{% else %}P{%endif%}lease
+								fill
+								out the form
+								below to complete your order</p>
+							{% else %}
+							<p class="text-muted">Please fill out the form
+								below to complete your order as a guest. You
+								can
+								<a class="text-info"
+									href="{% url "account_signup" %}">register
+								</a> or
+								<a class="text-info" href="#" role="button"
+									data-bs-toggle="modal"
+									data-bs-target="#logInModal"
+									aria-expanded="false">login</a>
+								to save these details for
+								future.
+							</p>
+							{% endif %}
+
 							<legend
 								class="fieldset-label fw-bolder fs-5 text-black px-2 w-auto">
 								Receipient Details</legend>
