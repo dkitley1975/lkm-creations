@@ -163,9 +163,9 @@ body {
 }
 
 .btn-primary {
-	border-color: var(--clr-brand-primary-darker);
-	background-color: var(--clr-brand-primary-darker);
-	color: #fff;
+	border-color: var(--clr-brand-primary-light);
+	background-color: var(--clr-brand-primary-light);
+	color: var(--clr-brand-primary-darkest);
 }
 
 .btn-primary:focus {

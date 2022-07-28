@@ -1,3 +1,4 @@
+from crispy_forms.helper import FormHelper
 from django import forms
 from django.conf import settings
 from django.core.mail import send_mail
@@ -21,12 +22,12 @@ class ContactForm(forms.Form):
     email = forms.EmailField(
         max_length=70,
         label="Your Email",
-        widget=forms.TextInput(attrs={"placeholder": "first@last.com"}),
+        widget=forms.TextInput(attrs={"placeholder": "Email Address"}),
     )
     phone = forms.CharField(
         max_length=20,
         label="Your contact Number",
-        widget=forms.TextInput(attrs={"placeholder": "07123456789"}),
+        widget=forms.TextInput(attrs={"placeholder": "Contact Number"}),
     )
     message = forms.CharField(
         label="Your Message",
@@ -103,3 +104,20 @@ class ContactForm(forms.Form):
             recipient_list=[contact_email],
             fail_silently=False,
         )
+
+    class Meta:
+        fields = "__all__"
+        unlabelled_fields = (
+            "first_name",
+            "last_name",
+            "email",
+            "phone",
+            "message",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_show_labels = True
+        for field in ContactForm.Meta.unlabelled_fields:
+            self.fields[field].label = False

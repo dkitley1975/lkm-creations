@@ -9,11 +9,9 @@
 						type="image/webp">
 					<source srcset="{{ product.image.url }}" type="image/jpeg">
 					<img src="{{ product.image.url }}"
-						onerror="this.src='{{ MEDIA_URL }}images/default/default_image.png'"
 						alt="{{ product.image_alt_text }}" class="card-img-top product-image-size
-						rounded-10 box-shadow" oncontextmenu="return false;">
+						rounded-10" oncontextmenu="return false;">
 				</picture>
-
 
 			</a>
 			<div class="card-body">

@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     "products",
     "profiles",
     "store",
-    "testdata",
+    "fixtures",
 ]
 
 MIDDLEWARE = [
