@@ -150,6 +150,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = True
 DEFAULT_RECIPIENT_ADDRESS = config('EMAIL_HOST_USER', default='dkitley@mac.com')
+SITE_EMAIL = config('SITE_EMAIL', default='localhost')
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
