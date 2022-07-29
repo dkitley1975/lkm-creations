@@ -86,12 +86,12 @@ class ContactForm(forms.Form):
             contacts_subject,
         ) = self.email_contact_form_information()
 
-        # send email to the sender of the contact form using the msg
+        # send email to the site owner of the contact form using the msg
         send_mail(
             subject=subject,
             message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.EMAIL_HOST_USER],
+            recipient_list=[settings.SITE_EMAIL],
             fail_silently=False,
         )
 
