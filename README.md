@@ -1,4 +1,4 @@
-[![David's GitHub Banner](/documents/assets/logos/GitHubHeader.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
+[![David's GitHub Banner](/documents/assets/logo/GitHubHeader.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
 
 # LKM-Creations <!-- omit in toc -->
 
@@ -49,6 +49,9 @@ To build a Full-Stack site based on business logic used to control a centrally-o
     - [Basket Notifications](#basket-notifications)
     - [Basket Summary](#basket-summary)
     - [Checkout](#checkout)
+    - [Order Confirmation emails](#order-confirmation-emails)
+      - [User order confirmation email](#user-order-confirmation-email)
+      - [Site order confirmation email](#site-order-confirmation-email)
 
 [Testing Documentation](/README_TESTING.md)
 
@@ -296,7 +299,7 @@ The cookies disclaimer can be dismissed by clicking the *Got it!* button.
 Also displayed is a Site information message. This is to inform the user of any information the site owner wishes. Such as store holidays. This message can be dismissed by clicking the *close* button.
 Additionally, the *Home Page* also contains a *Product Sales* section.
 *Home Page*
-![Navbar](/documents/assets/site-screenshots/screenshot-home-page.png)
+![Home Page](/documents/assets/site-screenshots/screenshot-home-page.png)
 [Table of Contents  ⇧](#table-of-contents)
 
 ### Navigation bar
@@ -311,7 +314,7 @@ Additionally, the *Home Page* also contains a *Product Sales* section.
 - The navbar is fully responsive, collapsing into a hamburger menu when the screen size becomes small.
 
 *Navbar Signed Out*
-![Navbar](/documents/assets/site-screenshots/screenshot-nav-bar-signed-out.png)
+![Navbar Signed Out](/documents/assets/site-screenshots/screenshot-nav-bar-signed-out.png)
 
 *Navbar Signed In*
 ![Navbar Signed In](/documents/assets/site-screenshots/screenshot-nav-bar-signed-in.png)
@@ -322,7 +325,7 @@ Additionally, the *Home Page* also contains a *Product Sales* section.
 The footer is present at the bottom of every page and houses links to the sites social media, on the desktop site a link to the site cookies, privacy information and other  documentation. As well as the site copyright information
 
 *Footer*
-![Navbar](/documents/assets/site-screenshots/screenshot-footer.png)
+![Footer](/documents/assets/site-screenshots/screenshot-footer.png)
 [Table of Contents  ⇧](#table-of-contents)
 
 ### Browsing Products
@@ -339,9 +342,9 @@ The footer is present at the bottom of every page and houses links to the sites 
 - 6 products are shown to a page by default and a navigation panel is shown beneath the products with an indicator for the current page. Additional products can be viewed by clicking the next or previous buttons.
 
 *Products list (top of the page)*
-![Navbar](/documents/assets/site-screenshots/screenshot-products-page-top.png)
+![Products listings page - Bottom of Screen](/documents/assets/site-screenshots/screenshot-products-page-top.png)
 *Products list (bottom of the page)*
-![Navbar](/documents/assets/site-screenshots/screenshot-products-page-bottom.png)
+![Product listings - Bottom of Screen](/documents/assets/site-screenshots/screenshot-products-page-bottom.png)
 [Table of Contents  ⇧](#table-of-contents)
 
 ### Product Details
@@ -360,25 +363,27 @@ The footer is present at the bottom of every page and houses links to the sites 
 - There is a signin to review product button. If a user is not signed in, they will be prompted to sign in before they can review the product. This is to ensure that only registered users can review products. The review is entered in a modal.
 
 *Product Details (top of page)*
-![Navbar](/documents/assets/site-screenshots/screenshot-product-details.png)
+![Product Details page - Top of Screen](/documents/assets/site-screenshots/screenshot-product-details.png)
 
 *Product Details (bottom of page)*
-![Navbar](/documents/assets/site-screenshots/screenshot-product-details-bottom.png)
+![Product Details page - Bottom of Screen](/documents/assets/site-screenshots/screenshot-product-details-bottom.png)
 
 *Product Leave A Review*
-![Navbar](/documents/assets/site-screenshots/screenshot-leave-a-review.png)
+![Leave a review](/documents/assets/site-screenshots/screenshot-leave-a-review.png)
 
 *Product purchase options (before adding to basket)*
-![Navbar](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-if-not-in-basket.png)
+
+![Purchase button - showing add to basket prior to item added to basket](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-if-not-in-basket.png)
 
 *Product purchase options (after adding to basket)*
-![Navbar](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-if-in-basket.png)
+
+![Purchase button - showing update product after item added to basket](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-if-in-basket.png)
 
 *Product purchase options (select quantity 0 to remove product)*
-![Navbar](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-to-remove-product.png)
+![Purchase Quantity - set to 0 to remove product](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-to-remove-product.png)
 
-*Product Item added to basket (showing basket quantity and total price)*
-![Navbar](/documents/assets/site-screenshots/screenshot-nav-bar-item-in-basket.png)
+*Product Item added to basket (showing basket quantity and total price in the Nav Bar)*
+![Navbar with product showing in the basket](/documents/assets/site-screenshots/screenshot-nav-bar-item-in-basket.png)
 
 [Table of Contents  ⇧](#table-of-contents)
 
@@ -390,14 +395,16 @@ When a product is updated in the basket, the notification confirms the product h
 When a product is removed from the basket, the notification confirms the product has been updated.
 The notification can be dismissed by clicking the *close* button, but will autohide after a short duration.
 If there are items in the basket and the user is not viewing the basket summary, the notification also includes a full basket summary, and buttons to view the basket or checkout.
+
 *Toast Notification (Item added to basket)*
-![Navbar](/documents/assets/site-screenshots/screenshot-toast-success-item-added-to-basket.png)
+
+![Toast Notification - Item Added](/documents/assets/site-screenshots/screenshot-toast-success-item-added-to-basket.png)
 
 *Toast Notification (Item updated in basket)*
-![Navbar](/documents/assets/site-screenshots/screenshot-toast-success-item-updated-in-basket.png)
+![Toast Notification - Item Updated](/documents/assets/site-screenshots/screenshot-toast-success-item-updated-in-basket.png)
 
 *Toast Notification (Item removed from basket)*
-![Navbar](/documents/assets/site-screenshots/screenshot-toast-success-item-removed-to-basket.png)
+![Toast Notification - Item Deleted](/documents/assets/site-screenshots/screenshot-toast-success-item-removed-to-basket.png)
 
 ### Basket Summary
 
@@ -405,14 +412,16 @@ By clicking on the *Basket icon* in the Navbar or basket notification toaast, th
 The Basket Summary page displays an image of the product, the product name, a trunculated description of each product.
 It allows the user to update the required quantity, displaying the current inventory available, and remove the product from the basket.
 It also display the Subtotal, Delivery Price and the total price.
+
 *Basket Summary (top)*
-![Navbar](/documents/assets/site-screenshots/screenshot-basket-summary-top.png)
+
+![Basket Summary - Top of Screen](/documents/assets/site-screenshots/screenshot-basket-summary-top.png)
 
 *Basket Summary (bottom - subtotal over the price given in the Modal Site Information)*
-![Navbar](/documents/assets/site-screenshots/screenshot-basket-summary-no-delivery-charge.png)
+![Basket Summary - Bottom of Screen with out Delivery Charge](/documents/assets/site-screenshots/screenshot-basket-summary-no-delivery-charge.png)
 
 *Basket Summary (bottom - subtotal under the price given in the Modal Site Information)*
-![Navbar](/documents/assets/site-screenshots/screenshot-basket-summary-delivery-charge.png)
+![Basket Summary - with Delivery Charge](/documents/assets/site-screenshots/screenshot-basket-summary-delivery-charge.png)
 
 [Table of Contents  ⇧](#table-of-contents)
 
@@ -422,7 +431,147 @@ The checkout page is the final page of the purchase. It displays the products in
 The user can enter their details and payment details.
 
 *Checkout (top)*
-![Navbar](/documents/assets/site-screenshots/screenshot-checkout-top.png)
+![Checkout Top of Screen](/documents/assets/site-screenshots/screenshot-checkout-top.png)
+
 *Checkout (bottom)*
-![Navbar](/documents/assets/site-screenshots/screenshot-checkout-bottom.png)
-[Table of Contents  ⇧](#table-of-contents)
+![Checkout Bottom of Screen](/documents/assets/site-screenshots/screenshot-checkout-bottom.png)
+
+On submission of the payment details, the order is processed through *Stripe* and the user is redirected to the payment confirmation page.
+
+*Checkout (processing)*
+![Checkout Processing](/documents/assets/site-screenshots/screenshot-checkout-processing.png)
+Ater the order is processed, the user is redirected to the order confirmation page.
+This page displays the order number, the date and time of the order, the products in the order, the total price, the delivery price and the total price including the delivery price.
+The user can print this page out as their receipt. As the items on screen which are irrelevant are hidden from print, and additional required items are added to the page but hidden from display.
+
+The page The user can also view the order in their Dashboard *Orders* page.
+
+*Order confirmation*
+![Order Confirmation](/documents/assets/site-screenshots/screenshot-order-confirmation.png)
+
+*Order confirmation - printed version from the order confirmation page*
+![Order Confirmation Print](/documents/assets/site-screenshots/LKM-Creations-Order-0F01B6E8D335.png)
+
+
+### Order Confirmation emails
+
+When an order is placed, an email is sent to the user with the order details.
+Th
+#### User order confirmation email
+
+```
+Hello Bilbo Baggins!
+
+This is a confirmation of your order at LKM Creations . Your order information is below:
+
+Order Number: 15468546EED1
+Order Date: July 29, 2022, 12:33 p.m.
+
+
+
+
+
+Beril The Bunny (sku: 56392)
+
+Item total = £10.00 (1 x £10.00)
+******************************************
+
+Dinosaur T-Rex (sku: 56403)
+
+Item total = £24.50 (1 x £24.50)
+******************************************
+
+Bunny Doll (sku: 56389)
+
+Item total = £22.49 (1 x £22.49)
+******************************************
+
+
+Subtotal: £56.99
+Delivery: £0.00
+Grand Total: £56.99
+
+Your selected Delivery address is:
+Bilbo Baggins
+Bag End,
+1 Bagshot Row,
+Hobbington, The Shire,
+Middle-earth, Arda,
+BE1 2SH,
+GB,
+
+
+We've got your contact number for this order as as 0123456789.
+
+If you have any questions, feel free to contact us at lkm-creations@kitley-mcnamara.com.
+
+You can view your order details here: https://lkm-creations.herokuapp.com/dashboard/order-summary/15468546EED1
+
+If you have an account you can view your previous orders, link your social acount to your LKM Creations account and update your profile information here: https://lkm-creations.herokuapp.com/dashboard/
+
+Thank you for your valued order!
+
+Sincerely,
+
+LKM Creations
+lkm-creations@kitley-mcnamara.com
+Please follow our facebook page for regular updates regarding new products and offers.
+```
+
+An email is also sent to the Site Administrator with the order details.
+
+#### Site order confirmation email
+
+```Hello LKM Creations
+
+This is a confirmation of an order at LKM Creations .
+The order information is as below:
+
+Order Number: 15468546EED1
+Order Date: July 29, 2022, 12:33 p.m.
+Cleint Name: Bilbo Baggins
+
+
+
+
+Beril The Bunny (sku: 56392)
+
+Item total = £10.00 (1 x £10.00)
+******************************************
+
+Dinosaur T-Rex (sku: 56403)
+
+Item total = £24.50 (1 x £24.50)
+******************************************
+
+Bunny Doll (sku: 56389)
+
+Item total = £22.49 (1 x £22.49)
+******************************************
+
+
+Subtotal: £56.99
+Delivery: £0.00
+Grand Total: £56.99
+
+The Delivery address is:
+Bilbo Baggins
+Bag End,
+1 Bagshot Row,
+Hobbington, The Shire,
+Middle-earth, Arda,
+BE1 2SH,
+GB,
+
+
+We received this contact number for the order: 0123456789.
+
+
+You can view the order details here: https://lkm-creations.herokuapp.com/admin/checkout/orderdetails/10/change/
+
+Sincerely,
+
+LKM Creations
+lkm-creations@kitley-mcnamara.com
+```
+

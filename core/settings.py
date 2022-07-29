@@ -243,9 +243,9 @@ if USE_AWS:
     )
 
     # Static and media files
-    STATICFILES_STORAGE = "custom_storages_aws.StaticStorage"
+    STATICFILES_STORAGE = "core.custom_storages_aws.StaticStorage"
     STATICFILES_LOCATION = "static"
-    DEFAULT_FILE_STORAGE = "custom_storages_aws.MediaStorage"
+    DEFAULT_FILE_STORAGE = "core.custom_storages_aws.MediaStorage"
     MEDIAFILES_LOCATION = "media"
 
     # Override static and media URLs in production
