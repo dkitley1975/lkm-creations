@@ -2,7 +2,7 @@
 
 # LKM-Creations <!-- omit in toc -->
 
-[![LKM Creations](/documents/readme-documents/site-screenshots/lkm-creations-mockup.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
+[![LKM Creations](/documents/assets/site-screenshots/lkm-creations-mockup.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
 This is the documentation regarding the creation of an e-commerce website for LKM-Creations.
 This is my 5th and final Portfolio Project for the Code Institute's Diploma in Full Stack Development.
 The projects purpose:
@@ -33,8 +33,9 @@ To build a Full-Stack site based on business logic used to control a centrally-o
   - [Colors](#colors)
     - [*Main Colour Pallet*](#main-colour-pallet)
     - [**Shades of the Brand Colours**](#shades-of-the-brand-colours)
-- [Languages](#languages)
-- [Frameworks and Tools](#frameworks-and-tools)
+- [Technologies used](#technologies-used)
+  - [Languages](#languages)
+  - [Libraries, Frameworks and Tools](#libraries-frameworks-and-tools)
 - [CRUD Functionality](#crud-functionality)
   - [General User](#general-user)
   - [General - Registered User](#general---registered-user)
@@ -45,7 +46,9 @@ To build a Full-Stack site based on business logic used to control a centrally-o
     - [Footer](#footer)
     - [Browsing Products](#browsing-products)
     - [Product Details](#product-details)
+    - [Basket Notifications](#basket-notifications)
     - [Basket Summary](#basket-summary)
+    - [Checkout](#checkout)
 
 [Testing Documentation](/README_TESTING.md)
 
@@ -134,11 +137,11 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 
 ### [Github Project Board - Issues listed by bug and epics](https://github.com/users/dkitley1975/projects/12/views/1)
 
-![Project Board - Issues listed by bug and epics](/documents/readme-documents/projectboard/LKM-CREATIONS-project-boards-issues-list.jpg)
+![Project Board - Issues listed by bug and epics](/documents/assets/projectboard/LKM-CREATIONS-project-boards-issues-list.jpg)
 
 ### [Github Project Board](https://github.com/users/dkitley1975/projects/12/views/3?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=Labels)
 
-![Project Board](/documents/readme-documents/projectboard/LKM-CREATIONS-Project-board.jpg)
+![Project Board](/documents/assets/projectboard/LKM-CREATIONS-Project-board.jpg)
 
 [Table of Contents  ⇧](#table-of-contents)
 
@@ -149,7 +152,7 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 ## Database
 
 Image showing the database Scheme for LKM-CREATIONS
-![LKM-Creations Database Scheme](/documents/readme-documents/schema/LKM-CREATIONS-database-schema.jpg)
+![LKM-Creations Database Scheme](/documents/assets/schema/LKM-CREATIONS-database-schema.jpg)
 
 ## Mobile Wireframes
 
@@ -162,7 +165,7 @@ Image showing the database Scheme for LKM-CREATIONS
 The default Sans-Serif is used as the main font. I was unnecessary to change the default font type as this is an easy font to read and displays well throughout the site.
 
 The Logo is pre-designed and uses Caveat from Google
-![image](/documents/readme-documents/logo/LKM-CREATIONS-logo.png)
+![image](/documents/assets/logo/LKM-CREATIONS-logo.png)
 ***
 
 ## Colors
@@ -195,32 +198,49 @@ These were needed as there isn't enough contrast between the brand colours.*
 [Table of Contents  ⇧](#table-of-contents)
 ***
 
-# Languages
+# Technologies used
 
-- HTML
-- CSS
-- JavaScript
-- Python
-- Django
+## Languages
 
-[Table of Contents  ⇧](#table-of-contents)
-***
+| Languages | Link |
+|--|--|
+|HTML|[HTML](https://en.wikipedia.org/wiki/HTML5 "HTML")
+|CSS|[CSS](https://en.wikipedia.org/wiki/CSS "CSS")
+|JavaScript|[JavaScript](https://en.wikipedia.org/wiki/JavaScript "JS")
+|jQuery|[jQuery](https://jquery.com/ "jQuery")
+|Python|[Python](https://en.wikipedia.org/wiki/Python_(programming_language) "Python")
+|Markdown|[Markdown](https://en.wikipedia.org/wiki/Markdown)
 
-# Frameworks and Tools
+## Libraries, Frameworks and Tools
 
-- [GitHub](https://github.com/)
-- [Gitpod](https://www.gitpod.io/)
-- [Django](https://www.djangoproject.com/)
-- [Heroku](https://www.heroku.com/home)
-- [Postgres](https://www.postgresql.org/)
-- [Google Fonts](https://fonts.google.com/)
-- [Font Awesome](https://fontawesome.com/)
-- [W3C HTML Validation](https://validator.w3.org/)
-- [H3C CSS Validation](https://jigsaw.w3.org/css-validator/validator.html.en)
-- [pep8online](http://pep8online.com/)
-- [color.a11y.com](https://color.a11y.com/Contrast/)
-- [Pixabay](https://pixabay.com/)
-- [TinyPNG](https://tinypng.com/)
+| Libraries / Frameworks / Tools| Description | Link |
+|--|--|--|
+|Django|Database Driven Framework| [django](https://en.wikipedia.org/wiki/Django_(web_framework) "django")|
+|gunicorn|HTTP Interface Server|[gunicorn](https://en.wikipedia.org/wiki/Gunicorn "gunicorn")|
+|psycopg2| Database adaptor | [psycopg2](https://wiki.postgresql.org/wiki/Psycopg "psycogg2")
+|cloudinary |Image management|[cloudinary](https://cloudinary.com/ "cloudinary")|
+|django auth|User authentication|[auth](https://docs.djangoproject.com/en/3.2/topics/auth/ "auth")|
+| Postgres | Database| [Postgres sql](https://www.postgresql.org/)
+| django crispy forms | Styling forms | [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/ "crispy-forms")|
+|Site mockup| Mockup of site on different screen sizes|[Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php "Mockup Generator")
+|HTML Validation| Validating HTML|[w3.org](https://validator.w3.org/ "W3C")
+|CSS Validation| Validating CSS|[w3.org](https://jigsaw.w3.org/css-validator/ "W3C")
+|JS Validation|Validating JS & jQuery|[jshint](https://jshint.com/ "JSHint")
+|PEP8|Validating python|[PEP8](http://pep8online.com/ "PEP8")
+| LOADING.IO | Spin Loader | [loading.io](https://loading.io/ "loading.io")
+| Unsplash | Images |[Unsplash](https://unsplash.com/ "Unsplash")
+| GitPod | Development environment |[Gitpod](https://www.gitpod.io/ "Gitpod")
+| Balsamic | Wireframes |[Balsamic](https://balsamiq.com/wireframes/ "Balsamic")
+| Bootstrap | Responsive design |[Bootstrap](https://getbootstrap.com "Bootstrap")
+| Font Awesome | Icons |[Font Awesome library](https://fontawesome.com/ "Font Awesome")
+| Django Secret Key Generator | Secret Key |[Secret Key Generator](https://django-secret-key-generator.netlify.app/ "django-secret-key-generator")
+| Colours|Colour pallet| [coolors](https://coolors.co/ "coolors")|
+| Google Fonts| Fonts |[Google Fonts](https://fonts.google.com/ "Fonts")|
+| WebAIM| Colour contrast checks |[WebAIM](https://webaim.org/resources/contrastchecker/ "WebAIM")|
+|Pillow| Image processing tool | [Pillow](https://pillow.readthedocs.io/en/stable/ "Pillow")
+|termly.io|Privacy Policy Generator| [Generate Privacy Policy](https://www.termly.io/)
+|Stripe| online payments| [Stripe](https://stripe.com/en-gb "Stripe")
+|favicon.io| Create the favicon| [favicon.io](https://favicon.io/ "favicon.io")
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
@@ -276,7 +296,7 @@ The cookies disclaimer can be dismissed by clicking the *Got it!* button.
 Also displayed is a Site information message. This is to inform the user of any information the site owner wishes. Such as store holidays. This message can be dismissed by clicking the *close* button.
 Additionally, the *Home Page* also contains a *Product Sales* section.
 *Home Page*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-home-page.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-home-page.png)
 [Table of Contents  ⇧](#table-of-contents)
 
 ### Navigation bar
@@ -291,18 +311,20 @@ Additionally, the *Home Page* also contains a *Product Sales* section.
 - The navbar is fully responsive, collapsing into a hamburger menu when the screen size becomes small.
 
 *Navbar Signed Out*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-nav-bar-signed-out.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-nav-bar-signed-out.png)
 
 *Navbar Signed In*
-![Navbar Signed In](/documents/readme-documents/site-screenshots/screenshot-nav-bar-signed-in.png)
+![Navbar Signed In](/documents/assets/site-screenshots/screenshot-nav-bar-signed-in.png)
 [Table of Contents  ⇧](#table-of-contents)
 
 ### Footer
+
 The footer is present at the bottom of every page and houses links to the sites social media, on the desktop site a link to the site cookies, privacy information and other  documentation. As well as the site copyright information
 
 *Footer*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-footer.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-footer.png)
 [Table of Contents  ⇧](#table-of-contents)
+
 ### Browsing Products
 
 - Browsing the products, You can view the products by, Sale Items, All Products and Category.
@@ -317,9 +339,9 @@ The footer is present at the bottom of every page and houses links to the sites 
 - 6 products are shown to a page by default and a navigation panel is shown beneath the products with an indicator for the current page. Additional products can be viewed by clicking the next or previous buttons.
 
 *Products list (top of the page)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-products-page-top.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-products-page-top.png)
 *Products list (bottom of the page)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-products-page-bottom.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-products-page-bottom.png)
 [Table of Contents  ⇧](#table-of-contents)
 
 ### Product Details
@@ -337,31 +359,70 @@ The footer is present at the bottom of every page and houses links to the sites 
 - The reviews are displayed in a list, with the most recent review at the top. if there is a image associated with the review it is displayed, otherwise the area is made available to display the review.
 - There is a signin to review product button. If a user is not signed in, they will be prompted to sign in before they can review the product. This is to ensure that only registered users can review products. The review is entered in a modal.
 
-
-
 *Product Details (top of page)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-product-details.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-product-details.png)
 
 *Product Details (bottom of page)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-product-details-bottom.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-product-details-bottom.png)
 
 *Product Leave A Review*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-leave-a-review.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-leave-a-review.png)
+
+*Product purchase options (before adding to basket)*
+![Navbar](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-if-not-in-basket.png)
+
+*Product purchase options (after adding to basket)*
+![Navbar](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-if-in-basket.png)
+
+*Product purchase options (select quantity 0 to remove product)*
+![Navbar](/documents/assets/site-screenshots/screenshot-product-details-purchase-option-to-remove-product.png)
 
 *Product Item added to basket (showing basket quantity and total price)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-nav-bar-item-in-basket.png)
+![Navbar](/documents/assets/site-screenshots/screenshot-nav-bar-item-in-basket.png)
+
 [Table of Contents  ⇧](#table-of-contents)
 
+### Basket Notifications
+
+When a product is added to the basket, a notification is displayed in a toast by the navbar.
+The notification contains the product name, quantity and total price.
+When a product is updated in the basket, the notification confirms the product has been updated.
+When a product is removed from the basket, the notification confirms the product has been updated.
+The notification can be dismissed by clicking the *close* button, but will autohide after a short duration.
+If there are items in the basket and the user is not viewing the basket summary, the notification also includes a full basket summary, and buttons to view the basket or checkout.
+*Toast Notification (Item added to basket)*
+![Navbar](/documents/assets/site-screenshots/screenshot-toast-success-item-added-to-basket.png)
+
+*Toast Notification (Item updated in basket)*
+![Navbar](/documents/assets/site-screenshots/screenshot-toast-success-item-updated-in-basket.png)
+
+*Toast Notification (Item removed from basket)*
+![Navbar](/documents/assets/site-screenshots/screenshot-toast-success-item-removed-to-basket.png)
 
 ### Basket Summary
-By clicking on the *Basket icon* in the Navbar, the user is taken to the Basket Summary page.
+
+By clicking on the *Basket icon* in the Navbar or basket notification toaast, the user is taken to the Basket Summary page.
 The Basket Summary page displays an image of the product, the product name, a trunculated description of each product.
 It allows the user to update the required quantity, displaying the current inventory available, and remove the product from the basket.
 It also display the Subtotal, Delivery Price and the total price.
+*Basket Summary (top)*
+![Navbar](/documents/assets/site-screenshots/screenshot-basket-summary-top.png)
 
+*Basket Summary (bottom - subtotal over the price given in the Modal Site Information)*
+![Navbar](/documents/assets/site-screenshots/screenshot-basket-summary-no-delivery-charge.png)
 
-*Basket Summary (subtotal under the price given in the Modal Site Information)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-basket-summary-delivery-charge.png)
-*Basket Summary (subtotal over the price given in the Modal Site Information)*
-![Navbar](/documents/readme-documents/site-screenshots/screenshot-basket-summary.png)
+*Basket Summary (bottom - subtotal under the price given in the Modal Site Information)*
+![Navbar](/documents/assets/site-screenshots/screenshot-basket-summary-delivery-charge.png)
+
+[Table of Contents  ⇧](#table-of-contents)
+
+### Checkout
+
+The checkout page is the final page of the purchase. It displays the products in the basket, the total price, the delivery price and the total price including the delivery price.
+The user can enter their details and payment details.
+
+*Checkout (top)*
+![Navbar](/documents/assets/site-screenshots/screenshot-checkout-top.png)
+*Checkout (bottom)*
+![Navbar](/documents/assets/site-screenshots/screenshot-checkout-bottom.png)
 [Table of Contents  ⇧](#table-of-contents)
