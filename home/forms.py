@@ -58,7 +58,7 @@ class ContactForm(forms.Form):
         msg += cl_data.get("message")
 
         contacts_subject = (
-            "LKM_Creations Contact Form - sent confirmation "
+            "LKM-Creations Contact Form - sent confirmation "
         )
         contacts_msg = f"Thank you {first_name} "
         "for contacting LKM-Creations "
@@ -91,7 +91,7 @@ class ContactForm(forms.Form):
             subject=subject,
             message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.DEFAULT_RECIPIENT_ADDRESS],
+            recipient_list=[settings.EMAIL_HOST_USER],
             fail_silently=False,
         )
 
