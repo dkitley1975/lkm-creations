@@ -10,7 +10,7 @@
         {% load active_link_tags %}
         {% if '/summary' not in request.path %}
         {% if total_quantity is not 0 %}
-        <hr class="my-4">
+        <hr class="my-2">
         <div class="toast-message">
             {% for item in basket_items %}
             <div class="row d-flex align-items-center">
@@ -34,7 +34,7 @@
                     </p>
                 </div>
                 <!--Product Subtotal-->
-                <div class="col-4">
+                <div class="col-2">
                     <p class="fw-bold text-end">
                         <span class="fw-bold">£</span><span
                             id="item_subtotal-{{ item.item_id }}">{{ item.unit_price | calc_item_subtotal:item.quantity }}</span>

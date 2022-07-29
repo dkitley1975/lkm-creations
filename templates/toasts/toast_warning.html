@@ -11,7 +11,7 @@
         {% load active_link_tags %}
         {% if '/summary' not in request.path %}
         {% if total_quantity is not 0 %}
-        <hr class="my-4">
+        <hr class="my-2">
         <div class="toast-message">
             {% for item in basket_items %}
             <div class="row d-flex align-items-center">
@@ -42,7 +42,7 @@
                     </p>
                 </div>
             </div>
-            <hr class="my-4">
+            <hr class="my-2">
             {% endfor %}
             <!--Basket Totals-->
             <div class="row toast-body mt-3">

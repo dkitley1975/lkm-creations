@@ -12,10 +12,10 @@
 <main class="mb-5 px-3">
 	{% include "store/components/sort_by_bar.html" %}
 	<section class="col-md-12 text-center pt-2">
-		<h1 class="my-3 fs-1">All Products</h1>
+		<h1 class="my-md-3 fs-1">All Products</h1>
 	</section>
 	<section class="col-12 col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
-		 g-2 g-md-3 g-lg-5 mt-3">
+		 g-2 g-md-3 g-lg-5 mt-md-2">
 		{% for product in products_page_obj %}
 		{% include "store/components/product_card.html" %}
 		{% endfor %}
