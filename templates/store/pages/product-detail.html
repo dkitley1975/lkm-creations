@@ -222,10 +222,15 @@
 										data-item_id="{{ product.id }}"
 										class="form-control qty_input"
 										type="number" name="quantity" value="1"
-										min="1" max="{{ product.inventory }}">
+										min="0" max="{{ product.inventory }}">
 								</div>
 							</div>
 							<div class="d-grid gap-3 col-12 my-3">
+								<button type="submit" id="add_to_basket_btn"
+									value="Add to Basket"
+									class="btn btn-primary text-uppercase">{% if in_basket_already %}Update
+									Basket QTY{% else %}Add to
+									Basket{% endif %}</button>
 								<a href="{% url 'products' %}"
 									class="btn btn-outline-secondary text-uppercase">
 									<svg xmlns="http://www.w3.org/2000/svg"
@@ -235,12 +240,9 @@
 										<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0
 											1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
 									</svg> Keep Shopping</a>
-								<button type="submit" id="add_to_basket_btn"
-									value="Add to Basket"
-									class="btn btn-primary text-uppercase">Add
-									to
-									Basket</button>
+
 							</div>
+
 							<input type="hidden" name="redirect_url"
 								value="{{ request.path }}">
 						</div>

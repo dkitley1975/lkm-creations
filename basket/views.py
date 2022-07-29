@@ -1,11 +1,6 @@
 from django.contrib import messages
-from django.shortcuts import (
-    HttpResponse,
-    get_object_or_404,
-    redirect,
-    render,
-    reverse,
-)
+from django.shortcuts import (HttpResponse, get_object_or_404, redirect,
+                              render, reverse)
 
 from products.models import Product
 
@@ -37,22 +32,25 @@ def add_to_basket(request, item_id):
         #  This will amend the amount in the basket +=
         #  will add to the quantity in the basket
         basket[item_id] = quantity
-        if basket[item_id] > 1:
-            messages.success(
-                request,
-                (
-                    f"You now have {basket[item_id]} {product.name}'s \
-                        in your basket"
-                ),
-            )
+        if basket[item_id] == 0:
+            remove_from_basket(request, item_id)
         else:
-            messages.success(
-                request,
-                (
-                    f"You now have {basket[item_id]} {product.name} \
-                        in your basket"
-                ),
-            )
+            if basket[item_id] > 1:
+                messages.success(
+                    request,
+                    (
+                        f"You now have {basket[item_id]} {product.name}'s \
+                            in your basket"
+                    ),
+                )
+            else:
+                messages.success(
+                    request,
+                    (
+                        f"You now have {basket[item_id]} {product.name}'s \
+                            in your basket"
+                    ),
+                )
     else:
         basket[item_id] = quantity
         if basket[item_id] > 1:
@@ -96,7 +94,7 @@ def adjust_basket(request, item_id):
         )
     else:
         basket.pop[item_id]
-        messages.success(
+        messages.warning(
             request,
             (
                 f"You have removed the product {product.name} \
@@ -116,7 +114,7 @@ def remove_from_basket(request, item_id):
         basket.pop(item_id)
         request.session["basket"] = basket
         product = get_object_or_404(Product, pk=item_id)
-        messages.success(
+        messages.warning(
             request,
             (
                 f"You have removed the product {product.name} \

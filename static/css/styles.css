@@ -450,9 +450,6 @@ img:not([src]):not([srcset]) {
 }
 
 /* ------------------------------- bootstrap toasts */
-.toast-capper {
-	height: 3px;
-}
 
 .toast-container {
 	top: 72px;
@@ -460,11 +457,19 @@ img:not([src]):not([srcset]) {
 	left: auto;
 	z-index: 99999999999 !important;
 	max-width: 90vw;
+	overflow-y: auto;
 	position: fixed;
+	overflow: visible
 }
 
 .toast-custom-toast {
 	overflow: visible;
+}
+
+.toast-message {
+	overflow-y: auto;
+	max-height: 70vh;
+	padding: 1rem;
 }
 
 @media screen and (min-width: 768px) {

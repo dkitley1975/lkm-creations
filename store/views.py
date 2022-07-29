@@ -1,11 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.core.paginator import Paginator, EmptyPage
 
 from products.models import Category, Product, Review
 
@@ -124,9 +124,17 @@ def product_detail(request, slug):
         )
         return redirect("product-detail", slug=slug)
     lastreview = Review.objects.filter(product=product).last()
+
+    basket = request.session.get("basket", {})
+    in_basket_already = False
+    id = str(product.id)
+    if id in list(basket.keys()):
+        in_basket_already = True
+
     context = {
         "product": product,
         "lastreview": lastreview,
+        "in_basket_already": in_basket_already,
     }
 
     return render(request, "store/pages/product-detail.html", context)

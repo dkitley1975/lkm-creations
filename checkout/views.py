@@ -232,7 +232,7 @@ def adjust_basket(request, item_id):
         )
     else:
         basket.pop[item_id]
-        messages.success(
+        messages.info(
             request,
             (
                 f"You have removed the product {product.name}\
@@ -252,7 +252,7 @@ def remove_from_basket(request, item_id):
         basket.pop(item_id)
         request.session["basket"] = basket
         product = get_object_or_404(Product, pk=item_id)
-        messages.success(
+        messages.info(
             request,
             (
                 f"You have removed the product {product.name} \

@@ -1,14 +1,105 @@
-<!-- todo change role to alert for warning and aria-live assertive-->
 <div class="toast rounded-bottom border-info" role="status" aria-live="polite"
     aria-atomic="true" data-bs-autohide="true" data-bs-delay="4000">
-    <div class="arrow-up arrow-info"></div>
-    <div class="w-100 toast-capper bg-info"></div>
-    <div class="toast-header bg-primary-darker text-white rounded-0">
+    <div class="toast-header bg-info text-white rounded-0">
         <strong class="me-auto">Information!</strong>
         <small>just now</small> <button class="btn-close"
             data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
+    <div class="toast-body bg-white text-black fs-6">
         {{ message }}
+        {% load active_link_tags %}
+        {% if '/summary' not in request.path %}
+        {% if total_quantity is not 0 %}
+        <hr class="my-4">
+        <div class="toast-message">
+            {% for item in basket_items %}
+            <div class="row d-flex align-items-center">
+                <div class="col-3">
+                    <picture>
+                        <source srcset="{{ item.product.image_preferred.url }}"
+                            type="image/webp">
+                        <source srcset="{{ item.product.image.url }}"
+                            type="image/jpeg">
+                        <img src="{{ item.product.image.url }}"
+                            alt="{{ item.product.image_alt_text }}" class="rounded
+        								mx-auto d-block img-fluid">
+                    </picture>
+                </div>
+                <!--Quantity-->
+                <div class="col-5">
+                    <p>
+                        <span class="fw-bold">{{item.quantity}}</span>
+                        <span class="fst-italic">x</span><br>
+                        <span class="fw-bold">{{item.product.name}}</span>
+                    </p>
+                </div>
+                <!--Product Subtotal-->
+                <div class="col-4">
+                    <p class="fw-bold text-end">
+                        <span class="fw-bold">£</span><span
+                            id="item_subtotal-{{ item.item_id }}">{{ item.unit_price | calc_item_subtotal:item.quantity }}</span>
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4">
+            {% endfor %}
+            <!--Basket Totals-->
+            <div class="row toast-body mt-3">
+                <div class="col-12">
+                    <p class="text-end">Subtotal
+                        <span id="basket_subtotal-basket-summary"
+                            class="fw-bold">£{{ subtotal | floatformat:2 }}</span>
+                    </p>
+                    {% if subtotal > free_delivery_threshold %}
+                    <p class="text-end">Free Delivery
+                        <span class="fw-bold">£0.00</span>
+                    </p>
+                    {% else %}
+                    <p class="text-end">Delivery Charge
+                        <span
+                            class="fw-bold">£{{ delivery_charge | floatformat:2 }}</span>
+                    </p>
+                    <p class="fs-6 text-end text-danger">Spend an additional
+                        <span
+                            class="fw-bold">£{{ spend4free_delivery | floatformat:2 }}
+                        </span> for free delivery</p>
+                    {% endif %}
+                </div>
+                <hr>
+                <div class="col-12">
+                    <p class="text-end">Grand Total
+                        <span
+                            class="fw-bold">£{{ grand_total | floatformat:2  }}</span>
+                    </p>
+                </div>
+                <hr>
+            </div>
+            <!--End Basket Totals-->
+            <!--Checkout button-->
+            <div class="row toast-body">
+                {% if subtotal > 0 %}
+                <a href="{% url 'checkout' %}"
+                    class="btn btn-primary text-center col-12">
+                    <span class="text-uppercase small">
+                        Checkout</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0
+							1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                </a>
+                <a href="{% url 'summary' %}"
+                    class="btn btn-primary text-center col-12 mt-4">
+                    <span class="text-uppercase small">
+                        Edit Basket</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0
+							1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
     </div>
 </div>
