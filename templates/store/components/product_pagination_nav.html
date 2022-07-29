@@ -1,68 +1,77 @@
 <!-- Pagination -->
-<div class="mt-5">
-	<div
-		class="text-primary-darkest mx-4 border-0 d-block d-md-none text-center mb-2">
+<nav id="upto_medium_screen_pagination_navigation"
+	class="mt-5 d-block d-md-none">
+	<ul class="pagination justify-content-center align-items-center step-link">
+		{% if products_page_obj.has_previous %}
+		<li>
+			<a href="{% paginated_filter 1 'page' request.GET.urlencode %}"
+				class="page-link mx-1 text-primary-darkest link-hover-primary-light">&laquo;
+				First</a>
+		</li>
+		{% endif %}
+		{% for i in products_page_obj.paginator.page_range %}
+		{% if products_page_obj.number == i %}
+		<li class="active page-item disabled"><a
+				class="mx-1 page-link text-primary" href="#">{{ i }}</a></li>
+		{% elif i > products_page_obj.number|add:'-2' and i < products_page_obj.number|add:'2' %}
+		<li class="page-item"><a class="mx-1 page-link border-0 text-decoration-none
+				text-primary-darkest bg-primary-light"
+				href="{% paginated_filter i 'page' request.GET.urlencode %}">{{ i }}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+		{% if products_page_obj.has_next %}
+		<li>
+			<a href="{% paginated_filter products_page_obj.paginator.num_pages 'page' request.GET.urlencode %}"
+				class="page-link mx-1 text-primary-darkest link-hover-primary-light">Last
+				&raquo;</a>
+		</li>
+		{% endif %}
+	</ul>
+</nav>
+<nav id="medium_screen_pagination_navigation" class="mt-5 d-none d-md-block">
+	<ul class="pagination justify-content-center align-items-center step-link">
+		{% if products_page_obj.has_previous %}
+		<li>
+			<a href="{% paginated_filter 1 'page' request.GET.urlencode %}"
+				class="page-link mx-1 text-primary-darkest link-hover-primary-light">&laquo;
+				First</a>
+		</li>
+		{% endif %}
+		{% if products_page_obj.number|add:'-1' > 1 %}
+		<li class="page-item disabled"><a class="page-link">&hellip;</a></li>
+		{% endif %}
+		{% for i in products_page_obj.paginator.page_range %}
+		{% if products_page_obj.number == i %}
+		<li class="active page-item disabled"><a
+				class="mx-1 page-link text-primary" href="#">{{ i }}</a></li>
+		{% elif i > products_page_obj.number|add:'-3' and i < products_page_obj.number|add:'3' %}
+		<li class="page-item"><a class="mx-1 page-link border-0 text-decoration-none
+				text-primary-darkest bg-primary-light"
+				href="{% paginated_filter i 'page' request.GET.urlencode %}">{{ i }}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+		{% if products_page_obj.paginator.num_pages > products_page_obj.number|add:'1' %}
+		<li class="page-item disabled"><a class="page-link"
+				href="#">&hellip;</a>
+		</li>
+		{% endif %}
+		{% if products_page_obj.has_next %}
+		<li>
+			<a href="{% paginated_filter products_page_obj.paginator.num_pages 'page' request.GET.urlencode %}"
+				class="page-link mx-1 text-primary-darkest link-hover-primary-light">Last
+				&raquo;</a>
+		</li>
+		{% endif %}
+	</ul>
+</nav>
+<div class="my-2">
+	<div class="text-primary-darkest mx-4 border-0 text-center mb-2">
 		Page
 		{{ products_page_obj.number }}
 		of
 		{{ products_page_obj.paginator.num_pages }}
 	</div>
-	<nav>
-		<ul
-			class="pagination justify-content-center align-items-center step-link">
-			{% if products_page_obj.has_previous %}
-			<li>
-				<a href="{% paginated_filter 1 'page' request.GET.urlencode %}"
-					class="page-link mx-1 text-primary-darkest link-hover-primary-light">&laquo;
-					First</a>
-			</li>
-			<li>
-				<a href="{% paginated_filter products_page_obj.previous_page_number 'page' request.GET.urlencode %}"
-					class="page-link mx-1 text-primary-darkest
-						link-hover-primary-light">Prev</a>
-			</li>
-			{% endif %}
-			<span class="text-primary-darkest mx-4 border-0 d-none d-md-block">
-				Page
-				{{ products_page_obj.number }}
-				of
-				{{ products_page_obj.paginator.num_pages }}
-			</span>
-
-
-
-			{% if products_page_obj.has_next %}
-			<li>
-				<a href="{% paginated_filter products_page_obj.next_page_number 'page' request.GET.urlencode %}"
-					class="page-link mx-1 text-primary-darkest link-hover-primary-light">
-					Next</a>
-			</li>
-			<li>
-				<a href="{% paginated_filter products_page_obj.paginator.num_pages 'page' request.GET.urlencode %}"
-					class="page-link mx-1 text-primary-darkest link-hover-primary-light">Last
-					&raquo;</a>
-			</li>
-			{% endif %}
-	</nav>
 </div>
 <!-- END Pagination -->
-{% comment %} <nav class="my-5">
-	<ul class="pagination justify-content-center align-items-center step-link">
-		{% for i in products_page_obj.paginator.page_range %}
-		{% if products_page_obj.number == i %}
-		<li class='active mx-1 page-link text-primary'>
-			<span>{{ i }}</span>
-		</li>
-		{% else %}
-		<li>{% endcomment %}
-			{% comment %} #TODO replace the 1 with the page number ie. {{ i }}
-			{% endcomment %}
-			{% comment %}<a
-				href="{% paginated_filter 1 'page' request.GET.urlencode  %}&amp;page={{ i }}"
-				class="mx-1 page-link border-0 text-decoration-none
-				text-primary-darkest bg-primary-light">{{ i }}</a>
-		</li>
-
-		{% endif %}
-		{% endfor %}</ul>
-</nav> {% endcomment %}
