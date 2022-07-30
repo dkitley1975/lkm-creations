@@ -29,7 +29,7 @@ class CreateNewProductForm(forms.ModelForm):
         )
         widgets = {
             "name": forms.TextInput(attrs={"class": "form-control"}),
-            "sku": forms.NumberInput(attrs={"class": "form-control"}),
+            "sku": forms.TextInput(attrs={"class": "form-control"}),
             "category": forms.Select(attrs={"class": "form-control"}),
             "colour": forms.Select(attrs={"class": "form-control"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),

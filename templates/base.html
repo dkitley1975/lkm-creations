@@ -117,32 +117,34 @@
 					<form class="login mt-3" method="POST"
 						action="/accounts/login/?next={{ request.path }}">
 						{% csrf_token %}
-						<div id="div_id_login" class="form-group"> <label
-								for="id_login" class=" requiredField">
+						<div id="div_id_login_modal" class="form-group"> <label
+								for="id_login_modal" class=" requiredField">
 								Login<span class="asteriskField">*</span>
 							</label>
 							<div> <input type="text" name="login"
 									placeholder="Username or e-mail"
 									autocomplete="email"
 									class="textinput textInput form-control"
-									required id="id_login"> </div>
+									required id="id_login_modal"> </div>
 						</div>
-						<div id="div_id_password" class="form-group">
-							<label for="id_password" class=" requiredField">
+						<div id="div_id_password_modal" class="form-group">
+							<label for="id_password_modal"
+								class=" requiredField">
 								Password<span class="asteriskField">*</span>
 							</label>
 							<div> <input type="password" name="password"
 									placeholder="Password"
 									autocomplete="current-password"
 									class="textinput textInput form-control"
-									required id="id_password">
+									required id="id_password_modal">
 							</div>
 						</div>
 						<div class="form-group">
-							<div id="div_id_remember" class="form-check">
+							<div id="div_id_remember_modal" class="form-check">
 								<input type="checkbox" name="remember"
 									class="checkboxinput form-check-input"
-									id="id_remember"> <label for="id_remember"
+									id="id_remember_modal"> <label
+									for="id_remember_modal"
 									class="form-check-label">
 									Remember Me
 								</label> </div>
@@ -286,17 +288,6 @@
 											id="mc-embedded-subscribe"
 											class="btn btn-primary text-uppercase">Subscribe</button>
 									</div>
-
-
-
-
-
-									{% comment %} <div class="">
-										<input type="submit" value="Subscribe"
-											name="subscribe"
-											id="mc-embedded-subscribe"
-											class="button btn-primary btn">
-									</div> {% endcomment %}
 								</div>
 							</div>
 						</form>
