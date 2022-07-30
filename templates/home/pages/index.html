@@ -48,15 +48,15 @@
 <main class="px-4">
 	<section class="col-md-12 text-center pt-2">
 		<h2 class="my-3 fs-1">Sale Items</h2>
-	</section>
-	<section class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
+		<div class="col-md-10 offset-md-1 row row-cols-1 row-cols-md-2 row-cols-lg-3
 		row-cols-xl-4 g-5
 		mb-4">
-		{% for product in products %}
-		<div class="col">
-			{% include "store/components/product_card.html" %}
+			{% for product in products %}
+			<div class="col">
+				{% include "store/components/product_card.html" %}
+			</div>
+			{% endfor %}
 		</div>
-		{% endfor %}
 	</section>
 </main>
 {%endblock%}
