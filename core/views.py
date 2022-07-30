@@ -12,7 +12,7 @@ def forbidden_error_403(request, exception):
 
 
 def page_not_found_view_404(request, exception):
-    return render(request, "error/404.html", status=404)
+    return render(request, 'error/404.html', status=404)
 
 
 def internal_error_500(request):

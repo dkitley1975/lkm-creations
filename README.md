@@ -1,8 +1,8 @@
-[![David's GitHub Banner](/documents/assets/logo/GitHubHeader.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
+[![David's GitHub Banner](/readme/assets/logo/GitHubHeader.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
 
 # LKM-Creations <!-- omit in toc -->
 
-[![LKM Creations](/documents/assets/site-screenshots/lkm-creations-mockup.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
+[![LKM Creations](/readme/assets/site-screenshots/lkm-creations-mockup.png)](https://www.linkedin.com/in/david-kitley-mcnamara)
 This is the documentation regarding the creation of an e-commerce website for LKM-Creations.
 This is my 5th and final Portfolio Project for the Code Institute's Diploma in Full Stack Development.
 The projects purpose:
@@ -130,11 +130,11 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 
 ### [Github Project Board - Issues listed by bug and epics](https://github.com/users/dkitley1975/projects/12/views/1)
 
-![Project Board - Issues listed by bug and epics](/documents/assets/projectboard/LKM-CREATIONS-project-boards-issues-list.jpg)
+![Project Board - Issues listed by bug and epics](/readme/assets/projectboard/LKM-CREATIONS-project-boards-issues-list.jpg)
 
 ### [Github Project Board](https://github.com/users/dkitley1975/projects/12/views/3?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=Labels)
 
-![Project Board](/documents/assets/projectboard/LKM-CREATIONS-Project-board.jpg)
+![Project Board](/readme/assets/projectboard/LKM-CREATIONS-Project-board.jpg)
 
 [Table of Contents  ⇧](#table-of-contents)
 
@@ -145,7 +145,7 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 ## Database
 
 Image showing the database Scheme for LKM-CREATIONS
-![LKM-Creations Database Scheme](/documents/assets/schema/LKM-CREATIONS-database-schema.jpg)
+![LKM-Creations Database Scheme](/readme/assets/schema/LKM-CREATIONS-database-schema.jpg)
 
 ## Mobile Wireframes
 
@@ -158,7 +158,7 @@ Image showing the database Scheme for LKM-CREATIONS
 The default Sans-Serif is used as the main font. I was unnecessary to change the default font type as this is an easy font to read and displays well throughout the site.
 
 The Logo is pre-designed and uses Caveat from Google
-![image](/documents/assets/logo/LKM-CREATIONS-logo.png)
+![image](/readme/assets/logo/LKM-CREATIONS-logo.png)
 ***
 
 ## Colors
@@ -212,9 +212,9 @@ These were needed as there isn't enough contrast between the brand colours.*
 |gunicorn|HTTP Interface Server|[gunicorn](https://en.wikipedia.org/wiki/Gunicorn "gunicorn")|
 |psycopg2| Database adaptor | [psycopg2](https://wiki.postgresql.org/wiki/Psycopg "psycogg2")
 |cloudinary |Image management|[cloudinary](https://cloudinary.com/ "cloudinary")|
-|django auth|User authentication|[auth](https://docs.djangoproject.com/en/3.2/topics/auth/ "auth")|
+|django auth|User authentication|[auth](https://readme.djangoproject.com/en/3.2/topics/auth/ "auth")|
 | Postgres | Database| [Postgres sql](https://www.postgresql.org/)
-| django crispy forms | Styling forms | [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/ "crispy-forms")|
+| django crispy forms | Styling forms | [crispy-forms](https://django-crispy-forms.readthereadme.io/en/latest/ "crispy-forms")|
 |Site mockup| Mockup of site on different screen sizes|[Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php "Mockup Generator")
 |HTML Validation| Validating HTML|[w3.org](https://validator.w3.org/ "W3C")
 |CSS Validation| Validating CSS|[w3.org](https://jigsaw.w3.org/css-validator/ "W3C")
@@ -230,7 +230,7 @@ These were needed as there isn't enough contrast between the brand colours.*
 | Colours|Colour pallet| [coolors](https://coolors.co/ "coolors")|
 | Google Fonts| Fonts |[Google Fonts](https://fonts.google.com/ "Fonts")|
 | WebAIM| Colour contrast checks |[WebAIM](https://webaim.org/resources/contrastchecker/ "WebAIM")|
-|Pillow| Image processing tool | [Pillow](https://pillow.readthedocs.io/en/stable/ "Pillow")
+|Pillow| Image processing tool | [Pillow](https://pillow.readthereadme.io/en/stable/ "Pillow")
 |termly.io|Privacy Policy Generator| [Generate Privacy Policy](https://www.termly.io/)
 |Stripe| online payments| [Stripe](https://stripe.com/en-gb "Stripe")
 |favicon.io| Create the favicon| [favicon.io](https://favicon.io/ "favicon.io")
@@ -275,7 +275,7 @@ Creating, Editing, Updating and Deleting the *Products*, *Categories*, *Reviews*
 
 The site features documentation can be found here, this includes the details regarding the pages and the features of the site with supporting images.
 
-[Site Features Documentation](/documents/README-SITE-FEATURES.md)
+[Site Features Documentation](/readme/README-SITE-FEATURES.md)
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
@@ -284,7 +284,7 @@ The site features documentation can be found here, this includes the details reg
 
 The site testing documentation can be found here, this includes the details regarding the testing of the site.
 
-[Testing Documentation](documents/README-TESTING.md)
+[Testing Documentation](readme/README-SITE-TESTING.md)
 
 [Table of Contents  ⇧](#table-of-contents)
 ***

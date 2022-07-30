@@ -6,7 +6,6 @@
 <meta name="robots" content="noindex, nofollow">
 {% endblock %}
 {% block title %}{{ request.site.name }} - Error - 404{% endblock %}
-{% endblock %}
 {% block content %}
 <main class="col-12 mb-5 mt-3 mt-md-5 mx-3">
 	<div class="d-md-flex flex-md-row col-12 align-items-center">
@@ -24,8 +23,7 @@
 				</p>
 				<p class="text-center">Please try refreshing the page</p>
 				<div class="text-center mt-2">If the error persists please
-					inform us by
-					email<br> <a class="text-black text-decoration-none
+					inform us by email <a class="text-black text-decoration-none
 					link-hover-primary"
 						href="mailto:{{ site_info.email_address }}?subject=LKM%20Creations%20%20-%20404%20error">
 						({{ site_info.email_address }})</a> <br>Thank you<br>
@@ -33,6 +31,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-md-6 order-1 order-md-2">
+
 			<picture>
 				<source srcset="{{ MEDIA_URL }}images/yoda.webp"
 					type="image/webp" alt="An image of a Amigurumi Yoda" class="rounded
@@ -44,6 +43,7 @@
 					alt="An image of a Amigurumi Yoda" class="rounded mx-auto d-block
 					img-fluid image-drop-shadow">
 			</picture>
+
 		</div>
 	</div>
 </main>

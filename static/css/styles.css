@@ -166,6 +166,7 @@ body {
 	border-color: var(--clr-brand-primary-light);
 	background-color: var(--clr-brand-primary-light);
 	color: var(--clr-brand-primary-darkest);
+	border-color: var(--clr-brand-primary);
 }
 
 .btn-primary:focus {
@@ -176,9 +177,9 @@ body {
 }
 
 .btn-primary:hover {
-	border-color: var(--clr-brand-primary-darker);
-	background-color: var(--clr-brand-primary-lightest);
-	color: rgb(0, 0, 0);
+	border-color: var(--clr-brand-primary-darkest);
+	background-color: var(--clr-brand-primary);
+	color: white;
 }
 
 .btn-primary:disabled {
