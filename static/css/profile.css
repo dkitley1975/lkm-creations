@@ -9,7 +9,6 @@
 .order-history {
     /* height of profile form + submit button */
     max-height: 370px;
-
     overflow-y: scroll;
 }
 
