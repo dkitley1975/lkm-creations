@@ -1,3 +1,4 @@
+from genericpath import exists
 import uuid
 
 from django.db import models
@@ -8,23 +9,46 @@ from products.models import Product
 from profiles.models import UserProfile
 from siteadmin.models import SiteInfo
 
-# TODO COMMENT OUT THE next two blocks when initially migrating
-# to the databases and once the site info is set up
-# they should then be uncommented
-# the orders sample data will not install without this
-# being uncommented
-default_delivery_price = (
-    SiteInfo.objects.all()
-    .filter(is_active=True)
-    .order_by("-created_at")[0]
-    .delivery_price
-)
-free_delivery_threshold = (
-    SiteInfo.objects.all()
-    .filter(is_active=True)
-    .order_by("-created_at")[0]
-    .free_delivery_over
-)
+
+def default_delivery_price():
+    """
+    Get the default delivery price from the database.
+    If there is no default price, return 10.
+    """
+    try:
+        default_delivery_price = (
+            SiteInfo.objects.all()
+            .filter(is_active=True)
+            .order_by("-created_at")[0]
+            .delivery_price
+            )
+        return default_delivery_price
+    except default_delivery_price.DoesNotExist:
+        return "10"
+
+default_delivery_price = default_delivery_price()
+
+
+def free_delivery_threshold():
+    """
+    Get the free delivery threshold from the database.
+    If it doesn't exist, return 0.
+    """
+    try:
+        free_delivery_threshold = (
+            SiteInfo.objects.all()
+            .filter(is_active=True)
+            .order_by("-created_at")[0]
+            .free_delivery_over
+            )
+        return free_delivery_threshold
+
+    except free_delivery_threshold.DoesNotExist:
+        return "0"
+
+
+free_delivery_threshold = free_delivery_threshold()
+
 
 # Create your models here.
 
@@ -192,9 +216,7 @@ class OrderDetails(models.Model):
         """
         self.order_subtotal = (
             self.lineitems.aggregate(Sum("lineitem_total"))[
-                "lineitem_total__sum"
-            ]
-            or 0
+                "lineitem_total__sum"] or 0
         )
         if self.order_subtotal < free_delivery_threshold:
             self.delivery_charge = default_delivery_price
@@ -271,10 +293,9 @@ class OrderLineItem(models.Model):
         and remove the line product quantity from its inventory.
         """
         if (
-            self.product.sale_price is not None
-            and self.product.sale_price > 0
-        ):
-            unit_price = self.product.sale_price
+            self.product.sale_price is not None and
+                self.product.sale_price > 0):
+                unit_price = self.product.sale_price
         else:
             unit_price = self.product.retail_price
         self.unit_price = unit_price

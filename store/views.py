@@ -92,7 +92,7 @@ def product_detail(request, slug):
             messages.error(
                 request, "You must be logged to leave a review."
             )
-            return redirect(reverse("login"))
+            return redirect(reverse("account_login"))
         rating = request.POST.get("rating", 5)
         content = request.POST.get("content", "")
         image = request.FILES.get("image")
