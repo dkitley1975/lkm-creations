@@ -14,6 +14,7 @@ This document contains a breakdown of the testing preformed on the LKM-Creations
   - [JS](#js)
   - [PYTHON](#python)
 - [Automated Testing](#automated-testing)
+- [Manual Testing](#manual-testing)
 
 # Code Validation
 
@@ -30,7 +31,7 @@ The 400 error page was tested by replacing the 403.html with the 400.html, creat
 Below is a list of the pages tested, the result from [validator.w3.org](https://validator.w3.org/nu/#textarea "link") and a link to a screenshot of the results page.
 
 | File Name | File Path | Result | W3C | Comments |
-|--|--|--|--|--|
+| -- | -- | -- | -- | -- |
 | index.html | templates/home/index.html | PASS | [link](/readme/assets/validation/html/homepage.png "link") ||
 | contact-us.html | templates/home/contact-us.html | PASS | [link](/readme/assets/validation/html/contact-us.png "link") ||
 | cookie-policy.html | templates/home/cookie-policy.html | PASS | [link](/readme/assets/validation/html/cookie-policy.png "link") ||
@@ -67,7 +68,7 @@ Below is a list of the pages tested, the result from [validator.w3.org](https://
 To Validate the css code, each of the css files were copied and pasted in to [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input+with_options "link"), with this service having issues with CSS Variables giving the warning *(Due to their dynamic nature, CSS variables are currently not statically checked)* and as I use these for my colours I also passed the code through [validator.w3.org (css box ticked)](https://validator.w3.org/nu/#textarea "link"),
 
 | File Name | File Path | Result validator.w3.org | Result W3C | comments |
-|--|--|--|--|--|
+| -- | -- | -- | -- | -- |
 | admin.css | static/css/admin.css | PASS [link](/readme/assets/validation/css/admin.png "link") | PASS [link](/readme/assets/validation/css/admin-w3c.png "link") | W3C warnings regarding CSS variables & vendor extended pseudo-element [link](/readme/assets/validation/css/admin-w3c-warnings.png "link") |
 | allauth.css | static/css/allauth.css | PASS [link](/readme/assets/validation/css/allauth.png "link") | PASS [link](/readme/assets/validation/css/allauth-w3c.png "link") |  |
 | brand-colours.css | static/css/brand-colours.css | PASS [link](/readme/assets/validation/css/brand-colours.png "link") | PASS [link](/readme/assets/validation/css/brand-colours-w3c.png "link") |  |
@@ -83,7 +84,7 @@ To Validate the css code, each of the css files were copied and pasted in to [W3
 ## JS
 
 | File Name | File Path | Result | JSHint | Comments |
-|--|--|--|--|--|
+| -- | -- | -- | -- | -- |
 | countryfield.js | static/css/countryfield.js | PASS | [link](/readme/assets/validation/js/countryfield.png "link") | One undefined variable |
 | facebook.js | static/css/facebook.js | PASS | [link](/readme/assets/validation/js/facebook.png "link") | One undefined variable |
 | mailchimp.js | static/css/mailchimp.js | PASS | [link](/readme/assets/validation/js/mailchimp.png "link") | Mailchimps file -  Two warnings &  One undefined variable |
@@ -99,7 +100,7 @@ To Validate the css code, each of the css files were copied and pasted in to [W3
 ## PYTHON
 
 | File Name | File Path | Result | JSHint | Comments |
-|--|--|--|--|--|
+| -- | -- | -- | -- | -- |
 | calc_item_available_stock.py | basket/templatetags/calc_item_available_stock.py | PASS | [link](/readme/assets/validation/python/basket-calc_item_available_stock.png "link") |  |
 | calc_item_subtotal.py | basket/templatetags/calc_item_subtotal.py | PASS | [link](/readme/assets/validation/python/basket-calc_item_subtotal.png "link") |  |
 | custom_context_processors.py | basket/custom_context_processors.py | PASS | [link](/readme/assets/validation/python/basket-custom_context_processors.png "link") |  |
@@ -151,9 +152,84 @@ But, as the project progressed, and as adjustments were made to the working view
 models the automated tests were not working as expected and then stopped working.
 I spent a little time trying to figure out why, but was not been able to figure it out at the time and my time was better spent working on the codebase, rather than testing it.
 I have now managed to fix the issues in the automated testing I have completed, but the coverage is not as good as I would like.
-The link to the automated test coverage report is [here](/tests/coverage/html_report/index.html "link").
+This is the automated test coverage report: [link](/readme/assets/validation/automated-test-coverage.png "link").
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
+
+# Manual Testing
+This is a break down of the manual testing I have done.
+
+| Test | Tested by | Result |
+| -- | -- | -- |
+| A user can create an account | Creating an account for Peter using the register modal, and the url accounts/signup/ | Peters account showed in the admin panel
+| Registration verification email is sent and links work | Created an new account for peter, and email responded to | Peters account in the admin showed email verified |
+| Peters user id and email address id are the same | Created an new account for Peter | Peters users details in AUTHENTICATION AND AUTHORIZATION and Email address in ACCOUNTS both have the ID 4 |
+|Peter can delete his account | Used the Delete account section in Profile Dashboard | Peters account details are no longer show in the admin panel |
+| Bilbo once Signed in can access the registered user areas | Logged Bilbo in | The Navigation area changes from 'Register', 'Sign In' to  'My Account", "Sign Out" |
+| Bilbo can only access his own details in the dashboard | Logged Bilbo in and visited the dashboard. | Bilbo's orders appear, but the address bar shows no indication of a user, and a user would be unable to access another account this way. |
+| Bilbo can only see his individual order summary's | Logged Bilbo in to his Order History section. He could theoretically guess previous order numbers belonging to other users by guessing random numbers, (The order numbers are random generated numbers and not generated sequentially, to decrease the chances of this). The main prevention of seeing other users orders is if the logged in user.id and the order.id do not match the order summary will not display, showing an error message instead with a Return Home button. | This was fixed in [#59](https://github.com/dkitley1975/lkm-creations/issues/59) - resulting in No access to another users order history |
+| Bilbo can only see and edit his own Profile details | Logged Bilbo in to the user dashboard, there is no url indication as to the users id, so unable to guess user.ids to input into the address bar. |  |
+| Bilbo can edit his username | With Bilbo logged into the User Dashboard - Update Profile Details, Changed his Profile details, Password and Default Delivery Address | After forms submission the details are updated. |
+| Biblo can connect his Google account to his LKM Creations Account | Logged Bilbo in to the user dashboard - Social Accounts and proceeded to connect with Google | Google account connected successfully |
+| Biblo can disconnect his Google account from his LKM Creations Account | Logged Bilbo in to the user dashboard - Social Accounts and proceeded to disconnect with Google | Google account disconnected successfully |
+| Biblo can connect his Facebook account to his LKM Creations Account | Logged Bilbo in to the user dashboard - Social Accounts and proceeded to connect with Facebook | Currently Failing [#60](https://github.com/dkitley1975/lkm-creations/issues/60) |
+| Biblo can disconnect his Google account from his LKM Creations Account | Logged Bilbo in to the user dashboard - Social Accounts and proceeded to disconnect with Google |  |
+| Footer links work | Clicked on all links within the footer | All external links open in a new tabs, site links open in the same tab |
+| Navbar Logo Links to Home | Click on Navbar logo | directed to the home page |
+| Navbar links work |  |  |
+| Sale Items | Clicked on link | Opens in the same tab |
+| All Products | Clicked on link | Opens in the same tab |
+| Shop By Category | Clicked on links | Opens in the same tab. Displaying the filtered Category results|
+| Newsletter Signup | Clicked on link | Opens Modal |
+| Bilbo can signup to the Newsletter | Clicked on the Newsletter signup Navbar link and filled in the details and Submitted |  Bilbo's details are submitted and entered in to the mailing list at LKM Creations Mailchimps account |
+| Search Bar gives relevant results| Searched for Dolls | Products page opened and showed dolls from product names or category names |
+| My Account | Clicked on link | Opens in the same tab |
+| Log in | Clicked on link | Opens Modal and allows user to Sign In |
+| Log out | Clicked on link | Opens Modal and allows user to Sign Out |
+| Basket | Clicked on link | Opens in the same tab |
+| Bilbo can browse products | Clicked on the Products links | Opens the relevant Products |
+| Bilbo can Navigate through the products | Products are paginated in to 6's. Clicked on the pagination navigation links at the bottom of the screen | Displayed the relevant page dependant on the link clicked and showed the correct page number |
+| Bilbo can sort the products | Sorted the Products by price and name, Ascending and Descending | Products are sorted correctly and the pagination navigation works correctly |
+| Bilbo can view important information whilst browsing the products  | Clicked on the all products link | The Product cards display the Product Name, Price, and Sale Price, Product Review Ratings, Category and Current Inventory |
+| Bilbo can view additional product information | Clicked on Product card | Product Details opened, displaying the products full details |
+| Bilbo can share the product socially with friends | Clicked on each of the share socially links | In future the images should adjusted for each platform |
+|  | Facebook | Opens the share on facebook, with image, url and description |
+|  | Twitter | Opens Twitter, dispalys the Product Name, URL and show the product card. |
+|  | Pinterest | Opens Pinterest and allows the board to pin the item to |
+|  | LinkedIn | Opens LinkedIn and shares image Product Name and URL |
+|  | email | opens email client with message: I absolutely love this 'Beril The Bunny', check it out here https://lkm-creations.herokuapp.com/store/beril-the-bunny/ |
+| Bilbo can view reviews | Viewed the product details page | If there are products reviews, these are displayed. |
+| Bilbo can leave a review for a product | left a review as Bilbo | The review and his image appeared after submit. Confirmation toast message received |
+| Bilbo can delete his review for a product | clicked on the delete button next to Bilbo's review | The review was removed.Confirmation toast message received |
+| Bilbo can only see items in stock | Opened all products, Removed the inventory of a product using the admin panel | The product was removed from the Products view |
+| Bilbo can add an item to the basket | Opened a products details page, selected 1 and added to the basket | Item was added to the basket. Confirmation toast message is displayed, with links to basket summary and checkout. basket quantity 1 and subtotal £24.50 appear in the Navbar on the basket icon. |
+| Bilbo can amend the quantity in the cart from its product page | After adding 1 to the basket, selected 2 and clicked UPDATE basket quantity | Item quantity was amended to 2 in the basket. Confirmation toast message is displayed, with links to basket summary and checkout. basket quantity 2 and subtotal £49 appear in the Navbar
+| Bilbo can remove the product from the cart from its product page | After updating product to 2, now selected 0 and clicked UPDATE basket quantity | Item was removed from the basket. Confirmation toast message is displayed. Basket icon in the Navbar is now empty, clicking on the basket icon show the basket summary with the message the basket is empty.|
+| Bilbo shouldn't be able to order more than is in the inventory | Selected the Dinosaur T-Rex and tried to add 5 to the basket, only 2 are available | message that value must be less than or equal to 2 is displayed |
+| The inventory is reduced after purchase | I progressed with an order for 1 Dinosaur T-Rex only 2 are available | Order submitted and confirmation toast message is displayed. Emails to site admin and Bilbo are received, Inventory is reduced by 1|
+| The inventory is reduced after purchase | I progressed with another order for 1 Dinosaur T-Rex only 1 is available, (site display last one available) | Order submitted and confirmation toast message is displayed. Emails to site admin and Bilbo are received, Inventory is reduced by 1, Product no longer appears in the All Products view, Admin panel confirms: product stock is 0 and Product stock is not available |
+| Delivery charge is shown and appropriately charged | Using Bilbo's account an item under £19.99 was added to the basket. | The Confirmation message shows the item is added to the basket, informs that "Spend an additional £5.49 for free delivery: and shows the grand total with delivery |
+| Delivery is free when appropriate | Using Bilbo's account a second item to bring the total over £19.99 to the basket. | The Confirmation message shows the item is added to the basket, shows Free Delivery and shows the grand total with free delivery |
+| Multiple items can be added to the basket and then manipulated | Using Bilbo's account 4 items are added to the basket, Item quantities are updated, Items are removed, | The adjustment of an items quantity amends the items total and price accordingly, without affecting the quantities or prices of the other items.  |
+| THe price is added correctly |Using Bilbo's account 4 items are added to the basket, Item quantities are updated, Items are removed | On updating an item the items quantity and price is amended and added correctly, deleting the item removes the item from the basket. once the subtotal is beneath the free delivery threshold the delivery charge is added |
+| Signing Out with items in the basket | Signed in as Bilbo items were added to the basket, I clicked on Sign Out, this opens the modal asking for confirmation and then I logged Bilbo out and logged in as another user | This confirms the log out in a toast message. removing the items from the basket, This is a security feature, the Sign Out clears the basket cookies, helping avoid this being opened up again by another user of the computer |
+| Signing In with items in the basket | As a guest items were added to the basket, I clicked on Sign In , this opens the modal to Sign In and I signed in as Bilbo | The items remained in the basket allowing Bilbo to purchase these items |
+| Registering with items in the basket | As a guest items were added to the basket, I clicked on Register , this opens the modal to Register and I registered as Peter and confirmed the registration email | The items remained in the basket allowing Peter to purchase these items |
+| Purchasing an Item | With items in the basket for Peter, I clicked through to the Checkout, filled in the information, selecting to save the delivery information to the profile. Used the card number 4242 4242 4242 4242 04 24 expiry date 242 CVC and 42424 Postcode.  Clicking confirm payment | Payment is taken, Confirmation message is displayed, and The checkout-success is displayed. |
+| Purchasing an Item with incorrect card details | With items in the basket for Peter, I clicked through to the Checkout, filled in the information, selecting to save the delivery information to the profile. Used the card number 5242 4242 4242 4242 04 24 expiry date 242 CVC and 42424 Postcode.  Clicking confirm payment | Payment will not proceed and fails, giving incorrect payment details as the error |
+| Print receipts | On the checkout-confirmation view the page is printed | This prints a rerendered version of the view. Items are hidden (such as the navbars etc) and other show to clearly show this as a payment receipt. [link](readme/assets/screenshots/screenshot-dashboard-order-history-details-print-view.png "link"). |
+|  | Open the email order confirmation | This gives a full breakdown of the order [link](readme/assets/site-screenshots/LKM-Creations-Confirmation-for-Order-Number-ED7D0042D57B.jpg "link"). |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+| -- | -- | -- |
+
 [Main Readme](/README.md)
 ***
