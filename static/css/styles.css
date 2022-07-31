@@ -300,6 +300,14 @@ img:not([src]):not([srcset]) {
 	color: var(--clr-brand-primary) !important;
 }
 
+.svg {
+	fill: var(--clr-brand-primary) !important;
+}
+
+.svg:hover {
+	fill: var(--clr-brand-primary-darkest) !important;
+}
+
 .fa-stack[data-count]:after {
 	position: absolute;
 	right: -10%;
