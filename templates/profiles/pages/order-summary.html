@@ -13,6 +13,7 @@
 {% endblock %}
 {% block content %}
 <main class="mb-5 mt-3 mt-md-5">
+    {% if user.id == order.user_id %}
     <div class="container p-5">
         <div id="receipt-header" class="row px-5 align-items-end mb-5">
             <div class="col-12 col-md-9">
@@ -165,5 +166,20 @@
         </div>
     </div>
     {% endif %}
+    {% else %}
+    <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h3 class="text-center mt-5 fs-5">{{user.username|title}}
+            you don't have access to anothers previous order history</h3>
+        <div class="d-grid gap-3 col-12 my-3">
+            <a href="{% url 'home:home' %}"
+                class="btn btn-primary text-uppercase">
+                Home Page</a>
+
+
+        </div>
+    </div>
+
+    {% endif %}
+
 </main>
 {% endblock %}
