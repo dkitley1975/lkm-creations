@@ -59,7 +59,7 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+Unit test / coverage reports
 # htmlcov/
 # .tox/
 # .nox/
@@ -182,10 +182,7 @@ local-only/*
 *.code-workspace
 
 *copy.py
-.gitignore
 .DS_Store
-ponicode
 *copy.*
-README.md
 .pre-commit-config.yaml
 setup.cfg

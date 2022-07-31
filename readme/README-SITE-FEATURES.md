@@ -10,30 +10,30 @@ It goes through the site, from landing on the home page, purchasing items, baske
 
 - [Table Of Contents](#table-of-contents)
 - [Site Features](#site-features)
-	- [Home Page](#home-page)
-	- [Common Features](#common-features)
-		- [Navigation bar](#navigation-bar)
-		- [Footer](#footer)
-	- [Browsing Products](#browsing-products)
-	- [Sorting Products](#sorting-products)
-	- [Product Details](#product-details)
-	- [Basket Notifications](#basket-notifications)
-	- [Basket Summary](#basket-summary)
-	- [Checkout](#checkout)
-		- [Order Confirmation emails](#order-confirmation-emails)
-		- [User order confirmation email](#user-order-confirmation-email)
-		- [Admin order confirmation email](#admin-order-confirmation-email)
-	- [Registration](#registration)
+  - [Home Page](#home-page)
+  - [Common Features](#common-features)
+    - [Navigation bar](#navigation-bar)
+    - [Footer](#footer)
+  - [Browsing Products](#browsing-products)
+  - [Sorting Products](#sorting-products)
+  - [Product Details](#product-details)
+  - [Basket Notifications](#basket-notifications)
+  - [Basket Summary](#basket-summary)
+  - [Checkout](#checkout)
+    - [Order Confirmation emails](#order-confirmation-emails)
+    - [User order confirmation email](#user-order-confirmation-email)
+    - [Admin order confirmation email](#admin-order-confirmation-email)
+  - [Registration](#registration)
 - [User Dashboard](#user-dashboard)
-	- [Update User Details](#update-user-details)
-	- [Social Account Connections](#social-account-connections)
-	- [Order History](#order-history)
-	- [Contact Us](#contact-us)
-	- [Newsletter](#newsletter)
-	- [Site Policies](#site-policies)
-	- [Error Pages](#error-pages)
-	- [Site Maps](#site-maps)
-		- [Rich Results](#rich-results)
+  - [Update User Details](#update-user-details)
+  - [Social Account Connections](#social-account-connections)
+  - [Order History](#order-history)
+  - [Contact Us](#contact-us)
+  - [Newsletter](#newsletter)
+  - [Site Policies](#site-policies)
+  - [Error Pages](#error-pages)
+  - [Site Maps](#site-maps)
+    - [Rich Results](#rich-results)
 
 # Site Features
 
@@ -551,10 +551,8 @@ Subjet: LKM Creations 404 Error or 400, 403, 500  etc
 Site maps are created dynamically each time they are requested, ensuring that the site is always up to date.
 The code below is the code used to create the site maps.
 
-```
-
 urls
-```
+```urls
 
 from .sitemaps import CategorySitemap, ProductSitemap, StaticSitemap
 
@@ -569,11 +567,15 @@ path(
         sitemap,
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
-    ),
- ```
+```
 
-```python
-from datetime import datetime
+
+
+
+
+
+Python
+```from datetime import datetime
 
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
@@ -646,6 +648,389 @@ class StaticSitemap(Sitemap):
         return reverse(item)
 ```
 
+The sitemap can be viewed using the following URL:
+
+```
+lkm-creations.herokuapp.com/sitemap.xml
+```
+this is the output of the sitemap.xml file.
+```
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/albino-whale</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/alpaca</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/baby-bella-bunny-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/beril-the-bunny</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/berlinda-the-bunny</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/brenda-the-bunny</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/bumble-bee</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/bunny-doll</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/bunny-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/bunny-siblings</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/buzzy-bee-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/christine-the-cow</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/dinosaur-t-rex</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/dinosaur-triceratops</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/dog-pug</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/doll</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/doll-jessica</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/gina-the-giraffe-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/hedgehog-pattern</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/hettie-the-highland-cow-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/jellyfish</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/jolly-jellyfish</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/lionel-the-lion-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/sarah-the-sheep-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/sean-the-seagull</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/simon-the-shark</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/teddy-bear</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/teddy-bear-and-rabbit-pattern</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/terrance-the-triceratops</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/terry-the-turtle</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/thomas-the-turtle</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/turtles-pair</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/willma-the-whale</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/willma-the-whale-kit</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/willy-the-whale</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/winnie-the-whale</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-black</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-blue</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-brown</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-green</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-grey</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-indigo</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-lilac</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-orange</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-pink</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-purple</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-red</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-violet</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-white</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/yarn-yellow</loc>
+<lastmod>2022-03-12</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/documents/privacy-policy</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/documents/terms-of-service-policy</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/documents/returns-policy</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/documents/disclaimer-policy</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/documents/shipping-policy</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/documents/cookie-policy</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/category/accessories</loc>
+<lastmod>2022-07-30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/category/doll</loc>
+<lastmod>2022-07-30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/category/kit</loc>
+<lastmod>2022-07-30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/category/pattern</loc>
+<lastmod>2022-07-30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/category/stuffed-animal</loc>
+<lastmod>2022-07-30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://lkm-creations.herokuapp.com/store/category/yarn</loc>
+<lastmod>2022-07-30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+</urlset>
+```
+
 ### Rich Results
 
 Rich Results are applied dynamically in the product-details page.
@@ -703,7 +1088,6 @@ The second is that optional field  'priceValidUntil' is missing. This is because
 ![Rich-Results](/readme/assets/site-screenshots/Rich-Results-Test-Google-Search-Console.jpg)
 
 *Google Card Preview*
-
 ![Google Card Preview](/readme/assets/site-screenshots/Rich-Results-Test-Google.png)
 
 [Table of Contents  ⇧](#table-of-contents)
