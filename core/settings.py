@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "allauth.socialaccount.providers.facebook",
     "allauth.socialaccount.providers.google",
 
     # third party apps
@@ -265,14 +264,3 @@ STRIPE_WH_SECRET = config("STRIPE_WH_SECRET")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# SECURITY WARNING: remove the Print to terminal once ready to deploy
-# Print to terminal the enviroment settings
-
-if DEBUG:
-    os.system("clear")
-    print("\033[1;33m""Allowed Hosts: ""\033[1;32m", ALLOWED_HOSTS,"\033[0;0m")
-    print("\033[1;33m""Debug is set to: " "\033[1;32m", DEBUG,"\033[0;0m")
-    print("\033[1;33m""Using the Local Database: " "\033[1;32m", LOCAL_DB,"\033[0;0m")
-    print("\033[1;33m""Using the AWS S3 Bucket: " "\033[1;32m", USE_AWS,"\033[0;0m")
-    if EMAIL_BACKEND == 'django.core.mail.backends.smtp.EmailBackend': print("\033[1;33m""Email : ""\033[1;32m" "Using SMTP""\033[0;0m")
-    if EMAIL_BACKEND == 'django.core.mail.backends.console.EmailBackend': print("\033[1;33m""Email : ""\033[1;32m" "Using Console""\033[0;0m")
