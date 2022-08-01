@@ -28,7 +28,7 @@ To build a Full-Stack site based on business logic used to control a centrally-o
     - [Github Project Board](#github-project-board)
 - [Design](#design)
   - [Database](#database)
-  - [Mobile Wireframes](#mobile-wireframes)
+  - [Wireframes](#wireframes)
   - [Fonts](#fonts)
   - [Colors](#colors)
     - [*Main Colour Pallet*](#main-colour-pallet)
@@ -40,10 +40,21 @@ To build a Full-Stack site based on business logic used to control a centrally-o
   - [General User](#general-user)
   - [General - Registered User](#general---registered-user)
   - [Staff - Registered User](#staff---registered-user)
+  - [SEO](#seo)
 - [Site Features](#site-features)
 - [Site Testing](#site-testing)
-
-
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+  - [Local Deployment](#local-deployment)
+    - [AWS](#aws)
+    - [GitHub](#github)
+      - [Forking](#forking)
+    - [Set up your Workspace](#set-up-your-workspace)
+    - [Deployment via Heroku](#deployment-via-heroku)
+    - [Stripe](#stripe)
+    - [Email setup](#email-setup)
+- [Credits](#credits)
+- [My Thoughts](#my-thoughts)
 
 ## UX (User Experience)
 
@@ -147,9 +158,21 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 Image showing the database Scheme for LKM-CREATIONS
 ![LKM-Creations Database Scheme](/readme/assets/schema/LKM-CREATIONS-database-schema.jpg)
 
-## Mobile Wireframes
+## Wireframes
 
-![MOBILE](/)
+| Wireframe Description | Link |
+| -- | -- |
+| Desktop Wireframe of the Homepage | [link](/readme/assets/wireframes/wireframe-desktop-home.png "link") |
+| Desktop Wireframe of the Newsletter Signup Modal | [link](/readme/assets/wireframes/wireframe-desktop-newsletter.png "link") |
+| Desktop Wireframe of the Products View | [link](/readme/assets/wireframes/wireframe-desktop-products.png "link") |
+| Desktop Wireframe of the Product Details | [link](/readme/assets/wireframes/wireframe-desktop-product-details.png "link") |
+| Mobile Wireframe of the Homepage | [link](/readme/assets/wireframes/wireframe-mobile-home.png "link") |
+| Mobile Wireframe of the Contact-Us Page | [link](/readme/assets/wireframes/wireframe-mobile-contact-us.png "link") |
+| Mobile Wireframe of the Newsletter Signup Modal | [link](/readme/assets/wireframes/wireframe-mobile-newsletter.png "link") |
+| Mobile Wireframe of the Products View | [link](/readme/assets/wireframes/wireframe-mobile-products.png "link") |
+| Mobile Wireframe of the Product Details | [link](/readme/assets/wireframes/wireframe-mobile-product-details.png "link") |
+
+I planed a limited number of wireframes for the project, Partly because I did not have the time to finish all of them, but also after designing the initial pages I knew what I wanted to see from the each page. If I was having to submit a client I would of spent more time initially laying out the frames for signoff before beginning to design the pages. As I was designing the pages I was also planning on using the basic set of wireframes to help me understand the design and how to implement it into the project. But as I only had to answer to myself I wasn't constrained to the wireframes I had planned and felt free to amend the layout and colour scheme as I needed.
 
 ***
 
@@ -167,11 +190,11 @@ I have used these prexisting existing brand colours throughout the site.
 
 ### *Main Colour Pallet*
 
-  ![Brand Primary Colour #e27c7c](https://via.placeholder.com/30/e27c7c/e27c7c.png) `Brand Primary Colour #e27c7c`
+![Brand Primary Colour #e27c7c](https://via.placeholder.com/30/e27c7c/e27c7c.png) `Brand Primary Colour #e27c7c`
 
 ![Brand Secondary Colour #FFD9C0](https://via.placeholder.com/30/FFD9C0/FFD9C0.png) `Brand Secondary Colour #FFD9C0`
 
-  ![Brand Tertiary Colour #FAF0D7](https://via.placeholder.com/30/FAF0D7/FAF0D7.png) `Brand Tertiary Colour #FAF0D7`
+![Brand Tertiary Colour #FAF0D7](https://via.placeholder.com/30/FAF0D7/FAF0D7.png) `Brand Tertiary Colour #FAF0D7`
 
 ### **Shades of the Brand Colours**
 
@@ -234,6 +257,7 @@ These were needed as there isn't enough contrast between the brand colours.*
 |termly.io|Privacy Policy Generator| [Generate Privacy Policy](https://www.termly.io/)
 |Stripe| online payments| [Stripe](https://stripe.com/en-gb "Stripe")
 |favicon.io| Create the favicon| [favicon.io](https://favicon.io/ "favicon.io")
+|AWS| Storage of the Static Files| [AWS](https://aws.amazon.com/ "aws.amazon.com")
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
@@ -263,10 +287,22 @@ There is a message recommending that I use the Admin panel for this though and s
 Clicking on the Delete link I am able to *Delete* the Product.
 Again there is a message recommending that I use the Admin panel for this though and instead set the product to inactive instead and supplies a direct link for this products edit section in the Admin Panel.
 
-I can also *Delete* any *Review*.
-
 I have access to the Admin panel where I can Create, Read, Update and Delete all the information.
 Creating, Editing, Updating and Deleting the *Products*, *Categories*, *Reviews*, *Users*, *Addresses*, *Orders*, *Payments*
+
+## SEO
+
+The sites key words are added in the *Meta Tags* section of the *Head* section of the *HTML* document. These are taken from the Siteadmin *SEO* store_description.
+Pages such as the product pages use
+
+``Purchase as a gift our {{ product.name|title}} -
+{{ product.description|title|striptags|safe|truncatechars:100 }}``
+for a dynamic description.
+
+Keywords were researched and the following were used:
+"Handmade, Handcrafted, Gifts, Presents, Amigurumi Dolls, Amigurumi Toys, Amigurumi Gifts, Knitted Dolls, Stuffed Animals, Toys, Knitted Gifts, Crochet Dolls, Crochet Toys, Crochet Gifts"
+These are entered in to the siteadmin-siteinfo *SEO* store_keywords. and are called in to the more static pages.
+There are also product Keywords which are dynamic and are called in to the product pages.
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
@@ -285,6 +321,219 @@ The site features documentation can be found here, this includes the details reg
 The site testing documentation can be found here, this includes the details regarding the testing of the site.
 
 [Testing Documentation](readme/README-SITE-TESTING.md)
+
+[Table of Contents  ⇧](#table-of-contents)
+***
+
+# Bugs
+
+This area lists the bugs which left me frustrated for a long time of just haven't as yet been solved..
+
+[Bugs Documentation](readme/README-BUGS.md)
+
+[Table of Contents  ⇧](#table-of-contents)
+***
+
+# Deployment
+
+This project was created using GitHub and the code was written VSCode.
+Branches were created to work on sections of the site.  This project is also deployed to Heroku
+
+heroku login -i
+
+Email: **enter_heroku_account_email**
+Password: **enter_heroku_account_password**
+
+heroku git:remote -a __your *heroku_app_name*_
+
+git push heroku main
+
+The live link to the application can be found [here](https://lkm-creations.herokuapp.com// "Link")
+
+## Local Deployment
+
+As Visual Studio Code was the IDE that was used to create the project, the following local deployment steps are specific to my enviroment.
+
+### AWS
+
+- Visit AWS by following this [link](https://aws.amazon.com/ "Link")
+- Click on the *Create an AWS Account* button
+- When the account is created, you will need to setup a S3 Bucket.
+ [amazon-s3-cheat-sheet](https://www.zuar.com/blog/amazon-s3-cheat-sheet// "How to create an AWS S3 Bucket") You will need the AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+
+### GitHub
+
+- Visit Github by following this [link](https://github.com/ "Link")
+- Create an account or log in
+
+#### Forking
+
+- Navigate to the repository by following this [link](https://github.com/dkitley1975/lkm-creations "Link")
+- Click on the *Fork* button in the top right of the screen
+
+### Set up your Workspace
+
+When you have your version of the original repository,
+
+- In the terminal run
+
+``
+pip3 install -r requirements.txt
+``
+
+- In the root directory create a file called **.env** and add the two following blocks of content, the content of these, must match the Config Vars in the Heroku deployment section
+
+This First Section is used for my the local deployment
+I have issues using psycopg2 when using the live server,
+So I am unable to use the live database from my local machine. So setting up a local database is required.
+When Debug is set to False I can choose to use the remote static files rather than the local static files, by using the USE_AWS.
+LOCAL_DB and USE_AWS are not required to be copied to Heroku Vars
+
+``DEBUG=True
+LOCAL_DB=True
+USE_AWS=False``
+
+``SECRET_KEY=YourSecretKey
+DATABASE_URL=YourPostgreslink
+EMAIL_HOST=smtp.gmail.com
+EMAIL_HOST_PASSWORD=YourPassword
+EMAIL_PORT=587
+EMAIL_HOST_USER=yourname@gmail.com
+SITE_EMAIL=SitesEmailAddress
+ALLOWED_HOSTS=127.0.0.1, localhost
+AWS_ACCESS_KEY_ID=YourKey
+AWS_SECRET_ACCESS_KEY=YourKey
+STRIPE_PUBLIC_KEY=pk_test_YourKey
+STRIPE_SECRET_KEY=sk_test_YourKey
+STRIPE_WH_SECRET=whsec_YourKey
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+EMAIL_FROM_ADDRESS=DefaultEmailAddress``
+
+- Add the .env file to the .gitignore file to ensure that its contents are not made public
+
+- Migrate the database models with the following command in the terminal
+
+``
+python3 manage.py migrate
+``
+
+- Create a superuser and set up the credentials with the following command
+
+``
+python3 manage.py createsuperuser
+``
+
+- Run the application locally with the command
+
+``
+python3 manage.py runserver
+``
+
+- To access the admin page using the superuser details just created, add /admin to the end of the URL.
+
+### Deployment via Heroku
+
+- Visit [heroku.com](https://www.heroku.com/home "Heroku")
+- Create a new account or sign in
+- From the dashboard, select **New** and then **Create new app**
+- Enter an individual app name into the text box, select a region from the dropdown and then press **Create app**
+- A Heroku app has now been created and the **Deploy** tab is opened.
+- Open the *Resources* tab and in the search bar for *Add-ons* type *Postgres*
+- Select *Heroku Postgres*, on the popup, ensure the dropdown is set to *Hobby Dev - Free* and then *Submit Order Form*
+- Open the *Settings* tab and then click on the *Reveal Config Vars* button and the database_url should be populated.
+- Fill out the rest of the config vars with the content of the table below by filling out the *Key* and *Value* and clicking on *Add* for each entry
+
+| Key | Value |
+| --- | --- |
+| ALLOWED_HOSTS | The domain name of the site |
+| SECRET_KEY | The secret key for the site [Create one here](https://miniwebtool.com/django-secret-key-generator/") |
+| AWS_ACCESS_KEY_ID | From the AWS section |
+| AWS_SECRET_ACCESS_KEY | From the AWS section |
+| DATABASE_URL | This should already be filled in, copy the setting back to the local .env file |
+| DEFAULT_RECIPIENT_ADDRESS | DEFAULT_RECIPIENT_ADDRESS |
+| EMAIL_FROM_ADDRESS | DEFAULT_FROM_ADDRESS (ie:no-reply) |
+| SITE_EMAIL | DEFAULT_SITE_ADDRESS |
+| EMAIL_HOST | smtp.gmail.com |
+| EMAIL_HOST_PASSWORD | YourPassword |
+| EMAIL_HOST_USER | EMAIL_HOST_USER_EMAIL_ADDRESS |
+| EMAIL_PORT | 587 |
+| STRIPE_PUBLIC_KEY | pk_test_YourKey |
+| STRIPE_SECRET_KEY | sk_test_YourKey |
+| STRIPE_WH_SECRET | whsec_YourKey |
+
+- In the buildpacks section of the settings tab, click on **Add Buildpack**, select **python** and then save changes
+- Open the **Deploy** tab
+- In the deployment method section, select **GitHub** and confirm the connection.
+- Enter the repo name into the text box and click **Search**. When the correct repo appears below, click **Connect**
+- Return to the Gitpod workspace and in the root directory create a file called *Procfile*
+- In the *Procfile* enter the following line including your project name
+
+``python
+web: gunicorn YOUR_PROJECT_NAME.wsgi``
+
+- Add and commit to GitHub
+
+```Python
+git add .
+git commit -m "commit message goes here"
+git push
+```
+
+
+- Return to Heroku
+- To complete the process click on the **Deploy Brach** button in the Manual deploy section, this will take a few seconds to complete while Heroku builds the app
+- A message will appear informing you that the app was successfully deployed and a **View** button will bring you to the live site
+
+### Stripe
+
+- Visit Stripe by following this [link](https://dashboard.stripe.com/register "Stirpe")
+- And register for an account, for this project as it is only set up for test payments the *activate payments* section can be skipped.
+- From the dashboard, click on the *Developers* and then on the lefthand side, *Webhooks*.
+- Click on the *Add endpoint button* and paste in the Heroku URL with `/checkout/wh/` included on the end, for example, this project would be `https://lkm-creations.herokuapp.com/checkout/wh/`
+- Add an optional description if required
+- Click the *Select events* button and mark the checkbox for *Select all events*, then click *
+Add events*.
+- Scroll to the very bottom of the page and then click *Add endpoint*
+- From the webhook page under the URL, reveal the Signing secret, this will need to be added to Heroku config vars as STRIPE_WH_SECRET.
+- Still in the developer's section of Stripe, click on the *API keys* link on the left, the *Publishable key* (STRIPE_PUBLIC_KEY) and *Secret key* (STRIPE_SECRET_KEY) will also be needed to be added to Heroku config vars.
+
+### Email setup
+
+This project is using Gmail as its email provider. Other providers can be used but the setup will differ slightly.
+
+- Create a Gmail account, or log in if you already have an account
+- At the top right waffle menu select *Account*, then on the left of the screen select *Security*
+- In the *Signing into Google* section turn on 2-step verification and then click *Get started*
+- Enter your password and select a verification method
+- Go back to the security page and under the 2-step verification there is a new option called *App passwords*, click it.
+- In the select app dropdown, select *Mail*
+- In the select device dropdown, select *Other* and type in *Django*
+- The app password will be shown, copy this and add it to the Heroku config vars and the local .env as EMAIL_HOST_PASS.
+
+[Table of Contents  ⇧](#table-of-contents)
+***
+
+# Credits
+
+- [Code Institute's Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/) for the initial walkthrough and for the inspiration for this project.
+- [Simen Daehlin](https://github.com/Eventyret "Simen Daehlin") for advice and direction.
+- [Code Institute's Student Support](https://learn.codeinstitute.net/ "codeinstitute.net") for help with why my stripe webhooks were failing and why my emails stopped working, How to debug the issue and find the error (blank line in the email subject text file).
+- My Wife for her patience, understanding and occupying the children.
+
+
+[Table of Contents  ⇧](#table-of-contents)
+***
+
+# My Thoughts
+
+This is my final project and the completion of the Code Insitute's Diploma in Full Stack Software Development.
+
+I happy with the way the site works and the way it looks.
+I'm happy with the progress I have made from my initial project to this one.
+I'm deeply aware of the knowledge gaps, but I'm happy with the knowledge I have gained, and I know whats possible and more importantly, what I have to google to help me progress and how to implement this knowledge in to the project.
+There are a few enhancements I would like to of added to the site, such as having a single product but having multiple colours and sizes. But as this site currently doesn't require this it was felt unimportant to add it as a feature.
+
+Overall, a very enjoyable project!
 
 [Table of Contents  ⇧](#table-of-contents)
 ***

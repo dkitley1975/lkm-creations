@@ -1090,9 +1090,9 @@ The second is that optional field  'priceValidUntil' is missing. This is because
 *Google Card Preview*
 ![Google Card Preview](/readme/assets/site-screenshots/Rich-Results-Test-Google.png)
 
+
 [Table of Contents  ⇧](#table-of-contents)
 ***
-
 [Main Readme](/README.md)
 
 ***
