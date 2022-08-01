@@ -300,7 +300,7 @@ Pages such as the product pages use
 for a dynamic description.
 
 Keywords were researched and the following were used:
-"Handmade, Handcrafted, Gifts, Presents, Amigurumi Dolls, Amigurumi Toys, Amigurumi Gifts, Knitted Dolls, Stuffed Animals, Toys, Knitted Gifts, Crochet Dolls, Crochet Toys, Crochet Gifts"
+"Handmade, Gifts, Amigurumi Stuffed Animals, Amigurumi Toys, Amigurumi Gifts, Dolls, Stuffed Animals, Toys, Crochet Dolls, Crochet Toys, Crochet Gifts"
 These are entered in to the siteadmin-siteinfo *SEO* store_keywords. and are called in to the more static pages.
 There are also product Keywords which are dynamic and are called in to the product pages.
 
