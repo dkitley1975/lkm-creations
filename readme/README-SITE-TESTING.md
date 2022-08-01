@@ -15,6 +15,7 @@ This document contains a breakdown of the testing preformed on the LKM-Creations
   - [PYTHON](#python)
 - [Automated Testing](#automated-testing)
 - [Manual Testing](#manual-testing)
+- [Lighthouse testing](#lighthouse-testing)
 
 # Code Validation
 
@@ -145,7 +146,9 @@ To Validate the css code, each of the css files were copied and pasted in to [W3
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
+
 # Automated Testing
+
 This was an area I intended to test the codebase for automated tests.
 At the beginning of the project, I was happy with the automated tests I had written.
 But, as the project progressed, and as adjustments were made to the working views and
@@ -158,6 +161,7 @@ This is the automated test coverage report: [link](/readme/assets/validation/aut
 ***
 
 # Manual Testing
+
 This is a break down of the manual testing I have done.
 
 | Test | Tested by | Result |
@@ -200,7 +204,7 @@ This is a break down of the manual testing I have done.
 |  | Twitter | Opens Twitter, dispalys the Product Name, URL and show the product card. |
 |  | Pinterest | Opens Pinterest and allows the board to pin the item to |
 |  | LinkedIn | Opens LinkedIn and shares image Product Name and URL |
-|  | email | opens email client with message: I absolutely love this 'Beril The Bunny', check it out here https://lkm-creations.herokuapp.com/store/beril-the-bunny/ |
+|  | email | opens email client with message: I absolutely love this 'Beril The Bunny', check it out here <https://lkm-creations.herokuapp.com/store/beril-the-bunny/> |
 | Bilbo can view reviews | Viewed the product details page | If there are products reviews, these are displayed. |
 | Bilbo can leave a review for a product | left a review as Bilbo | The review and his image appeared after submit. Confirmation toast message received |
 | Bilbo can delete his review for a product | clicked on the delete button next to Bilbo's review | The review was removed.Confirmation toast message received |
@@ -236,6 +240,23 @@ This is a break down of the manual testing I have done.
 | A staff member can delete a category through the backend | Logged in to the admin panel, under the categories selected the delete category and pressed delete | The category was deleted |
 | A staff member can edit a category through the backend | Logged in to the admin panel, under the categories selected the edit category and pressed edit | The category was edited |
 
+***
+[Table of Contents  ⇧](#table-of-contents)
+
+# Lighthouse testing
+
+the following pages were tested on the on the site:
+The results varied based on internet connection and the speed of the internet connection. Usually the performance was around 98%.
+The Best practices are at 92% as because of the error: "Some third-party scripts may contain known security vulnerabilities that are easily identified and exploited by attackers".
+| Page | Performance | Accessibility | Best Practices | SEO | Link |
+| -- | -- | -- | -- | -- | -- |
+| [Home Page](https://lkm-creations.herokuapp.com/) | 92 | 98 | 92 | 100 | [link](/readme/assets/lighthouse/lighthouse-home-page-report.png "link") |
+| [Sale Items](https://lkm-creations.herokuapp.com/store/sale) | 92 | 98 | 92 | 100 | [link](/readme/assets/lighthouse/lighthouse-sales-items-report.png "link") |
+| [Category Doll](https://lkm-creations.herokuapp.com/store/category/doll/) | 95 | 98 | 92 | 100 | [link](/readme/assets/lighthouse/lighthouse-categories-report.png "link") |
+| [All Products](https://lkm-creations.herokuapp.com/store/products) | 95 | 98 | 92 | 100 | [link](/readme/assets/lighthouse/lighthouse-products-items-report.png "link") |
+| [All Products](https://lkm-creations.herokuapp.com/store/Dinosaur-t-rex/) | 91 | 98 | 92 | 100 | [link](/readme/assets/lighthouse/lighthouse-product-details-report.png "link") |
+***
+[Table of Contents  ⇧](#table-of-contents)
 ***
 [Main Readme](/README.md)
 ***
