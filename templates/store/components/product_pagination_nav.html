@@ -1,6 +1,7 @@
 <!-- Pagination -->
-<nav id="upto_medium_screen_pagination_navigation"
-	class="mt-5 d-block d-md-none">
+<nav id="upto_medium_screen_pagination_navigation" class="mt-5 d-none
+	 {% if products_page_obj.paginator.num_pages > 1 %}d-block{% endif %}
+	 d-md-none">
 	<ul class="pagination justify-content-center align-items-center step-link">
 		{% if products_page_obj.has_previous %}
 		<li>
@@ -29,7 +30,8 @@
 		{% endif %}
 	</ul>
 </nav>
-<nav id="medium_screen_pagination_navigation" class="mt-5 d-none d-md-block">
+<nav id="medium_screen_pagination_navigation"
+	class="mt-5 d-none {% if products_page_obj.paginator.num_pages > 1 %} d-md-block {% endif %}">
 	<ul class="pagination justify-content-center align-items-center step-link">
 		{% if products_page_obj.has_previous %}
 		<li>

@@ -55,7 +55,7 @@
 	<div class="row">
 		<p class="small">Reviewed by: <span
 				class="fw-bold">{{ review.created_by }}</span>
-			{% if user.is_staff or user == review.created_by %}
+			{% if user == review.created_by %}
 			<a href="{% url 'review-delete' review.pk %}?next={{ request.path }}"
 				class="btn btn-danger btn-sm float-right">Delete</a>
 			{% endif %}

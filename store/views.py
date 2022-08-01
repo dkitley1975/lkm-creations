@@ -147,7 +147,15 @@ def review_delete(request, id):
     """
     current_user = request.user
     Review.objects.filter(id=id, created_by=current_user).delete()
-    messages.success(request, "Your review has been deleted.")
+    if Review.objects.filter(id=id).exists():
+        messages.error(
+            request, "Your review could not be deleted. \
+            Please try again later.\
+                if the problem persists, please contact us."
+        )
+    else:
+        messages.success(request, "Your review has been deleted.")
+
     next = request.GET.get("next", "products")
     return HttpResponseRedirect(next)
 

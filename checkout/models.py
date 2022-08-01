@@ -23,8 +23,9 @@ def default_delivery_price():
             .delivery_price
             )
         return default_delivery_price
-    except default_delivery_price.DoesNotExist:
+    except:
         return "10"
+
 
 default_delivery_price = default_delivery_price()
 
@@ -42,8 +43,7 @@ def free_delivery_threshold():
             .free_delivery_over
             )
         return free_delivery_threshold
-
-    except free_delivery_threshold.DoesNotExist:
+    except:
         return "0"
 
 
