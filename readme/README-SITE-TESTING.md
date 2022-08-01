@@ -92,7 +92,7 @@ To Validate the css code, each of the css files were copied and pasted in to [W3
 | return_to_top_button.js | static/css/return_to_top_button.js | PASS | [link](/readme/assets/validation/js/return_to_top_button.png "link") | One unused variable |
 | show_alert_once.js | static/css/show_alert_once.js | PASS | [link](/readme/assets/validation/js/show_alert_once.png "link") | One unused variable |
 | show_toast.js | static/css/show_toast.js | PASS | [link](/readme/assets/validation/js/show_toast.png "link") | One unused variable |
-| stripe_elements.js | static/css/stripe_elements.js | PASS | [link](/readme/assets/validation/js/stripe_elements.png "link") | Stripes file - Two unused variable |
+| stripe_elements.js | static/css/stripe_elements.js | PASS | [link](/readme/assets/validation/js/stripe_elements.jpg "link") | Stripes file - Two unused variable |
 
 [Table of Contents  ⇧](#table-of-contents)
 ***
