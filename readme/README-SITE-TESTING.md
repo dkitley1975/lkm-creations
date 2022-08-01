@@ -226,13 +226,16 @@ This is a break down of the manual testing I have done.
 | A staff member can delete review | Logged in to the admin panel, under the reviews selected the review and pressed delete | The Review is deleted, Ideally this needs to happen on the frontend though |
 | A staff member can edit a product Frontend | Added staff status to the user Bilbo, browsing to the T-Rex product details view, the edit icon is next to the product name clicking on this opens a revision page. Alterations were made and submitted | The product information was amended |
 | A staff member can delete a product Frontend | Added staff status to the user Bilbo, browsing to the T-Rex product details view, the delete icon is next to the product name clicking on this opens a model, This advises the user to use the edit page and set the product as inactive instead, with a direct link to the edit product page. Submit was selected | The product was deleted |
-| -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
+| A staff member can add a product through the backend | Logged in to the admin panel, under the products selected the create product and pressed create | The product was created |
+| A staff member can delete a product through the backend | Logged in to the admin panel, under the products selected the delete product and pressed delete | The product was deleted |
+| A staff member can edit a product through the backend | Logged in to the admin panel, under the products selected the edit product and pressed edit | The product was edited |
+| A staff member can add a review through the backend | Logged in to the admin panel, under the reviews selected the create review and pressed create | The review was created |
+| A staff member can delete a review through the backend | Logged in to the admin panel, under the reviews selected the delete review and pressed delete | The review was deleted |
+| A staff member can edit a review through the backend | Logged in to the admin panel, under the reviews selected the edit review and pressed edit | The review was edited |
+| A staff member can add a category through the backend | Logged in to the admin panel, under the categories selected the create category and pressed create | The category was created |
+| A staff member can delete a category through the backend | Logged in to the admin panel, under the categories selected the delete category and pressed delete | The category was deleted |
+| A staff member can edit a category through the backend | Logged in to the admin panel, under the categories selected the edit category and pressed edit | The category was edited |
 
-
-
+***
 [Main Readme](/README.md)
 ***
