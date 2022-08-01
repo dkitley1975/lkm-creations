@@ -109,59 +109,6 @@
 						Newsletter Signup
 					</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle {% if '-policy' in request.path %}active
-						{% endif %}" {% if '-policy' in request.path %}aria-current="page"
-						{% endif %} href="#"
-						id="dropdown-policy-documents-mobile"
-						data-bs-toggle="dropdown" aria-expanded="false">Site
-						documents</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a class="dropdown-item {% if 'cookie' in request.path %}active
-						{% endif %}" {% if 'cookie' in request.path %}aria-current="page"
-								{% endif %}
-								href="/documents/cookie-policy">Cookie
-								Policy</a>
-						</li>
-						<li>
-							<a class="dropdown-item {% if 'disclaimer' in request.path %}active
-								{% endif %}" {% if 'disclaimer' in request.path %}aria-current="page"
-								{% endif %}
-								href="/documents/disclaimer">Disclaimer
-								Policy</a>
-						</li>
-						<li>
-							<a class="dropdown-item {% if 'privacy-policy' in request.path %}active
-								{% endif %}" {% if 'privacy-policy' in request.path %}aria-current="page"
-								{% endif %}
-								href="/documents/privacy-policy">Privacy
-								Policy</a>
-						</li>
-						<li>
-							<a class="dropdown-item  {% if 'returns' in request.path %}active
-								{% endif %}" {% if 'returns' in request.path %}aria-current="page"
-								{% endif %}
-								href="/documents/returns-policy">Returns
-								Policy</a>
-						</li>
-						<li>
-							<a class="dropdown-item {% if 'terms-of-service' in request.path %}active
-								{% endif %}" {% if 'terms-of-service' in request.path %}aria-current="page"
-								{% endif %}
-								href="/documents/terms-of-service-policy">Terms
-								of
-								Service</a>
-						</li>
-						<li>
-							<a class="dropdown-item  {% if 'shipping' in request.path %}active
-								{% endif %}" {% if 'shipping' in request.path %}aria-current="page"
-								{% endif %}
-								href="/documents/shipping-policy">Shipping
-								Policy</a>
-						</li>
-					</ul>
-				</li>
 			</ul>
 			<ul class="nav flex-row justify-content-around">
 				{% if request.user.is_authenticated %}

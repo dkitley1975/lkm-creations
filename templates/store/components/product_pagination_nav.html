@@ -1,6 +1,6 @@
-<!-- Pagination -->
-<nav id="upto_medium_screen_pagination_navigation" class="mt-5 d-none
-	 {% if products_page_obj.paginator.num_pages > 1 %}d-block{% endif %}
+<!-- small Screens Pagination-->
+<nav id="upto_medium_screen_pagination_navigation" class="mt-5
+	 {% if products_page_obj.paginator.num_pages == 1 %} d-none {% else %} d-block d-md-none{% endif %}
 	 d-md-none">
 	<ul class="pagination justify-content-center align-items-center step-link">
 		{% if products_page_obj.has_previous %}
@@ -30,8 +30,10 @@
 		{% endif %}
 	</ul>
 </nav>
+<!-- END small Screens Pagination-->
+<!-- large Screens Pagination-->
 <nav id="medium_screen_pagination_navigation"
-	class="mt-5 d-none {% if products_page_obj.paginator.num_pages > 1 %} d-md-block {% endif %}">
+	class="mt-5 {% if products_page_obj.paginator.num_pages == 1 %} d-none {%else%} d-none d-md-block{% endif %}">
 	<ul class="pagination justify-content-center align-items-center step-link">
 		{% if products_page_obj.has_previous %}
 		<li>
@@ -76,4 +78,4 @@
 		{{ products_page_obj.paginator.num_pages }}
 	</div>
 </div>
-<!-- END Pagination -->
+<!-- END large Screens Pagination-->
