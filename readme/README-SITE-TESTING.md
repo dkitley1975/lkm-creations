@@ -176,6 +176,8 @@ This is a break down of the manual testing I have done.
 | Biblo can connect his Facebook account to his LKM Creations Account | Logged Bilbo in to the user dashboard - Social Accounts and proceeded to connect with Facebook | Currently Failing [#60](https://github.com/dkitley1975/lkm-creations/issues/60) |
 | Biblo can disconnect his Google account from his LKM Creations Account | Logged Bilbo in to the user dashboard - Social Accounts and proceeded to disconnect with Google |  |
 | Footer links work | Clicked on all links within the footer | All external links open in a new tabs, site links open in the same tab |
+| Contact LKM Creations | Through the site, using the Contact Us view from the NavBar the contact form was filled in and submitted | Two email were sent, one to the email used on the form and another to the site admin. These differ in the way they are worded. One is clearly a confirmation for the originator of the contact. The other uses references such as your were contacted. |
+|  | clicking on the social media links in the footer and in the emails, you can contact The social media profile owner | Contact is successful through Facebook, The links work for the other social media platforms so contact would be possible through those |
 | Navbar Logo Links to Home | Click on Navbar logo | directed to the home page |
 | Navbar links work |  |  |
 | Sale Items | Clicked on link | Opens in the same tab |
@@ -218,18 +220,19 @@ This is a break down of the manual testing I have done.
 | Registering with items in the basket | As a guest items were added to the basket, I clicked on Register , this opens the modal to Register and I registered as Peter and confirmed the registration email | The items remained in the basket allowing Peter to purchase these items |
 | Purchasing an Item | With items in the basket for Peter, I clicked through to the Checkout, filled in the information, selecting to save the delivery information to the profile. Used the card number 4242 4242 4242 4242 04 24 expiry date 242 CVC and 42424 Postcode.  Clicking confirm payment | Payment is taken, Confirmation message is displayed, and The checkout-success is displayed. |
 | Purchasing an Item with incorrect card details | With items in the basket for Peter, I clicked through to the Checkout, filled in the information, selecting to save the delivery information to the profile. Used the card number 5242 4242 4242 4242 04 24 expiry date 242 CVC and 42424 Postcode.  Clicking confirm payment | Payment will not proceed and fails, giving incorrect payment details as the error |
-| Print receipts | On the checkout-confirmation view the page is printed | This prints a rerendered version of the view. Items are hidden (such as the navbars etc) and other show to clearly show this as a payment receipt. [link](readme/assets/screenshots/screenshot-dashboard-order-history-details-print-view.png "link"). |
-|  | Open the email order confirmation | This gives a full breakdown of the order [link](readme/assets/site-screenshots/LKM-Creations-Confirmation-for-Order-Number-ED7D0042D57B.jpg "link"). |
+| Print receipts | On the checkout-confirmation view the page is printed | This prints a rerendered version of the view. Items are hidden (such as the navbars etc) and other show to clearly show this as a payment receipt. [link](/readme/assets/site-screenshots/screenshot-dashboard-order-history-details-print-view.png "link"). |
+|  | Open the email order confirmation | This gives a full breakdown of the order [link](/readme/assets/site-screenshots/LKM-Creations-Confirmation-for-Order-Number-ED7D0042D57B.jpg "link"). |
+| A staff member can add a product through the frontend | Bilbo's user account was changed to Staff Status. Bilbo was then logged in to the main site and the user Dashboard view was opened. No available to Bilbo is another feature in the dashboard menu, being create product. Here All the product details can be added and saved. When the image is selected it is immediately shown in the preview, the details were added and submitted | The product now appears in the product views |
+| A staff member can delete review | Logged in to the admin panel, under the reviews selected the review and pressed delete | The Review is deleted, Ideally this needs to happen on the frontend though |
+| A staff member can edit a product Frontend | Added staff status to the user Bilbo, browsing to the T-Rex product details view, the edit icon is next to the product name clicking on this opens a revision page. Alterations were made and submitted | The product information was amended |
+| A staff member can delete a product Frontend | Added staff status to the user Bilbo, browsing to the T-Rex product details view, the delete icon is next to the product name clicking on this opens a model, This advises the user to use the edit page and set the product as inactive instead, with a direct link to the edit product page. Submit was selected | The product was deleted |
 | -- | -- | -- |
 | -- | -- | -- |
 | -- | -- | -- |
 | -- | -- | -- |
 | -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
-| -- | -- | -- |
+
+
 
 [Main Readme](/README.md)
 ***
