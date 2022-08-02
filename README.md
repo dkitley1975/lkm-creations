@@ -26,6 +26,7 @@ To build a Full-Stack site based on business logic used to control a centrally-o
   - [*Project Board*](#project-board)
     - [Github Project Board - Issues listed by bug and epics](#github-project-board---issues-listed-by-bug-and-epics)
     - [Github Project Board](#github-project-board)
+- [Marketing](#marketing)
 - [Design](#design)
   - [Database](#database)
   - [Wireframes](#wireframes)
@@ -150,6 +151,23 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 [Table of Contents  ⇧](#table-of-contents)
 
 ***
+# Marketing
+Aalong with Mailchimp for newsletter signup
+we are using Facebook for product promotions.
+The idea is to run a facebook post for each of the products in store.
+Give each one a name and a profile description.
+Keeping it like an adopt a pet idea.
+The page has an image of one of the creations in the cover page and one as the profile image.
+There are links to the main website, with details about the store, opening hours and contact details.
+
+As a user The idea is:
+They can see the posts and see the likes and comments.
+They can share and like the posts,
+and they can comment on the posts.
+
+![image](/readme/assets/site-screenshots/facebook_com_lkmcreations.png)
+
+[Table of Contents  ⇧](#table-of-contents)
 
 # Design
 
