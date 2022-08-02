@@ -152,18 +152,24 @@ I Used Github's Project board to plan the project and Github Issue's for User St
 
 ***
 # Marketing
-Aalong with Mailchimp for newsletter signup
-we are using Facebook for product promotions.
+
+[LKM Creations Facebook page](https://www.facebook.com/lkmcreations)
+
+Along with Mailchimp for newsletter signup, we are using Facebook for product promotions.
 The idea is to run a facebook post for each of the products in store.
 Give each one a name and a profile description.
 Keeping it like an adopt a pet idea.
 The page has an image of one of the creations in the cover page and one as the profile image.
 There are links to the main website, with details about the store, opening hours and contact details.
 
-As a user The idea is:
-They can see the posts and see the likes and comments.
-They can share and like the posts,
-and they can comment on the posts.
+As a user:
+  - They can see the posts and see the likes and comments.
+  - They can share and like the posts,
+  - and they can comment on the posts.
+
+With each post to contain the link to the site, it is hoped that the post will be shared on facebook, and hopefully create interest in the products.
+As some of the proceeds of each sale of these items are going to the local Preschool charity, the aim is in the future to target facebook adverts towards people in the area.
+Targeting people who have liked the Preschool charity page and the nursery and infants sschools, as these are people who are most likely to be interested in the Preschool Charity and the products may be of interest as gifts for their children.
 
 ![image](/readme/assets/site-screenshots/facebook_com_lkmcreations.png)
 
