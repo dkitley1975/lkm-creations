@@ -51,7 +51,6 @@ class TestColourModel(TestCase):
         self.assertTrue(isinstance(data, Colour))
         self.assertEqual(str(data), "test colour")
 
-
 class TestProductsModel(TestCase):
     def setUp(self):
         """

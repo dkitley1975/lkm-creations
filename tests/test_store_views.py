@@ -7,8 +7,8 @@ from django.test import Client, TestCase
 from django.urls import reverse
 
 from products.models import Category, Colour, Product
-from store.views import products_on_sale, store_front
 from siteadmin.models import SiteInfo
+from store.views import products_on_sale, store_front
 
 
 class TestViewResponses(TestCase):
